@@ -7,12 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		576AA304058EF70E8187654B /* Pods_teddybear.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE34B84A6FAB7255B2C35CAA /* Pods_teddybear.framework */; };
 		8DB293841FFF1BF3007C39F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB293831FFF1BF3007C39F8 /* AppDelegate.swift */; };
-		8DB293861FFF1BF3007C39F8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB293851FFF1BF3007C39F8 /* ViewController.swift */; };
+		8DB293861FFF1BF3007C39F8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB293851FFF1BF3007C39F8 /* LoginViewController.swift */; };
 		8DB293891FFF1BF3007C39F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DB293871FFF1BF3007C39F8 /* Main.storyboard */; };
 		8DB2938B1FFF1BF3007C39F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8DB2938A1FFF1BF3007C39F8 /* Assets.xcassets */; };
 		8DB2938E1FFF1BF3007C39F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DB2938C1FFF1BF3007C39F8 /* LaunchScreen.storyboard */; };
 		8DB293991FFF1BF3007C39F8 /* teddybearTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB293981FFF1BF3007C39F8 /* teddybearTests.swift */; };
+		8DB293A91FFF1E5D007C39F8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8DB293A81FFF1E5D007C39F8 /* GoogleService-Info.plist */; };
+		A4CEEFC4C02733B35798CC5A /* Pods_teddybearTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 708D75B9E55DB60CEE06682B /* Pods_teddybearTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,9 +29,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		20F00CF83DA19EA30D2FC01A /* Pods-teddybearTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teddybearTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-teddybearTests/Pods-teddybearTests.release.xcconfig"; sourceTree = "<group>"; };
+		41A88EDAF7AACDF119CF59C8 /* Pods-teddybearTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teddybearTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-teddybearTests/Pods-teddybearTests.debug.xcconfig"; sourceTree = "<group>"; };
+		708D75B9E55DB60CEE06682B /* Pods_teddybearTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_teddybearTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DB293801FFF1BF3007C39F8 /* teddybear.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = teddybear.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DB293831FFF1BF3007C39F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8DB293851FFF1BF3007C39F8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8DB293851FFF1BF3007C39F8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		8DB293881FFF1BF3007C39F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8DB2938A1FFF1BF3007C39F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8DB2938D1FFF1BF3007C39F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -36,6 +42,10 @@
 		8DB293941FFF1BF3007C39F8 /* teddybearTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = teddybearTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DB293981FFF1BF3007C39F8 /* teddybearTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = teddybearTests.swift; sourceTree = "<group>"; };
 		8DB2939A1FFF1BF3007C39F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8DB293A81FFF1E5D007C39F8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9C9DC75B2E71482436D38C08 /* Pods-teddybear.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teddybear.release.xcconfig"; path = "Pods/Target Support Files/Pods-teddybear/Pods-teddybear.release.xcconfig"; sourceTree = "<group>"; };
+		BF9F63BFFBAAC4F147C965CA /* Pods-teddybear.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teddybear.debug.xcconfig"; path = "Pods/Target Support Files/Pods-teddybear/Pods-teddybear.debug.xcconfig"; sourceTree = "<group>"; };
+		FE34B84A6FAB7255B2C35CAA /* Pods_teddybear.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_teddybear.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				576AA304058EF70E8187654B /* Pods_teddybear.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,18 +61,32 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4CEEFC4C02733B35798CC5A /* Pods_teddybearTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1AD0A111C26C9543BCE6C03F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BF9F63BFFBAAC4F147C965CA /* Pods-teddybear.debug.xcconfig */,
+				9C9DC75B2E71482436D38C08 /* Pods-teddybear.release.xcconfig */,
+				41A88EDAF7AACDF119CF59C8 /* Pods-teddybearTests.debug.xcconfig */,
+				20F00CF83DA19EA30D2FC01A /* Pods-teddybearTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		8DB293771FFF1BF3007C39F8 = {
 			isa = PBXGroup;
 			children = (
 				8DB293821FFF1BF3007C39F8 /* teddybear */,
 				8DB293971FFF1BF3007C39F8 /* teddybearTests */,
 				8DB293811FFF1BF3007C39F8 /* Products */,
+				1AD0A111C26C9543BCE6C03F /* Pods */,
+				B675E0E662568972A34C34DA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -78,11 +103,9 @@
 			isa = PBXGroup;
 			children = (
 				8DB293831FFF1BF3007C39F8 /* AppDelegate.swift */,
-				8DB293851FFF1BF3007C39F8 /* ViewController.swift */,
-				8DB293871FFF1BF3007C39F8 /* Main.storyboard */,
-				8DB2938A1FFF1BF3007C39F8 /* Assets.xcassets */,
-				8DB2938C1FFF1BF3007C39F8 /* LaunchScreen.storyboard */,
-				8DB2938F1FFF1BF3007C39F8 /* Info.plist */,
+				8DB293A31FFF1D19007C39F8 /* View */,
+				8DB293A41FFF1D39007C39F8 /* Controller */,
+				8DB293A51FFF1D4E007C39F8 /* Resources */,
 			);
 			path = teddybear;
 			sourceTree = "<group>";
@@ -96,6 +119,42 @@
 			path = teddybearTests;
 			sourceTree = "<group>";
 		};
+		8DB293A31FFF1D19007C39F8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8DB2938C1FFF1BF3007C39F8 /* LaunchScreen.storyboard */,
+				8DB293871FFF1BF3007C39F8 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8DB293A41FFF1D39007C39F8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8DB293851FFF1BF3007C39F8 /* LoginViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		8DB293A51FFF1D4E007C39F8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8DB2938A1FFF1BF3007C39F8 /* Assets.xcassets */,
+				8DB2938F1FFF1BF3007C39F8 /* Info.plist */,
+				8DB293A81FFF1E5D007C39F8 /* GoogleService-Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B675E0E662568972A34C34DA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FE34B84A6FAB7255B2C35CAA /* Pods_teddybear.framework */,
+				708D75B9E55DB60CEE06682B /* Pods_teddybearTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -103,9 +162,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8DB2939D1FFF1BF3007C39F8 /* Build configuration list for PBXNativeTarget "teddybear" */;
 			buildPhases = (
+				D5D7AEC963E67C6B850A4D20 /* [CP] Check Pods Manifest.lock */,
 				8DB2937C1FFF1BF3007C39F8 /* Sources */,
 				8DB2937D1FFF1BF3007C39F8 /* Frameworks */,
 				8DB2937E1FFF1BF3007C39F8 /* Resources */,
+				ECF14972EF49AAA3962B5D3A /* [CP] Embed Pods Frameworks */,
+				2028BCCB02E497121FE38575 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -120,9 +182,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8DB293A01FFF1BF3007C39F8 /* Build configuration list for PBXNativeTarget "teddybearTests" */;
 			buildPhases = (
+				B8AAD830EB69946C6168204B /* [CP] Check Pods Manifest.lock */,
 				8DB293901FFF1BF3007C39F8 /* Sources */,
 				8DB293911FFF1BF3007C39F8 /* Frameworks */,
 				8DB293921FFF1BF3007C39F8 /* Resources */,
+				CC91CCE2EECC13C06989714E /* [CP] Embed Pods Frameworks */,
+				25FEC90FBCF46C955B0EBDCD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -180,6 +245,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8DB2938E1FFF1BF3007C39F8 /* LaunchScreen.storyboard in Resources */,
+				8DB293A91FFF1E5D007C39F8 /* GoogleService-Info.plist in Resources */,
 				8DB2938B1FFF1BF3007C39F8 /* Assets.xcassets in Resources */,
 				8DB293891FFF1BF3007C39F8 /* Main.storyboard in Resources */,
 			);
@@ -194,12 +260,120 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2028BCCB02E497121FE38575 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-teddybear/Pods-teddybear-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		25FEC90FBCF46C955B0EBDCD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-teddybearTests/Pods-teddybearTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B8AAD830EB69946C6168204B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-teddybearTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CC91CCE2EECC13C06989714E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-teddybearTests/Pods-teddybearTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D5D7AEC963E67C6B850A4D20 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-teddybear-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ECF14972EF49AAA3962B5D3A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-teddybear/Pods-teddybear-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-teddybear/Pods-teddybear-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8DB2937C1FFF1BF3007C39F8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8DB293861FFF1BF3007C39F8 /* ViewController.swift in Sources */,
+				8DB293861FFF1BF3007C39F8 /* LoginViewController.swift in Sources */,
 				8DB293841FFF1BF3007C39F8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -351,11 +525,12 @@
 		};
 		8DB2939E1FFF1BF3007C39F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BF9F63BFFBAAC4F147C965CA /* Pods-teddybear.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 79V8F6N3Z8;
-				INFOPLIST_FILE = teddybear/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/teddybear/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.appmaster.teddybear;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -366,11 +541,12 @@
 		};
 		8DB2939F1FFF1BF3007C39F8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C9DC75B2E71482436D38C08 /* Pods-teddybear.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 79V8F6N3Z8;
-				INFOPLIST_FILE = teddybear/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/teddybear/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.appmaster.teddybear;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -381,6 +557,7 @@
 		};
 		8DB293A11FFF1BF3007C39F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 41A88EDAF7AACDF119CF59C8 /* Pods-teddybearTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -398,6 +575,7 @@
 		};
 		8DB293A21FFF1BF3007C39F8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 20F00CF83DA19EA30D2FC01A /* Pods-teddybearTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
