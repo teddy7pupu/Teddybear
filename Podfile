@@ -7,6 +7,7 @@ target 'teddybear' do
   pod 'Firebase/Core'
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
+  pod 'GoogleSignIn'
 
   target 'teddybearTests' do
     inherit! :search_paths
