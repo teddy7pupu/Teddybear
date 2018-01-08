@@ -36,6 +36,15 @@ class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDeleg
             print("[GID] error:", error)
             return
         }
+        
+        //檢查是否為公司網域
+        let email = user.profile.email
+        if false == email?.contains(tbDefines.AMDomain) {
+            print("[GID] Error domain:", email!)
+            signIn.signOut()
+            return
+        }
+        
         UserManager.sharedInstance().signIn(user: user) { (user: User!, error: Error!) in
             print("[USER] ", UserManager.currentUser()!)
             self.performSegue(withIdentifier: "SegueLobby", sender: nil)

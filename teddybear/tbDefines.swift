@@ -12,4 +12,5 @@ import Firebase
 class tbDefines: NSObject {
     static let BUNDLEID = Bundle.main.bundleIdentifier!
     static let FIRClientID = FirebaseApp.app()?.options.clientID
+    static let AMDomain = "@appmaster.cc"
 }
