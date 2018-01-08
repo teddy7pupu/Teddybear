@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Firebase
 import GoogleSignIn
 
 class LobbyViewController: UIViewController {
@@ -23,13 +22,7 @@ class LobbyViewController: UIViewController {
     @IBAction func onGoogleSignOut () {
         //記得要把GoogleSignIn也登出喔
         GIDSignIn.sharedInstance().signOut()
-        let firebaseAuth = Auth.auth()
-        do {
-            try firebaseAuth.signOut()
-        } catch let signOutError as NSError {
-            print("[Auth] Error:", signOutError)
-        }
-        print("[Auth] SignOut success")
+        UserManager.sharedInstance().signOut()
         //登出成功，回到上一頁
         self.dismiss(animated: true) {
             

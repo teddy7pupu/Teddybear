@@ -7,20 +7,13 @@
 //
 
 import UIKit
-import Firebase
 import GoogleSignIn
+import Firebase
 
 class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
-        GIDSignIn.sharedInstance().uiDelegate = self
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        GIDSignIn.sharedInstance().delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,33 +21,23 @@ class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDeleg
     }
     
     @IBAction func onGoogleSignIn () {
-        GIDSignIn.sharedInstance().signIn()
+        //GoogleSignIn沒辦法包進UserManager裡，因為callback的uiDelegate檢查會觸發exception，所以需要拉到controller做掉
+        let signIn = GIDSignIn.sharedInstance()
+        signIn?.clientID = tbDefines.FIRClientID
+        signIn?.delegate = self
+        signIn?.uiDelegate = self
+        
+        signIn?.signIn()
     }
     
     // MARK: GIDSignInDelegate
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         if let error = error {
-            print(error)
+            print("[GID] error:", error)
             return
         }
-        guard let authentication = user.authentication else {
-            return
-        }
-        print("[GID] mail:" + user.profile.email)
-        //這時候已經GoogleSignIn成功，取得google的accessToken，接著要拿這個token去換Firebase的AuthToken
-        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
-        print("[GID] idToken:" + authentication.idToken)
-        print("[GID] accessToken:" + authentication.accessToken)
-        //Firebase Auth signIn
-        Auth.auth().signIn(with: credential) { (user: User!, error: Error!) in
-            if let error = error {
-                print(error)
-                return
-            }
-            //Firebase登入成功，開啟LobbyView
-            print("[Auth] uid:" + user.uid)
-            print("[Auth] name:" + user.displayName!)
-            print("[Auth] email:" + user.email!)
+        UserManager.sharedInstance().signIn(user: user) { (user: User!, error: Error!) in
+            print("[USER] ", UserManager.currentUser()!)
             self.performSegue(withIdentifier: "SegueLobby", sender: nil)
         }
     }
