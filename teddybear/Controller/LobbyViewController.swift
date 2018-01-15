@@ -9,16 +9,34 @@
 import UIKit
 import GoogleSignIn
 
-class LobbyViewController: UIViewController {
+class LobbyViewController: UITableViewController {
 
+    @IBOutlet weak var cardView: CardView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        self.layoutUser()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
+    //MARK: Layout & Animation
+    func layoutUser() {
+        cardView.layoutCardView()
+    }
+    
+    //MARK: Action
     @IBAction func onGoogleSignOut () {
         //記得要把GoogleSignIn也登出喔
         GIDSignIn.sharedInstance().signOut()
@@ -27,5 +45,10 @@ class LobbyViewController: UIViewController {
         self.dismiss(animated: true) {
             
         }
+    }
+    
+    //MARK: UITableViewDelegate
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
