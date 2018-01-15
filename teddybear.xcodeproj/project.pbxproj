@@ -19,6 +19,7 @@
 		8DB293AB1FFF30CA007C39F8 /* LobbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB293AA1FFF30CA007C39F8 /* LobbyViewController.swift */; };
 		8DB293AE1FFF35AC007C39F8 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB293AD1FFF35AC007C39F8 /* UserManager.swift */; };
 		8DC3F2E5200CB52000BF2862 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC3F2E4200CB52000BF2862 /* CardView.swift */; };
+		8DC3F2E7200CC05200BF2862 /* StaffManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC3F2E6200CC05200BF2862 /* StaffManageViewController.swift */; };
 		A4CEEFC4C02733B35798CC5A /* Pods_teddybearTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 708D75B9E55DB60CEE06682B /* Pods_teddybearTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +52,7 @@
 		8DB293AA1FFF30CA007C39F8 /* LobbyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LobbyViewController.swift; sourceTree = "<group>"; };
 		8DB293AD1FFF35AC007C39F8 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserManager.swift; path = teddybear/Model/UserManager.swift; sourceTree = SOURCE_ROOT; };
 		8DC3F2E4200CB52000BF2862 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		8DC3F2E6200CC05200BF2862 /* StaffManageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffManageViewController.swift; sourceTree = "<group>"; };
 		9C9DC75B2E71482436D38C08 /* Pods-teddybear.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teddybear.release.xcconfig"; path = "Pods/Target Support Files/Pods-teddybear/Pods-teddybear.release.xcconfig"; sourceTree = "<group>"; };
 		BF9F63BFFBAAC4F147C965CA /* Pods-teddybear.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teddybear.debug.xcconfig"; path = "Pods/Target Support Files/Pods-teddybear/Pods-teddybear.debug.xcconfig"; sourceTree = "<group>"; };
 		FE34B84A6FAB7255B2C35CAA /* Pods_teddybear.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_teddybear.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -144,6 +146,7 @@
 			children = (
 				8DB293851FFF1BF3007C39F8 /* LoginViewController.swift */,
 				8DB293AA1FFF30CA007C39F8 /* LobbyViewController.swift */,
+				8DC3F2E6200CC05200BF2862 /* StaffManageViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -398,6 +401,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DC3F2E7200CC05200BF2862 /* StaffManageViewController.swift in Sources */,
 				8DB293AB1FFF30CA007C39F8 /* LobbyViewController.swift in Sources */,
 				8D139E012003EAFB00F73760 /* tbDefines.swift in Sources */,
 				8DB293861FFF1BF3007C39F8 /* LoginViewController.swift in Sources */,
