@@ -6,7 +6,7 @@
 //  Copyright © 2018年 AppMaster Co.,Ltd. All rights reserved.
 //
 
-import UIKit
+import Foundation
 import Firebase
 import GoogleSignIn
 
