@@ -40,9 +40,6 @@ class UserManager: NSObject {
         
         //這時候已經GoogleSignIn成功，取得google的accessToken，接著要拿這個token去換Firebase的AuthToken
         let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
-        print("[GID] mail:" + user.profile.email)
-        print("[GID] idToken:" + authentication.idToken)
-        print("[GID] accessToken:" + authentication.accessToken)
         
         //Firebase Auth signIn
         Auth.auth().signIn(with: credential) { (user: User!, error: Error!) in
@@ -60,8 +57,8 @@ class UserManager: NSObject {
         do {
             try firebaseAuth.signOut()
         } catch let signOutError as NSError {
-            print("[Auth] Error:", signOutError)
+            NSLog("[Auth] Error:%@", signOutError)
         }
-        print("[Auth] SignOut success")
+        NSLog("[Auth] SignOut success")
     }
 }

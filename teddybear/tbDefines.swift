@@ -15,5 +15,9 @@ class tbDefines: NSObject {
     static let AMDomain = "@appmaster.cc"
     
     // MARK: Key
-    static let kStaff = "Staff" 
+    static let kStaff = "Staff"
+    
+    // MARK: Segut
+    static let kSegueLobby = "SegueLobby"
+    static let kSegueDetail = "SegueDetail"
 }

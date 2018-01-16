@@ -27,8 +27,8 @@ class StaffManager: NSObject {
         return mInstance!
     }
     
-    func createStaff(staff: Staff, completion:@escaping (Staff?, Error?) -> Void) {
-        staffRef()?.childByAutoId().updateChildValues(staff.dictionaryData(), withCompletionBlock: { (error, reference) in
+    func updateStaff(_ staff: Staff!, completion:@escaping (Staff?, Error?) -> Void) {
+        staffRef()?.child(staff.sid!).updateChildValues(staff.dictionaryData(), withCompletionBlock: { (error, reference) in
             if let error = error {
                 completion(nil, error)
                 return
@@ -42,10 +42,39 @@ class StaffManager: NSObject {
             var list: [Staff] = []
             for child in SnapShot.children {
                 let data = child as? DataSnapshot
-                let staff = Staff.get(data: data?.value as! NSDictionary)
-                list.append(staff!)
+                guard let staff = Staff.get(data: data?.value as! NSDictionary) else {
+                    let error = NSError(domain: tbDefines.BUNDLEID, code: -1, userInfo: [NSLocalizedDescriptionKey: "員工資料格式錯誤"])
+                    completion(nil, error)
+                    return
+                }
+                list.append(staff)
             }
             completion(list, nil)
+        })
+    }
+    
+    func queryStaff(_ mail:String!, completion:@escaping (Staff?, Error?) -> Void) {
+        self.queryStaff(key: "email", value: mail, completion: completion)
+    }
+    
+    private func queryStaff(key:String!, value:Any, completion:@escaping (Staff?, Error?) -> Void) {
+        staffRef()?.queryOrdered(byChild: key).queryEqual(toValue: value).observeSingleEvent(of: .value, with: { SnapShot in
+            guard SnapShot.childrenCount != 0 else {
+                let error = NSError(domain: tbDefines.BUNDLEID, code: -1, userInfo: [NSLocalizedDescriptionKey: "無此員工資料"])
+                completion(nil, error)
+                return
+            }
+            
+            for child in SnapShot.children {
+                let data = child as? DataSnapshot
+                guard let staff = Staff.get(data: data?.value as! NSDictionary) else {
+                    let error = NSError(domain: tbDefines.BUNDLEID, code: -1, userInfo: [NSLocalizedDescriptionKey: "員工資料格式錯誤"])
+                    completion(nil, error)
+                    return
+                }
+                completion(staff, nil)
+                break
+            }
         })
     }
     

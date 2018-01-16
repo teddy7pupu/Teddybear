@@ -343,7 +343,7 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="MV4-15-CxO">
-                            <rect key="frame" x="0.0" y="447.5" width="375" height="60"/>
+                            <rect key="frame" x="0.0" y="491.5" width="375" height="60"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gUy-fR-YAZ">
@@ -640,6 +640,39 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="XPE-W4-JIj">
+                                        <rect key="frame" x="0.0" y="446.5" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XPE-W4-JIj" id="YFG-oj-7ix">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="員工編號" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tF4-8p-Z3e">
+                                                    <rect key="frame" x="16" y="11.5" width="69.5" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Staff ID" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xex-Xx-Pou">
+                                                    <rect key="frame" x="306" y="13" width="53" height="17"/>
+                                                    <color key="textColor" name="SPGreen"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                    <connections>
+                                                        <action selector="textFieldDidChangedWithField:" destination="cc3-qP-BM6" eventType="editingChanged" id="lsy-L4-P8p"/>
+                                                        <outlet property="delegate" destination="cc3-qP-BM6" id="owM-be-xaK"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="xex-Xx-Pou" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="tF4-8p-Z3e" secondAttribute="trailing" constant="8" id="Dtj-U7-f33"/>
+                                                <constraint firstItem="tF4-8p-Z3e" firstAttribute="centerY" secondItem="YFG-oj-7ix" secondAttribute="centerY" id="VxV-vl-T9k"/>
+                                                <constraint firstItem="tF4-8p-Z3e" firstAttribute="leading" secondItem="YFG-oj-7ix" secondAttribute="leadingMargin" id="YHr-YD-xeS"/>
+                                                <constraint firstItem="xex-Xx-Pou" firstAttribute="centerY" secondItem="tF4-8p-Z3e" secondAttribute="centerY" id="lPF-w9-CIs"/>
+                                                <constraint firstItem="xex-Xx-Pou" firstAttribute="trailing" secondItem="YFG-oj-7ix" secondAttribute="trailingMargin" id="mtv-IE-a3V"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -658,6 +691,7 @@
                         <outlet property="onboardField" destination="D1C-HO-cWQ" id="glt-Q9-f3q"/>
                         <outlet property="phoneField" destination="ojf-nQ-gwf" id="EFV-N0-Bvb"/>
                         <outlet property="sendBtn" destination="gUy-fR-YAZ" id="Jxh-nO-8d1"/>
+                        <outlet property="sidField" destination="xex-Xx-Pou" id="FG6-Es-Ido"/>
                         <outlet property="titleField" destination="RBw-Hi-6eJ" id="KtO-X3-TAB"/>
                     </connections>
                 </tableViewController>
