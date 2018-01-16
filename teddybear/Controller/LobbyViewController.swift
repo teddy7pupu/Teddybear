@@ -10,8 +10,6 @@ import UIKit
 import GoogleSignIn
 
 class LobbyViewController: UITableViewController {
-
-    @IBOutlet weak var cardView: CardView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +31,7 @@ class LobbyViewController: UITableViewController {
     
     //MARK: Layout & Animation
     func layoutUser() {
-        cardView.layoutCardView()
+        
     }
     
     //MARK: Action
