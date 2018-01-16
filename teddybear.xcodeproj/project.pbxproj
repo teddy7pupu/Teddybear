@@ -23,6 +23,8 @@
 		8DC3F2E9200CC18400BF2862 /* Staff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC3F2E8200CC18400BF2862 /* Staff.swift */; };
 		8DC3F2EB200D125500BF2862 /* StaffManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC3F2EA200D125500BF2862 /* StaffManager.swift */; };
 		8DC3F2EE200D262400BF2862 /* StaffDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC3F2ED200D262400BF2862 /* StaffDetailViewController.swift */; };
+		8DC3F2F0200DC2BD00BF2862 /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC3F2EF200DC2BD00BF2862 /* DatePickerView.swift */; };
+		8DC3F2F8200DDFFE00BF2862 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC3F2F7200DDFFE00BF2862 /* DateHelper.swift */; };
 		A4CEEFC4C02733B35798CC5A /* Pods_teddybearTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 708D75B9E55DB60CEE06682B /* Pods_teddybearTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +61,8 @@
 		8DC3F2E8200CC18400BF2862 /* Staff.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Staff.swift; sourceTree = "<group>"; };
 		8DC3F2EA200D125500BF2862 /* StaffManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffManager.swift; sourceTree = "<group>"; };
 		8DC3F2ED200D262400BF2862 /* StaffDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffDetailViewController.swift; sourceTree = "<group>"; };
+		8DC3F2EF200DC2BD00BF2862 /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
+		8DC3F2F7200DDFFE00BF2862 /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		9C9DC75B2E71482436D38C08 /* Pods-teddybear.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teddybear.release.xcconfig"; path = "Pods/Target Support Files/Pods-teddybear/Pods-teddybear.release.xcconfig"; sourceTree = "<group>"; };
 		BF9F63BFFBAAC4F147C965CA /* Pods-teddybear.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teddybear.debug.xcconfig"; path = "Pods/Target Support Files/Pods-teddybear/Pods-teddybear.debug.xcconfig"; sourceTree = "<group>"; };
 		FE34B84A6FAB7255B2C35CAA /* Pods_teddybear.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_teddybear.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -120,6 +124,7 @@
 			children = (
 				8D139E002003EAFB00F73760 /* tbDefines.swift */,
 				8DB293831FFF1BF3007C39F8 /* AppDelegate.swift */,
+				8DC3F2F6200DDFEE00BF2862 /* Extension */,
 				8DB293AC1FFF3561007C39F8 /* Model */,
 				8DB293A31FFF1D19007C39F8 /* View */,
 				8DB293A41FFF1D39007C39F8 /* Controller */,
@@ -143,6 +148,7 @@
 				8DB2938C1FFF1BF3007C39F8 /* LaunchScreen.storyboard */,
 				8DB293871FFF1BF3007C39F8 /* Main.storyboard */,
 				8DC3F2E4200CB52000BF2862 /* CardView.swift */,
+				8DC3F2EF200DC2BD00BF2862 /* DatePickerView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -184,6 +190,14 @@
 				8DC3F2EA200D125500BF2862 /* StaffManager.swift */,
 			);
 			path = StaffManager;
+			sourceTree = "<group>";
+		};
+		8DC3F2F6200DDFEE00BF2862 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				8DC3F2F7200DDFFE00BF2862 /* DateHelper.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		B675E0E662568972A34C34DA /* Frameworks */ = {
@@ -251,6 +265,7 @@
 				TargetAttributes = {
 					8DB2937F1FFF1BF3007C39F8 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 					8DB293931FFF1BF3007C39F8 = {
@@ -421,11 +436,13 @@
 				8DC3F2E7200CC05200BF2862 /* StaffManageViewController.swift in Sources */,
 				8DB293AB1FFF30CA007C39F8 /* LobbyViewController.swift in Sources */,
 				8DC3F2E9200CC18400BF2862 /* Staff.swift in Sources */,
+				8DC3F2F0200DC2BD00BF2862 /* DatePickerView.swift in Sources */,
 				8D139E012003EAFB00F73760 /* tbDefines.swift in Sources */,
 				8DC3F2EE200D262400BF2862 /* StaffDetailViewController.swift in Sources */,
 				8DC3F2EB200D125500BF2862 /* StaffManager.swift in Sources */,
 				8DB293861FFF1BF3007C39F8 /* LoginViewController.swift in Sources */,
 				8DB293AE1FFF35AC007C39F8 /* UserManager.swift in Sources */,
+				8DC3F2F8200DDFFE00BF2862 /* DateHelper.swift in Sources */,
 				8DC3F2E5200CB52000BF2862 /* CardView.swift in Sources */,
 				8DB293841FFF1BF3007C39F8 /* AppDelegate.swift in Sources */,
 			);
@@ -581,12 +598,16 @@
 			baseConfigurationReference = BF9F63BFFBAAC4F147C965CA /* Pods-teddybear.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 79V8F6N3Z8;
 				INFOPLIST_FILE = "$(SRCROOT)/teddybear/Resources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.appmaster.teddybear;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -597,12 +618,15 @@
 			baseConfigurationReference = 9C9DC75B2E71482436D38C08 /* Pods-teddybear.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 79V8F6N3Z8;
 				INFOPLIST_FILE = "$(SRCROOT)/teddybear/Resources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.appmaster.teddybear;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

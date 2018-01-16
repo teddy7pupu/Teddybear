@@ -8,7 +8,8 @@
 
 import UIKit
 
-class StaffDetailViewController: UITableViewController {
+class StaffDetailViewController: UITableViewController
+, UITextFieldDelegate {
 
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var englishField: UITextField!
@@ -19,6 +20,7 @@ class StaffDetailViewController: UITableViewController {
     @IBOutlet weak var deptField: UITextField!
     @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var sendBtn: UIButton!
+    @IBOutlet weak var datePickerView: DatePickerView!
     
     private var mFields: [[UITextField]]?
     private func fields() -> [[UITextField]] {
@@ -51,18 +53,33 @@ class StaffDetailViewController: UITableViewController {
         _staff.english = englishField.text
         _staff.email = mailField.text
         _staff.mobile = phoneField.text
-        //_staff = birthdayField.text
-        //_staff = onboardField.text
+        let birthday = Date(fromString: birthdayField.text!, format: .isoDate)!
+        _staff.birthday = Int(birthday.timeIntervalSince1970)
+        let onBoardDate = Date(fromString: onboardField.text!, format: .isoDate)!
+        _staff.onBoardDate = Int(onBoardDate.timeIntervalSince1970)
         _staff.department = deptField.text
         _staff.title = titleField.text
         StaffManager.sharedInstance().createStaff(staff: _staff) { (staff, error) in
-
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }
+            self.navigationController?.popViewController(animated: true)
         }
     }
     
+    // MARK: UITextFieldDelegate
     @IBAction func textFieldDidChanged(field: UITextField) {
         sendBtn.isEnabled = fieldsValidation()
-        sendBtn.backgroundColor = sendBtn.isEnabled ? UIColor.init(named: "SPGreen") : UIColor.init(named: "SPLight")
+        sendBtn.backgroundColor = sendBtn.isEnabled ? UIColor(named:"SPGreen") : UIColor(named:"SPLight")
+    }
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        if textField == birthdayField || textField == onboardField {
+            textField.inputView = datePickerView
+            datePickerView.owner = textField
+        }
+        return true
     }
     
     @objc func keyboardDismiss(gesture: UITapGestureRecognizer) {

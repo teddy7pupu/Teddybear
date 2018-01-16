@@ -13,6 +13,23 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="CgL-h6-auV">
+            <objects>
+                <navigationController id="T80-BA-olv" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1We-SY-qvO">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="caf-8G-j68" kind="relationship" relationship="rootViewController" id="GyJ-hO-kSA"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aFV-2p-eUn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="938" y="34"/>
+        </scene>
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -80,7 +97,7 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gl7-2h-RlI">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gl7-2h-RlI">
                                     <rect key="frame" x="104" y="37" width="31.5" height="21"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
@@ -105,7 +122,7 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QPG-dD-nI2">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QPG-dD-nI2">
                                     <rect key="frame" x="104" y="63" width="49" height="21"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
@@ -121,6 +138,8 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="8Pr-pP-VZV" firstAttribute="leading" secondItem="fNu-pf-56F" secondAttribute="trailing" constant="8" id="3Hw-vO-NOc"/>
+                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="gl7-2h-RlI" secondAttribute="trailing" constant="8" id="6yZ-hE-Jcc"/>
+                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="QPG-dD-nI2" secondAttribute="trailing" constant="8" id="8l6-IJ-UaZ"/>
                                 <constraint firstItem="xWx-FK-8ie" firstAttribute="top" secondItem="QPG-dD-nI2" secondAttribute="bottom" constant="8" id="9uv-oJ-cyi"/>
                                 <constraint firstItem="jgs-nb-AnP" firstAttribute="leading" secondItem="JY2-ir-iJj" secondAttribute="leading" id="ETM-Bo-i3U"/>
                                 <constraint firstItem="fNu-pf-56F" firstAttribute="leading" secondItem="RaV-qR-USE" secondAttribute="trailing" constant="16" id="EV3-iN-jPJ"/>
@@ -265,23 +284,6 @@
             </objects>
             <point key="canvasLocation" x="1935" y="34"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="CgL-h6-auV">
-            <objects>
-                <navigationController id="T80-BA-olv" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1We-SY-qvO">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="caf-8G-j68" kind="relationship" relationship="rootViewController" id="GyJ-hO-kSA"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aFV-2p-eUn" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="938" y="34"/>
-        </scene>
         <!--Staff Manage View Controller-->
         <scene sceneID="6ck-GJ-Wto">
             <objects>
@@ -390,6 +392,7 @@
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
                                                         <action selector="textFieldDidChangedWithField:" destination="cc3-qP-BM6" eventType="editingChanged" id="mId-pf-7ye"/>
+                                                        <outlet property="delegate" destination="cc3-qP-BM6" id="H5C-Py-gec"/>
                                                     </connections>
                                                 </textField>
                                             </subviews>
@@ -422,6 +425,7 @@
                                                     <textInputTraits key="textInputTraits" keyboardType="namePhonePad"/>
                                                     <connections>
                                                         <action selector="textFieldDidChangedWithField:" destination="cc3-qP-BM6" eventType="editingChanged" id="pxP-kG-340"/>
+                                                        <outlet property="delegate" destination="cc3-qP-BM6" id="BsF-GS-UOd"/>
                                                     </connections>
                                                 </textField>
                                             </subviews>
@@ -454,6 +458,7 @@
                                                     <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                                     <connections>
                                                         <action selector="textFieldDidChangedWithField:" destination="cc3-qP-BM6" eventType="editingChanged" id="Lgm-tw-8kG"/>
+                                                        <outlet property="delegate" destination="cc3-qP-BM6" id="fv7-w2-mQF"/>
                                                     </connections>
                                                 </textField>
                                             </subviews>
@@ -486,6 +491,7 @@
                                                     <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                                     <connections>
                                                         <action selector="textFieldDidChangedWithField:" destination="cc3-qP-BM6" eventType="editingChanged" id="vpO-R8-cm5"/>
+                                                        <outlet property="delegate" destination="cc3-qP-BM6" id="xO4-3z-sH5"/>
                                                     </connections>
                                                 </textField>
                                             </subviews>
@@ -518,6 +524,7 @@
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
                                                         <action selector="textFieldDidChangedWithField:" destination="cc3-qP-BM6" eventType="editingChanged" id="sOf-Ho-w94"/>
+                                                        <outlet property="delegate" destination="cc3-qP-BM6" id="G7b-Xi-7Cd"/>
                                                     </connections>
                                                 </textField>
                                             </subviews>
@@ -550,6 +557,7 @@
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
                                                         <action selector="textFieldDidChangedWithField:" destination="cc3-qP-BM6" eventType="editingChanged" id="2bR-Eu-hcI"/>
+                                                        <outlet property="delegate" destination="cc3-qP-BM6" id="4Y2-Dj-6Sq"/>
                                                     </connections>
                                                 </textField>
                                             </subviews>
@@ -586,6 +594,7 @@
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
                                                         <action selector="textFieldDidChangedWithField:" destination="cc3-qP-BM6" eventType="editingChanged" id="K8F-T8-Aro"/>
+                                                        <outlet property="delegate" destination="cc3-qP-BM6" id="vTz-QW-UVA"/>
                                                     </connections>
                                                 </textField>
                                             </subviews>
@@ -618,6 +627,7 @@
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
                                                         <action selector="textFieldDidChangedWithField:" destination="cc3-qP-BM6" eventType="editingChanged" id="sLH-wV-FLK"/>
+                                                        <outlet property="delegate" destination="cc3-qP-BM6" id="omt-mm-ZJK"/>
                                                     </connections>
                                                 </textField>
                                             </subviews>
@@ -640,6 +650,7 @@
                     </tableView>
                     <connections>
                         <outlet property="birthdayField" destination="R3r-PZ-sKn" id="3vz-uT-5fl"/>
+                        <outlet property="datePickerView" destination="4qC-mD-72s" id="JR6-ei-a1B"/>
                         <outlet property="deptField" destination="rke-Zw-5pS" id="QuD-Va-vxj"/>
                         <outlet property="englishField" destination="HAU-ca-GVt" id="3Sv-ba-cgr"/>
                         <outlet property="mailField" destination="uGY-dx-ypU" id="JwJ-EN-ztI"/>
@@ -651,6 +662,56 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FXU-XQ-VNk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="4qC-mD-72s" customClass="DatePickerView" customModule="teddybear" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="200"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oCZ-7o-4EU">
+                            <rect key="frame" x="0.0" y="0.0" width="240" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="8Wq-00-dXS"/>
+                            </constraints>
+                            <items>
+                                <barButtonItem title="取消" id="PcD-Rz-v8F">
+                                    <connections>
+                                        <action selector="onCancelAction" destination="4qC-mD-72s" id="Xu1-e2-mMs"/>
+                                    </connections>
+                                </barButtonItem>
+                                <barButtonItem style="plain" systemItem="flexibleSpace" id="AkZ-ng-LDs"/>
+                                <barButtonItem title="確定" id="tmH-ff-mmv">
+                                    <connections>
+                                        <action selector="onDoneAction" destination="4qC-mD-72s" id="nYO-Cm-yuU"/>
+                                    </connections>
+                                </barButtonItem>
+                            </items>
+                            <color key="tintColor" name="SPGreen"/>
+                        </toolbar>
+                        <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="6Hp-X6-uUh">
+                            <rect key="frame" x="0.0" y="44" width="240" height="156"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <date key="date" timeIntervalSinceReferenceDate="537772674.90607095">
+                                <!--2018-01-16 05:17:54 +0000-->
+                            </date>
+                            <date key="minimumDate" timeIntervalSinceReferenceDate="-978267600">
+                                <!--1970-01-01 11:00:00 +0000-->
+                            </date>
+                        </datePicker>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="6Hp-X6-uUh" firstAttribute="trailing" secondItem="2iJ-L4-mZE" secondAttribute="trailing" id="1Ym-gf-oX9"/>
+                        <constraint firstItem="6Hp-X6-uUh" firstAttribute="bottom" secondItem="2iJ-L4-mZE" secondAttribute="bottom" id="GjM-1E-quq"/>
+                        <constraint firstItem="oCZ-7o-4EU" firstAttribute="trailing" secondItem="2iJ-L4-mZE" secondAttribute="trailing" id="HyQ-PU-08m"/>
+                        <constraint firstItem="oCZ-7o-4EU" firstAttribute="top" secondItem="2iJ-L4-mZE" secondAttribute="top" id="QFa-jl-uFC"/>
+                        <constraint firstItem="6Hp-X6-uUh" firstAttribute="top" secondItem="oCZ-7o-4EU" secondAttribute="bottom" id="ZwW-a4-0Jn"/>
+                        <constraint firstItem="oCZ-7o-4EU" firstAttribute="leading" secondItem="2iJ-L4-mZE" secondAttribute="leading" id="c5r-g7-FR0"/>
+                        <constraint firstItem="6Hp-X6-uUh" firstAttribute="leading" secondItem="2iJ-L4-mZE" secondAttribute="leading" id="cSk-8Y-bgm"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="2iJ-L4-mZE"/>
+                    <connections>
+                        <outlet property="pickerView" destination="6Hp-X6-uUh" id="LM1-hJ-ca2"/>
+                    </connections>
+                </view>
             </objects>
             <point key="canvasLocation" x="3872.8000000000002" y="33.733133433283363"/>
         </scene>
@@ -661,6 +722,9 @@
         </namedColor>
         <namedColor name="SPDark">
             <color red="0.12941176470588237" green="0.12941176470588237" blue="0.12941176470588237" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SPGreen">
+            <color red="0.11372549019607843" green="0.72549019607843135" blue="0.32941176470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="SPGreen">
             <color red="0.11372549019607843" green="0.72549019607843135" blue="0.32941176470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
