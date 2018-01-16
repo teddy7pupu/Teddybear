@@ -30,24 +30,55 @@ class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDeleg
         signIn?.signIn()
     }
     
-    // MARK: GIDSignInDelegate
+    //MARK: Action
+    func getUserProfile(email: String!) {
+        //Get staff information of user
+        StaffManager.sharedInstance().queryStaff(email, completion: { (staff, error) in
+            if let error = error {
+                NSLog("[USER] error: %@", error.localizedDescription)
+                return
+            }
+            
+            guard staff?.uid != nil else {
+                self.updateStaff(staff)
+                return
+            }
+            self.performSegue(withIdentifier: "SegueLobby", sender: nil)
+        })
+    }
+    
+    func updateStaff(_ staff: Staff!) {
+        //Update staff information of user
+        let user = UserManager.currentUser()
+        var updated = staff
+        updated?.uid = user?.uid
+        updated?.avatar = user?.photoURL?.absoluteString
+        StaffManager.sharedInstance().updateStaff(updated) { (aStaff, error) in
+            if let error = error {
+                NSLog("[USER] error: %@", error.localizedDescription)
+                return
+            }
+            self.performSegue(withIdentifier: "SegueLobby", sender: nil)
+        }
+    }
+    
+    //MARK: GIDSignInDelegate
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         if let error = error {
-            print("[GID] error:", error)
+            NSLog("[GID] error: %@", error.localizedDescription)
             return
         }
         
         //檢查是否為公司網域
         let email = user.profile.email
         if false == email?.contains(tbDefines.AMDomain) {
-            print("[GID] Error domain:", email!)
+            NSLog("[GID] Error domain: %@", email!)
             signIn.signOut()
             return
         }
         
         UserManager.sharedInstance().signIn(user: user) { (user: User!, error: Error!) in
-            print("[USER] ", UserManager.currentUser()!)
-            self.performSegue(withIdentifier: "SegueLobby", sender: nil)
+            self.getUserProfile(email: email)
         }
     }
 }

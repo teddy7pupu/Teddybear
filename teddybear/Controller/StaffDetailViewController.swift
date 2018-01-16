@@ -19,13 +19,14 @@ class StaffDetailViewController: UITableViewController
     @IBOutlet weak var onboardField: UITextField!
     @IBOutlet weak var deptField: UITextField!
     @IBOutlet weak var titleField: UITextField!
+    @IBOutlet weak var sidField: UITextField!
     @IBOutlet weak var sendBtn: UIButton!
     @IBOutlet weak var datePickerView: DatePickerView!
     
     private var mFields: [[UITextField]]?
     private func fields() -> [[UITextField]] {
         if mFields == nil {
-            mFields = [[nameField, englishField, mailField, phoneField, birthdayField, onboardField], [deptField, titleField]]
+            mFields = [[nameField, englishField, mailField, phoneField, birthdayField, onboardField], [deptField, titleField, sidField]]
         }
         return mFields!
     }
@@ -61,6 +62,8 @@ class StaffDetailViewController: UITableViewController
         onboardField.text = Date(timeIntervalSince1970: TimeInterval(staff.onBoardDate!)).toString(format: .isoDate)
         deptField.text = staff.department
         titleField.text = staff.title
+        sidField.text = staff.sid
+        sidField.isEnabled = false
         sendBtn.setTitle("確定修改", for: .normal)
         
         self.textFieldDidChanged(field: titleField) //forced validation
@@ -79,7 +82,8 @@ class StaffDetailViewController: UITableViewController
         _staff.onBoardDate = Int(onBoardDate.timeIntervalSince1970)
         _staff.department = deptField.text
         _staff.title = titleField.text
-        StaffManager.sharedInstance().createStaff(staff: _staff) { (staff, error) in
+        _staff.sid = String.init(format: "M%03ld", Int(sidField.text!)!)
+        StaffManager.sharedInstance().updateStaff(_staff) { (staff, error) in
             if let error = error {
                 print(error.localizedDescription)
                 return
@@ -92,6 +96,9 @@ class StaffDetailViewController: UITableViewController
     @IBAction func textFieldDidChanged(field: UITextField) {
         sendBtn.isEnabled = fieldsValidation()
         sendBtn.backgroundColor = sendBtn.isEnabled ? UIColor(named:"SPGreen") : UIColor(named:"SPLight")
+        if field == sidField, let number = Int(field.text!) {
+            field.text = String.init(format: "%ld", number)
+        }
     }
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {

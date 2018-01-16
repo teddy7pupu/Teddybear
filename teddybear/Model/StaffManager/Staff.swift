@@ -28,6 +28,7 @@ struct Staff: Codable {
     var onBoardDate: Int?
     var role: UserRole?
     var department: String?
+    var sid: String?
     
     init() {
     }
