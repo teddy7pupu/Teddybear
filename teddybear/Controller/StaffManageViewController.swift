@@ -8,8 +8,6 @@
 
 import UIKit
 
-let kSegueDetail = "SegueDetail"
-
 class StaffManageViewController: UIViewController
     ,UITableViewDataSource, UITableViewDelegate {
 
@@ -34,7 +32,7 @@ class StaffManageViewController: UIViewController
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == kSegueDetail {
+        if segue.identifier == tbDefines.kSegueDetail {
             if let staff = sender as? Staff {
                 let detailView = segue.destination as! StaffDetailViewController
                 detailView.currentStaff = staff
@@ -62,6 +60,6 @@ class StaffManageViewController: UIViewController
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let staff = list?[indexPath.row]
-        self.performSegue(withIdentifier: kSegueDetail, sender: staff)
+        self.performSegue(withIdentifier: tbDefines.kSegueDetail, sender: staff)
     }
 }

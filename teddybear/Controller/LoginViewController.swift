@@ -43,7 +43,7 @@ class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDeleg
                 self.updateStaff(staff)
                 return
             }
-            self.performSegue(withIdentifier: "SegueLobby", sender: nil)
+            self.performSegue(withIdentifier: tbDefines.kSegueLobby, sender: nil)
         })
     }
     
@@ -58,7 +58,7 @@ class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDeleg
                 NSLog("[USER] error: %@", error.localizedDescription)
                 return
             }
-            self.performSegue(withIdentifier: "SegueLobby", sender: nil)
+            self.performSegue(withIdentifier: tbDefines.kSegueLobby, sender: nil)
         }
     }
     
