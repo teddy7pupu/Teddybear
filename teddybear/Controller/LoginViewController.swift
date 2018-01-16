@@ -35,7 +35,8 @@ class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDeleg
         //Get staff information of user
         StaffManager.sharedInstance().queryStaff(email, completion: { (staff, error) in
             if let error = error {
-                NSLog("[USER] error: %@", error.localizedDescription)
+                NSLog("%@", error.localizedDescription)
+                UIAlertController.alert(message: "無此員工資料").otherHandle(alertAction: nil).show(currentVC: self)
                 return
             }
             
@@ -55,7 +56,8 @@ class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDeleg
         updated?.avatar = user?.photoURL?.absoluteString
         StaffManager.sharedInstance().updateStaff(updated) { (aStaff, error) in
             if let error = error {
-                NSLog("[USER] error: %@", error.localizedDescription)
+                NSLog("%@", error.localizedDescription)
+                UIAlertController.alert(message: "更新員工資料失敗").otherHandle(alertAction: nil).show(currentVC: self)
                 return
             }
             self.performSegue(withIdentifier: tbDefines.kSegueLobby, sender: nil)
@@ -65,14 +67,15 @@ class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDeleg
     //MARK: GIDSignInDelegate
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         if let error = error {
-            NSLog("[GID] error: %@", error.localizedDescription)
+            NSLog("%@", error.localizedDescription)
+            UIAlertController.alert(message: "登入失敗").otherHandle(alertAction: nil).show(currentVC: self)
             return
         }
         
         //檢查是否為公司網域
         let email = user.profile.email
         if false == email?.contains(tbDefines.AMDomain) {
-            NSLog("[GID] Error domain: %@", email!)
+            UIAlertController.alert(message: "這不是AppMaster員工帳號喔！").otherHandle(alertAction: nil).show(currentVC: self)
             signIn.signOut()
             return
         }
