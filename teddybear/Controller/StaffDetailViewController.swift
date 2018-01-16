@@ -30,9 +30,14 @@ class StaffDetailViewController: UITableViewController
         return mFields!
     }
     
+    var currentStaff: Staff?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = (currentStaff == nil ? "新增員工" : currentStaff?.name)
+        
         setupLayout()
+        layoutWithStaff(currentStaff)
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,6 +49,21 @@ class StaffDetailViewController: UITableViewController
         let gesture = UITapGestureRecognizer(target: self, action: #selector(StaffDetailViewController.keyboardDismiss(gesture:)))
         gesture.cancelsTouchesInView = false
         self.view.addGestureRecognizer(gesture)
+    }
+    
+    func layoutWithStaff(_ staff: Staff?) {
+        guard let staff = staff else { return }
+        nameField.text = staff.name
+        englishField.text = staff.english
+        mailField.text = staff.email
+        phoneField.text = staff.mobile
+        birthdayField.text = Date(timeIntervalSince1970: TimeInterval(staff.birthday!)).toString(format: .isoDate)
+        onboardField.text = Date(timeIntervalSince1970: TimeInterval(staff.onBoardDate!)).toString(format: .isoDate)
+        deptField.text = staff.department
+        titleField.text = staff.title
+        sendBtn.setTitle("確定修改", for: .normal)
+        
+        self.textFieldDidChanged(field: titleField) //forced validation
     }
     
     //MARK: Action

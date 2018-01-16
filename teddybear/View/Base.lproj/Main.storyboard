@@ -303,7 +303,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="cc3-qP-BM6" kind="show" id="aZm-ag-XlI"/>
+                                    <segue destination="cc3-qP-BM6" kind="show" identifier="SegueDetail" id="aZm-ag-XlI"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g2E-tf-rZx">
