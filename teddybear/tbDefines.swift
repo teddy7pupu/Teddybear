@@ -15,9 +15,5 @@ class tbDefines: NSObject {
     static let AMDomain = "@appmaster.cc"
     
     // MARK: Key
-    static let kStaff = "Staff"
-    
-    // MARK: Color
-    static let colorSUN = UIColor.init(red: 255/255, green: 147/255, blue: 0, alpha: 1)
-    static let colorFBLUE = UIColor.init(red: 59/255, green: 89/255, blue: 136/255, alpha: 1)
+    static let kStaff = "Staff" 
 }

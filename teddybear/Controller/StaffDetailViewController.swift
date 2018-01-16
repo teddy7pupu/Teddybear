@@ -62,7 +62,7 @@ class StaffDetailViewController: UITableViewController {
     
     @IBAction func textFieldDidChanged(field: UITextField) {
         sendBtn.isEnabled = fieldsValidation()
-        sendBtn.backgroundColor = sendBtn.isEnabled ? tbDefines.colorFBLUE : UIColor.lightGray
+        sendBtn.backgroundColor = sendBtn.isEnabled ? UIColor.init(named: "SPGreen") : UIColor.init(named: "SPLight")
     }
     
     @objc func keyboardDismiss(gesture: UITapGestureRecognizer) {
