@@ -85,7 +85,8 @@ class StaffDetailViewController: UITableViewController
         _staff.sid = String.init(format: "M%03ld", Int(sidField.text!)!)
         StaffManager.sharedInstance().updateStaff(_staff) { (staff, error) in
             if let error = error {
-                print(error.localizedDescription)
+                NSLog("%@", error.localizedDescription)
+                UIAlertController.alert(message: "資料更新失敗").otherHandle(alertAction: nil).show(currentVC: self)
                 return
             }
             self.navigationController?.popViewController(animated: true)
