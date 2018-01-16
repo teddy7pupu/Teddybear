@@ -37,6 +37,18 @@ class StaffManager: NSObject {
         })
     }
     
+    func getStaffList(completion:@escaping ([Staff]?, Error?) -> Void) {
+        staffRef()?.observeSingleEvent(of: .value, with: { SnapShot in
+            var list: [Staff] = []
+            for child in SnapShot.children {
+                let data = child as? DataSnapshot
+                let staff = Staff.get(data: data?.value as! NSDictionary)
+                list.append(staff!)
+            }
+            completion(list, nil)
+        })
+    }
+    
     // MARK: Getter
     private func staffRef() -> DatabaseReference? {
         return self.dbRef?.child(tbDefines.kStaff)

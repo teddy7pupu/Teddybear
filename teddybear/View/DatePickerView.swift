@@ -15,6 +15,7 @@ class DatePickerView: UIView {
     
     //MARK: Layout
     override func awakeFromNib() {
+        super.awakeFromNib()
         pickerView.maximumDate = Date()
     }
     

@@ -37,4 +37,10 @@ struct Staff: Codable {
         let encoded = try? encoder.encode(self)
         return try! JSONSerialization.jsonObject(with: encoded!, options: .allowFragments) as! [String : Any]
     }
+    
+    static func get(data: NSDictionary) -> Staff? {
+        guard let json = try? JSONSerialization.data(withJSONObject: data, options: .prettyPrinted) else { return nil }
+        let decoder = JSONDecoder()
+        return try? decoder.decode(Staff.self, from: json)
+    }
 }

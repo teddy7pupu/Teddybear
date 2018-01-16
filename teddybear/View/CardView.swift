@@ -18,6 +18,7 @@ class CardView: UIView {
     @IBOutlet weak var titleLbl: UILabel!
     
     override func awakeFromNib() {
+        super.awakeFromNib()
         avatarImg.layer.cornerRadius = 0.5 * avatarImg.frame.height
     }
     
