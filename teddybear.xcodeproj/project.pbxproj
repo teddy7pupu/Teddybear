@@ -11,6 +11,7 @@
 		8D139E012003EAFB00F73760 /* tbDefines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D139E002003EAFB00F73760 /* tbDefines.swift */; };
 		8D981061200FC61600072804 /* DeptDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D981060200FC61600072804 /* DeptDetailViewController.swift */; };
 		8D981063200FCAF600072804 /* Department.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D981062200FCAF600072804 /* Department.swift */; };
+		8D981065200FD1F900072804 /* tbPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D981064200FD1F900072804 /* tbPickerView.swift */; };
 		8DB293841FFF1BF3007C39F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB293831FFF1BF3007C39F8 /* AppDelegate.swift */; };
 		8DB293861FFF1BF3007C39F8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB293851FFF1BF3007C39F8 /* LoginViewController.swift */; };
 		8DB293891FFF1BF3007C39F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DB293871FFF1BF3007C39F8 /* Main.storyboard */; };
@@ -52,6 +53,7 @@
 		8D139E002003EAFB00F73760 /* tbDefines.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tbDefines.swift; sourceTree = "<group>"; };
 		8D981060200FC61600072804 /* DeptDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeptDetailViewController.swift; sourceTree = "<group>"; };
 		8D981062200FCAF600072804 /* Department.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Department.swift; sourceTree = "<group>"; };
+		8D981064200FD1F900072804 /* tbPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tbPickerView.swift; sourceTree = "<group>"; };
 		8DB293801FFF1BF3007C39F8 /* teddybear.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = teddybear.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DB293831FFF1BF3007C39F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8DB293851FFF1BF3007C39F8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				8DB293871FFF1BF3007C39F8 /* Main.storyboard */,
 				8DC3F2EF200DC2BD00BF2862 /* DatePickerView.swift */,
 				8DC3F307200F550300BF2862 /* DeptCell.swift */,
+				8D981064200FD1F900072804 /* tbPickerView.swift */,
 				8DC3F2F9200E076D00BF2862 /* StaffCell.swift */,
 				8DC3F301200F275400BF2862 /* tbHUD.swift */,
 			);
@@ -470,6 +473,7 @@
 				8DC3F2EB200D125500BF2862 /* StaffManager.swift in Sources */,
 				8DB293861FFF1BF3007C39F8 /* LoginViewController.swift in Sources */,
 				8DB293AE1FFF35AC007C39F8 /* UserManager.swift in Sources */,
+				8D981065200FD1F900072804 /* tbPickerView.swift in Sources */,
 				8DC3F2F8200DDFFE00BF2862 /* DateHelper.swift in Sources */,
 				8DB293841FFF1BF3007C39F8 /* AppDelegate.swift in Sources */,
 				8D981063200FCAF600072804 /* Department.swift in Sources */,

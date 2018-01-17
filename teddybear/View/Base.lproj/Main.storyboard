@@ -911,7 +911,7 @@
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
                                                         <action selector="textFieldDidChangedWithField:" destination="8BC-Gq-0mS" eventType="editingChanged" id="sbQ-ZC-ORc"/>
-                                                        <outlet property="delegate" destination="8BC-Gq-0mS" id="NHV-gl-7FJ"/>
+                                                        <outlet property="delegate" destination="8BC-Gq-0mS" id="yeA-Ud-aZL"/>
                                                     </connections>
                                                 </textField>
                                             </subviews>
@@ -944,7 +944,7 @@
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
                                                         <action selector="textFieldDidChangedWithField:" destination="8BC-Gq-0mS" eventType="editingChanged" id="JkX-r9-Ltc"/>
-                                                        <outlet property="delegate" destination="8BC-Gq-0mS" id="G54-VL-ZF5"/>
+                                                        <outlet property="delegate" destination="8BC-Gq-0mS" id="zWI-Y2-Fi5"/>
                                                     </connections>
                                                 </textField>
                                             </subviews>
@@ -977,7 +977,7 @@
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
                                                         <action selector="textFieldDidChangedWithField:" destination="8BC-Gq-0mS" eventType="editingChanged" id="rql-Ht-VeV"/>
-                                                        <outlet property="delegate" destination="8BC-Gq-0mS" id="mw0-HU-k1a"/>
+                                                        <outlet property="delegate" destination="8BC-Gq-0mS" id="LJq-aJ-Dgi"/>
                                                     </connections>
                                                 </textField>
                                             </subviews>
@@ -1000,14 +1000,62 @@
                     </tableView>
                     <connections>
                         <outlet property="keyField" destination="YYC-1s-wYW" id="WY7-zN-mFb"/>
+                        <outlet property="pickerView" destination="GAu-MB-b9o" id="iYa-fj-aPe"/>
                         <outlet property="sendBtn" destination="zqb-cW-FkI" id="qJE-NJ-KEV"/>
                         <outlet property="supervisorField" destination="lWM-qD-udF" id="vT5-xo-rYD"/>
                         <outlet property="titleField" destination="Euq-qr-uuu" id="IbU-og-m6b"/>
                     </connections>
                 </tableViewController>
+                <view contentMode="scaleToFill" id="GAu-MB-b9o" customClass="tbPickerView" customModule="teddybear" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="200"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aPe-t0-qdW">
+                            <rect key="frame" x="0.0" y="0.0" width="240" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="IF8-Ph-fB8"/>
+                            </constraints>
+                            <items>
+                                <barButtonItem title="取消" id="VqM-Vh-G2f">
+                                    <connections>
+                                        <action selector="onCancelAction" destination="GAu-MB-b9o" id="4Hj-vk-iay"/>
+                                    </connections>
+                                </barButtonItem>
+                                <barButtonItem style="plain" systemItem="flexibleSpace" id="axk-PO-a7B"/>
+                                <barButtonItem title="確定" id="Arr-tL-pwO">
+                                    <connections>
+                                        <action selector="onDoneAction" destination="GAu-MB-b9o" id="ugA-se-I9e"/>
+                                    </connections>
+                                </barButtonItem>
+                            </items>
+                            <color key="tintColor" name="SPGreen"/>
+                        </toolbar>
+                        <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pvy-KM-5ek">
+                            <rect key="frame" x="0.0" y="44" width="240" height="156"/>
+                            <connections>
+                                <outlet property="dataSource" destination="GAu-MB-b9o" id="5Ut-p6-nDH"/>
+                                <outlet property="delegate" destination="GAu-MB-b9o" id="9iU-51-ADh"/>
+                            </connections>
+                        </pickerView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="aPe-t0-qdW" firstAttribute="trailing" secondItem="LFh-YD-rGt" secondAttribute="trailing" id="8X6-bJ-s4O"/>
+                        <constraint firstItem="Pvy-KM-5ek" firstAttribute="top" secondItem="aPe-t0-qdW" secondAttribute="bottom" id="CU5-V5-Lag"/>
+                        <constraint firstItem="aPe-t0-qdW" firstAttribute="leading" secondItem="LFh-YD-rGt" secondAttribute="leading" id="EUY-RT-Yt2"/>
+                        <constraint firstAttribute="trailing" secondItem="Pvy-KM-5ek" secondAttribute="trailing" id="InT-1h-euE"/>
+                        <constraint firstAttribute="bottom" secondItem="Pvy-KM-5ek" secondAttribute="bottom" id="LHK-Vr-WAF"/>
+                        <constraint firstItem="aPe-t0-qdW" firstAttribute="top" secondItem="LFh-YD-rGt" secondAttribute="top" id="bog-N2-XPt"/>
+                        <constraint firstItem="Pvy-KM-5ek" firstAttribute="leading" secondItem="GAu-MB-b9o" secondAttribute="leading" id="lBd-gq-9Gs"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="LFh-YD-rGt"/>
+                    <connections>
+                        <outlet property="pickerView" destination="Pvy-KM-5ek" id="IcI-nF-XG8"/>
+                    </connections>
+                </view>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GZR-ZH-JW3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4857" y="844"/>
+            <point key="canvasLocation" x="4856.8000000000002" y="843.32833583208401"/>
         </scene>
     </scenes>
     <resources>
@@ -1022,6 +1070,9 @@
         </namedColor>
         <namedColor name="SPGray">
             <color red="0.32549019610000002" green="0.32549019610000002" blue="0.32549019610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SPGreen">
+            <color red="0.1137254902" green="0.72549019609999998" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="SPGreen">
             <color red="0.11372549019607843" green="0.72549019607843135" blue="0.32941176470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

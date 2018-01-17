@@ -20,6 +20,7 @@ class DatePickerView: UIView {
     }
     
     override func layoutSubviews() {
+        super.layoutSubviews()
         guard owner?.text! != "" else {
             pickerView.date = Date()
             return

@@ -8,12 +8,14 @@
 
 import UIKit
 
-class DeptDetailViewController: UITableViewController {
+class DeptDetailViewController: UITableViewController
+, UITextFieldDelegate {
 
     @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var supervisorField: UITextField!
     @IBOutlet weak var keyField: UITextField!
     @IBOutlet weak var sendBtn: UIButton!
+    @IBOutlet weak var pickerView: tbPickerView!
     
     private var mFields: [UITextField]?
     private func fields() -> [UITextField] {
@@ -31,6 +33,10 @@ class DeptDetailViewController: UITableViewController {
         
         setupLayout()
         layoutWithDept(currentDepartment)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
 
     override func didReceiveMemoryWarning() {
@@ -82,7 +88,9 @@ class DeptDetailViewController: UITableViewController {
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         if textField == supervisorField {
-            //supervisor list
+            textField.inputView = pickerView
+            pickerView.dataSource = ["詹姆士"]
+            pickerView.owner = textField
         }
         return true
     }
@@ -101,7 +109,7 @@ class DeptDetailViewController: UITableViewController {
     
     // MARK: UITableViewDelegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView .deselectRow(at: indexPath, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
         let field = fields()[indexPath.row]
         field.becomeFirstResponder()
     }
