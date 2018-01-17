@@ -89,7 +89,7 @@ class StaffDetailViewController: UITableViewController
             tbHUD.dismiss()
             if let error = error {
                 NSLog("%@", error.localizedDescription)
-                UIAlertController.alert(message: "資料更新失敗").otherHandle(alertAction: nil).show(currentVC: self)
+                self.showAlert(message: "資料更新失敗")
                 return
             }
             self.navigationController?.popViewController(animated: true)
