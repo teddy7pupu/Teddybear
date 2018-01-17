@@ -14,6 +14,14 @@ struct UserRole: OptionSet, Codable {
     static let employee = UserRole(rawValue: 1 << 0)
     static let manager  = UserRole(rawValue: 1 << 1)
     static let account  = UserRole(rawValue: 1 << 2)
+    
+    func isManager() -> Bool {
+        return (rawValue & (1 << 1) != 0)
+    }
+    
+    func isAccount() -> Bool {
+        return (rawValue & (1 << 2) != 0)
+    }
 }
 
 struct Staff: Codable {

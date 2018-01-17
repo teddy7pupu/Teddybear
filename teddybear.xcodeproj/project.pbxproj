@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		576AA304058EF70E8187654B /* Pods_teddybear.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE34B84A6FAB7255B2C35CAA /* Pods_teddybear.framework */; };
 		8D139E012003EAFB00F73760 /* tbDefines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D139E002003EAFB00F73760 /* tbDefines.swift */; };
+		8D981061200FC61600072804 /* DeptDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D981060200FC61600072804 /* DeptDetailViewController.swift */; };
+		8D981063200FCAF600072804 /* Department.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D981062200FCAF600072804 /* Department.swift */; };
+		8D981065200FD1F900072804 /* tbPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D981064200FD1F900072804 /* tbPickerView.swift */; };
 		8DB293841FFF1BF3007C39F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB293831FFF1BF3007C39F8 /* AppDelegate.swift */; };
 		8DB293861FFF1BF3007C39F8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB293851FFF1BF3007C39F8 /* LoginViewController.swift */; };
 		8DB293891FFF1BF3007C39F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DB293871FFF1BF3007C39F8 /* Main.storyboard */; };
@@ -28,6 +31,8 @@
 		8DC3F300200E62E400BF2862 /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC3F2FF200E62E400BF2862 /* AlertHelper.swift */; };
 		8DC3F302200F275400BF2862 /* tbHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC3F301200F275400BF2862 /* tbHUD.swift */; };
 		8DC3F304200F371A00BF2862 /* ViewControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC3F303200F371A00BF2862 /* ViewControllerHelper.swift */; };
+		8DC3F306200F43A700BF2862 /* DeptManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC3F305200F43A700BF2862 /* DeptManageViewController.swift */; };
+		8DC3F308200F550300BF2862 /* DeptCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC3F307200F550300BF2862 /* DeptCell.swift */; };
 		A4CEEFC4C02733B35798CC5A /* Pods_teddybearTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 708D75B9E55DB60CEE06682B /* Pods_teddybearTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +51,9 @@
 		41A88EDAF7AACDF119CF59C8 /* Pods-teddybearTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teddybearTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-teddybearTests/Pods-teddybearTests.debug.xcconfig"; sourceTree = "<group>"; };
 		708D75B9E55DB60CEE06682B /* Pods_teddybearTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_teddybearTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D139E002003EAFB00F73760 /* tbDefines.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tbDefines.swift; sourceTree = "<group>"; };
+		8D981060200FC61600072804 /* DeptDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeptDetailViewController.swift; sourceTree = "<group>"; };
+		8D981062200FCAF600072804 /* Department.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Department.swift; sourceTree = "<group>"; };
+		8D981064200FD1F900072804 /* tbPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tbPickerView.swift; sourceTree = "<group>"; };
 		8DB293801FFF1BF3007C39F8 /* teddybear.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = teddybear.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DB293831FFF1BF3007C39F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8DB293851FFF1BF3007C39F8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +77,8 @@
 		8DC3F2FF200E62E400BF2862 /* AlertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
 		8DC3F301200F275400BF2862 /* tbHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tbHUD.swift; sourceTree = "<group>"; };
 		8DC3F303200F371A00BF2862 /* ViewControllerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerHelper.swift; sourceTree = "<group>"; };
+		8DC3F305200F43A700BF2862 /* DeptManageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeptManageViewController.swift; sourceTree = "<group>"; };
+		8DC3F307200F550300BF2862 /* DeptCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeptCell.swift; sourceTree = "<group>"; };
 		9C9DC75B2E71482436D38C08 /* Pods-teddybear.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teddybear.release.xcconfig"; path = "Pods/Target Support Files/Pods-teddybear/Pods-teddybear.release.xcconfig"; sourceTree = "<group>"; };
 		BF9F63BFFBAAC4F147C965CA /* Pods-teddybear.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teddybear.debug.xcconfig"; path = "Pods/Target Support Files/Pods-teddybear/Pods-teddybear.debug.xcconfig"; sourceTree = "<group>"; };
 		FE34B84A6FAB7255B2C35CAA /* Pods_teddybear.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_teddybear.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -154,6 +164,8 @@
 				8DB2938C1FFF1BF3007C39F8 /* LaunchScreen.storyboard */,
 				8DB293871FFF1BF3007C39F8 /* Main.storyboard */,
 				8DC3F2EF200DC2BD00BF2862 /* DatePickerView.swift */,
+				8DC3F307200F550300BF2862 /* DeptCell.swift */,
+				8D981064200FD1F900072804 /* tbPickerView.swift */,
 				8DC3F2F9200E076D00BF2862 /* StaffCell.swift */,
 				8DC3F301200F275400BF2862 /* tbHUD.swift */,
 			);
@@ -167,6 +179,8 @@
 				8DB293AA1FFF30CA007C39F8 /* LobbyViewController.swift */,
 				8DC3F2E6200CC05200BF2862 /* StaffManageViewController.swift */,
 				8DC3F2ED200D262400BF2862 /* StaffDetailViewController.swift */,
+				8DC3F305200F43A700BF2862 /* DeptManageViewController.swift */,
+				8D981060200FC61600072804 /* DeptDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -193,6 +207,7 @@
 		8DC3F2EC200D125B00BF2862 /* StaffManager */ = {
 			isa = PBXGroup;
 			children = (
+				8D981062200FCAF600072804 /* Department.swift */,
 				8DC3F2E8200CC18400BF2862 /* Staff.swift */,
 				8DC3F2EA200D125500BF2862 /* StaffManager.swift */,
 			);
@@ -443,6 +458,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8DC3F300200E62E400BF2862 /* AlertHelper.swift in Sources */,
+				8DC3F308200F550300BF2862 /* DeptCell.swift in Sources */,
 				8DC3F2E7200CC05200BF2862 /* StaffManageViewController.swift in Sources */,
 				8DC3F2FA200E076D00BF2862 /* StaffCell.swift in Sources */,
 				8DC3F302200F275400BF2862 /* tbHUD.swift in Sources */,
@@ -450,13 +466,17 @@
 				8DC3F304200F371A00BF2862 /* ViewControllerHelper.swift in Sources */,
 				8DC3F2E9200CC18400BF2862 /* Staff.swift in Sources */,
 				8DC3F2F0200DC2BD00BF2862 /* DatePickerView.swift in Sources */,
+				8DC3F306200F43A700BF2862 /* DeptManageViewController.swift in Sources */,
 				8D139E012003EAFB00F73760 /* tbDefines.swift in Sources */,
 				8DC3F2EE200D262400BF2862 /* StaffDetailViewController.swift in Sources */,
+				8D981061200FC61600072804 /* DeptDetailViewController.swift in Sources */,
 				8DC3F2EB200D125500BF2862 /* StaffManager.swift in Sources */,
 				8DB293861FFF1BF3007C39F8 /* LoginViewController.swift in Sources */,
 				8DB293AE1FFF35AC007C39F8 /* UserManager.swift in Sources */,
+				8D981065200FD1F900072804 /* tbPickerView.swift in Sources */,
 				8DC3F2F8200DDFFE00BF2862 /* DateHelper.swift in Sources */,
 				8DB293841FFF1BF3007C39F8 /* AppDelegate.swift in Sources */,
+				8D981063200FCAF600072804 /* Department.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

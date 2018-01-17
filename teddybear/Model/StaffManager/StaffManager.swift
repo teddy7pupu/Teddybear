@@ -14,6 +14,9 @@ class StaffManager: NSObject {
     
     private static var mInstance: StaffManager?
     private var dbRef: DatabaseReference?
+    private var mStaffList: [Staff]?
+    private var mDeptList: [Department]?
+    
     override private init() {
         super.init()
         self.dbRef = Database.database().reference()
@@ -49,6 +52,7 @@ class StaffManager: NSObject {
                 }
                 list.append(staff)
             }
+            self.mStaffList = list
             completion(list, nil)
         })
     }
@@ -78,8 +82,53 @@ class StaffManager: NSObject {
         })
     }
     
+    func updateDepartment(_ department: Department!, completion:@escaping (Department?, Error?) -> Void) {
+        deptRef()?.child(department.department_id!).updateChildValues(department.dictionaryData(), withCompletionBlock: { (error, reference) in
+            if let error = error {
+                completion(nil, error)
+                return
+            }
+            completion(department, nil)
+        })
+    }
+    
+    func getDepartmentList(completion:@escaping ([Department]?, Error?) -> Void) {
+        deptRef()?.observeSingleEvent(of: .value, with: { SnapShot in
+            var list: [Department] = []
+            for child in SnapShot.children {
+                let data = child as? DataSnapshot
+                guard let dept = Department.get(data: data?.value as! NSDictionary) else {
+                    let error = NSError(domain: tbDefines.BUNDLEID, code: -1, userInfo: [NSLocalizedDescriptionKey: "部門資料格式錯誤"])
+                    completion(nil, error)
+                    return
+                }
+                list.append(dept)
+            }
+            completion(list, nil)
+        })
+    }
+    
     // MARK: Getter
     private func staffRef() -> DatabaseReference? {
         return self.dbRef?.child(tbDefines.kStaff)
+    }
+    
+    private func deptRef() -> DatabaseReference? {
+        return self.dbRef?.child(tbDefines.kDepartment)
+    }
+    
+    func staffList() -> [Staff]? {
+        return mStaffList
+    }
+    
+    func managerList() -> [Staff]? {
+        guard let staffs = staffList() else { return nil }
+        return staffs.filter { (staff) -> Bool in
+            (staff.role?.isManager())!
+        }
+    }
+    
+    func departmentList() -> [Department]? {
+        return mDeptList
     }
 }
