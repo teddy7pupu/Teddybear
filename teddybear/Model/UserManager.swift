@@ -13,11 +13,17 @@ import GoogleSignIn
 class UserManager: NSObject {
     
     private static var mInstance: UserManager?
+    
     override private init() {
         super.init()
+        mAuth = Auth.auth()
     }
-    
-    private var mUser: User?
+    private var mAuth: Auth?
+    private var mUser: User? {
+        get {
+            return mAuth?.currentUser
+        }
+    }
     
     // MARK: Public method
     static func sharedInstance() -> UserManager {
@@ -42,20 +48,18 @@ class UserManager: NSObject {
         let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
         
         //Firebase Auth signIn
-        Auth.auth().signIn(with: credential) { (user: User!, error: Error!) in
+        mAuth?.signIn(with: credential) { (user: User!, error: Error!) in
             if let error = error {
                 completion(nil, error)
                 return
             }
-            self.mUser = user
             completion(user, nil)
         }
     }
     
     func signOut() {
-        let firebaseAuth = Auth.auth()
         do {
-            try firebaseAuth.signOut()
+            try mAuth?.signOut()
         } catch let signOutError as NSError {
             NSLog("[Auth] Error:%@", signOutError)
         }

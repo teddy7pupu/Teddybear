@@ -15,6 +15,13 @@ class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if UserManager.currentUser() != nil {
+            openLobby(staff: nil)
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
