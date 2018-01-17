@@ -14,6 +14,9 @@ class StaffManager: NSObject {
     
     private static var mInstance: StaffManager?
     private var dbRef: DatabaseReference?
+    private var mStaffList: [Staff]?
+    private var mDeptList: [Department]?
+    
     override private init() {
         super.init()
         self.dbRef = Database.database().reference()
@@ -49,6 +52,7 @@ class StaffManager: NSObject {
                 }
                 list.append(staff)
             }
+            self.mStaffList = list
             completion(list, nil)
         })
     }
@@ -111,5 +115,20 @@ class StaffManager: NSObject {
     
     private func deptRef() -> DatabaseReference? {
         return self.dbRef?.child(tbDefines.kDepartment)
+    }
+    
+    func staffList() -> [Staff]? {
+        return mStaffList
+    }
+    
+    func managerList() -> [Staff]? {
+        guard let staffs = staffList() else { return nil }
+        return staffs.filter { (staff) -> Bool in
+            (staff.role?.isManager())!
+        }
+    }
+    
+    func departmentList() -> [Department]? {
+        return mDeptList
     }
 }

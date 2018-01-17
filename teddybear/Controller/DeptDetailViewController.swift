@@ -26,6 +26,12 @@ class DeptDetailViewController: UITableViewController
     }
     
     var currentDepartment: Department?
+    private func dataSource() -> [String]? {
+        guard let list = StaffManager.sharedInstance().managerList() else { return nil }
+        return list.map({ (staff) -> String in
+            return staff.name!
+        })
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,7 +95,7 @@ class DeptDetailViewController: UITableViewController
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         if textField == supervisorField {
             textField.inputView = pickerView
-            pickerView.dataSource = ["詹姆士"]
+            pickerView.dataSource = dataSource()
             pickerView.owner = textField
         }
         return true
