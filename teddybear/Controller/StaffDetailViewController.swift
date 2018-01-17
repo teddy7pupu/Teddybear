@@ -70,7 +70,7 @@ class StaffDetailViewController: UITableViewController
     }
     
     //MARK: Action
-    @IBAction func onCreateStaff() {
+    @IBAction func onUpdateStaff() {
         var _staff = Staff()
         _staff.name = nameField.text
         _staff.english = englishField.text

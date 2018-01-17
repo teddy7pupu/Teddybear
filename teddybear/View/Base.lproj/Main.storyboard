@@ -21,6 +21,9 @@
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="caf-8G-j68" kind="relationship" relationship="rootViewController" id="GyJ-hO-kSA"/>
@@ -233,9 +236,12 @@
                                 <rect key="frame" x="187.5" y="543" width="187.5" height="60"/>
                                 <color key="backgroundColor" name="SPBlack"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="新增部門">
+                                <state key="normal" title="部門管理">
                                     <color key="titleColor" name="SPGreen"/>
                                 </state>
+                                <connections>
+                                    <segue destination="Gik-qo-yRI" kind="show" id="8iW-Ig-6bb"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="087-2H-qfC">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="543"/>
@@ -357,7 +363,7 @@
                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </state>
                                     <connections>
-                                        <action selector="onCreateStaff" destination="cc3-qP-BM6" eventType="touchUpInside" id="xqz-pa-etD"/>
+                                        <action selector="onUpdateStaff" destination="cc3-qP-BM6" eventType="touchUpInside" id="Mad-nn-kg1"/>
                                     </connections>
                                 </button>
                             </subviews>
@@ -690,7 +696,7 @@
                         <outlet property="nameField" destination="UvG-eK-3Lp" id="sAr-9Z-3nQ"/>
                         <outlet property="onboardField" destination="D1C-HO-cWQ" id="glt-Q9-f3q"/>
                         <outlet property="phoneField" destination="ojf-nQ-gwf" id="EFV-N0-Bvb"/>
-                        <outlet property="sendBtn" destination="gUy-fR-YAZ" id="Jxh-nO-8d1"/>
+                        <outlet property="sendBtn" destination="gUy-fR-YAZ" id="U2X-bz-XmZ"/>
                         <outlet property="sidField" destination="xex-Xx-Pou" id="FG6-Es-Ido"/>
                         <outlet property="titleField" destination="RBw-Hi-6eJ" id="KtO-X3-TAB"/>
                     </connections>
@@ -749,6 +755,226 @@
             </objects>
             <point key="canvasLocation" x="3872.8000000000002" y="33.733133433283363"/>
         </scene>
+        <!--Dept Manage View Controller-->
+        <scene sceneID="p0X-Tf-dx1">
+            <objects>
+                <viewController id="Gik-qo-yRI" customClass="DeptManageViewController" customModule="teddybear" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RYG-aX-11D">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FNE-dj-wRt">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="543"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <view key="tableFooterView" alpha="0.5" contentMode="scaleToFill" id="OCe-XT-f3a">
+                                    <rect key="frame" x="0.0" y="108" width="375" height="0.5"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </view>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="DeptCell" rowHeight="80" id="D12-vY-Zu3" customClass="DeptCell" customModule="teddybear" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="D12-vY-Zu3" id="9fY-Oj-xfK">
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="79.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="部門名稱" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hR6-hk-AKk">
+                                                    <rect key="frame" x="15" y="19" width="61.5" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="部門主管" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I71-MF-ptd">
+                                                    <rect key="frame" x="15" y="48" width="61.5" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vXU-sj-Q2I">
+                                                    <rect key="frame" x="92.5" y="18" width="36.5" height="21"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" name="SPGray"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Supervisor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xI6-k1-Dm5">
+                                                    <rect key="frame" x="93" y="47" width="81.5" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                                    <color key="textColor" name="SPGray"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="xI6-k1-Dm5" secondAttribute="trailing" constant="8" id="8h9-aW-HBz"/>
+                                                <constraint firstItem="hR6-hk-AKk" firstAttribute="top" secondItem="9fY-Oj-xfK" secondAttribute="topMargin" constant="8" id="RcX-st-Itv"/>
+                                                <constraint firstItem="xI6-k1-Dm5" firstAttribute="top" secondItem="vXU-sj-Q2I" secondAttribute="bottom" constant="8" id="Z2m-9q-4xv"/>
+                                                <constraint firstItem="hR6-hk-AKk" firstAttribute="leading" secondItem="9fY-Oj-xfK" secondAttribute="leadingMargin" id="iPC-6x-DZI"/>
+                                                <constraint firstItem="vXU-sj-Q2I" firstAttribute="leading" secondItem="hR6-hk-AKk" secondAttribute="trailing" constant="16" id="qL6-Ru-jau"/>
+                                                <constraint firstItem="xI6-k1-Dm5" firstAttribute="centerY" secondItem="I71-MF-ptd" secondAttribute="centerY" id="rah-ay-52t"/>
+                                                <constraint firstItem="vXU-sj-Q2I" firstAttribute="centerY" secondItem="hR6-hk-AKk" secondAttribute="centerY" id="ti9-Pe-xun"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="vXU-sj-Q2I" secondAttribute="trailing" constant="8" id="xMb-Uq-eFt"/>
+                                                <constraint firstItem="I71-MF-ptd" firstAttribute="leading" secondItem="hR6-hk-AKk" secondAttribute="leading" id="xiO-ca-xT3"/>
+                                                <constraint firstItem="xI6-k1-Dm5" firstAttribute="leading" secondItem="I71-MF-ptd" secondAttribute="trailing" constant="16" id="zbk-cJ-hB4"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="supervisorLbl" destination="xI6-k1-Dm5" id="D16-UW-HeW"/>
+                                            <outlet property="titleLBl" destination="vXU-sj-Q2I" id="ubU-a2-ICC"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Gik-qo-yRI" id="2Xo-oR-bZI"/>
+                                    <outlet property="delegate" destination="Gik-qo-yRI" id="yXR-XR-y9C"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bHx-C5-6ay">
+                                <rect key="frame" x="0.0" y="543" width="375" height="60"/>
+                                <color key="backgroundColor" name="SPGreen"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="2sK-jA-dSf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <state key="normal" title="新增部門">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="8BC-Gq-0mS" kind="show" identifier="SegueDetail" id="nPR-UH-oZE"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="FNE-dj-wRt" firstAttribute="leading" secondItem="xAm-x7-92p" secondAttribute="leading" id="1g7-s5-t3J"/>
+                            <constraint firstItem="FNE-dj-wRt" firstAttribute="top" secondItem="xAm-x7-92p" secondAttribute="top" id="DEk-s8-t2X"/>
+                            <constraint firstItem="bHx-C5-6ay" firstAttribute="bottom" secondItem="xAm-x7-92p" secondAttribute="bottom" id="Nc9-b0-hc1"/>
+                            <constraint firstItem="xAm-x7-92p" firstAttribute="trailing" secondItem="FNE-dj-wRt" secondAttribute="trailing" id="O9X-j9-pWt"/>
+                            <constraint firstItem="bHx-C5-6ay" firstAttribute="top" secondItem="FNE-dj-wRt" secondAttribute="bottom" id="c0Q-Kd-cTw"/>
+                            <constraint firstItem="bHx-C5-6ay" firstAttribute="leading" secondItem="xAm-x7-92p" secondAttribute="leading" id="rhx-1f-M8M"/>
+                            <constraint firstItem="xAm-x7-92p" firstAttribute="trailing" secondItem="bHx-C5-6ay" secondAttribute="trailing" id="vez-4G-Usa"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="xAm-x7-92p"/>
+                    </view>
+                    <connections>
+                        <outlet property="mainTable" destination="FNE-dj-wRt" id="ogt-91-TDA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6fU-oH-CL9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3872.8000000000002" y="844.22788605697156"/>
+        </scene>
+        <!--Dept Detail View Controller-->
+        <scene sceneID="hky-rP-FMK">
+            <objects>
+                <tableViewController id="8BC-Gq-0mS" customClass="DeptDetailViewController" customModule="teddybear" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" id="H7m-YZ-SN9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zqb-cW-FkI">
+                            <rect key="frame" x="0.0" y="144.5" width="375" height="60"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="0.67000000000000004" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                            <state key="normal" title="確定新增">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <state key="disabled" title="請填妥資料">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="onUpdateDept" destination="8BC-Gq-0mS" eventType="touchUpInside" id="sRc-hS-yF6"/>
+                            </connections>
+                        </button>
+                        <sections>
+                            <tableViewSection headerTitle="   部門資訊" id="aac-aS-hi8">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="vkZ-ie-Pd9">
+                                        <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vkZ-ie-Pd9" id="fzK-q9-Pt0">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="部門名稱" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ErC-9s-DjG">
+                                                    <rect key="frame" x="16" y="12" width="70" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Dept. Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Euq-qr-uuu">
+                                                    <rect key="frame" x="295.5" y="13.5" width="71.5" height="17"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="textFieldDidChangedWithField:" destination="8BC-Gq-0mS" eventType="editingChanged" id="sbQ-ZC-ORc"/>
+                                                        <outlet property="delegate" destination="8BC-Gq-0mS" id="NHV-gl-7FJ"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Euq-qr-uuu" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ErC-9s-DjG" secondAttribute="trailing" constant="8" id="3KH-c4-1pz"/>
+                                                <constraint firstAttribute="trailing" secondItem="Euq-qr-uuu" secondAttribute="trailing" constant="8" id="8bW-mC-FNt"/>
+                                                <constraint firstItem="ErC-9s-DjG" firstAttribute="leading" secondItem="fzK-q9-Pt0" secondAttribute="leadingMargin" id="dkG-zQ-H65"/>
+                                                <constraint firstItem="Euq-qr-uuu" firstAttribute="centerY" secondItem="fzK-q9-Pt0" secondAttribute="centerY" id="hR7-F1-ESt"/>
+                                                <constraint firstItem="ErC-9s-DjG" firstAttribute="centerY" secondItem="fzK-q9-Pt0" secondAttribute="centerY" id="quU-qI-w9E"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="UAH-S5-Lh7">
+                                        <rect key="frame" x="0.0" y="99.5" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UAH-S5-Lh7" id="Ehu-zi-2OD">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="部門主管" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Wx-mW-1H4">
+                                                    <rect key="frame" x="16" y="11" width="70" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Supervisor" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lWM-qD-udF">
+                                                    <rect key="frame" x="293" y="13.5" width="73.5" height="17"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="textFieldDidChangedWithField:" destination="8BC-Gq-0mS" eventType="editingChanged" id="JkX-r9-Ltc"/>
+                                                        <outlet property="delegate" destination="8BC-Gq-0mS" id="G54-VL-ZF5"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="lWM-qD-udF" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="1Wx-mW-1H4" secondAttribute="trailing" constant="8" id="1Yc-l9-pee"/>
+                                                <constraint firstItem="1Wx-mW-1H4" firstAttribute="centerY" secondItem="Ehu-zi-2OD" secondAttribute="centerY" id="eai-1Y-pfk"/>
+                                                <constraint firstItem="1Wx-mW-1H4" firstAttribute="leading" secondItem="Ehu-zi-2OD" secondAttribute="leadingMargin" id="qic-o9-15z"/>
+                                                <constraint firstAttribute="trailing" secondItem="lWM-qD-udF" secondAttribute="trailing" constant="8" id="xRT-Fs-yIC"/>
+                                                <constraint firstItem="lWM-qD-udF" firstAttribute="centerY" secondItem="Ehu-zi-2OD" secondAttribute="centerY" id="zLQ-2g-Ssi"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="8BC-Gq-0mS" id="SNq-Om-Uvb"/>
+                            <outlet property="delegate" destination="8BC-Gq-0mS" id="K8o-qJ-Tfl"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="sendBtn" destination="zqb-cW-FkI" id="qJE-NJ-KEV"/>
+                        <outlet property="supervisorField" destination="lWM-qD-udF" id="vT5-xo-rYD"/>
+                        <outlet property="titleField" destination="Euq-qr-uuu" id="IbU-og-m6b"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GZR-ZH-JW3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4857" y="844"/>
+        </scene>
     </scenes>
     <resources>
         <namedColor name="SPBlack">
@@ -756,6 +982,15 @@
         </namedColor>
         <namedColor name="SPDark">
             <color red="0.12941176470588237" green="0.12941176470588237" blue="0.12941176470588237" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SPGray">
+            <color red="0.32549019607843138" green="0.32549019607843138" blue="0.32549019607843138" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SPGray">
+            <color red="0.32549019610000002" green="0.32549019610000002" blue="0.32549019610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SPGreen">
+            <color red="0.11372549019607843" green="0.72549019607843135" blue="0.32941176470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="SPGreen">
             <color red="0.11372549019607843" green="0.72549019607843135" blue="0.32941176470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
