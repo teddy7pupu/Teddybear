@@ -78,8 +78,38 @@ class StaffManager: NSObject {
         })
     }
     
+    func updateDepartment(_ department: Department!, completion:@escaping (Department?, Error?) -> Void) {
+        deptRef()?.child(department.department_id!).updateChildValues(department.dictionaryData(), withCompletionBlock: { (error, reference) in
+            if let error = error {
+                completion(nil, error)
+                return
+            }
+            completion(department, nil)
+        })
+    }
+    
+    func getDepartmentList(completion:@escaping ([Department]?, Error?) -> Void) {
+        deptRef()?.observeSingleEvent(of: .value, with: { SnapShot in
+            var list: [Department] = []
+            for child in SnapShot.children {
+                let data = child as? DataSnapshot
+                guard let dept = Department.get(data: data?.value as! NSDictionary) else {
+                    let error = NSError(domain: tbDefines.BUNDLEID, code: -1, userInfo: [NSLocalizedDescriptionKey: "部門資料格式錯誤"])
+                    completion(nil, error)
+                    return
+                }
+                list.append(dept)
+            }
+            completion(list, nil)
+        })
+    }
+    
     // MARK: Getter
     private func staffRef() -> DatabaseReference? {
         return self.dbRef?.child(tbDefines.kStaff)
+    }
+    
+    private func deptRef() -> DatabaseReference? {
+        return self.dbRef?.child(tbDefines.kDepartment)
     }
 }

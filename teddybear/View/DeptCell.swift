@@ -17,8 +17,8 @@ class DeptCell: UITableViewCell {
         super.awakeFromNib()
     }
     
-    func layoutCell(with dept:Any) {
-        titleLBl.text = "系統開發部"
-        supervisorLbl.text = "詹姆士"
+    func layoutCell(with dept: Department?) {
+        titleLBl.text = dept?.title
+        supervisorLbl.text = dept?.supervisor
     }
 }

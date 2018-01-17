@@ -13,7 +13,7 @@ class DeptManageViewController: UIViewController
     
     @IBOutlet weak var mainTable: UITableView!
     
-    var list: [Any]? = ["系統開發部"]
+    var list: [Department]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +22,25 @@ class DeptManageViewController: UIViewController
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        mainTable.reloadData()
+        tbHUD.show()
+        StaffManager.sharedInstance().getDepartmentList { (list, error) in
+            tbHUD.dismiss()
+            if let error = error {
+                NSLog(error.localizedDescription)
+                return
+            }
+            self.list = list
+            self.mainTable.reloadData()
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == tbDefines.kSegueDetail {
+            if let dept = sender as? Department {
+                let detailView = segue.destination as! DeptDetailViewController
+                detailView.currentDepartment = dept
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,12 +55,14 @@ class DeptManageViewController: UIViewController
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: DeptCell.self), for: indexPath) as! DeptCell
-        cell.layoutCell(with: "")
+        cell.layoutCell(with: list?[indexPath.row])
         return cell
     }
     
     //MARK: UITableViewDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
          tableView.deselectRow(at: indexPath, animated: true)
+        let dept = list?[indexPath.row]
+        self.performSegue(withIdentifier: tbDefines.kSegueDetail, sender: dept)
     }
 }

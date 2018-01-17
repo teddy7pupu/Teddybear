@@ -874,7 +874,7 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zqb-cW-FkI">
-                            <rect key="frame" x="0.0" y="144.5" width="375" height="60"/>
+                            <rect key="frame" x="0.0" y="188.5" width="375" height="60"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="0.67000000000000004" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -904,7 +904,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Dept. Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Euq-qr-uuu">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Dept. Title" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Euq-qr-uuu">
                                                     <rect key="frame" x="295.5" y="13.5" width="71.5" height="17"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -937,7 +937,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Supervisor" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lWM-qD-udF">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Supervisor" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lWM-qD-udF">
                                                     <rect key="frame" x="293" y="13.5" width="73.5" height="17"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -957,6 +957,39 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="9GE-8t-jiY">
+                                        <rect key="frame" x="0.0" y="143.5" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9GE-8t-jiY" id="Q38-Of-WIF">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="部門代號" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Jr-2A-8Ol">
+                                                    <rect key="frame" x="16" y="11" width="70" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="3~4個英文字母" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YYC-1s-wYW">
+                                                    <rect key="frame" x="264.5" y="13.5" width="102" height="17"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="textFieldDidChangedWithField:" destination="8BC-Gq-0mS" eventType="editingChanged" id="rql-Ht-VeV"/>
+                                                        <outlet property="delegate" destination="8BC-Gq-0mS" id="mw0-HU-k1a"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="YYC-1s-wYW" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="9Jr-2A-8Ol" secondAttribute="trailing" constant="8" id="0v1-qe-79k"/>
+                                                <constraint firstItem="9Jr-2A-8Ol" firstAttribute="centerY" secondItem="Q38-Of-WIF" secondAttribute="centerY" id="DLR-Vx-NVL"/>
+                                                <constraint firstItem="YYC-1s-wYW" firstAttribute="centerY" secondItem="Q38-Of-WIF" secondAttribute="centerY" id="MDj-FC-ElS"/>
+                                                <constraint firstItem="9Jr-2A-8Ol" firstAttribute="leading" secondItem="Q38-Of-WIF" secondAttribute="leadingMargin" id="dgS-bz-v7K"/>
+                                                <constraint firstAttribute="trailing" secondItem="YYC-1s-wYW" secondAttribute="trailing" constant="8" id="rEq-ax-k01"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -966,6 +999,7 @@
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="keyField" destination="YYC-1s-wYW" id="WY7-zN-mFb"/>
                         <outlet property="sendBtn" destination="zqb-cW-FkI" id="qJE-NJ-KEV"/>
                         <outlet property="supervisorField" destination="lWM-qD-udF" id="vT5-xo-rYD"/>
                         <outlet property="titleField" destination="Euq-qr-uuu" id="IbU-og-m6b"/>

@@ -12,20 +12,25 @@ class DeptDetailViewController: UITableViewController {
 
     @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var supervisorField: UITextField!
+    @IBOutlet weak var keyField: UITextField!
     @IBOutlet weak var sendBtn: UIButton!
     
     private var mFields: [UITextField]?
     private func fields() -> [UITextField] {
         if mFields == nil {
-            mFields = [titleField, supervisorField]
+            mFields = [titleField, supervisorField, keyField]
         }
         return mFields!
     }
     
+    var currentDepartment: Department?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = (currentDepartment == nil ? "新增員工" : currentDepartment?.title)
         
         setupLayout()
+        layoutWithDept(currentDepartment)
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,7 +44,34 @@ class DeptDetailViewController: UITableViewController {
         self.view.addGestureRecognizer(gesture)
     }
     
+    func layoutWithDept(_ dept: Department?) {
+        guard let dept = dept else { return }
+        titleField.text = dept.title
+        supervisorField.text = dept.supervisor
+        keyField.text = dept.department_id
+        keyField.isEnabled = false
+        sendBtn.setTitle("確定修改", for: .normal)
+        
+        self.textFieldDidChanged(field: titleField) //forced validation
+    }
+    
+    //MARK: Action
     @IBAction func onUpdateDept() {
+        var _dept = Department()
+        _dept.title = titleField.text
+        _dept.supervisor = supervisorField.text
+        _dept.department_id = keyField.text
+        
+        tbHUD.show()
+        StaffManager.sharedInstance().updateDepartment(_dept) { (department, error) in
+            tbHUD.dismiss()
+            if let error = error {
+                NSLog("%@", error.localizedDescription)
+                self.showAlert(message: "資料更新失敗")
+                return
+            }
+            self.navigationController?.popViewController(animated: true)
+        }
     }
     
     // MARK: UITextFieldDelegate
