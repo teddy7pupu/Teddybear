@@ -83,7 +83,10 @@ class StaffDetailViewController: UITableViewController
         _staff.department = deptField.text
         _staff.title = titleField.text
         _staff.sid = String.init(format: "M%03ld", Int(sidField.text!)!)
+        
+        tbHUD.show()
         StaffManager.sharedInstance().updateStaff(_staff) { (staff, error) in
+            tbHUD.dismiss()
             if let error = error {
                 NSLog("%@", error.localizedDescription)
                 UIAlertController.alert(message: "資料更新失敗").otherHandle(alertAction: nil).show(currentVC: self)

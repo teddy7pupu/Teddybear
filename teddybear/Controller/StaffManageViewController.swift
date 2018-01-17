@@ -21,7 +21,9 @@ class StaffManageViewController: UIViewController
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        tbHUD.show()
         StaffManager.sharedInstance().getStaffList { (list, error) in
+            tbHUD.dismiss()
             if let error = error {
                 NSLog(error.localizedDescription)
                 return

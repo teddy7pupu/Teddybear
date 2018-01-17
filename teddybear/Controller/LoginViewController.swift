@@ -27,6 +27,7 @@ class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDeleg
         signIn?.delegate = self
         signIn?.uiDelegate = self
         
+        tbHUD.show()
         signIn?.signIn()
     }
     
@@ -34,8 +35,10 @@ class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDeleg
     func getUserProfile(email: String!) {
         //Get staff information of user
         StaffManager.sharedInstance().queryStaff(email, completion: { (staff, error) in
+            
             if let error = error {
                 NSLog("%@", error.localizedDescription)
+                tbHUD.dismiss()
                 UIAlertController.alert(message: "無此員工資料").otherHandle(alertAction: nil).show(currentVC: self)
                 return
             }
@@ -44,6 +47,7 @@ class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDeleg
                 self.updateStaff(staff)
                 return
             }
+            tbHUD.dismiss()
             self.performSegue(withIdentifier: tbDefines.kSegueLobby, sender: nil)
         })
     }
@@ -55,6 +59,7 @@ class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDeleg
         updated?.uid = user?.uid
         updated?.avatar = user?.photoURL?.absoluteString
         StaffManager.sharedInstance().updateStaff(updated) { (aStaff, error) in
+            tbHUD.dismiss()
             if let error = error {
                 NSLog("%@", error.localizedDescription)
                 UIAlertController.alert(message: "更新員工資料失敗").otherHandle(alertAction: nil).show(currentVC: self)
@@ -68,6 +73,7 @@ class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDeleg
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         if let error = error {
             NSLog("%@", error.localizedDescription)
+            tbHUD.dismiss()
             UIAlertController.alert(message: "登入失敗").otherHandle(alertAction: nil).show(currentVC: self)
             return
         }
@@ -75,6 +81,7 @@ class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDeleg
         //檢查是否為公司網域
         let email = user.profile.email
         if false == email?.contains(tbDefines.AMDomain) {
+            tbHUD.dismiss()
             UIAlertController.alert(message: "這不是AppMaster員工帳號喔！").otherHandle(alertAction: nil).show(currentVC: self)
             signIn.signOut()
             return
