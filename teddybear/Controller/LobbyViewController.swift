@@ -11,6 +11,8 @@ import GoogleSignIn
 
 class LobbyViewController: UITableViewController {
     
+    var currentStaff: Staff?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -43,6 +45,12 @@ class LobbyViewController: UITableViewController {
         self.dismiss(animated: true) {
             
         }
+    }
+    
+    //MARK: UITableViewDataSource
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let count = currentStaff?.role?.functionList() else { return 4 }
+        return count
     }
     
     //MARK: UITableViewDelegate

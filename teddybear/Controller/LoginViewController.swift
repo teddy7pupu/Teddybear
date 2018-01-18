@@ -24,9 +24,17 @@ class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDeleg
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if UserManager.currentUser() != nil {
-            openLobby(staff: nil)
+        if let user = UserManager.currentUser() {
+            tbHUD.show()
+            getUserProfile(email: user.email)
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard case let staff as Staff? = sender else { return }
+        let nav = segue.destination as! UINavigationController
+        let lobby = nav.topViewController as! LobbyViewController
+        lobby.currentStaff = staff
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,7 +47,10 @@ class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDeleg
         gesture.cancelsTouchesInView = false
         self.view.addGestureRecognizer(gesture)
         
-        
+        emailField.tbSetup()
+        pwdField.tbSetup()
+        loginBtn.tbSetup()
+        googleBtn.tbSetup()
         
     }
     
@@ -76,7 +87,8 @@ class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDeleg
             
             if let error = error {
                 NSLog("%@", error.localizedDescription)
-                self.showAlert(message: "無此員工資料")
+                //Super Admin
+                self.openLobby(staff: nil)
                 return
             }
             
@@ -84,7 +96,7 @@ class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDeleg
                 self.updateStaff(staff)
                 return
             }
-            self.openLobby(staff: nil)
+            self.openLobby(staff: staff)
         })
     }
     
@@ -135,9 +147,8 @@ class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDeleg
     }
 }
 
-extension UITextField {
-    override open func awakeFromNib() {
-        super.awakeFromNib()
+internal extension UITextField {
+    func tbSetup() {
         self.layer.cornerRadius = 5
         self.leftViewMode = .always
         self.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
@@ -145,8 +156,8 @@ extension UITextField {
     }
 }
 
-extension UIButton {
-    override open func awakeFromNib() {
+internal extension UIButton {
+    func tbSetup() {
         super.awakeFromNib()
         self.layer.borderColor = UIColor(named: "SPGreen")?.cgColor
         self.layer.borderWidth = 1
