@@ -127,7 +127,7 @@ class StaffManager: NSObject {
     func getManager(byStaffId staffId: String) -> Staff? {
         guard let managers = self.managerList() else { return nil }
         let result = managers.filter({ (staff) -> Bool in
-            staff.uid == staffId
+            staff.sid == staffId
         })
         return result.first
     }

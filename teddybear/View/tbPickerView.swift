@@ -30,7 +30,8 @@ class tbPickerView: UIView
     }
     
     @IBAction func onDoneAction() {
-        owner?.insertText((dataSource?[pickerView.selectedRow(inComponent: 0)])!)
+        owner?.text = (dataSource?[pickerView.selectedRow(inComponent: 0)])!
+        owner?.sendActions(for: .editingChanged)
         owner?.resignFirstResponder()
     }
     

@@ -73,7 +73,7 @@ class DeptDetailViewController: UITableViewController
     @IBAction func onUpdateDept() {
         var _dept = Department()
         _dept.title = titleField.text
-        _dept.supervisor = manager?.getManager(byStaffName:supervisorField.text!)?.uid
+        _dept.supervisor = manager?.getManager(byStaffName:supervisorField.text!)?.sid
         _dept.department_id = keyField.text
         
         tbHUD.show()
