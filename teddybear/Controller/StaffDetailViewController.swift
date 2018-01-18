@@ -20,6 +20,8 @@ class StaffDetailViewController: UITableViewController
     @IBOutlet weak var deptField: UITextField!
     @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var sidField: UITextField!
+    @IBOutlet weak var manageSwitch: UISwitch!
+    @IBOutlet weak var accountSwitch: UISwitch!
     @IBOutlet weak var sendBtn: UIButton!
     @IBOutlet weak var datePickerView: DatePickerView!
     
@@ -64,6 +66,11 @@ class StaffDetailViewController: UITableViewController
         titleField.text = staff.title
         sidField.text = staff.sid
         sidField.isEnabled = false
+        manageSwitch.isOn = (staff.role?.isManager())!
+        accountSwitch.isOn = (staff.role?.isAccount())!
+        accountSwitch.isEnabled = { () -> Bool in
+            staff.uid != UserManager.currentUser()?.uid
+        }()
         sendBtn.setTitle("確定修改", for: .normal)
         
         self.textFieldDidChanged(field: titleField) //forced validation
@@ -82,7 +89,12 @@ class StaffDetailViewController: UITableViewController
         _staff.onBoardDate = Int(onBoardDate.timeIntervalSince1970)
         _staff.department = deptField.text
         _staff.title = titleField.text
-        _staff.sid = String.init(format: "M%03ld", Int(sidField.text!)!)
+        if let number = Int(sidField.text!) {
+            _staff.sid = String.init(format: "M%03ld", number)
+        } else {
+            _staff.sid = sidField.text!
+        }
+        _staff.role?.setRole(manageSwitch.isOn, accountSwitch.isOn)
         
         tbHUD.show()
         StaffManager.sharedInstance().updateStaff(_staff) { (staff, error) in
@@ -130,7 +142,9 @@ class StaffDetailViewController: UITableViewController
     // MARK: UITableViewDelegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView .deselectRow(at: indexPath, animated: true)
-        let field = fields()[indexPath.section][indexPath.row]
-        field.becomeFirstResponder()
+        if indexPath.row < 7 { //row[7,8] are UserRole switch
+            let field = fields()[indexPath.section][indexPath.row]
+            field.becomeFirstResponder()
+        }
     }
 }
