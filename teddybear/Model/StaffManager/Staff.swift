@@ -11,16 +11,30 @@ import Foundation
 struct UserRole: OptionSet, Codable {
     let rawValue: Int
     
-    static let employee = UserRole(rawValue: 1 << 0)
-    static let manager  = UserRole(rawValue: 1 << 1)
-    static let account  = UserRole(rawValue: 1 << 2)
+    static let employee = UserRole(rawValue: 1)
+    static let manager  = UserRole(rawValue: 2)
+    static let account  = UserRole(rawValue: 3)
+    static let admin    = UserRole(rawValue: 4)
     
     func isManager() -> Bool {
-        return (rawValue & (1 << 1) != 0)
+        return (self == .manager) || (self == .admin)
     }
-    
     func isAccount() -> Bool {
-        return (rawValue & (1 << 2) != 0)
+        return (self == .account) || (self == .admin)
+    }
+    func isAdmin() -> Bool {
+        return self == .admin
+    }
+    mutating func setRole(_ isManager:Bool, _ isAccount:Bool) {
+        if isManager && isAccount {
+            self = .admin
+        } else if isManager {
+            self = .manager
+        } else if isAccount {
+            self = .account
+        } else {
+            self = .employee
+        }
     }
 }
 
@@ -39,6 +53,7 @@ struct Staff: Codable {
     var sid: String?
     
     init() {
+        role = .employee
     }
     
     func dictionaryData() -> [String: Any] {
