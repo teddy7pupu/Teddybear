@@ -104,6 +104,7 @@ class StaffManager: NSObject {
                 }
                 list.append(dept)
             }
+            self.mDeptList = list
             completion(list, nil)
         })
     }
@@ -124,7 +125,7 @@ class StaffManager: NSObject {
     }
     
     func getManager(byStaffId staffId: String) -> Staff? {
-        guard let managers = StaffManager.sharedInstance().managerList() else { return nil }
+        guard let managers = self.managerList() else { return nil }
         let result = managers.filter({ (staff) -> Bool in
             staff.uid == staffId
         })
@@ -132,9 +133,25 @@ class StaffManager: NSObject {
     }
     
     func getManager(byStaffName name: String) -> Staff? {
-        guard let managers = StaffManager.sharedInstance().managerList() else { return nil }
+        guard let managers = self.managerList() else { return nil }
         let result = managers.filter({ (staff) -> Bool in
             staff.name == name
+        })
+        return result.first
+    }
+    
+    func getDepartment(byID departmentId: String) -> Department? {
+        guard let depts = self.departmentList() else { return nil }
+        let result = depts.filter({ (dept) -> Bool in
+            dept.department_id == departmentId
+        })
+        return result.first
+    }
+    
+    func getDepartment(byName name: String) -> Department? {
+        guard let depts = self.departmentList() else { return nil }
+        let result = depts.filter({ (dept) -> Bool in
+            dept.title == name
         })
         return result.first
     }

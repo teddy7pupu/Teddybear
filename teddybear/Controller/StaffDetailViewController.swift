@@ -24,6 +24,7 @@ class StaffDetailViewController: UITableViewController
     @IBOutlet weak var accountSwitch: UISwitch!
     @IBOutlet weak var sendBtn: UIButton!
     @IBOutlet weak var datePickerView: DatePickerView!
+    @IBOutlet weak var pickerView: tbPickerView!
     
     private var mFields: [[UITextField]]?
     private func fields() -> [[UITextField]] {
@@ -33,7 +34,16 @@ class StaffDetailViewController: UITableViewController
         return mFields!
     }
     
+    private weak var manager: StaffManager? = StaffManager.sharedInstance()
+    private var deptList: [Department]? = StaffManager.sharedInstance().departmentList()
     var currentStaff: Staff?
+    
+    private func dataSource() -> [String]? {
+        guard let list = deptList else { return nil }
+        return list.map({ (dept) -> String in
+            return dept.title!
+        })
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +51,7 @@ class StaffDetailViewController: UITableViewController
         
         setupLayout()
         layoutWithStaff(currentStaff)
+        getDepartments()
     }
 
     override func didReceiveMemoryWarning() {
@@ -62,7 +73,7 @@ class StaffDetailViewController: UITableViewController
         phoneField.text = staff.mobile
         birthdayField.text = Date(timeIntervalSince1970: TimeInterval(staff.birthday!)).toString(format: .isoDate)
         onboardField.text = Date(timeIntervalSince1970: TimeInterval(staff.onBoardDate!)).toString(format: .isoDate)
-        deptField.text = staff.department
+        deptField.text = manager?.getDepartment(byID:staff.department!)?.title
         titleField.text = staff.title
         sidField.text = staff.sid
         sidField.isEnabled = false
@@ -87,7 +98,7 @@ class StaffDetailViewController: UITableViewController
         _staff.birthday = Int(birthday.timeIntervalSince1970)
         let onBoardDate = Date(fromString: onboardField.text!, format: .isoDate)!
         _staff.onBoardDate = Int(onBoardDate.timeIntervalSince1970)
-        _staff.department = deptField.text
+        _staff.department = manager?.getDepartment(byName:deptField.text!)?.department_id
         _staff.title = titleField.text
         if let number = Int(sidField.text!) {
             _staff.sid = String.init(format: "M%03ld", number)
@@ -97,7 +108,7 @@ class StaffDetailViewController: UITableViewController
         _staff.role?.setRole(manageSwitch.isOn, accountSwitch.isOn)
         
         tbHUD.show()
-        StaffManager.sharedInstance().updateStaff(_staff) { (staff, error) in
+        manager?.updateStaff(_staff) { (staff, error) in
             tbHUD.dismiss()
             if let error = error {
                 NSLog("%@", error.localizedDescription)
@@ -105,6 +116,19 @@ class StaffDetailViewController: UITableViewController
                 return
             }
             self.navigationController?.popViewController(animated: true)
+        }
+    }
+    
+    func getDepartments() {
+        if deptList == nil {
+            manager?.getDepartmentList(completion: { (list, error) in
+                if let error = error {
+                    NSLog("%@", error.localizedDescription)
+                    self.showAlert(message: "部門清單取得失敗")
+                    return
+                }
+                self.deptList = list
+            })
         }
     }
     
@@ -121,6 +145,11 @@ class StaffDetailViewController: UITableViewController
         if textField == birthdayField || textField == onboardField {
             textField.inputView = datePickerView
             datePickerView.owner = textField
+        }
+        if textField == deptField {
+            textField.inputView = pickerView
+            pickerView.dataSource = dataSource()
+            pickerView.owner = textField
         }
         return true
     }

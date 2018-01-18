@@ -394,7 +394,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UvG-eK-3Lp">
-                                                    <rect key="frame" x="317" y="13" width="42" height="17"/>
+                                                    <rect key="frame" x="93.5" y="13" width="265.5" height="17"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -407,7 +407,7 @@
                                             <constraints>
                                                 <constraint firstItem="UvG-eK-3Lp" firstAttribute="trailing" secondItem="qRd-Qv-xhC" secondAttribute="trailingMargin" id="Dh4-1c-dVC"/>
                                                 <constraint firstItem="nAF-pu-e8a" firstAttribute="leading" secondItem="qRd-Qv-xhC" secondAttribute="leadingMargin" id="GJ1-a5-l7n"/>
-                                                <constraint firstItem="UvG-eK-3Lp" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="nAF-pu-e8a" secondAttribute="trailing" constant="8" id="S02-wP-eCu"/>
+                                                <constraint firstItem="UvG-eK-3Lp" firstAttribute="leading" secondItem="nAF-pu-e8a" secondAttribute="trailing" constant="8" id="S02-wP-eCu"/>
                                                 <constraint firstItem="nAF-pu-e8a" firstAttribute="centerY" secondItem="qRd-Qv-xhC" secondAttribute="centerY" id="SPp-86-zwb"/>
                                                 <constraint firstItem="UvG-eK-3Lp" firstAttribute="centerY" secondItem="nAF-pu-e8a" secondAttribute="centerY" id="b9K-UU-dyL"/>
                                             </constraints>
@@ -427,7 +427,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="English Name" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HAU-ca-GVt">
-                                                    <rect key="frame" x="266.5" y="13" width="92.5" height="17"/>
+                                                    <rect key="frame" x="94" y="13" width="265" height="17"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="namePhonePad"/>
@@ -438,7 +438,7 @@
                                                 </textField>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="HAU-ca-GVt" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="x5j-dt-9Bo" secondAttribute="trailing" constant="8" id="ILm-k2-ae0"/>
+                                                <constraint firstItem="HAU-ca-GVt" firstAttribute="leading" secondItem="x5j-dt-9Bo" secondAttribute="trailing" constant="8" id="ILm-k2-ae0"/>
                                                 <constraint firstItem="HAU-ca-GVt" firstAttribute="trailing" secondItem="LEi-cq-dgC" secondAttribute="trailingMargin" id="KzM-dR-nsR"/>
                                                 <constraint firstItem="x5j-dt-9Bo" firstAttribute="leading" secondItem="LEi-cq-dgC" secondAttribute="leadingMargin" id="SnR-ku-wnC"/>
                                                 <constraint firstItem="x5j-dt-9Bo" firstAttribute="centerY" secondItem="LEi-cq-dgC" secondAttribute="centerY" id="TqT-TA-JMq"/>
@@ -460,7 +460,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uGY-dx-ypU">
-                                                    <rect key="frame" x="320.5" y="13" width="38.5" height="17"/>
+                                                    <rect key="frame" x="93.5" y="13" width="265.5" height="17"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
@@ -472,7 +472,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="uGY-dx-ypU" firstAttribute="centerY" secondItem="Ajh-ld-mgd" secondAttribute="centerY" id="7y6-Es-Xmy"/>
-                                                <constraint firstItem="uGY-dx-ypU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Ajh-ld-mgd" secondAttribute="trailing" constant="8" id="Gyd-Zl-BXU"/>
+                                                <constraint firstItem="uGY-dx-ypU" firstAttribute="leading" secondItem="Ajh-ld-mgd" secondAttribute="trailing" constant="8" id="Gyd-Zl-BXU"/>
                                                 <constraint firstItem="Ajh-ld-mgd" firstAttribute="centerY" secondItem="Fjy-88-a9I" secondAttribute="centerY" id="glA-x5-o8H"/>
                                                 <constraint firstItem="Ajh-ld-mgd" firstAttribute="leading" secondItem="Fjy-88-a9I" secondAttribute="leadingMargin" id="k7T-gb-VKz"/>
                                                 <constraint firstItem="uGY-dx-ypU" firstAttribute="trailing" secondItem="Fjy-88-a9I" secondAttribute="trailingMargin" id="l2e-AG-qGv"/>
@@ -493,7 +493,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mobile Phone" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ojf-nQ-gwf">
-                                                    <rect key="frame" x="267" y="13" width="92" height="17"/>
+                                                    <rect key="frame" x="93.5" y="13" width="265.5" height="17"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
@@ -504,7 +504,7 @@
                                                 </textField>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="ojf-nQ-gwf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iWe-XK-qor" secondAttribute="trailing" constant="8" id="3oG-jM-r2s"/>
+                                                <constraint firstItem="ojf-nQ-gwf" firstAttribute="leading" secondItem="iWe-XK-qor" secondAttribute="trailing" constant="8" id="3oG-jM-r2s"/>
                                                 <constraint firstItem="ojf-nQ-gwf" firstAttribute="centerY" secondItem="iWe-XK-qor" secondAttribute="centerY" id="6md-Bw-AB3"/>
                                                 <constraint firstItem="iWe-XK-qor" firstAttribute="leading" secondItem="LMk-pj-vhl" secondAttribute="leadingMargin" id="CEG-zR-m6m"/>
                                                 <constraint firstItem="ojf-nQ-gwf" firstAttribute="trailing" secondItem="LMk-pj-vhl" secondAttribute="trailingMargin" id="PZk-aR-fOF"/>
@@ -526,7 +526,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Birthday" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="R3r-PZ-sKn">
-                                                    <rect key="frame" x="300.5" y="13" width="58.5" height="17"/>
+                                                    <rect key="frame" x="93.5" y="13" width="265.5" height="17"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -541,7 +541,7 @@
                                                 <constraint firstItem="R3r-PZ-sKn" firstAttribute="trailing" secondItem="Yb7-7U-S2O" secondAttribute="trailingMargin" id="5z3-Ey-Uak"/>
                                                 <constraint firstItem="sXa-1U-zib" firstAttribute="leading" secondItem="Yb7-7U-S2O" secondAttribute="leadingMargin" id="8gx-M6-Ge3"/>
                                                 <constraint firstItem="sXa-1U-zib" firstAttribute="centerY" secondItem="Yb7-7U-S2O" secondAttribute="centerY" id="ff3-oA-zTt"/>
-                                                <constraint firstItem="R3r-PZ-sKn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="sXa-1U-zib" secondAttribute="trailing" constant="8" id="ier-83-U6Q"/>
+                                                <constraint firstItem="R3r-PZ-sKn" firstAttribute="leading" secondItem="sXa-1U-zib" secondAttribute="trailing" constant="8" id="ier-83-U6Q"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -559,7 +559,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Onboard Date" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D1C-HO-cWQ">
-                                                    <rect key="frame" x="264.5" y="13" width="94.5" height="17"/>
+                                                    <rect key="frame" x="94" y="13" width="265" height="17"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -571,7 +571,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="D1C-HO-cWQ" firstAttribute="trailing" secondItem="3rR-Gt-0F7" secondAttribute="trailingMargin" id="739-NR-3xH"/>
-                                                <constraint firstItem="D1C-HO-cWQ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="TsM-w7-8fH" secondAttribute="trailing" constant="8" id="MIf-2x-xxV"/>
+                                                <constraint firstItem="D1C-HO-cWQ" firstAttribute="leading" secondItem="TsM-w7-8fH" secondAttribute="trailing" constant="8" id="MIf-2x-xxV"/>
                                                 <constraint firstItem="TsM-w7-8fH" firstAttribute="centerY" secondItem="3rR-Gt-0F7" secondAttribute="centerY" id="Oke-pC-w9d"/>
                                                 <constraint firstItem="TsM-w7-8fH" firstAttribute="leading" secondItem="3rR-Gt-0F7" secondAttribute="leadingMargin" id="Rps-lg-C5U"/>
                                                 <constraint firstItem="D1C-HO-cWQ" firstAttribute="centerY" secondItem="TsM-w7-8fH" secondAttribute="centerY" id="qCA-Bx-4Id"/>
@@ -648,7 +648,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Dept." textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rke-Zw-5pS">
-                                                    <rect key="frame" x="319.5" y="13" width="39.5" height="17"/>
+                                                    <rect key="frame" x="94" y="13" width="265" height="17"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -659,7 +659,7 @@
                                                 </textField>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="rke-Zw-5pS" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="jIO-YC-Lyr" secondAttribute="trailing" constant="8" id="e9I-g5-0Eb"/>
+                                                <constraint firstItem="rke-Zw-5pS" firstAttribute="leading" secondItem="jIO-YC-Lyr" secondAttribute="trailing" constant="8" id="e9I-g5-0Eb"/>
                                                 <constraint firstItem="jIO-YC-Lyr" firstAttribute="leading" secondItem="kZr-7v-iEr" secondAttribute="leadingMargin" id="gWJ-2X-bsJ"/>
                                                 <constraint firstItem="jIO-YC-Lyr" firstAttribute="centerY" secondItem="kZr-7v-iEr" secondAttribute="centerY" id="slk-wf-vCT"/>
                                                 <constraint firstItem="rke-Zw-5pS" firstAttribute="trailing" secondItem="kZr-7v-iEr" secondAttribute="trailingMargin" id="v9n-ha-s7v"/>
@@ -681,7 +681,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RBw-Hi-6eJ">
-                                                    <rect key="frame" x="326.5" y="13" width="32.5" height="17"/>
+                                                    <rect key="frame" x="59" y="13" width="300" height="17"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -692,7 +692,7 @@
                                                 </textField>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="RBw-Hi-6eJ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Gjy-GI-Yx7" secondAttribute="trailing" constant="8" id="4jW-sq-gUm"/>
+                                                <constraint firstItem="RBw-Hi-6eJ" firstAttribute="leading" secondItem="Gjy-GI-Yx7" secondAttribute="trailing" constant="8" id="4jW-sq-gUm"/>
                                                 <constraint firstItem="Gjy-GI-Yx7" firstAttribute="leading" secondItem="I3O-g2-YYH" secondAttribute="leadingMargin" id="FYJ-iV-32a"/>
                                                 <constraint firstItem="RBw-Hi-6eJ" firstAttribute="centerY" secondItem="Gjy-GI-Yx7" secondAttribute="centerY" id="IhU-wB-sw8"/>
                                                 <constraint firstItem="Gjy-GI-Yx7" firstAttribute="centerY" secondItem="I3O-g2-YYH" secondAttribute="centerY" id="OwT-Hz-XE5"/>
@@ -714,7 +714,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Staff ID" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xex-Xx-Pou">
-                                                    <rect key="frame" x="306" y="13" width="53" height="17"/>
+                                                    <rect key="frame" x="93.5" y="13" width="265.5" height="17"/>
                                                     <color key="textColor" name="SPGreen"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -725,7 +725,7 @@
                                                 </textField>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="xex-Xx-Pou" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="tF4-8p-Z3e" secondAttribute="trailing" constant="8" id="Dtj-U7-f33"/>
+                                                <constraint firstItem="xex-Xx-Pou" firstAttribute="leading" secondItem="tF4-8p-Z3e" secondAttribute="trailing" constant="8" id="Dtj-U7-f33"/>
                                                 <constraint firstItem="tF4-8p-Z3e" firstAttribute="centerY" secondItem="YFG-oj-7ix" secondAttribute="centerY" id="VxV-vl-T9k"/>
                                                 <constraint firstItem="tF4-8p-Z3e" firstAttribute="leading" secondItem="YFG-oj-7ix" secondAttribute="leadingMargin" id="YHr-YD-xeS"/>
                                                 <constraint firstItem="xex-Xx-Pou" firstAttribute="centerY" secondItem="tF4-8p-Z3e" secondAttribute="centerY" id="lPF-w9-CIs"/>
@@ -752,12 +752,60 @@
                         <outlet property="nameField" destination="UvG-eK-3Lp" id="sAr-9Z-3nQ"/>
                         <outlet property="onboardField" destination="D1C-HO-cWQ" id="glt-Q9-f3q"/>
                         <outlet property="phoneField" destination="ojf-nQ-gwf" id="EFV-N0-Bvb"/>
+                        <outlet property="pickerView" destination="x4t-dM-4mc" id="Pua-IL-bvG"/>
                         <outlet property="sendBtn" destination="gUy-fR-YAZ" id="U2X-bz-XmZ"/>
                         <outlet property="sidField" destination="xex-Xx-Pou" id="FG6-Es-Ido"/>
                         <outlet property="titleField" destination="RBw-Hi-6eJ" id="KtO-X3-TAB"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FXU-XQ-VNk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="x4t-dM-4mc" customClass="tbPickerView" customModule="teddybear" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="200"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P94-Kr-XJL">
+                            <rect key="frame" x="0.0" y="0.0" width="240" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="2eE-lb-w7w"/>
+                            </constraints>
+                            <items>
+                                <barButtonItem title="取消" id="1g1-7e-yK0">
+                                    <connections>
+                                        <action selector="onCancelAction" destination="x4t-dM-4mc" id="hbE-eN-OEJ"/>
+                                    </connections>
+                                </barButtonItem>
+                                <barButtonItem style="plain" systemItem="flexibleSpace" id="L5h-fe-CeH"/>
+                                <barButtonItem title="確定" id="VIN-1F-Zxm">
+                                    <connections>
+                                        <action selector="onDoneAction" destination="x4t-dM-4mc" id="flm-bB-XoU"/>
+                                    </connections>
+                                </barButtonItem>
+                            </items>
+                            <color key="tintColor" name="SPGreen"/>
+                        </toolbar>
+                        <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Yi-iT-HIi">
+                            <rect key="frame" x="0.0" y="44" width="240" height="156"/>
+                            <connections>
+                                <outlet property="dataSource" destination="x4t-dM-4mc" id="xvc-Th-E6W"/>
+                                <outlet property="delegate" destination="x4t-dM-4mc" id="BsF-yR-qsN"/>
+                            </connections>
+                        </pickerView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="0Yi-iT-HIi" secondAttribute="bottom" id="47j-MT-nca"/>
+                        <constraint firstItem="P94-Kr-XJL" firstAttribute="trailing" secondItem="7zW-P3-sHb" secondAttribute="trailing" id="Ilp-JR-RQn"/>
+                        <constraint firstAttribute="trailing" secondItem="0Yi-iT-HIi" secondAttribute="trailing" id="T2Y-Nr-n2n"/>
+                        <constraint firstItem="0Yi-iT-HIi" firstAttribute="top" secondItem="P94-Kr-XJL" secondAttribute="bottom" id="UaM-7y-YY1"/>
+                        <constraint firstItem="P94-Kr-XJL" firstAttribute="leading" secondItem="7zW-P3-sHb" secondAttribute="leading" id="VhT-CW-Gxc"/>
+                        <constraint firstItem="0Yi-iT-HIi" firstAttribute="leading" secondItem="x4t-dM-4mc" secondAttribute="leading" id="c7V-dJ-Qwm"/>
+                        <constraint firstItem="P94-Kr-XJL" firstAttribute="top" secondItem="7zW-P3-sHb" secondAttribute="top" id="uqH-zE-cPE"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="7zW-P3-sHb"/>
+                    <connections>
+                        <outlet property="pickerView" destination="0Yi-iT-HIi" id="yPf-Qd-oao"/>
+                    </connections>
+                </view>
                 <view contentMode="scaleToFill" id="4qC-mD-72s" customClass="DatePickerView" customModule="teddybear" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="240" height="200"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -976,7 +1024,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Dept. Title" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Euq-qr-uuu">
-                                                    <rect key="frame" x="295.5" y="13.5" width="71.5" height="17"/>
+                                                    <rect key="frame" x="94" y="13.5" width="273" height="17"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -987,7 +1035,7 @@
                                                 </textField>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Euq-qr-uuu" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ErC-9s-DjG" secondAttribute="trailing" constant="8" id="3KH-c4-1pz"/>
+                                                <constraint firstItem="Euq-qr-uuu" firstAttribute="leading" secondItem="ErC-9s-DjG" secondAttribute="trailing" constant="8" id="3KH-c4-1pz"/>
                                                 <constraint firstAttribute="trailing" secondItem="Euq-qr-uuu" secondAttribute="trailing" constant="8" id="8bW-mC-FNt"/>
                                                 <constraint firstItem="ErC-9s-DjG" firstAttribute="leading" secondItem="fzK-q9-Pt0" secondAttribute="leadingMargin" id="dkG-zQ-H65"/>
                                                 <constraint firstItem="Euq-qr-uuu" firstAttribute="centerY" secondItem="fzK-q9-Pt0" secondAttribute="centerY" id="hR7-F1-ESt"/>
@@ -1009,7 +1057,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Supervisor" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lWM-qD-udF">
-                                                    <rect key="frame" x="293" y="13.5" width="73.5" height="17"/>
+                                                    <rect key="frame" x="94" y="13.5" width="272.5" height="17"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -1020,7 +1068,7 @@
                                                 </textField>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="lWM-qD-udF" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="1Wx-mW-1H4" secondAttribute="trailing" constant="8" id="1Yc-l9-pee"/>
+                                                <constraint firstItem="lWM-qD-udF" firstAttribute="leading" secondItem="1Wx-mW-1H4" secondAttribute="trailing" constant="8" id="1Yc-l9-pee"/>
                                                 <constraint firstItem="1Wx-mW-1H4" firstAttribute="centerY" secondItem="Ehu-zi-2OD" secondAttribute="centerY" id="eai-1Y-pfk"/>
                                                 <constraint firstItem="1Wx-mW-1H4" firstAttribute="leading" secondItem="Ehu-zi-2OD" secondAttribute="leadingMargin" id="qic-o9-15z"/>
                                                 <constraint firstAttribute="trailing" secondItem="lWM-qD-udF" secondAttribute="trailing" constant="8" id="xRT-Fs-yIC"/>
@@ -1042,7 +1090,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="3~4個英文字母" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YYC-1s-wYW">
-                                                    <rect key="frame" x="264.5" y="13.5" width="102" height="17"/>
+                                                    <rect key="frame" x="94" y="13.5" width="272.5" height="17"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -1053,7 +1101,7 @@
                                                 </textField>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="YYC-1s-wYW" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="9Jr-2A-8Ol" secondAttribute="trailing" constant="8" id="0v1-qe-79k"/>
+                                                <constraint firstItem="YYC-1s-wYW" firstAttribute="leading" secondItem="9Jr-2A-8Ol" secondAttribute="trailing" constant="8" id="0v1-qe-79k"/>
                                                 <constraint firstItem="9Jr-2A-8Ol" firstAttribute="centerY" secondItem="Q38-Of-WIF" secondAttribute="centerY" id="DLR-Vx-NVL"/>
                                                 <constraint firstItem="YYC-1s-wYW" firstAttribute="centerY" secondItem="Q38-Of-WIF" secondAttribute="centerY" id="MDj-FC-ElS"/>
                                                 <constraint firstItem="9Jr-2A-8Ol" firstAttribute="leading" secondItem="Q38-Of-WIF" secondAttribute="leadingMargin" id="dgS-bz-v7K"/>
@@ -1138,6 +1186,9 @@
         </namedColor>
         <namedColor name="SPGray">
             <color red="0.32549019607843138" green="0.32549019607843138" blue="0.32549019607843138" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SPGreen">
+            <color red="0.1137254902" green="0.72549019609999998" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="SPGreen">
             <color red="0.1137254902" green="0.72549019609999998" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
