@@ -18,7 +18,8 @@ class DeptCell: UITableViewCell {
     }
     
     func layoutCell(with dept: Department?) {
-        titleLBl.text = dept?.title
-        supervisorLbl.text = dept?.supervisor
+        guard let dept = dept else { return }
+        titleLBl.text = dept.title
+        supervisorLbl.text = StaffManager.sharedInstance().getManager(byStaffId:dept.supervisor!)?.name
     }
 }

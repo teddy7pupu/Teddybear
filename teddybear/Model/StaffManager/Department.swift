@@ -12,7 +12,6 @@ struct Department: Codable {
     var department_id: String?
     var title: String?
     var supervisor: String?
-    var supervisor_id: String?
     
     init() {
     }

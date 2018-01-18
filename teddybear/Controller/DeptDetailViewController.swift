@@ -25,9 +25,11 @@ class DeptDetailViewController: UITableViewController
         return mFields!
     }
     
+    private weak var manager: StaffManager? = StaffManager.sharedInstance()
     var currentDepartment: Department?
+    
     private func dataSource() -> [String]? {
-        guard let list = StaffManager.sharedInstance().managerList() else { return nil }
+        guard let list = manager?.managerList() else { return nil }
         return list.map({ (staff) -> String in
             return staff.name!
         })
@@ -59,7 +61,7 @@ class DeptDetailViewController: UITableViewController
     func layoutWithDept(_ dept: Department?) {
         guard let dept = dept else { return }
         titleField.text = dept.title
-        supervisorField.text = dept.supervisor
+        supervisorField.text = manager?.getManager(byStaffId:dept.supervisor!)?.name
         keyField.text = dept.department_id
         keyField.isEnabled = false
         sendBtn.setTitle("確定修改", for: .normal)
@@ -71,11 +73,11 @@ class DeptDetailViewController: UITableViewController
     @IBAction func onUpdateDept() {
         var _dept = Department()
         _dept.title = titleField.text
-        _dept.supervisor = supervisorField.text
+        _dept.supervisor = manager?.getManager(byStaffName:supervisorField.text!)?.uid
         _dept.department_id = keyField.text
         
         tbHUD.show()
-        StaffManager.sharedInstance().updateDepartment(_dept) { (department, error) in
+        manager?.updateDepartment(_dept) { (department, error) in
             tbHUD.dismiss()
             if let error = error {
                 NSLog("%@", error.localizedDescription)
@@ -86,7 +88,7 @@ class DeptDetailViewController: UITableViewController
         }
     }
     
-    // MARK: UITextFieldDelegate
+    //MARK: UITextFieldDelegate
     @IBAction func textFieldDidChanged(field: UITextField) {
         sendBtn.isEnabled = fieldsValidation()
         sendBtn.backgroundColor = sendBtn.isEnabled ? UIColor(named:"SPGreen") : UIColor(named:"SPLight")
@@ -113,7 +115,7 @@ class DeptDetailViewController: UITableViewController
         return true
     }
     
-    // MARK: UITableViewDelegate
+    //MARK: UITableViewDelegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let field = fields()[indexPath.row]

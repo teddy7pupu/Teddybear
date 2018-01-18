@@ -108,15 +108,6 @@ class StaffManager: NSObject {
         })
     }
     
-    // MARK: Getter
-    private func staffRef() -> DatabaseReference? {
-        return self.dbRef?.child(tbDefines.kStaff)
-    }
-    
-    private func deptRef() -> DatabaseReference? {
-        return self.dbRef?.child(tbDefines.kDepartment)
-    }
-    
     func staffList() -> [Staff]? {
         return mStaffList
     }
@@ -130,5 +121,30 @@ class StaffManager: NSObject {
     
     func departmentList() -> [Department]? {
         return mDeptList
+    }
+    
+    func getManager(byStaffId staffId: String) -> Staff? {
+        guard let managers = StaffManager.sharedInstance().managerList() else { return nil }
+        let result = managers.filter({ (staff) -> Bool in
+            staff.uid == staffId
+        })
+        return result.first
+    }
+    
+    func getManager(byStaffName name: String) -> Staff? {
+        guard let managers = StaffManager.sharedInstance().managerList() else { return nil }
+        let result = managers.filter({ (staff) -> Bool in
+            staff.name == name
+        })
+        return result.first
+    }
+    
+    // MARK: Private Getter
+    private func staffRef() -> DatabaseReference? {
+        return self.dbRef?.child(tbDefines.kStaff)
+    }
+    
+    private func deptRef() -> DatabaseReference? {
+        return self.dbRef?.child(tbDefines.kDepartment)
     }
 }
