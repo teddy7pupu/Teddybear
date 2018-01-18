@@ -12,8 +12,14 @@ import Firebase
 
 class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
 
+    @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var pwdField: UITextField!
+    @IBOutlet weak var loginBtn: UIButton!
+    @IBOutlet weak var googleBtn: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setupLayout()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -25,6 +31,32 @@ class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDeleg
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+
+    //MARK: Layout & Animation
+    func setupLayout() {
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(LoginViewController.keyboardDismiss(gesture:)))
+        gesture.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(gesture)
+        
+        
+        
+    }
+    
+    //MARK: Action
+    @IBAction func onEmailSignIn () {
+        guard let email = emailField.text, let pwd = pwdField.text else {
+            self.showAlert(message: "請輸入正確登入資訊")
+            return
+        }
+        tbHUD.show()
+        UserManager.sharedInstance().signIn(email: email, password: pwd) { (user, error) in
+            if let error = error {
+                self.showAlert(message: error.localizedDescription)
+                return
+            }
+            self.openLobby(staff: nil)
+        }
     }
     
     @IBAction func onGoogleSignIn () {
@@ -38,7 +70,6 @@ class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDeleg
         signIn?.signIn()
     }
     
-    //MARK: Action
     func getUserProfile(email: String!) {
         //Get staff information of user
         StaffManager.sharedInstance().queryStaff(email, completion: { (staff, error) in
@@ -78,6 +109,10 @@ class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDeleg
         self.performSegue(withIdentifier: tbDefines.kSegueLobby, sender: staff)
     }
     
+    @objc func keyboardDismiss(gesture: UITapGestureRecognizer) {
+        self.view.endEditing(true)
+    }
+    
     //MARK: GIDSignInDelegate
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         if let error = error {
@@ -100,3 +135,21 @@ class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDeleg
     }
 }
 
+extension UITextField {
+    override open func awakeFromNib() {
+        super.awakeFromNib()
+        self.layer.cornerRadius = 5
+        self.leftViewMode = .always
+        self.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
+        self.attributedPlaceholder = NSAttributedString(string:self.placeholder!, attributes: [NSAttributedStringKey.foregroundColor: UIColor.lightText])
+    }
+}
+
+extension UIButton {
+    override open func awakeFromNib() {
+        super.awakeFromNib()
+        self.layer.borderColor = UIColor(named: "SPGreen")?.cgColor
+        self.layer.borderWidth = 1
+        self.layer.cornerRadius = 5
+    }
+}

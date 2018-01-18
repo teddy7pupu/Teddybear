@@ -47,14 +47,13 @@ class UserManager: NSObject {
         //這時候已經GoogleSignIn成功，取得google的accessToken，接著要拿這個token去換Firebase的AuthToken
         let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
         
-        //Firebase Auth signIn
-        mAuth?.signIn(with: credential) { (user: User!, error: Error!) in
-            if let error = error {
-                completion(nil, error)
-                return
-            }
-            completion(user, nil)
-        }
+        //Firebase Auth signIn with credential
+        mAuth?.signIn(with: credential, completion: completion)
+    }
+    
+    func signIn(email: String, password: String, completion:@escaping (User?, Error?) -> Void) {
+        //Firebase Auth signIn with Email/Password
+        mAuth?.signIn(withEmail: email, password: password, completion: completion)
     }
     
     func signOut() {
