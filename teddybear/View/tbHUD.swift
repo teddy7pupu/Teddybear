@@ -48,6 +48,7 @@ class tbHUD {
             hud.hudView?.alpha = 0
         }) { (finish) in
             hud.hudView?.removeFromSuperview()
+            hud.hudView = nil
         }
     }
     
