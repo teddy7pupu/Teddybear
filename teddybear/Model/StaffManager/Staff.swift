@@ -36,6 +36,22 @@ struct UserRole: OptionSet, Codable {
             self = .employee
         }
     }
+    
+    func functionList() -> Int {
+        var count: Int
+        switch self {
+        case UserRole.admin:
+            count = 4
+            break
+        case UserRole.account:
+            count = 4
+        case UserRole.manager:
+            count = 3
+        default:
+            count = 2
+        }
+        return count
+    }
 }
 
 struct Staff: Codable {

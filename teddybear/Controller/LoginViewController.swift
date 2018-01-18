@@ -12,19 +12,62 @@ import Firebase
 
 class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
 
+    @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var pwdField: UITextField!
+    @IBOutlet weak var loginBtn: UIButton!
+    @IBOutlet weak var googleBtn: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setupLayout()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if UserManager.currentUser() != nil {
-            openLobby(staff: nil)
+        if let user = UserManager.currentUser() {
+            tbHUD.show()
+            getUserProfile(email: user.email)
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard case let staff as Staff? = sender else { return }
+        let nav = segue.destination as! UINavigationController
+        let lobby = nav.topViewController as! LobbyViewController
+        lobby.currentStaff = staff
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+
+    //MARK: Layout & Animation
+    func setupLayout() {
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(LoginViewController.keyboardDismiss(gesture:)))
+        gesture.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(gesture)
+        
+        emailField.tbSetup()
+        pwdField.tbSetup()
+        loginBtn.tbSetup()
+        googleBtn.tbSetup()
+        
+    }
+    
+    //MARK: Action
+    @IBAction func onEmailSignIn () {
+        guard let email = emailField.text, let pwd = pwdField.text else {
+            self.showAlert(message: "請輸入正確登入資訊")
+            return
+        }
+        tbHUD.show()
+        UserManager.sharedInstance().signIn(email: email, password: pwd) { (user, error) in
+            if let error = error {
+                self.showAlert(message: error.localizedDescription)
+                return
+            }
+            self.openLobby(staff: nil)
+        }
     }
     
     @IBAction func onGoogleSignIn () {
@@ -38,14 +81,14 @@ class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDeleg
         signIn?.signIn()
     }
     
-    //MARK: Action
     func getUserProfile(email: String!) {
         //Get staff information of user
         StaffManager.sharedInstance().queryStaff(email, completion: { (staff, error) in
             
             if let error = error {
                 NSLog("%@", error.localizedDescription)
-                self.showAlert(message: "無此員工資料")
+                //Super Admin
+                self.openLobby(staff: nil)
                 return
             }
             
@@ -53,7 +96,7 @@ class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDeleg
                 self.updateStaff(staff)
                 return
             }
-            self.openLobby(staff: nil)
+            self.openLobby(staff: staff)
         })
     }
     
@@ -78,6 +121,10 @@ class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDeleg
         self.performSegue(withIdentifier: tbDefines.kSegueLobby, sender: staff)
     }
     
+    @objc func keyboardDismiss(gesture: UITapGestureRecognizer) {
+        self.view.endEditing(true)
+    }
+    
     //MARK: GIDSignInDelegate
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         if let error = error {
@@ -100,3 +147,20 @@ class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDeleg
     }
 }
 
+internal extension UITextField {
+    func tbSetup() {
+        self.layer.cornerRadius = 5
+        self.leftViewMode = .always
+        self.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
+        self.attributedPlaceholder = NSAttributedString(string:self.placeholder!, attributes: [NSAttributedStringKey.foregroundColor: UIColor.lightText])
+    }
+}
+
+internal extension UIButton {
+    func tbSetup() {
+        super.awakeFromNib()
+        self.layer.borderColor = UIColor(named: "SPGreen")?.cgColor
+        self.layer.borderWidth = 1
+        self.layer.cornerRadius = 5
+    }
+}
