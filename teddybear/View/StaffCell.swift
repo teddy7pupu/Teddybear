@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class StaffCell: UITableViewCell {
 
@@ -18,9 +19,13 @@ class StaffCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         avatarImg.layer.cornerRadius = 0.5 * avatarImg.frame.height
+        avatarImg.clipsToBounds = true
     }
     
     func layoutCell(with staff:Staff?) {
+        if let avatar = staff?.avatar {
+            avatarImg.sd_setImage(with: URL(string: avatar), completed: nil)
+        }
         nameLbl.text = staff?.name
         englishLbl.text = staff?.english
         mailLbl.text = staff?.email

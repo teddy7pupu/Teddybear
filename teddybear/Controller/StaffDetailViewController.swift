@@ -50,8 +50,9 @@ class StaffDetailViewController: UITableViewController
         self.title = (currentStaff == nil ? "新增員工" : currentStaff?.name)
         
         setupLayout()
-        layoutWithStaff(currentStaff)
-        getDepartments()
+        getDepartments { (error) in
+            self.layoutWithStaff(self.currentStaff)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -119,16 +120,18 @@ class StaffDetailViewController: UITableViewController
         }
     }
     
-    func getDepartments() {
+    func getDepartments(completion:@escaping (Error?) -> Void) {
         if deptList == nil {
             manager?.getDepartmentList(completion: { (list, error) in
                 if let error = error {
-                    NSLog("%@", error.localizedDescription)
-                    self.showAlert(message: "部門清單取得失敗")
+                    completion(error)
                     return
                 }
                 self.deptList = list
+                completion(nil)
             })
+        } else {
+            completion(nil)
         }
     }
     
