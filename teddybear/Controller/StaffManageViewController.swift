@@ -64,4 +64,31 @@ class StaffManageViewController: UIViewController
         let staff = list?[indexPath.row]
         self.performSegue(withIdentifier: tbDefines.kSegueDetail, sender: staff)
     }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        guard let staff = list?[indexPath.row] else { return false }
+        return !(staff.mobile?.isEmpty)!
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let staff = list?[indexPath.row]
+        let quitAction = UITableViewRowAction(style: .destructive, title: "離職") { (action, indexPath) in
+            //
+        }
+        if (staff?.mobile?.isEmpty)! {
+            return [quitAction]
+        }
+        
+        let dialAction = UITableViewRowAction(style: .normal, title: "通話") { (action, indexPath) in
+            if let url = URL(string: "tel://" + (staff?.mobile)!), UIApplication.shared.canOpenURL(url) {
+                if #available(iOS 10, *) {
+                    UIApplication.shared.open(url)
+                } else {
+                    UIApplication.shared.openURL(url)
+                }
+            }
+        }
+        dialAction.backgroundColor = UIColor(named:"SPGreen")
+        return [quitAction, dialAction]
+    }
 }
