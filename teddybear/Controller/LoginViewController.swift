@@ -22,6 +22,11 @@ class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDeleg
         self.setupLayout()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        emailField.text = nil
+        pwdField.text = nil
+    }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if let user = UserManager.currentUser() {
@@ -51,7 +56,6 @@ class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDeleg
         pwdField.tbSetup()
         loginBtn.tbSetup()
         googleBtn.tbSetup()
-        
     }
     
     //MARK: Action
