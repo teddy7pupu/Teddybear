@@ -199,7 +199,7 @@ class StaffDetailViewController: UITableViewController
     // MARK: UITableViewDelegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView .deselectRow(at: indexPath, animated: true)
-        if indexPath.row < 7 { //row[7,8] are UserRole switch
+        if indexPath.row < 6 { //row[7,8] are UserRole switch
             let field = fields()[indexPath.section][indexPath.row]
             field.becomeFirstResponder()
         }
