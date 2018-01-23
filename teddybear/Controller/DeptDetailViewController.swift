@@ -71,6 +71,11 @@ class DeptDetailViewController: UITableViewController
     
     //MARK: Action
     @IBAction func onUpdateDept() {
+        
+        if (titleField.isStringCountValid(text: titleField.text!) &&
+            supervisorField.isStringCountValid(text: supervisorField.text!) &&
+            keyField.isKeyValid(text:keyField.text!)){
+        
         var _dept = Department()
         _dept.title = titleField.text
         _dept.supervisor = manager?.getManager(byStaffName:supervisorField.text!)?.sid
@@ -85,6 +90,10 @@ class DeptDetailViewController: UITableViewController
                 return
             }
             self.navigationController?.popViewController(animated: true)
+        }
+    
+        }else{
+            self.showAlert(message: "請輸入正確資料")
         }
     }
     

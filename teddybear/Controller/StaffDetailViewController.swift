@@ -59,6 +59,9 @@ class StaffDetailViewController: UITableViewController
         super.didReceiveMemoryWarning()
     }
     
+
+    
+    
     //MARK: Layout & Animation
     func setupLayout() {
         let gesture = UITapGestureRecognizer(target: self, action: #selector(StaffDetailViewController.keyboardDismiss(gesture:)))
@@ -86,37 +89,57 @@ class StaffDetailViewController: UITableViewController
         sendBtn.setTitle("確定修改", for: .normal)
         
         self.textFieldDidChanged(field: titleField) //forced validation
+        
     }
+    
+    
     
     //MARK: Action
     @IBAction func onUpdateStaff() {
-        var _staff = Staff()
-        _staff.name = nameField.text
-        _staff.english = englishField.text
-        _staff.email = mailField.text
-        _staff.mobile = phoneField.text
-        let birthday = Date(fromString: birthdayField.text!, format: .isoDate)!
-        _staff.birthday = Int(birthday.timeIntervalSince1970)
-        let onBoardDate = Date(fromString: onboardField.text!, format: .isoDate)!
-        _staff.onBoardDate = Int(onBoardDate.timeIntervalSince1970)
-        _staff.department = manager?.getDepartment(byName:deptField.text!)?.department_id
-        _staff.title = titleField.text
-        if let number = Int(sidField.text!) {
-            _staff.sid = String.init(format: "M%03ld", number)
-        } else {
-            _staff.sid = sidField.text!
-        }
-        _staff.role?.setRole(manageSwitch.isOn, accountSwitch.isOn)
         
-        tbHUD.show()
-        manager?.updateStaff(_staff) { (staff, error) in
-            tbHUD.dismiss()
-            if let error = error {
-                NSLog("%@", error.localizedDescription)
-                self.showAlert(message: "資料更新失敗")
-                return
+        
+        if (nameField.isStringCountValid(text: nameField.text!) &&
+            englishField.isStringCountValid(text: englishField.text!) &&
+            mailField.isEmailValid(text: mailField.text!) &&
+            phoneField.isPhoneValid(text: phoneField.text!) &&
+            birthdayField.isDateValid(text: birthdayField.text!) &&
+            onboardField.isDateValid(text: onboardField.text!) &&
+            titleField.isStringCountValid(text: titleField.text!) &&
+            sidField.isSidValid(text: sidField.text!)){
+            
+            var _staff = Staff()
+            _staff.name = nameField.text
+            _staff.english = englishField.text
+            _staff.email = mailField.text
+            _staff.mobile = phoneField.text
+            let birthday = Date(fromString: birthdayField.text!, format: .isoDate)!
+            _staff.birthday = Int(birthday.timeIntervalSince1970)
+            let onBoardDate = Date(fromString: onboardField.text!, format: .isoDate)!
+            _staff.onBoardDate = Int(onBoardDate.timeIntervalSince1970)
+            _staff.department = manager?.getDepartment(byName:deptField.text!)?.department_id
+            _staff.title = titleField.text
+            if let number = Int(sidField.text!) {
+                _staff.sid = String.init(format: "M%03ld", number)
+            } else {
+                _staff.sid = sidField.text!
             }
-            self.navigationController?.popViewController(animated: true)
+            _staff.role?.setRole(manageSwitch.isOn, accountSwitch.isOn)
+            
+            
+            tbHUD.show()
+            manager?.updateStaff(_staff) { (staff, error) in
+                tbHUD.dismiss()
+                if let error = error {
+                    NSLog("%@", error.localizedDescription)
+                    self.showAlert(message: "資料更新失敗")
+                    return
+                }
+                self.navigationController?.popViewController(animated: true)
+            }
+            
+            
+        }else{
+                self.showAlert(message: "請輸入正確資料")
         }
     }
     
@@ -160,6 +183,8 @@ class StaffDetailViewController: UITableViewController
     @objc func keyboardDismiss(gesture: UITapGestureRecognizer) {
         self.view.endEditing(true)
     }
+    
+
     
     //MARK: Data
     func fieldsValidation() -> Bool {
