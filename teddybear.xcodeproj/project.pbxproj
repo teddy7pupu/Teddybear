@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		15A219862017183500B2AE20 /* UITextFieldHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A219852017183500B2AE20 /* UITextFieldHelper.swift */; };
 		576AA304058EF70E8187654B /* Pods_teddybear.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE34B84A6FAB7255B2C35CAA /* Pods_teddybear.framework */; };
 		8D139E012003EAFB00F73760 /* tbDefines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D139E002003EAFB00F73760 /* tbDefines.swift */; };
 		8D981061200FC61600072804 /* DeptDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D981060200FC61600072804 /* DeptDetailViewController.swift */; };
@@ -47,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		15A219852017183500B2AE20 /* UITextFieldHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldHelper.swift; sourceTree = "<group>"; };
 		20F00CF83DA19EA30D2FC01A /* Pods-teddybearTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teddybearTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-teddybearTests/Pods-teddybearTests.release.xcconfig"; sourceTree = "<group>"; };
 		41A88EDAF7AACDF119CF59C8 /* Pods-teddybearTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teddybearTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-teddybearTests/Pods-teddybearTests.debug.xcconfig"; sourceTree = "<group>"; };
 		708D75B9E55DB60CEE06682B /* Pods_teddybearTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_teddybearTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -220,6 +222,7 @@
 				8DC3F2FF200E62E400BF2862 /* AlertHelper.swift */,
 				8DC3F2F7200DDFFE00BF2862 /* DateHelper.swift */,
 				8DC3F303200F371A00BF2862 /* ViewControllerHelper.swift */,
+				15A219852017183500B2AE20 /* UITextFieldHelper.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -351,7 +354,7 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -472,6 +475,7 @@
 				8D139E012003EAFB00F73760 /* tbDefines.swift in Sources */,
 				8DC3F2EE200D262400BF2862 /* StaffDetailViewController.swift in Sources */,
 				8D981061200FC61600072804 /* DeptDetailViewController.swift in Sources */,
+				15A219862017183500B2AE20 /* UITextFieldHelper.swift in Sources */,
 				8DC3F2EB200D125500BF2862 /* StaffManager.swift in Sources */,
 				8DB293861FFF1BF3007C39F8 /* LoginViewController.swift in Sources */,
 				8DB293AE1FFF35AC007C39F8 /* UserManager.swift in Sources */,
