@@ -59,9 +59,6 @@ class StaffDetailViewController: UITableViewController
         super.didReceiveMemoryWarning()
     }
     
-
-    
-    
     //MARK: Layout & Animation
     func setupLayout() {
         let gesture = UITapGestureRecognizer(target: self, action: #selector(StaffDetailViewController.keyboardDismiss(gesture:)))
@@ -91,13 +88,10 @@ class StaffDetailViewController: UITableViewController
         self.textFieldDidChanged(field: titleField) //forced validation
         
     }
-    
-    
-    
+
     //MARK: Action
     @IBAction func onUpdateStaff() {
-        
-        
+    
         if (nameField.isStringCountValid(text: nameField.text!) &&
             englishField.isStringCountValid(text: englishField.text!) &&
             mailField.isEmailValid(text: mailField.text!) &&
@@ -170,6 +164,7 @@ class StaffDetailViewController: UITableViewController
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         if textField == birthdayField || textField == onboardField {
             textField.inputView = datePickerView
+            datePickerView.maximumDate = Date()
             datePickerView.owner = textField
         }
         if textField == deptField {
@@ -183,8 +178,6 @@ class StaffDetailViewController: UITableViewController
     @objc func keyboardDismiss(gesture: UITapGestureRecognizer) {
         self.view.endEditing(true)
     }
-    
-
     
     //MARK: Data
     func fieldsValidation() -> Bool {

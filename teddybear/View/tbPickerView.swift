@@ -13,7 +13,11 @@ class tbPickerView: UIView
     
     @IBOutlet weak var pickerView: UIPickerView!
     weak var owner: UITextField?
-    var dataSource: [String]?
+    var dataSource: [String]? {
+        didSet {
+            pickerView.reloadAllComponents()
+        }
+    }
     
     //MARK: Layout
     override func awakeFromNib() {

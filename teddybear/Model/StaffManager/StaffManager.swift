@@ -122,8 +122,24 @@ class StaffManager: NSObject {
         }
     }
     
+    func coworkerList() -> [Staff]? {
+        guard let staffs = staffList() else { return nil }
+        return staffs.filter({ (staff) -> Bool in
+            (staff.sid != currentStaff?.uid) &&
+                (staff.department == currentStaff?.department)
+        })
+    }
+    
     func departmentList() -> [Department]? {
         return mDeptList
+    }
+    
+    func getStaff(byName name: String) -> Staff? {
+        guard let staffs = self.staffList() else { return nil }
+        let result = staffs.filter({ (staff) -> Bool in
+            staff.name == name
+        })
+        return result.first
     }
     
     func getManager(byStaffId staffId: String) -> Staff? {

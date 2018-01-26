@@ -26,9 +26,9 @@ class LeaveCell: UITableViewCell {
         let endDate = Date(timeIntervalSince1970: TimeInterval((leave?.endTime)!))
         monthLbl.text = beginDate.toString(style: .shortMonth)
         dayLbl.text = String(format:"%02d", beginDate.component(.day)!)
-        typeLbl.text = "特休假"//mock
+        typeLbl.text = leave?.type
         let duration = Date.leaveHour(beginDate, (leave?.startPeriod)!, endDate, (leave?.endPeriod)!)
-        durationLbl.text = String(format:"%.1f天", Double(duration)/8)
+        durationLbl.text = duration > 8 ? String(format:"%.1f天", Double(duration)/8) : "\(duration)小時"
         statusLbl.text = "等待代理人簽核"//mock
     }
 }

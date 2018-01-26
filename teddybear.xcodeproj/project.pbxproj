@@ -16,6 +16,7 @@
 		8D753C97201B934B002FB369 /* LeaveCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D753C96201B934B002FB369 /* LeaveCell.swift */; };
 		8D90E7BC201BA7780097636E /* Staff.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D90E7BA201BA7780097636E /* Staff.storyboard */; };
 		8D90E7BF201BA80F0097636E /* Leave.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D90E7BD201BA80F0097636E /* Leave.storyboard */; };
+		8D90E7C1201BB9900097636E /* LeaveDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D90E7C0201BB9900097636E /* LeaveDetailViewController.swift */; };
 		8D981061200FC61600072804 /* DeptDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D981060200FC61600072804 /* DeptDetailViewController.swift */; };
 		8D981063200FCAF600072804 /* Department.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D981062200FCAF600072804 /* Department.swift */; };
 		8D981065200FD1F900072804 /* tbPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D981064200FD1F900072804 /* tbPickerView.swift */; };
@@ -65,6 +66,7 @@
 		8D753C96201B934B002FB369 /* LeaveCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaveCell.swift; sourceTree = "<group>"; };
 		8D90E7BB201BA7780097636E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Staff.storyboard; sourceTree = "<group>"; };
 		8D90E7BE201BA80F0097636E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Leave.storyboard; sourceTree = "<group>"; };
+		8D90E7C0201BB9900097636E /* LeaveDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaveDetailViewController.swift; sourceTree = "<group>"; };
 		8D981060200FC61600072804 /* DeptDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeptDetailViewController.swift; sourceTree = "<group>"; };
 		8D981062200FCAF600072804 /* Department.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Department.swift; sourceTree = "<group>"; };
 		8D981064200FD1F900072804 /* tbPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tbPickerView.swift; sourceTree = "<group>"; };
@@ -201,13 +203,14 @@
 		8DB293A41FFF1D39007C39F8 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				8DB293851FFF1BF3007C39F8 /* LoginViewController.swift */,
-				8DB293AA1FFF30CA007C39F8 /* LobbyViewController.swift */,
-				8DC3F2E6200CC05200BF2862 /* StaffManageViewController.swift */,
-				8DC3F2ED200D262400BF2862 /* StaffDetailViewController.swift */,
-				8DC3F305200F43A700BF2862 /* DeptManageViewController.swift */,
 				8D981060200FC61600072804 /* DeptDetailViewController.swift */,
+				8DC3F305200F43A700BF2862 /* DeptManageViewController.swift */,
+				8D90E7C0201BB9900097636E /* LeaveDetailViewController.swift */,
 				8D753C94201B87B8002FB369 /* LeaveManageViewController.swift */,
+				8DB293AA1FFF30CA007C39F8 /* LobbyViewController.swift */,
+				8DB293851FFF1BF3007C39F8 /* LoginViewController.swift */,
+				8DC3F2ED200D262400BF2862 /* StaffDetailViewController.swift */,
+				8DC3F2E6200CC05200BF2862 /* StaffManageViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -499,6 +502,7 @@
 				8DC3F304200F371A00BF2862 /* ViewControllerHelper.swift in Sources */,
 				8DC3F2E9200CC18400BF2862 /* Staff.swift in Sources */,
 				8D753C97201B934B002FB369 /* LeaveCell.swift in Sources */,
+				8D90E7C1201BB9900097636E /* LeaveDetailViewController.swift in Sources */,
 				8DC3F2F0200DC2BD00BF2862 /* DatePickerView.swift in Sources */,
 				8DC3F306200F43A700BF2862 /* DeptManageViewController.swift in Sources */,
 				8D139E012003EAFB00F73760 /* tbDefines.swift in Sources */,

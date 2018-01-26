@@ -31,8 +31,7 @@ class LeaveManageViewController: UIViewController
     //MARK: Action
     func getMyLeaves() {
         tbHUD.show()
-        let sid = "M013"
-        //if let sid = currentStaff?.sid {
+        if let sid = currentStaff?.sid {
             LeaveManager.sharedInstance().getLeaveList(sid, completion: { (list, error) in
                 tbHUD.dismiss()
                 if let error = error {
@@ -42,7 +41,7 @@ class LeaveManageViewController: UIViewController
                 self.leaveList = list
                 self.mainTable.performSelector(onMainThread: #selector(UITableView.reloadData), with: nil, waitUntilDone: false)
             })
-//        }
+        }
     }
     
     //MARK: UITableViewDataSource

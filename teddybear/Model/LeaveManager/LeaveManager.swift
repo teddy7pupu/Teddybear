@@ -61,7 +61,7 @@ class LeaveManager: NSObject{
                 }
                 list.append(leave)
             }
-            self.mLeaveList = list
+            self.mLeaveList = list.sorted(by: { TimeInterval($0.applyTime!) < TimeInterval($1.applyTime!) })
             completion(list, nil)
         })
     }

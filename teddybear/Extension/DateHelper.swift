@@ -531,7 +531,7 @@ public extension Date {
     internal static let weekInSeconds:Double = 604800
     internal static let yearInSeconds:Double = 31556926
     
-    static func leaveHour(_ startTime: Date, _ startPeriod: Int, _ endTime: Date, _ endPeriod: Int) -> Int{
+    static func leaveHour(_ startTime: Date, _ startPeriod: Int, _ endTime: Date, _ endPeriod: Int) -> Int {
         
         var differentDateComponent = DateComponents()
         differentDateComponent = Calendar.current.dateComponents([.day], from: startTime, to: endTime)
