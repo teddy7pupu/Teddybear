@@ -17,6 +17,7 @@ class tbDefines: NSObject {
     // MARK: Key
     static let kStaff = "Staff"
     static let kDepartment = "Department"
+    static let kLeave = "Leave"
     
     // MARK: Segue
     static let kSegueLobby = "SegueLobby"
