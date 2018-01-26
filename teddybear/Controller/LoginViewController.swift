@@ -34,13 +34,6 @@ class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDeleg
             getUserProfile(email: user.email)
         }
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard case let staff as Staff? = sender else { return }
-        let nav = segue.destination as! UINavigationController
-        let lobby = nav.topViewController as! LobbyViewController
-        lobby.currentStaff = staff
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -70,7 +63,7 @@ class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDeleg
                 self.showAlert(message: error.localizedDescription)
                 return
             }
-            self.openLobby(staff: nil)
+            self.openLobby()
         }
     }
     
@@ -92,7 +85,7 @@ class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDeleg
             if let error = error {
                 NSLog("%@", error.localizedDescription)
                 //Super Admin
-                self.openLobby(staff: nil)
+                self.openLobby()
                 return
             }
             
@@ -100,7 +93,9 @@ class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDeleg
                 self.updateStaff(staff)
                 return
             }
-            self.openLobby(staff: staff)
+            
+            StaffManager.sharedInstance().currentStaff = staff
+            self.openLobby()
         })
     }
     
@@ -116,13 +111,13 @@ class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDeleg
                 self.showAlert(message: "更新員工資料失敗")
                 return
             }
-            self.openLobby(staff: aStaff)
+            self.openLobby()
         }
     }
     
-    func openLobby(staff: Staff?) {
+    func openLobby() {
         tbHUD.dismiss()
-        self.performSegue(withIdentifier: tbDefines.kSegueLobby, sender: staff)
+        self.performSegue(withIdentifier: tbDefines.kSegueLobby, sender: nil)
     }
     
     @objc func keyboardDismiss(gesture: UITapGestureRecognizer) {

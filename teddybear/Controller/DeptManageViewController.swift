@@ -22,16 +22,7 @@ class DeptManageViewController: UIViewController
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tbHUD.show()
-        StaffManager.sharedInstance().getDepartmentList { (list, error) in
-            tbHUD.dismiss()
-            if let error = error {
-                NSLog(error.localizedDescription)
-                return
-            }
-            self.list = list
-            self.mainTable.reloadData()
-        }
+        getDeptList()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -45,6 +36,20 @@ class DeptManageViewController: UIViewController
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    //MARK: Action
+    func getDeptList() {
+        tbHUD.show()
+        StaffManager.sharedInstance().getDepartmentList { (list, error) in
+            tbHUD.dismiss()
+            if let error = error {
+                NSLog(error.localizedDescription)
+                return
+            }
+            self.list = list
+            self.mainTable.performSelector(onMainThread: #selector(UITableView.reloadData), with: nil, waitUntilDone: false)
+        }
     }
     
     //MARK: UITableViewDataSource

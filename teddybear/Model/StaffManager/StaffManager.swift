@@ -17,6 +17,8 @@ class StaffManager: NSObject {
     private var mStaffList: [Staff]?
     private var mDeptList: [Department]?
     
+    var currentStaff: Staff?
+    
     override private init() {
         super.init()
         self.dbRef = Database.database().reference()
