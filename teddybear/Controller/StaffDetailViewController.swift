@@ -183,7 +183,7 @@ class StaffDetailViewController: UITableViewController
     func fieldsValidation() -> Bool {
         for group in fields() {
             for field in group {
-                if 0 == field.text?.count { return false }
+                if (field.text?.isEmpty)! { return false }
             }
         }
         return true

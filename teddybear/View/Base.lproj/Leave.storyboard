@@ -33,7 +33,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="4ha-4M-ZQO" kind="show" id="olj-nT-NqH"/>
+                                    <segue destination="4ha-4M-ZQO" kind="show" identifier="SegueDetail" id="olj-nT-NqH"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ft9-XR-Kj0">
@@ -186,7 +186,7 @@
                             </constraints>
                         </view>
                         <sections>
-                            <tableViewSection headerTitle="   時間資訊" id="HzC-YN-N2z">
+                            <tableViewSection headerTitle="   假單資訊" id="HzC-YN-N2z">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="z44-Vg-5Sv">
                                         <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
@@ -320,12 +320,8 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                            <tableViewSection headerTitle="   假勤資訊" id="eyN-oe-Fxq">
-                                <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="EiD-8v-nUD">
-                                        <rect key="frame" x="0.0" y="287" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="231.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EiD-8v-nUD" id="2HD-PW-aO4">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -358,7 +354,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="hKC-2Y-Ji4">
-                                        <rect key="frame" x="0.0" y="331" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="275.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hKC-2Y-Ji4" id="Cri-Ur-sw1">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -391,7 +387,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="81" id="f2j-hM-fDh">
-                                        <rect key="frame" x="0.0" y="375" width="375" height="81"/>
+                                        <rect key="frame" x="0.0" y="319.5" width="375" height="81"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="f2j-hM-fDh" id="aNW-Mb-VC2">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="80.5"/>
@@ -426,6 +422,9 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="   簽核狀態" id="eyN-oe-Fxq">
+                                <cells/>
                             </tableViewSection>
                         </sections>
                         <connections>
@@ -549,9 +548,6 @@
         </scene>
     </scenes>
     <resources>
-        <namedColor name="SPGreen">
-            <color red="0.1137254902" green="0.72549019609999998" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="SPGreen">
             <color red="0.1137254902" green="0.72549019609999998" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

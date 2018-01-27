@@ -25,11 +25,9 @@ class StaffManageViewController: UIViewController
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == tbDefines.kSegueDetail {
-            if let staff = sender as? Staff {
-                let detailView = segue.destination as! StaffDetailViewController
-                detailView.currentStaff = staff
-            }
+        if segue.identifier == tbDefines.kSegueDetail, let staff = sender as? Staff {
+            let detailView = segue.destination as! StaffDetailViewController
+            detailView.currentStaff = staff
         }
     }
 

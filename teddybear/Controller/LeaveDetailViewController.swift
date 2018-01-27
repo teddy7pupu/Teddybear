@@ -22,10 +22,10 @@ class LeaveDetailViewController: UITableViewController
     @IBOutlet weak var datePickerView: DatePickerView!
     @IBOutlet weak var pickerView: tbPickerView!
     
-    private var mFields: [[UITextField]]?
-    private func fields() -> [[UITextField]] {
+    private var mFields: [UITextField]?
+    private func fields() -> [UITextField] {
         if mFields == nil {
-            mFields = [[beginTimeField, beginPeriodField, endTimeField, endPeriodField], [typeField, assigneeField, messageField]]
+            mFields = [beginTimeField, beginPeriodField, endTimeField, endPeriodField, typeField, assigneeField, messageField]
         }
         return mFields!
     }
@@ -43,9 +43,13 @@ class LeaveDetailViewController: UITableViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = (currentLeave == nil ? "新增假單" : currentLeave?.type)
         setupLayout()
         getStaffList { (error) in
-            self.layoutWithLeave(self.currentLeave)
+            if let error = error {
+                self.showAlert(message: error.localizedDescription)
+            }
+            self.layoutLeave(leave: self.currentLeave)
         }
     }
 
@@ -60,7 +64,19 @@ class LeaveDetailViewController: UITableViewController
         self.view.addGestureRecognizer(gesture)
     }
     
-    func layoutWithLeave(_ leave: Leave?) {
+    func layoutLeave(leave: Leave?) {
+        guard let leave = leave else { return }
+        
+        beginTimeField.text = Date(timeIntervalSince1970: TimeInterval(leave.startTime!)).toString(format: .isoDate)
+        beginPeriodField.text = tbDefines.kBeginSection[leave.startPeriod!]
+        endTimeField.text = Date(timeIntervalSince1970: TimeInterval(leave.endTime!)).toString(format: .isoDate)
+        endPeriodField.text = tbDefines.kEndSection[leave.endPeriod!]
+        typeField.text = leave.type
+        assigneeField.text = manager?.getStaff(byStaffId: leave.assigneeId!)?.name
+        messageField.text = leave.message
+        sendBtn.setTitle("確定修改", for: .normal)
+        
+        self.textFieldDidChanged(field: messageField)
     }
     
     //MARK: Action
@@ -150,10 +166,8 @@ class LeaveDetailViewController: UITableViewController
     
     //MARK: Data
     func fieldsValidation() -> Bool {
-        for group in fields() {
-            for field in group {
-                if 0 == field.text?.count { return false }
-            }
+        for field in fields() {
+            if (field.text?.isEmpty)! { return false }
         }
         return true
     }
@@ -161,7 +175,9 @@ class LeaveDetailViewController: UITableViewController
     // MARK: UITableViewDelegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView .deselectRow(at: indexPath, animated: true)
-        let field = fields()[indexPath.section][indexPath.row]
-        field.becomeFirstResponder()
+        if indexPath.section == 0 {
+            let field = fields()[indexPath.row]
+            field.becomeFirstResponder()
+        }
     }
 }

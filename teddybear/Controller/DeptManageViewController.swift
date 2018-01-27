@@ -26,11 +26,9 @@ class DeptManageViewController: UIViewController
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == tbDefines.kSegueDetail {
-            if let dept = sender as? Department {
-                let detailView = segue.destination as! DeptDetailViewController
-                detailView.currentDepartment = dept
-            }
+        if segue.identifier == tbDefines.kSegueDetail, let dept = sender as? Department {
+            let detailView = segue.destination as! DeptDetailViewController
+            detailView.currentDepartment = dept
         }
     }
 

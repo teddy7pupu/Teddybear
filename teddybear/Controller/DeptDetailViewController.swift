@@ -119,7 +119,7 @@ class DeptDetailViewController: UITableViewController
     //MARK: Data
     func fieldsValidation() -> Bool {
         for field in fields() {
-            if 0 == field.text?.count { return false }
+            if (field.text?.isEmpty)! { return false }
         }
         return true
     }

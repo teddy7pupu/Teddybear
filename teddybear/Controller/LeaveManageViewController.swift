@@ -12,7 +12,6 @@ class LeaveManageViewController: UIViewController
     
     @IBOutlet weak var mainTable: UITableView!
     private var leaveList: [Leave]?
-    private var staffList: [Staff]? = StaffManager.sharedInstance().staffList()
     private var currentStaff: Staff? = StaffManager.sharedInstance().currentStaff
     
     override func viewDidLoad() {
@@ -22,6 +21,13 @@ class LeaveManageViewController: UIViewController
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         getMyLeaves()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == tbDefines.kSegueDetail, let leave = sender as? Leave {
+            let detailView = segue.destination as! LeaveDetailViewController
+            detailView.currentLeave = leave
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -59,5 +65,6 @@ class LeaveManageViewController: UIViewController
     //MARK: UITableViewDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
          tableView.deselectRow(at: indexPath, animated: true)
+        performSegue(withIdentifier: tbDefines.kSegueDetail, sender: leaveList?[indexPath.row])
     }
 }
