@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		15A219862017183500B2AE20 /* UITextFieldHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A219852017183500B2AE20 /* UITextFieldHelper.swift */; };
 		576AA304058EF70E8187654B /* Pods_teddybear.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE34B84A6FAB7255B2C35CAA /* Pods_teddybear.framework */; };
+		79867D76201E1443001E21AB /* Approval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79867D75201E1443001E21AB /* Approval.swift */; };
+		79867D78201E1669001E21AB /* ApprovalManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79867D77201E1669001E21AB /* ApprovalManager.swift */; };
+		79867D7A201E348A001E21AB /* Approval.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79867D79201E348A001E21AB /* Approval.storyboard */; };
+		79867D7C201E3796001E21AB /* ApprovalManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79867D7B201E3796001E21AB /* ApprovalManageViewController.swift */; };
 		8D139E012003EAFB00F73760 /* tbDefines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D139E002003EAFB00F73760 /* tbDefines.swift */; };
 		8D753C91201B7FCD002FB369 /* LeaveManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D753C90201B7FCD002FB369 /* LeaveManager.swift */; };
 		8D753C93201B80A7002FB369 /* Leave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D753C92201B80A7002FB369 /* Leave.swift */; };
@@ -59,6 +63,10 @@
 		20F00CF83DA19EA30D2FC01A /* Pods-teddybearTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teddybearTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-teddybearTests/Pods-teddybearTests.release.xcconfig"; sourceTree = "<group>"; };
 		41A88EDAF7AACDF119CF59C8 /* Pods-teddybearTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teddybearTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-teddybearTests/Pods-teddybearTests.debug.xcconfig"; sourceTree = "<group>"; };
 		708D75B9E55DB60CEE06682B /* Pods_teddybearTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_teddybearTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		79867D75201E1443001E21AB /* Approval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Approval.swift; sourceTree = "<group>"; };
+		79867D77201E1669001E21AB /* ApprovalManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApprovalManager.swift; sourceTree = "<group>"; };
+		79867D79201E348A001E21AB /* Approval.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Approval.storyboard; sourceTree = "<group>"; };
+		79867D7B201E3796001E21AB /* ApprovalManageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApprovalManageViewController.swift; sourceTree = "<group>"; };
 		8D139E002003EAFB00F73760 /* tbDefines.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tbDefines.swift; sourceTree = "<group>"; };
 		8D753C90201B7FCD002FB369 /* LeaveManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaveManager.swift; sourceTree = "<group>"; };
 		8D753C92201B80A7002FB369 /* Leave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Leave.swift; sourceTree = "<group>"; };
@@ -131,6 +139,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		79867D74201E1414001E21AB /* ApprovalManager */ = {
+			isa = PBXGroup;
+			children = (
+				79867D75201E1443001E21AB /* Approval.swift */,
+				79867D77201E1669001E21AB /* ApprovalManager.swift */,
+			);
+			path = ApprovalManager;
+			sourceTree = "<group>";
+		};
 		8D753C8F201B7FB0002FB369 /* LeaveManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -190,6 +207,7 @@
 				8DB293871FFF1BF3007C39F8 /* Main.storyboard */,
 				8D90E7BD201BA80F0097636E /* Leave.storyboard */,
 				8D90E7BA201BA7780097636E /* Staff.storyboard */,
+				79867D79201E348A001E21AB /* Approval.storyboard */,
 				8DC3F2EF200DC2BD00BF2862 /* DatePickerView.swift */,
 				8DC3F307200F550300BF2862 /* DeptCell.swift */,
 				8D753C96201B934B002FB369 /* LeaveCell.swift */,
@@ -203,6 +221,7 @@
 		8DB293A41FFF1D39007C39F8 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				79867D7B201E3796001E21AB /* ApprovalManageViewController.swift */,
 				8D981060200FC61600072804 /* DeptDetailViewController.swift */,
 				8DC3F305200F43A700BF2862 /* DeptManageViewController.swift */,
 				8D90E7C0201BB9900097636E /* LeaveDetailViewController.swift */,
@@ -228,6 +247,7 @@
 		8DB293AC1FFF3561007C39F8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				79867D74201E1414001E21AB /* ApprovalManager */,
 				8D753C8F201B7FB0002FB369 /* LeaveManager */,
 				8DC3F2EC200D125B00BF2862 /* StaffManager */,
 				8DB293AD1FFF35AC007C39F8 /* UserManager.swift */,
@@ -358,6 +378,7 @@
 				8DB2938E1FFF1BF3007C39F8 /* LaunchScreen.storyboard in Resources */,
 				8DB293A91FFF1E5D007C39F8 /* GoogleService-Info.plist in Resources */,
 				8D90E7BF201BA80F0097636E /* Leave.storyboard in Resources */,
+				79867D7A201E348A001E21AB /* Approval.storyboard in Resources */,
 				8DB2938B1FFF1BF3007C39F8 /* Assets.xcassets in Resources */,
 				8DB293891FFF1BF3007C39F8 /* Main.storyboard in Resources */,
 				8D90E7BC201BA7780097636E /* Staff.storyboard in Resources */,
@@ -385,7 +406,7 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -505,7 +526,9 @@
 				8D90E7C1201BB9900097636E /* LeaveDetailViewController.swift in Sources */,
 				8DC3F2F0200DC2BD00BF2862 /* DatePickerView.swift in Sources */,
 				8DC3F306200F43A700BF2862 /* DeptManageViewController.swift in Sources */,
+				79867D78201E1669001E21AB /* ApprovalManager.swift in Sources */,
 				8D139E012003EAFB00F73760 /* tbDefines.swift in Sources */,
+				79867D7C201E3796001E21AB /* ApprovalManageViewController.swift in Sources */,
 				8DC3F2EE200D262400BF2862 /* StaffDetailViewController.swift in Sources */,
 				8D981061200FC61600072804 /* DeptDetailViewController.swift in Sources */,
 				8D753C91201B7FCD002FB369 /* LeaveManager.swift in Sources */,
@@ -518,6 +541,7 @@
 				8D981065200FD1F900072804 /* tbPickerView.swift in Sources */,
 				8DC3F2F8200DDFFE00BF2862 /* DateHelper.swift in Sources */,
 				8DB293841FFF1BF3007C39F8 /* AppDelegate.swift in Sources */,
+				79867D76201E1443001E21AB /* Approval.swift in Sources */,
 				8D981063200FCAF600072804 /* Department.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -690,7 +714,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 79V8F6N3Z8;
+				DEVELOPMENT_TEAM = E3CE76ZT7U;
 				INFOPLIST_FILE = "$(SRCROOT)/teddybear/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -710,7 +734,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 79V8F6N3Z8;
+				DEVELOPMENT_TEAM = E3CE76ZT7U;
 				INFOPLIST_FILE = "$(SRCROOT)/teddybear/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

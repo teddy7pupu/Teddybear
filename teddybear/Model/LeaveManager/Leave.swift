@@ -19,6 +19,7 @@ struct Leave: Codable {
     var message: String?    //請假原因
     var assigneeId: String? //代理人ID
     var deparmentId: String?//部門ID
+    var approvals: [String?]? //簽核清單
     
     init() {
     }
