@@ -51,6 +51,15 @@ exports.onUpdateApproval = functions.database.ref('Approval/{aid}')
   });
 })
 
+exports.onRemoveLeave = functions.database.ref('Leave/{leaveId}')
+  .onDelete(event => {
+    const leave = event.data.previous.val();
+    var approvals = leave.approvals
+    approvals.forEach( function(aid) {
+      approvalRef.child(aid).remove();
+    });
+})
+
 function generateAssigneeApproval(leave) {
   var newApprovalRef = approvalRef.push();
   const _aid = newApprovalRef.key;
