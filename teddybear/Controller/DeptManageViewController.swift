@@ -22,6 +22,22 @@ class DeptManageViewController: UIViewController
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        getDeptList()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == tbDefines.kSegueDetail, let dept = sender as? Department {
+            let detailView = segue.destination as! DeptDetailViewController
+            detailView.currentDepartment = dept
+        }
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    //MARK: Action
+    func getDeptList() {
         tbHUD.show()
         StaffManager.sharedInstance().getDepartmentList { (list, error) in
             tbHUD.dismiss()
@@ -30,21 +46,8 @@ class DeptManageViewController: UIViewController
                 return
             }
             self.list = list
-            self.mainTable.reloadData()
+            self.mainTable.performSelector(onMainThread: #selector(UITableView.reloadData), with: nil, waitUntilDone: false)
         }
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == tbDefines.kSegueDetail {
-            if let dept = sender as? Department {
-                let detailView = segue.destination as! DeptDetailViewController
-                detailView.currentDepartment = dept
-            }
-        }
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
     
     //MARK: UITableViewDataSource

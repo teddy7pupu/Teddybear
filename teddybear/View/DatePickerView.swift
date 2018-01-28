@@ -12,11 +12,14 @@ class DatePickerView: UIView {
     
     @IBOutlet weak var pickerView: UIDatePicker!
     weak var owner: UITextField?
+    var maximumDate: Date?
     
     //MARK: Layout
     override func awakeFromNib() {
         super.awakeFromNib()
-        pickerView.maximumDate = Date()
+        if let maxDate = maximumDate {
+            pickerView.maximumDate = maxDate
+        }
     }
     
     override func layoutSubviews() {
@@ -35,7 +38,8 @@ class DatePickerView: UIView {
     }
     
     @IBAction func onDoneAction() {
-        owner?.resignFirstResponder()
         owner?.text = pickerView.date.toString(format: .isoDate)
+        owner?.sendActions(for: .editingChanged)
+        owner?.resignFirstResponder()
     }
 }

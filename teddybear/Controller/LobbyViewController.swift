@@ -11,7 +11,7 @@ import GoogleSignIn
 
 class LobbyViewController: UITableViewController {
     
-    var currentStaff: Staff?
+    private var currentStaff: Staff? = StaffManager.sharedInstance().currentStaff
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +25,7 @@ class LobbyViewController: UITableViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
+        super.viewWillDisappear(animated)
     }
 
     override func didReceiveMemoryWarning() {
