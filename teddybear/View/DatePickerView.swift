@@ -38,7 +38,8 @@ class DatePickerView: UIView {
     }
     
     @IBAction func onDoneAction() {
-        owner?.resignFirstResponder()
         owner?.text = pickerView.date.toString(format: .isoDate)
+        owner?.sendActions(for: .editingChanged)
+        owner?.resignFirstResponder()
     }
 }

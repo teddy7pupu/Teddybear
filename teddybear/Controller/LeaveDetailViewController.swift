@@ -18,14 +18,15 @@ class LeaveDetailViewController: UITableViewController
     @IBOutlet weak var typeField: UITextField!
     @IBOutlet weak var assigneeField: UITextField!
     @IBOutlet weak var messageField: UITextField!
+    @IBOutlet weak var summationLbl: UILabel!
     @IBOutlet weak var sendBtn: UIButton!
     @IBOutlet weak var datePickerView: DatePickerView!
     @IBOutlet weak var pickerView: tbPickerView!
     
-    private var mFields: [UITextField]?
-    private func fields() -> [UITextField] {
+    private var mFields: [UITextField?]?
+    private func fields() -> [UITextField?] {
         if mFields == nil {
-            mFields = [beginTimeField, beginPeriodField, endTimeField, endPeriodField, typeField, assigneeField, messageField]
+            mFields = [beginTimeField, beginPeriodField, endTimeField, endPeriodField, nil, typeField, assigneeField, messageField]
         }
         return mFields!
     }
@@ -167,16 +168,33 @@ class LeaveDetailViewController: UITableViewController
     //MARK: Data
     func fieldsValidation() -> Bool {
         for field in fields() {
-            if (field.text?.isEmpty)! { return false }
+            if field == nil { continue }
+            if (field?.text?.isEmpty)! {
+                return false
+            }
         }
+        calculateHours()
         return true
+    }
+    
+    func calculateHours() {
+        guard let beginDate = Date(fromString: beginTimeField.text!, format: .isoDate)
+        , let beginPeriod = tbDefines.kBeginSection.index(of: beginPeriodField.text!)
+        , let endDate = Date(fromString: endTimeField.text!, format: .isoDate)
+        , let endPeriod = tbDefines.kEndSection.index(of: endPeriodField.text!)
+        , endDate >= beginDate else {
+            summationLbl.text = "總計: 無法計算"
+            return
+        }
+        let hour = Date.leaveHour(beginDate, beginPeriod, endDate, endPeriod)
+        summationLbl.text = "總計: \(hour) 小時"
     }
     
     // MARK: UITableViewDelegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView .deselectRow(at: indexPath, animated: true)
         if indexPath.section == 0 {
-            let field = fields()[indexPath.row]
+            guard let field = fields()[indexPath.row] else { return }
             field.becomeFirstResponder()
         }
     }
