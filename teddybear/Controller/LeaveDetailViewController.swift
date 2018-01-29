@@ -117,7 +117,7 @@ class LeaveDetailViewController: UITableViewController
         leave.message = messageField.text
         
         leave.sid = manager?.currentStaff?.sid
-        leave.deparmentId = manager?.currentStaff?.department
+        leave.departmentId = manager?.currentStaff?.department
         leave.applyTime = Int(Date().timeIntervalSince1970)
         
         tbHUD.show()
