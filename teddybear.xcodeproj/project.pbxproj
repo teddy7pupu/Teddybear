@@ -226,8 +226,8 @@
 		8DB293A41FFF1D39007C39F8 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				79867D7B201E3796001E21AB /* ApprovalManageViewController.swift */,
 				796954CA201F4F61004704AD /* ApprovalDetailViewController.swift */,
+				79867D7B201E3796001E21AB /* ApprovalManageViewController.swift */,
 				8D981060200FC61600072804 /* DeptDetailViewController.swift */,
 				8DC3F305200F43A700BF2862 /* DeptManageViewController.swift */,
 				8D90E7C0201BB9900097636E /* LeaveDetailViewController.swift */,
@@ -722,7 +722,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = E3CE76ZT7U;
+				DEVELOPMENT_TEAM = 79V8F6N3Z8;
 				INFOPLIST_FILE = "$(SRCROOT)/teddybear/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -742,7 +742,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = E3CE76ZT7U;
+				DEVELOPMENT_TEAM = 79V8F6N3Z8;
 				INFOPLIST_FILE = "$(SRCROOT)/teddybear/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
