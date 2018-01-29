@@ -18,7 +18,7 @@ struct Leave: Codable {
     var endPeriod: Int?     //假單結束時段 0 -> 14:00 ; 1 -> 19:00
     var message: String?    //請假原因
     var assigneeId: String? //代理人ID
-    var deparmentId: String?//部門ID
+    var departmentId: String?//部門ID
     
     init() {
     }
