@@ -16,6 +16,7 @@ class LeaveManageViewController: UIViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "假單管理"
     }
 
     override func viewWillAppear(_ animated: Bool) {

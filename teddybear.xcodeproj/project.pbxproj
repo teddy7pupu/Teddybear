@@ -209,9 +209,9 @@
 			children = (
 				8DB2938C1FFF1BF3007C39F8 /* LaunchScreen.storyboard */,
 				8DB293871FFF1BF3007C39F8 /* Main.storyboard */,
+				79867D79201E348A001E21AB /* Approval.storyboard */,
 				8D90E7BD201BA80F0097636E /* Leave.storyboard */,
 				8D90E7BA201BA7780097636E /* Staff.storyboard */,
-				79867D79201E348A001E21AB /* Approval.storyboard */,
 				8DC3F2EF200DC2BD00BF2862 /* DatePickerView.swift */,
 				8DC3F307200F550300BF2862 /* DeptCell.swift */,
 				79867D7D201EFC41001E21AB /* ApprovalCell.swift */,
