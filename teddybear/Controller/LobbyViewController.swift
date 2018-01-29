@@ -11,6 +11,10 @@ import GoogleSignIn
 
 class LobbyViewController: UITableViewController {
     
+    @IBOutlet weak var englishLbl: UILabel!
+    @IBOutlet weak var nameLbl: UILabel!
+    @IBOutlet weak var titleLbl: UILabel!
+    
     private var currentStaff: Staff? = StaffManager.sharedInstance().currentStaff
     
     override func viewDidLoad() {
@@ -34,7 +38,15 @@ class LobbyViewController: UITableViewController {
     
     //MARK: Layout & Animation
     func layoutUser() {
-        
+        if let user = currentStaff {
+            englishLbl.text = user.english
+            nameLbl.text = user.name
+            titleLbl.text = user.title
+        } else {
+            englishLbl.text = "Admin"
+            nameLbl.text = "管理員"
+            titleLbl.text = "AppMaster Co.,Ltd."
+        }
     }
     
     //MARK: Action
