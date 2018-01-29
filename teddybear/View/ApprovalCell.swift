@@ -12,6 +12,7 @@ class ApprovalCell: UITableViewCell {
 
     @IBOutlet weak var applicant: UILabel!
     @IBOutlet weak var status: UILabel!
+    @IBOutlet weak var applyTime: UILabel!
     private weak var manager: StaffManager? = StaffManager.sharedInstance()
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,8 +24,10 @@ class ApprovalCell: UITableViewCell {
 
     func layoutCell(with approval:Approval?, leave:Leave?){
         guard let sid = leave?.sid,
-            let Status = approval?.status else { return }
+              let applicantStatus = approval?.status,
+              let time = leave?.applyTime else { return }
         applicant.text = manager?.getStaff(byStaffId: sid)?.name
-        status.text = tbDefines.kStatus[Status]
+        status.text = tbDefines.kStatus[applicantStatus]
+        applyTime.text = Date(timeIntervalSince1970: TimeInterval(time)).toString(format: .isoDate)
     }
 }
