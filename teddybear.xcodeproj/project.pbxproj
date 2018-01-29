@@ -13,6 +13,7 @@
 		79867D78201E1669001E21AB /* ApprovalManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79867D77201E1669001E21AB /* ApprovalManager.swift */; };
 		79867D7A201E348A001E21AB /* Approval.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79867D79201E348A001E21AB /* Approval.storyboard */; };
 		79867D7C201E3796001E21AB /* ApprovalManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79867D7B201E3796001E21AB /* ApprovalManageViewController.swift */; };
+		79867D7E201EFC41001E21AB /* ApprovalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79867D7D201EFC41001E21AB /* ApprovalCell.swift */; };
 		8D139E012003EAFB00F73760 /* tbDefines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D139E002003EAFB00F73760 /* tbDefines.swift */; };
 		8D753C91201B7FCD002FB369 /* LeaveManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D753C90201B7FCD002FB369 /* LeaveManager.swift */; };
 		8D753C93201B80A7002FB369 /* Leave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D753C92201B80A7002FB369 /* Leave.swift */; };
@@ -67,6 +68,7 @@
 		79867D77201E1669001E21AB /* ApprovalManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApprovalManager.swift; sourceTree = "<group>"; };
 		79867D79201E348A001E21AB /* Approval.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Approval.storyboard; sourceTree = "<group>"; };
 		79867D7B201E3796001E21AB /* ApprovalManageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApprovalManageViewController.swift; sourceTree = "<group>"; };
+		79867D7D201EFC41001E21AB /* ApprovalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApprovalCell.swift; sourceTree = "<group>"; };
 		8D139E002003EAFB00F73760 /* tbDefines.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tbDefines.swift; sourceTree = "<group>"; };
 		8D753C90201B7FCD002FB369 /* LeaveManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaveManager.swift; sourceTree = "<group>"; };
 		8D753C92201B80A7002FB369 /* Leave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Leave.swift; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 				79867D79201E348A001E21AB /* Approval.storyboard */,
 				8DC3F2EF200DC2BD00BF2862 /* DatePickerView.swift */,
 				8DC3F307200F550300BF2862 /* DeptCell.swift */,
+				79867D7D201EFC41001E21AB /* ApprovalCell.swift */,
 				8D753C96201B934B002FB369 /* LeaveCell.swift */,
 				8DC3F2F9200E076D00BF2862 /* StaffCell.swift */,
 				8DC3F301200F275400BF2862 /* tbHUD.swift */,
@@ -528,6 +531,7 @@
 				8DC3F306200F43A700BF2862 /* DeptManageViewController.swift in Sources */,
 				79867D78201E1669001E21AB /* ApprovalManager.swift in Sources */,
 				8D139E012003EAFB00F73760 /* tbDefines.swift in Sources */,
+				79867D7E201EFC41001E21AB /* ApprovalCell.swift in Sources */,
 				79867D7C201E3796001E21AB /* ApprovalManageViewController.swift in Sources */,
 				8DC3F2EE200D262400BF2862 /* StaffDetailViewController.swift in Sources */,
 				8D981061200FC61600072804 /* DeptDetailViewController.swift in Sources */,
