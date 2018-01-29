@@ -105,8 +105,10 @@ class LeaveDetailViewController: UITableViewController
             self.showAlert(message: "假勤時間輸入錯誤")
             return
         }
-        
-        var leave = Leave(leaveId: LeaveManager.sharedInstance().getAutoKey()!)
+        var id: String?
+        if currentLeave != nil { id = currentLeave?.leaveId }
+        else { id = LeaveManager.sharedInstance().getAutoKey() }
+        var leave = Leave(leaveId: id! )
         leave.startTime = Int(beginDate.timeIntervalSince1970)
         leave.startPeriod = beginPeriod
         leave.endTime = Int(endDate.timeIntervalSince1970)
@@ -117,7 +119,7 @@ class LeaveDetailViewController: UITableViewController
         leave.message = messageField.text
         
         leave.sid = manager?.currentStaff?.sid
-        leave.deparmentId = manager?.currentStaff?.department
+        leave.departmentId = manager?.currentStaff?.department
         leave.applyTime = Int(Date().timeIntervalSince1970)
         
         tbHUD.show()
