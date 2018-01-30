@@ -12,6 +12,13 @@ class tbHUD {
     // MARK: Public method
     static func show() {
         guard let hud = tbHUD.sharedInstance() else { return }
+        if !Thread.current.isMainThread {
+            DispatchQueue.main.async {
+                tbHUD.show()
+            }
+            return
+        }
+        
         if hud.hudView != nil, hud.hudActivity != nil {
             dismiss()
         }
@@ -44,6 +51,12 @@ class tbHUD {
     static func dismiss() {
         guard let hud = tbHUD.sharedInstance() else { return }
         
+        if !Thread.current.isMainThread {
+            DispatchQueue.main.async {
+                tbHUD.dismiss()
+            }
+            return
+        }
         hud.hudActivity?.stopAnimating()
         UIView.animate(withDuration: 0.5, animations: {
             hud.hudView?.alpha = 0

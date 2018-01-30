@@ -285,6 +285,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="wcE-p1-kHC" kind="show" id="55y-qb-wLv"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="OpQ-jS-xeR" style="IBUITableViewCellStyleDefault" id="nmC-38-OnA">
                                         <rect key="frame" x="0.0" y="255" width="375" height="60"/>
@@ -358,6 +361,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0hV-cM-RPl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1973" y="466"/>
+        </scene>
+        <!--Approval-->
+        <scene sceneID="3Lg-C4-JMN">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Approval" id="wcE-p1-kHC" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hW3-yX-ZTr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2195" y="466"/>
         </scene>
     </scenes>
     <resources>

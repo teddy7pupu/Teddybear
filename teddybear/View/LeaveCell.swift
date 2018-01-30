@@ -16,6 +16,7 @@ class LeaveCell: UITableViewCell {
     @IBOutlet weak var durationLbl: UILabel!
     @IBOutlet weak var statusLbl: UILabel!
     
+
     
     override func awakeFromNib() {
         super.awakeFromNib()
