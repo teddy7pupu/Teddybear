@@ -126,7 +126,8 @@ class StaffManager: NSObject {
         guard let staffs = staffList() else { return nil }
         return staffs.filter({ (staff) -> Bool in
             (staff.sid != currentStaff?.sid) &&
-                (staff.department == currentStaff?.department)
+                (staff.department == currentStaff?.department) &&
+                    (staff.isQuit != true)
         })
     }
     
