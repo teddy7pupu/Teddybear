@@ -87,37 +87,42 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="狀態" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ktl-oX-afw">
-                                                    <rect key="frame" x="76" y="42" width="35" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.5天" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ogd-m0-toN">
                                                     <rect key="frame" x="154" y="7.5" width="54.5" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="25"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="38Y-kq-hgj">
+                                                    <rect key="frame" x="76" y="40" width="60" height="30"/>
+                                                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="RrX-4e-VEK"/>
+                                                    </constraints>
+                                                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <state key="normal" title="待簽核">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="68e-aX-RAm" firstAttribute="top" secondItem="4bC-vW-y7y" secondAttribute="top" id="ARe-Nb-xAJ"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="38Y-kq-hgj" secondAttribute="trailing" constant="8" id="Hgd-m6-EQr"/>
                                                 <constraint firstItem="4bC-vW-y7y" firstAttribute="leading" secondItem="9q2-Q5-sCG" secondAttribute="leading" constant="8" id="IX0-j5-Z5I"/>
                                                 <constraint firstItem="68e-aX-RAm" firstAttribute="leading" secondItem="4bC-vW-y7y" secondAttribute="trailing" constant="8" id="LMZ-Dm-x1P"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Ogd-m0-toN" secondAttribute="trailing" constant="8" id="Mcd-er-Qte"/>
                                                 <constraint firstItem="Ogd-m0-toN" firstAttribute="leading" secondItem="68e-aX-RAm" secondAttribute="trailing" constant="16" id="OmB-NL-jIl"/>
-                                                <constraint firstItem="ktl-oX-afw" firstAttribute="top" secondItem="68e-aX-RAm" secondAttribute="bottom" constant="8" id="VCf-xQ-saZ"/>
                                                 <constraint firstItem="4bC-vW-y7y" firstAttribute="centerY" secondItem="9q2-Q5-sCG" secondAttribute="centerY" id="Y3a-wZ-qaq"/>
-                                                <constraint firstItem="ktl-oX-afw" firstAttribute="leading" secondItem="68e-aX-RAm" secondAttribute="leading" id="YnE-ka-XrB"/>
-                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="ktl-oX-afw" secondAttribute="trailing" constant="8" id="YsU-P5-YjM"/>
+                                                <constraint firstItem="38Y-kq-hgj" firstAttribute="leading" secondItem="68e-aX-RAm" secondAttribute="leading" id="YqR-eE-keQ"/>
                                                 <constraint firstItem="Ogd-m0-toN" firstAttribute="centerY" secondItem="68e-aX-RAm" secondAttribute="centerY" id="m68-8K-E5Y"/>
+                                                <constraint firstItem="38Y-kq-hgj" firstAttribute="bottom" secondItem="4bC-vW-y7y" secondAttribute="bottom" id="rgH-LR-j1g"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="dayLbl" destination="AqL-MY-jtG" id="sQX-cV-idz"/>
                                             <outlet property="durationLbl" destination="Ogd-m0-toN" id="ty1-cb-DeT"/>
                                             <outlet property="monthLbl" destination="eS9-3N-dD7" id="5H4-l4-JQO"/>
-                                            <outlet property="statusLbl" destination="ktl-oX-afw" id="LVQ-1m-Vve"/>
+                                            <outlet property="statusBtn" destination="38Y-kq-hgj" id="0hI-c0-UWI"/>
                                             <outlet property="typeLbl" destination="68e-aX-RAm" id="eMw-s7-q5u"/>
                                         </connections>
                                     </tableViewCell>
@@ -147,7 +152,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eil-sD-jB8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="130" y="292"/>
+            <point key="canvasLocation" x="128.80000000000001" y="291.90404797601201"/>
         </scene>
         <!--Leave Detail View Controller-->
         <scene sceneID="nWt-bt-RdT">

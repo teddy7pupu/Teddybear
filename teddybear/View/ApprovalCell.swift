@@ -45,7 +45,7 @@ class ApprovalCell: UITableViewCell {
     }
     
     private func layoutATypeButton(approval: Approval, leave: Leave) {
-        guard let aid = leave.approvals?.first else {
+        guard let aid = leave.approvals?.first?.aid else {
             aTypeBtn.isHidden = true
             return
         }

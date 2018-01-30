@@ -48,6 +48,7 @@ exports.onUpdateApproval = functions.database.ref('Approval/{aid}')
     if (newStatus == 2) { //Reject
       //Send notification to related people.
     }
+    updateApproval(leave, approval)
   });
 })
 
@@ -65,13 +66,14 @@ function generateAssigneeApproval(leave) {
   const _aid = newApprovalRef.key;
   const _leaveId = leave.leaveId;
   const _sid = leave.assigneeId;
-  newApprovalRef.set({
+  var approval = {
     aid: _aid,
     leaveId: _leaveId,
     sid: _sid,
     status: 0
-  });
-  return _aid;
+  };
+  newApprovalRef.set(approval);
+  return approval;
 }
 
 function generateSupervisorApproval(leave) {
@@ -82,17 +84,27 @@ function generateSupervisorApproval(leave) {
   deptRef.child(deptId).once('value').then(function(snap) {
     var dept = snap.val();
     const _sid = dept.supervisor;
-    newApprovalRef.set({
+    var approval = {
       aid: _aid,
       leaveId: _leaveId,
       sid: _sid,
       status: 0
-    });
-    var approvals = leave.approvals;
-    approvals.push(_aid);
-    console.log('[APPROVAL]:',approvals);
-    leaveRef.child(_leaveId).update({
-      approvals: approvals
-    });
+    };
+    newApprovalRef.set(approval);
+  });
+}
+
+function updateApproval(leave, approval) {
+  var approvals = leave.approvals;
+  var newApprovals = [];
+  approvals.forEach( function(_approval) {
+    if (_approval.aid == approval.aid) {
+      newApprovals.push(approval);
+    } else {
+      newApprovals.push(_approval);
+    }
+  });  
+  leaveRef.child(leave.leaveId).update({
+    approvals: newApprovals
   });
 }
