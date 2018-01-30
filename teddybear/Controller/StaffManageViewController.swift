@@ -49,6 +49,27 @@ class StaffManageViewController: UIViewController
         }
     }
     
+    func updateStaff(staff: Staff) {
+        StaffManager.sharedInstance().updateStaff(staff) { (staff, error) in
+            tbHUD.dismiss()
+            if let error = error {
+                NSLog("%@", error.localizedDescription)
+                self.showAlert(message: "資料更新失敗")
+                return
+            }
+            guard let name = staff?.name else { return }
+            self.showAlert(message: "\(name)離職囉!")
+            self.getStaffList()
+        }
+    }
+    
+    func quitStaff(staff: Staff!) {
+        tbHUD.show()
+        var newStaff: Staff = staff
+        newStaff.isQuit = true
+        self.updateStaff(staff: newStaff)
+    }
+    
     //MARK: UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let count = list?.count else {return 0 }
@@ -74,13 +95,18 @@ class StaffManageViewController: UIViewController
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        var actions: [UITableViewRowAction] = []
         let staff = list?[indexPath.row]
-        let quitAction = UITableViewRowAction(style: .destructive, title: "離職") { (action, indexPath) in
-            //
+        if staff?.isQuit != true {
+            let quitAction = UITableViewRowAction(style: .destructive, title: "離職") { (action, indexPath) in
+                guard let name = staff?.name else { return }
+                self.showAlert(message: "確定要讓\(name)離職嗎", completion: {
+                    self.quitStaff(staff: staff)
+                })
+            }
+            actions.append(quitAction)
         }
-        if (staff?.mobile?.isEmpty)! {
-            return [quitAction]
-        }
+        
         
         let dialAction = UITableViewRowAction(style: .normal, title: "通話") { (action, indexPath) in
             if let url = URL(string: "tel://" + (staff?.mobile)!), UIApplication.shared.canOpenURL(url) {
@@ -92,6 +118,7 @@ class StaffManageViewController: UIViewController
             }
         }
         dialAction.backgroundColor = UIColor(named:"SPGreen")
-        return [quitAction, dialAction]
+        actions.append(dialAction)
+        return actions
     }
 }
