@@ -16,6 +16,7 @@ class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDeleg
     @IBOutlet weak var pwdField: UITextField!
     @IBOutlet weak var loginBtn: UIButton!
     @IBOutlet weak var googleBtn: UIButton!
+    @IBOutlet weak var bearBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +30,7 @@ class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDeleg
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        onBearBtn()
         if let user = UserManager.currentUser() {
             tbHUD.show()
             getUserProfile(email: user.email)
@@ -117,11 +119,16 @@ class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDeleg
     
     func openLobby() {
         tbHUD.dismiss()
+        onBearBtn()
         self.performSegue(withIdentifier: tbDefines.kSegueLobby, sender: nil)
     }
     
     @objc func keyboardDismiss(gesture: UITapGestureRecognizer) {
         self.view.endEditing(true)
+    }
+    
+    @IBAction func onBearBtn() {
+        bearBtn.pop()
     }
     
     //MARK: GIDSignInDelegate
@@ -161,5 +168,16 @@ internal extension UIButton {
         self.layer.borderColor = UIColor(named: "SPGreen")?.cgColor
         self.layer.borderWidth = 1
         self.layer.cornerRadius = 5
+    }
+}
+
+internal extension UIView {
+    func pop() {
+        let animation = CAKeyframeAnimation(keyPath: "transform.translation.x")
+        animation.timingFunction = CAMediaTimingFunction(name: "linear")
+        animation.duration = 0.6
+        animation.values = [-20, 20, -20, 20, -10, 10, -5, 5, 0]
+        animation.isRemovedOnCompletion = true
+        self.layer.add(animation, forKey: "pop")
     }
 }

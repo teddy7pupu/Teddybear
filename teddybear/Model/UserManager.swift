@@ -62,6 +62,7 @@ class UserManager: NSObject {
         } catch let signOutError as NSError {
             NSLog("[Auth] Error:%@", signOutError)
         }
+        StaffManager.sharedInstance().currentStaff = nil
         NSLog("[Auth] SignOut success")
     }
 }
