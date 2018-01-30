@@ -76,7 +76,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B5g-cC-32u">
-                                                    <rect key="frame" x="8" y="47.5" width="171" height="30"/>
+                                                    <rect key="frame" x="8" y="47.5" width="137" height="30"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -98,10 +98,11 @@
                                                 <constraint firstItem="GIm-DB-pty" firstAttribute="leading" secondItem="boX-gH-Hx6" secondAttribute="trailing" constant="8" id="VFC-Ap-qv6"/>
                                                 <constraint firstAttribute="trailing" secondItem="spM-le-kLM" secondAttribute="trailing" id="WUU-uY-5ut"/>
                                                 <constraint firstItem="boX-gH-Hx6" firstAttribute="leading" secondItem="hnq-tg-faw" secondAttribute="leading" constant="8" id="Ws7-0G-E58"/>
+                                                <constraint firstItem="gSC-eZ-K2n" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="B5g-cC-32u" secondAttribute="trailing" constant="8" id="c93-Id-7Fm"/>
                                                 <constraint firstItem="2T9-iz-3BN" firstAttribute="leading" secondItem="boX-gH-Hx6" secondAttribute="leading" id="ev6-vE-8mL"/>
                                                 <constraint firstItem="2T9-iz-3BN" firstAttribute="top" secondItem="boX-gH-Hx6" secondAttribute="bottom" constant="2" id="kyE-Sv-rtO"/>
                                                 <constraint firstItem="boX-gH-Hx6" firstAttribute="top" secondItem="hnq-tg-faw" secondAttribute="top" constant="8" id="mA6-MH-pcd"/>
-                                                <constraint firstItem="B5g-cC-32u" firstAttribute="width" secondItem="hnq-tg-faw" secondAttribute="width" multiplier="0.5" id="s3g-eS-2Ed"/>
+                                                <constraint firstItem="B5g-cC-32u" firstAttribute="width" secondItem="hnq-tg-faw" secondAttribute="width" multiplier="0.4" id="s3g-eS-2Ed"/>
                                                 <constraint firstItem="GIm-DB-pty" firstAttribute="centerY" secondItem="boX-gH-Hx6" secondAttribute="centerY" id="wIn-V4-rCg"/>
                                             </constraints>
                                         </tableViewCellContentView>

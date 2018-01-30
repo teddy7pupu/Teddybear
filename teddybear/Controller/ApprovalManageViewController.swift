@@ -85,16 +85,23 @@ class ApprovalManageViewController: UIViewController
         if (leaveList == nil) {
             leaveList = []
         }
+        var tick = 0
         for approval in approvals {
             if (getLeave(approval.leaveId) != nil) {
+                tick += 1
                 continue
             }
             LeaveManager.sharedInstance().getLeave(approval.leaveId, completion: { (leave, error) in
                 self.leaveList?.append(leave!)
-                self.mainTable.performSelector(onMainThread: #selector(UITableView.reloadData), with: nil, waitUntilDone: false)
+                tick += 1
             })
         }
-        tbHUD.dismiss()
+        
+        DispatchQueue.global().async {
+            while(tick < approvals.count) { sleep(1) }
+            tbHUD.dismiss()
+            self.mainTable.performSelector(onMainThread: #selector(UITableView.reloadData), with: nil, waitUntilDone: false)
+        }
     }
     
     //MARK: UITableViewDataSource
