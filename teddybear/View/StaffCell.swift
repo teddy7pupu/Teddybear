@@ -15,6 +15,7 @@ class StaffCell: UITableViewCell {
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var englishLbl: UILabel!
     @IBOutlet weak var mailLbl: UILabel!
+    @IBOutlet weak var quitLbl: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,5 +32,6 @@ class StaffCell: UITableViewCell {
         nameLbl.text = staff?.name
         englishLbl.text = staff?.english
         mailLbl.text = staff?.email
+        quitLbl.isHidden = (staff?.isQuit != true)
     }
 }

@@ -63,9 +63,9 @@ class StaffManageViewController: UIViewController
         }
     }
     
-    func quitStaff(staff: Staff!) {
+    func quitStaff(staff: Staff) {
         tbHUD.show()
-        var newStaff: Staff = staff
+        var newStaff = staff
         newStaff.isQuit = true
         self.updateStaff(staff: newStaff)
     }
@@ -101,7 +101,7 @@ class StaffManageViewController: UIViewController
             let quitAction = UITableViewRowAction(style: .destructive, title: "離職") { (action, indexPath) in
                 guard let name = staff?.name else { return }
                 self.showAlert(message: "確定要讓\(name)離職嗎", completion: {
-                    self.quitStaff(staff: staff)
+                    self.quitStaff(staff: staff!)
                 })
             }
             actions.append(quitAction)
