@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -20,11 +21,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8cC-La-D03">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="8cC-La-D03">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <view key="tableFooterView" contentMode="scaleToFill" id="GkO-SK-gIg">
+                                <view key="tableFooterView" contentMode="scaleToFill" id="8PV-qA-r58">
                                     <rect key="frame" x="0.0" y="108" width="375" height="0.5"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -37,64 +38,80 @@
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="79.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="申請人" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YKX-na-Now">
-                                                    <rect key="frame" x="77" y="48" width="52" height="20.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ApplyTime" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gSC-eZ-K2n">
+                                                    <rect key="frame" x="275" y="54.5" width="67" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="boX-gH-Hx6">
+                                                    <rect key="frame" x="8" y="8" width="45" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="申請人:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4M0-j2-y07">
-                                                    <rect key="frame" x="15" y="48.5" width="57" height="20.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hours" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GIm-DB-pty">
+                                                    <rect key="frame" x="61" y="8" width="46" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="狀態:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fWE-mj-m4A">
-                                                    <rect key="frame" x="254.5" y="48.5" width="39.5" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="spM-le-kLM">
+                                                    <rect key="frame" x="282" y="16.5" width="60" height="30"/>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="60" id="GW2-ZG-UDL"/>
+                                                    </constraints>
+                                                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <state key="normal" title="待簽核">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                    <state key="disabled" title="拒絕"/>
+                                                    <state key="selected" title="核准"/>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2T9-iz-3BN">
+                                                    <rect key="frame" x="8" y="31" width="28" height="14.5"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="12"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="申請時間:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b3P-8G-22M">
-                                                    <rect key="frame" x="15" y="11" width="74" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C6b-sr-SWX">
-                                                    <rect key="frame" x="94" y="11" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="狀態" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j0w-nC-Yb9">
-                                                    <rect key="frame" x="299" y="48" width="35" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B5g-cC-32u">
+                                                    <rect key="frame" x="8" y="47.5" width="171" height="30"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <state key="normal" title="  代理人簽核  ">
+                                                        <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                    <state key="selected" title="  主管簽核  ">
+                                                        <color key="titleColor" name="SPGreen"/>
+                                                    </state>
+                                                </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="j0w-nC-Yb9" firstAttribute="leading" secondItem="fWE-mj-m4A" secondAttribute="trailing" constant="5" id="4zj-d1-TPT"/>
-                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="C6b-sr-SWX" secondAttribute="trailing" id="5RD-Dy-CuK"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="YKX-na-Now" secondAttribute="bottom" id="85n-Xt-GvA"/>
-                                                <constraint firstItem="j0w-nC-Yb9" firstAttribute="trailing" secondItem="hnq-tg-faw" secondAttribute="trailingMargin" id="8il-aC-gWJ"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="4M0-j2-y07" secondAttribute="bottom" id="9G8-wu-Ik6"/>
-                                                <constraint firstItem="fWE-mj-m4A" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="YKX-na-Now" secondAttribute="trailing" constant="15" id="GA4-OO-KWb"/>
-                                                <constraint firstItem="fWE-mj-m4A" firstAttribute="bottom" secondItem="hnq-tg-faw" secondAttribute="bottomMargin" id="KcB-0l-Ndo"/>
-                                                <constraint firstItem="YKX-na-Now" firstAttribute="leading" secondItem="4M0-j2-y07" secondAttribute="trailing" constant="5" id="NNV-wz-rHs"/>
-                                                <constraint firstItem="b3P-8G-22M" firstAttribute="leading" secondItem="hnq-tg-faw" secondAttribute="leadingMargin" id="U8U-Il-feh"/>
-                                                <constraint firstItem="C6b-sr-SWX" firstAttribute="leading" secondItem="b3P-8G-22M" secondAttribute="trailing" constant="5" id="UDc-qV-8ec"/>
-                                                <constraint firstItem="b3P-8G-22M" firstAttribute="top" secondItem="hnq-tg-faw" secondAttribute="topMargin" id="VBe-Jg-BDT"/>
-                                                <constraint firstItem="4M0-j2-y07" firstAttribute="leading" secondItem="hnq-tg-faw" secondAttribute="leadingMargin" id="WyC-dT-IWe"/>
-                                                <constraint firstItem="C6b-sr-SWX" firstAttribute="top" secondItem="hnq-tg-faw" secondAttribute="topMargin" id="nNP-Vf-x91"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="j0w-nC-Yb9" secondAttribute="bottom" id="wdU-Kn-rpn"/>
+                                                <constraint firstItem="B5g-cC-32u" firstAttribute="top" secondItem="2T9-iz-3BN" secondAttribute="bottom" constant="2" id="0me-ft-lft"/>
+                                                <constraint firstItem="B5g-cC-32u" firstAttribute="leading" secondItem="boX-gH-Hx6" secondAttribute="leading" id="4f6-jR-GOJ"/>
+                                                <constraint firstAttribute="trailing" secondItem="gSC-eZ-K2n" secondAttribute="trailing" id="4qC-N6-vE1"/>
+                                                <constraint firstAttribute="bottom" secondItem="gSC-eZ-K2n" secondAttribute="bottom" constant="8" id="78v-Tv-vVO"/>
+                                                <constraint firstItem="gSC-eZ-K2n" firstAttribute="top" secondItem="spM-le-kLM" secondAttribute="bottom" constant="8" id="7h1-vY-TnD"/>
+                                                <constraint firstAttribute="bottom" secondItem="B5g-cC-32u" secondAttribute="bottom" constant="2" id="I2G-Ez-DZJ"/>
+                                                <constraint firstItem="GIm-DB-pty" firstAttribute="leading" secondItem="boX-gH-Hx6" secondAttribute="trailing" constant="8" id="VFC-Ap-qv6"/>
+                                                <constraint firstAttribute="trailing" secondItem="spM-le-kLM" secondAttribute="trailing" id="WUU-uY-5ut"/>
+                                                <constraint firstItem="boX-gH-Hx6" firstAttribute="leading" secondItem="hnq-tg-faw" secondAttribute="leading" constant="8" id="Ws7-0G-E58"/>
+                                                <constraint firstItem="2T9-iz-3BN" firstAttribute="leading" secondItem="boX-gH-Hx6" secondAttribute="leading" id="ev6-vE-8mL"/>
+                                                <constraint firstItem="2T9-iz-3BN" firstAttribute="top" secondItem="boX-gH-Hx6" secondAttribute="bottom" constant="2" id="kyE-Sv-rtO"/>
+                                                <constraint firstItem="boX-gH-Hx6" firstAttribute="top" secondItem="hnq-tg-faw" secondAttribute="top" constant="8" id="mA6-MH-pcd"/>
+                                                <constraint firstItem="B5g-cC-32u" firstAttribute="width" secondItem="hnq-tg-faw" secondAttribute="width" multiplier="0.5" id="s3g-eS-2Ed"/>
+                                                <constraint firstItem="GIm-DB-pty" firstAttribute="centerY" secondItem="boX-gH-Hx6" secondAttribute="centerY" id="wIn-V4-rCg"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="applicant" destination="YKX-na-Now" id="CTU-kl-DbB"/>
-                                            <outlet property="applyTime" destination="C6b-sr-SWX" id="FHp-ID-AEV"/>
-                                            <outlet property="status" destination="j0w-nC-Yb9" id="2sd-s9-6Rt"/>
+                                            <outlet property="aTypeBtn" destination="B5g-cC-32u" id="vja-OG-REX"/>
+                                            <outlet property="applyTimeLbl" destination="gSC-eZ-K2n" id="CWA-wR-HjQ"/>
+                                            <outlet property="hoursLbl" destination="GIm-DB-pty" id="Od1-6p-62e"/>
+                                            <outlet property="nameLbl" destination="boX-gH-Hx6" id="I4Q-Mi-7yS"/>
+                                            <outlet property="statusBtn" destination="spM-le-kLM" id="goq-Al-ndq"/>
+                                            <outlet property="typeLbl" destination="2T9-iz-3BN" id="n8S-sw-sVv"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -463,6 +480,9 @@
     <resources>
         <namedColor name="SPDark">
             <color red="0.12941176470588237" green="0.12941176470588237" blue="0.12941176470588237" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SPGreen">
+            <color red="0.1137254902" green="0.72549019609999998" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="SPGreen">
             <color red="0.11372549019607843" green="0.72549019607843135" blue="0.32941176470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

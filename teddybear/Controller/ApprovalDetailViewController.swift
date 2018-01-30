@@ -51,6 +51,9 @@ class ApprovalDetailViewController: UITableViewController {
         guard let leave = currentLeave,
             let approval = currentApproval else { return }
         
+        let name = StaffManager.sharedInstance().getStaff(byStaffId: leave.sid!)?.name
+        self.title = "申請人 : \(name!)"
+        
         let beginDate = Date(timeIntervalSince1970: TimeInterval(leave.startTime!))
         let endDate = Date(timeIntervalSince1970: TimeInterval(leave.endTime!))
         let hour = Date.leaveHour(beginDate, leave.startPeriod!, endDate, leave.endPeriod!)

@@ -14,6 +14,8 @@ class ApprovalManageViewController: UIViewController
     @IBOutlet weak var mainTable: UITableView!
     
     private var approvalList: [Approval]?
+    private var signedList: [Approval]?
+    private var unsignedList: [Approval]?
     private var leaveList: [Leave]?
     
     private weak var manager: StaffManager? = StaffManager.sharedInstance()
@@ -70,6 +72,8 @@ class ApprovalManageViewController: UIViewController
                 }
                 self.approvalList = list
                 if (self.approvalList != nil) {
+                    self.unsignedList = self.getApprovalList(isSigned: false)
+                    self.signedList = self.getApprovalList(isSigned: true)
                     self.getMyApprovalLeaves(approvals: list!)
                 }
             })
@@ -94,14 +98,23 @@ class ApprovalManageViewController: UIViewController
     }
     
     //MARK: UITableViewDataSource
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let count = leaveList?.count else { return 0 }
-        return count
+        guard let list = (section == 0 ? unsignedList : signedList) else { return 0 }
+        return list.count
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return (section == 0 ? "   代簽核假單" : "   已簽核假單")
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ApprovalCell.self) , for: indexPath) as! ApprovalCell
-        let approval = approvalList?[indexPath.row]
+        let list = (indexPath.section == 0 ? unsignedList : signedList)
+        let approval = list?[indexPath.row]
         let leave = getLeave(approval?.leaveId)
         cell.layoutCell(with: approval, leave: leave)
         return cell
@@ -110,14 +123,21 @@ class ApprovalManageViewController: UIViewController
     //MARK: UITableViewDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        performSegue(withIdentifier: tbDefines.kSegueApproval, sender: approvalList?[indexPath.row])
+        let list = (indexPath.section == 0 ? unsignedList : signedList)
+        performSegue(withIdentifier: tbDefines.kSegueApproval, sender: list?[indexPath.row])
     }
     
     //MARK: Getter
     func getLeave(_ leaveId: String!) -> Leave? {
-        var result = leaveList?.filter({ (leave) -> Bool in
+        let result = leaveList?.filter({ (leave) -> Bool in
             leave.leaveId == leaveId
         })
-        return ((result?.isEmpty)! ? nil : result![0])
+        return (result?.isEmpty)! ? nil : result?[0]
+    }
+    
+    func getApprovalList(isSigned: Bool) -> [Approval]? {
+        return self.approvalList?.filter({ (approval) -> Bool in
+            isSigned ? (approval.status != 0) : (approval.status == 0)
+        })
     }
 }
