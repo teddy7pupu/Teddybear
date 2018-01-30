@@ -96,6 +96,16 @@ class LeaveDetailViewController: UITableViewController
         }
     }
     
+    func getSupperId(departmentId: String?) -> String? {
+        guard let list = coworkerList else { return nil }
+        for count in 0...(list.count - 1) {
+            if list[count].department == manager?.currentStaff?.department && list[count].role!.rawValue == 4 {
+                return list[count].sid
+            }
+        }
+        return nil
+    }
+    
     @IBAction func onUpdateLeave() {
         let beginDate = Date(fromString: beginTimeField.text!, format: .isoDate)!
         let beginPeriod = tbDefines.kBeginSection.index(of: beginPeriodField.text!)
@@ -117,8 +127,9 @@ class LeaveDetailViewController: UITableViewController
         leave.message = messageField.text
         
         leave.sid = manager?.currentStaff?.sid
-        leave.deparmentId = manager?.currentStaff?.department
+        leave.departmentId = manager?.currentStaff?.department
         leave.applyTime = Int(Date().timeIntervalSince1970)
+        leave.approvals = [ApprovalManager.sharedInstance().getAutoKey()!]
         
         tbHUD.show()
         LeaveManager.sharedInstance().updateLeaveData(leave) { (leave, error) in
