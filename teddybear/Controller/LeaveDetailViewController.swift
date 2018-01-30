@@ -78,12 +78,18 @@ class LeaveDetailViewController: UITableViewController
         endPeriodField.text = tbDefines.kEndSection[leave.endPeriod!]
         typeField.text = leave.type
         assigneeField.text = manager?.getStaff(byStaffId: leave.assigneeId!)?.name
+        assigneeField.isEnabled = false
         messageField.text = leave.message
         sendBtn.setTitle("確定修改", for: .normal)
         self.textFieldDidChanged(field: messageField)
         
         let assignee = leave.approvals?.first
-        if assignee == nil { return }
+        if assignee == nil {
+            self.tableView.isUserInteractionEnabled = false
+            statusLbl.text = "假單處理中"
+            statusLbl.isHidden = false
+            return
+        }
         tableStatus = 1
         if assignee?.status != 0 {
             statusLbl.isHidden = false
