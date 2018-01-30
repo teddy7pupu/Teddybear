@@ -32,9 +32,22 @@ class LeaveCell: UITableViewCell {
     }
     
     private func layoutStatusButton(leave: Leave!) {
-        guard let approvals = leave.approvals else { return }
-        if approvals.count <= 1 {
-            
+        let status = leave.leaveStatus()
+        switch status {
+        case 1:
+            statusBtn.isSelected = true
+            statusBtn.isEnabled = true
+            statusBtn.backgroundColor = UIColor(named: "SPGreen")
+            break
+        case 2:
+            statusBtn.isSelected = false
+            statusBtn.isEnabled = false
+            statusBtn.backgroundColor = UIColor.darkGray
+            break
+        default:
+            statusBtn.isSelected = false
+            statusBtn.isEnabled = true
+            statusBtn.backgroundColor = UIColor.lightGray
         }
     }
 }

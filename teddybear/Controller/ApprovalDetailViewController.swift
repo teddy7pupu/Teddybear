@@ -75,6 +75,7 @@ class ApprovalDetailViewController: UITableViewController {
         guard var approval = currentApproval else { return }
         
         tbHUD.show()
+        approval.time = Int(Date().timeIntervalSince1970)
         approval.status = 1
         approval.message = approvalMessageField.text
         updateApproval(approval: approval)
@@ -84,6 +85,7 @@ class ApprovalDetailViewController: UITableViewController {
         guard var approval = currentApproval else { return }
         
         tbHUD.show()
+        approval.time = Int(Date().timeIntervalSince1970)
         approval.status = 2
         approval.message = approvalMessageField.text
         updateApproval(approval: approval)

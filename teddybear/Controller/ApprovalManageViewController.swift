@@ -115,7 +115,7 @@ class ApprovalManageViewController: UIViewController
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return (section == 0 ? "   代簽核假單" : "   已簽核假單")
+        return (section == 0 ? "   待簽核假單" : "   已簽核假單")
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

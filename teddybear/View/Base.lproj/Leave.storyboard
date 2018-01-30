@@ -8,6 +8,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -103,6 +104,8 @@
                                                     <state key="normal" title="待簽核">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
+                                                    <state key="disabled" title="拒絕"/>
+                                                    <state key="selected" title="核准"/>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -164,7 +167,7 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="YOt-Pb-ROh">
-                            <rect key="frame" x="0.0" y="517.5" width="375" height="60"/>
+                            <rect key="frame" x="0.0" y="677.5" width="375" height="60"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xmm-7m-7dY">
@@ -181,12 +184,23 @@
                                         <action selector="onUpdateLeave" destination="4ha-4M-ZQO" eventType="touchUpInside" id="zxC-BC-DZh"/>
                                     </connections>
                                 </button>
+                                <label hidden="YES" opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="已送出簽核" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qtx-zK-WtT">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
+                                <constraint firstItem="qtx-zK-WtT" firstAttribute="leading" secondItem="YOt-Pb-ROh" secondAttribute="leading" id="8Mr-2q-HHj"/>
                                 <constraint firstItem="xmm-7m-7dY" firstAttribute="leading" secondItem="YOt-Pb-ROh" secondAttribute="leading" id="HPr-QQ-LP6"/>
+                                <constraint firstItem="qtx-zK-WtT" firstAttribute="top" secondItem="YOt-Pb-ROh" secondAttribute="top" id="JEC-Yx-tba"/>
                                 <constraint firstAttribute="bottom" secondItem="xmm-7m-7dY" secondAttribute="bottom" id="T5f-vm-UQW"/>
+                                <constraint firstAttribute="bottom" secondItem="qtx-zK-WtT" secondAttribute="bottom" id="ZV8-zU-mK6"/>
                                 <constraint firstItem="xmm-7m-7dY" firstAttribute="top" secondItem="YOt-Pb-ROh" secondAttribute="top" id="gqq-k6-Vrb"/>
+                                <constraint firstAttribute="trailing" secondItem="qtx-zK-WtT" secondAttribute="trailing" id="pTR-Gk-jVC"/>
                                 <constraint firstAttribute="trailing" secondItem="xmm-7m-7dY" secondAttribute="trailing" id="yyH-mQ-RC6"/>
                             </constraints>
                         </view>
@@ -449,7 +463,159 @@
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="   簽核狀態" id="eyN-oe-Fxq">
-                                <cells/>
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="80" id="nK6-CA-9PK" customClass="ApprovalCell" customModule="teddybear" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="500" width="375" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nK6-CA-9PK" id="aNG-nk-ivb">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OGB-lk-9rD">
+                                                    <rect key="frame" x="16" y="39" width="150" height="30"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <state key="normal" title="  代理人簽核  ">
+                                                        <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                    <state key="selected" title="  主管簽核  ">
+                                                        <color key="titleColor" name="SPGreen"/>
+                                                    </state>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CPc-L5-uX2">
+                                                    <rect key="frame" x="16" y="11" width="50" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4nb-Ij-lMU">
+                                                    <rect key="frame" x="299" y="14" width="60" height="30"/>
+                                                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="eqA-br-SKr"/>
+                                                    </constraints>
+                                                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <state key="normal" title="待簽核">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                    <state key="disabled" title="拒絕"/>
+                                                    <state key="selected" title="核准"/>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RlS-He-gIe">
+                                                    <rect key="frame" x="74" y="12.5" width="69" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ReplyTime" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dAT-7k-VtF">
+                                                    <rect key="frame" x="293" y="52" width="66" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="dAT-7k-VtF" secondAttribute="bottom" id="4qg-Lb-sGt"/>
+                                                <constraint firstItem="OGB-lk-9rD" firstAttribute="width" secondItem="aNG-nk-ivb" secondAttribute="width" multiplier="0.4" id="6ca-Fe-Epz"/>
+                                                <constraint firstItem="CPc-L5-uX2" firstAttribute="top" secondItem="aNG-nk-ivb" secondAttribute="topMargin" id="9Q7-zC-6bH"/>
+                                                <constraint firstItem="OGB-lk-9rD" firstAttribute="bottom" secondItem="aNG-nk-ivb" secondAttribute="bottomMargin" id="Lk3-4q-ppV"/>
+                                                <constraint firstItem="dAT-7k-VtF" firstAttribute="trailing" secondItem="aNG-nk-ivb" secondAttribute="trailingMargin" id="P1b-9q-0pd"/>
+                                                <constraint firstItem="CPc-L5-uX2" firstAttribute="leading" secondItem="aNG-nk-ivb" secondAttribute="leadingMargin" id="Tt5-wc-mDp"/>
+                                                <constraint firstItem="dAT-7k-VtF" firstAttribute="top" secondItem="4nb-Ij-lMU" secondAttribute="bottom" constant="8" id="fcm-TK-GN7"/>
+                                                <constraint firstItem="RlS-He-gIe" firstAttribute="leading" secondItem="CPc-L5-uX2" secondAttribute="trailing" constant="8" id="j0E-6c-gel"/>
+                                                <constraint firstItem="4nb-Ij-lMU" firstAttribute="trailing" secondItem="dAT-7k-VtF" secondAttribute="trailing" id="mMD-qr-hCh"/>
+                                                <constraint firstItem="4nb-Ij-lMU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="RlS-He-gIe" secondAttribute="trailing" constant="8" id="nhu-zr-gyV"/>
+                                                <constraint firstItem="RlS-He-gIe" firstAttribute="centerY" secondItem="CPc-L5-uX2" secondAttribute="centerY" id="ojG-hH-HeP"/>
+                                                <constraint firstItem="OGB-lk-9rD" firstAttribute="leading" secondItem="CPc-L5-uX2" secondAttribute="leading" id="tqX-k8-6eB"/>
+                                                <constraint firstItem="dAT-7k-VtF" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="OGB-lk-9rD" secondAttribute="trailing" constant="8" id="yDz-hh-WKu"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="aTypeBtn" destination="OGB-lk-9rD" id="UWH-eI-9D3"/>
+                                            <outlet property="applyTimeLbl" destination="dAT-7k-VtF" id="n82-nY-2HE"/>
+                                            <outlet property="nameLbl" destination="CPc-L5-uX2" id="u68-Q5-aMK"/>
+                                            <outlet property="statusBtn" destination="4nb-Ij-lMU" id="2Tk-X7-pfw"/>
+                                            <outlet property="typeLbl" destination="RlS-He-gIe" id="9Gz-4T-D7J"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="80" id="kyK-gs-Yj9" customClass="ApprovalCell" customModule="teddybear" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="580" width="375" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kyK-gs-Yj9" id="qkE-L7-pdb">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gs6-nv-9TK">
+                                                    <rect key="frame" x="16" y="39" width="150" height="30"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <state key="normal" title="  代理人簽核  ">
+                                                        <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                    <state key="selected" title="  主管簽核  ">
+                                                        <color key="titleColor" name="SPGreen"/>
+                                                    </state>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0As-au-hzN">
+                                                    <rect key="frame" x="16" y="11" width="50" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ruj-RN-cW0">
+                                                    <rect key="frame" x="299" y="14" width="60" height="30"/>
+                                                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="pda-J1-KQG"/>
+                                                    </constraints>
+                                                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <state key="normal" title="待簽核">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                    <state key="disabled" title="拒絕"/>
+                                                    <state key="selected" title="核准"/>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="izq-wk-u2X">
+                                                    <rect key="frame" x="74" y="12.5" width="69" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ReplyTime" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9tL-4o-4Gj">
+                                                    <rect key="frame" x="293" y="52" width="66" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="izq-wk-u2X" firstAttribute="centerY" secondItem="0As-au-hzN" secondAttribute="centerY" id="DcU-5h-p70"/>
+                                                <constraint firstItem="Gs6-nv-9TK" firstAttribute="leading" secondItem="0As-au-hzN" secondAttribute="leading" id="GyD-3V-8FY"/>
+                                                <constraint firstItem="9tL-4o-4Gj" firstAttribute="top" secondItem="Ruj-RN-cW0" secondAttribute="bottom" constant="8" id="K9m-dD-x6h"/>
+                                                <constraint firstItem="0As-au-hzN" firstAttribute="leading" secondItem="qkE-L7-pdb" secondAttribute="leadingMargin" id="Tvw-62-bEa"/>
+                                                <constraint firstItem="9tL-4o-4Gj" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Gs6-nv-9TK" secondAttribute="trailing" constant="8" id="Xg0-CP-lmQ"/>
+                                                <constraint firstItem="Gs6-nv-9TK" firstAttribute="bottom" secondItem="qkE-L7-pdb" secondAttribute="bottomMargin" id="dQn-IC-zPV"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="9tL-4o-4Gj" secondAttribute="bottom" id="fjn-gA-wUE"/>
+                                                <constraint firstItem="Ruj-RN-cW0" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="izq-wk-u2X" secondAttribute="trailing" constant="8" id="gUv-0T-zdF"/>
+                                                <constraint firstItem="0As-au-hzN" firstAttribute="top" secondItem="qkE-L7-pdb" secondAttribute="topMargin" id="l0S-Pk-nB2"/>
+                                                <constraint firstItem="Ruj-RN-cW0" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="0As-au-hzN" secondAttribute="trailing" constant="8" id="qlt-DR-AuL"/>
+                                                <constraint firstItem="izq-wk-u2X" firstAttribute="leading" secondItem="0As-au-hzN" secondAttribute="trailing" constant="8" id="qul-om-kHp"/>
+                                                <constraint firstItem="Ruj-RN-cW0" firstAttribute="trailing" secondItem="9tL-4o-4Gj" secondAttribute="trailing" id="rNU-Qe-3wD"/>
+                                                <constraint firstItem="9tL-4o-4Gj" firstAttribute="trailing" secondItem="qkE-L7-pdb" secondAttribute="trailingMargin" id="rqs-3w-Nfw"/>
+                                                <constraint firstItem="Gs6-nv-9TK" firstAttribute="width" secondItem="qkE-L7-pdb" secondAttribute="width" multiplier="0.4" id="zGu-IG-fot"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="aTypeBtn" destination="Gs6-nv-9TK" id="eP6-6T-Ver"/>
+                                            <outlet property="applyTimeLbl" destination="9tL-4o-4Gj" id="nz1-af-G1e"/>
+                                            <outlet property="nameLbl" destination="0As-au-hzN" id="gPz-t0-OeU"/>
+                                            <outlet property="statusBtn" destination="Ruj-RN-cW0" id="Eas-sV-uW4"/>
+                                            <outlet property="typeLbl" destination="izq-wk-u2X" id="9A5-97-3qV"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </cells>
                             </tableViewSection>
                         </sections>
                         <connections>
@@ -458,15 +624,18 @@
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="assigneeCell" destination="nK6-CA-9PK" id="a4F-U4-EdG"/>
                         <outlet property="assigneeField" destination="6tn-oI-RXE" id="XPE-7U-iOy"/>
                         <outlet property="beginPeriodField" destination="2oN-HR-3Ke" id="PPf-B1-NAA"/>
                         <outlet property="beginTimeField" destination="ro6-ia-YHv" id="fHG-G6-dBr"/>
                         <outlet property="datePickerView" destination="rmi-CC-1uu" id="1fN-CX-JF6"/>
                         <outlet property="endPeriodField" destination="dut-Vt-7Cc" id="7ZQ-hn-mC9"/>
                         <outlet property="endTimeField" destination="iCL-gL-Egc" id="JGh-wm-kPd"/>
+                        <outlet property="managerCell" destination="kyK-gs-Yj9" id="VdW-qf-meF"/>
                         <outlet property="messageField" destination="HPc-Qw-qr8" id="MaA-OZ-6Mx"/>
                         <outlet property="pickerView" destination="yDW-Bu-yOM" id="uOX-F8-MuY"/>
                         <outlet property="sendBtn" destination="xmm-7m-7dY" id="DdY-Fh-cea"/>
+                        <outlet property="statusLbl" destination="qtx-zK-WtT" id="whG-Gx-O73"/>
                         <outlet property="summationLbl" destination="jc6-Pb-hVe" id="VH0-zE-qG5"/>
                         <outlet property="typeField" destination="fy6-qn-Gbv" id="Z33-60-WmV"/>
                     </connections>
@@ -576,6 +745,12 @@
     <resources>
         <namedColor name="SPGreen">
             <color red="0.11372549019607843" green="0.72549019607843135" blue="0.32941176470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SPGreen">
+            <color red="0.1137254902" green="0.72549019609999998" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SPGreen">
+            <color red="0.1137254902" green="0.72549019609999998" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

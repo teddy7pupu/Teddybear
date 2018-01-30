@@ -37,6 +37,16 @@ class ApprovalCell: UITableViewCell {
             .toString(format: .custom("yyyy-MM-dd HH:mm:ss"))
     }
     
+    func layoutCell(with approval:Approval?) {
+        guard let approval = approval else { return }
+        aTypeBtn.layer.borderColor = aTypeBtn.currentTitleColor.cgColor
+        layoutStatusButton(approval: approval)
+        nameLbl.text = manager?.getStaff(byStaffId: approval.sid!)?.name
+        applyTimeLbl.text = (approval.time != nil) ? Date(timeIntervalSince1970: TimeInterval(approval.time!))
+            .toString(format: .custom("yyyy-MM-dd HH:mm:ss")) : ""
+        typeLbl.text = approval.message
+    }
+    
     private func layoutHoursLabel(leave: Leave) {
         let beginDate = Date(timeIntervalSince1970: TimeInterval((leave.startTime)!))
         let endDate = Date(timeIntervalSince1970: TimeInterval((leave.endTime)!))

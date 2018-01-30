@@ -34,6 +34,21 @@ struct Leave: Codable {
         return try! JSONSerialization.jsonObject(with: encoded!, options: .allowFragments) as! [String : Any]
     }
     
+    func leaveStatus() -> Int { //0:待簽核, 1:核准: 2:拒絕
+        guard let approvals = self.approvals else { return 0 }
+        
+        var status = 0
+        switch approvals.count {
+        case 1:
+            status = approvals[0].status!
+            break
+        case 2:
+            status = approvals[1].status!
+        default: break
+        }
+        return status
+    }
+    
     static func get(data: NSDictionary) -> Leave? {
         guard let json = try? JSONSerialization.data(withJSONObject: data, options: .prettyPrinted) else { return nil }
         let decoder = JSONDecoder()

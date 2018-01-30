@@ -37,6 +37,7 @@ exports.onUpdateApproval = functions.database.ref('Approval/{aid}')
     var leave = snap.val();
     console.log('[LEAVE]',leave);
 
+    updateApproval(leave, approval)
     if (oldStatus == 0 && newStatus == 1) { //Accept
       if (leave.approvals.length == 1) { //Assignee -> Supervisor
         generateSupervisorApproval(leave);
@@ -48,7 +49,6 @@ exports.onUpdateApproval = functions.database.ref('Approval/{aid}')
     if (newStatus == 2) { //Reject
       //Send notification to related people.
     }
-    updateApproval(leave, approval)
   });
 })
 
@@ -56,8 +56,8 @@ exports.onRemoveLeave = functions.database.ref('Leave/{leaveId}')
   .onDelete(event => {
     const leave = event.data.previous.val();
     var approvals = leave.approvals
-    approvals.forEach( function(aid) {
-      approvalRef.child(aid).remove();
+    approvals.forEach( function(approval) {
+      approvalRef.child(approval.aid).remove();
     });
 })
 
@@ -91,6 +91,13 @@ function generateSupervisorApproval(leave) {
       status: 0
     };
     newApprovalRef.set(approval);
+
+    var approvals = leave.approvals;
+    approvals[0].status = 1;
+    approvals.push(approval);
+    leaveRef.child(leave.leaveId).update({
+      approvals: approvals
+    });
   });
 }
 
@@ -103,7 +110,7 @@ function updateApproval(leave, approval) {
     } else {
       newApprovals.push(_approval);
     }
-  });  
+  });
   leaveRef.child(leave.leaveId).update({
     approvals: newApprovals
   });
