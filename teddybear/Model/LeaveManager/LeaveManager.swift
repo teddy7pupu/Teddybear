@@ -15,7 +15,6 @@ class LeaveManager: NSObject{
     private static var mInstance: LeaveManager?
     private var dbRef: DatabaseReference?
     private var mLeaveList: [Leave]?
-    private var mApprovalLeave: Leave?
 
     
     override private init() {
@@ -68,13 +67,13 @@ class LeaveManager: NSObject{
         })
     }
     
-    func getApprovalLeave(_ leaveId:String!, completion:@escaping (Leave?, Error?) -> Void) {
-        queryApprovalLeave(key:"leaveId", value: leaveId, completion: completion)
+    func getLeave(_ leaveId: String!, completion:@escaping (Leave?, Error?) -> Void) {
+        queryLeave(key: "leaveId", value: leaveId, completion: completion)
     }
     
-    private func queryApprovalLeave(key: String!, value:Any, completion:@escaping (Leave?, Error?) -> Void) {
+    private func queryLeave(key: String!, value:Any, completion:@escaping (Leave?, Error?) -> Void) {
         leaveRef()?.queryOrdered(byChild: key).queryEqual(toValue: value).observeSingleEvent(of: .value, with: { SnapShot in
-            var list: Leave?
+            var result: Leave?
             for child in SnapShot.children {
                 let data = child as? DataSnapshot
                 guard let leave = Leave.get(data: data?.value as! NSDictionary) else {
@@ -82,10 +81,10 @@ class LeaveManager: NSObject{
                     completion(nil, error)
                     return
                 }
-                list = leave
+                result = leave
+                break
             }
-            self.mApprovalLeave = list
-            completion(list, nil)
+            completion(result, nil)
         })
     }
     

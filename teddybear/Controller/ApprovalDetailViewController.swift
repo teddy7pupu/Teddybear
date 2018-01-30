@@ -14,14 +14,17 @@ class ApprovalDetailViewController: UITableViewController {
     @IBOutlet weak var beginPeriodLbl: UILabel!   //時段
     @IBOutlet weak var endTimeLbl: UILabel!       //結束時間、時段
     @IBOutlet weak var endPeriodLbl: UILabel!     //時段
+    @IBOutlet weak var hoursLbl: UILabel!         //時數
     @IBOutlet weak var typeLbl: UILabel!          //假別
     @IBOutlet weak var messageLbl: UILabel!       //事由
-    @IBOutlet weak var ApprovalMessageField: UITextField!
+    @IBOutlet weak var approvalMessageField: UITextField!
     @IBOutlet weak var agreeBtn: UIButton!
     @IBOutlet weak var rejectBtn: UIButton!
+    @IBOutlet weak var statusLbl: UILabel!
 
 
-    var currentApproval: [Any]? // 0: 簽核 1:假單
+    var currentApproval: Approval?
+    var currentLeave: Leave?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,26 +47,46 @@ class ApprovalDetailViewController: UITableViewController {
         self.view.addGestureRecognizer(gesture)
     }
     
+    func layoutApproval() {
+        guard let leave = currentLeave,
+            let approval = currentApproval else { return }
+        
+        let name = StaffManager.sharedInstance().getStaff(byStaffId: leave.sid!)?.name
+        self.title = "申請人 : \(name!)"
+        
+        let beginDate = Date(timeIntervalSince1970: TimeInterval(leave.startTime!))
+        let endDate = Date(timeIntervalSince1970: TimeInterval(leave.endTime!))
+        let hour = Date.leaveHour(beginDate, leave.startPeriod!, endDate, leave.endPeriod!)
+        
+        beginTimeLbl.text = beginDate.toString(format: .isoDate)
+        beginPeriodLbl.text = tbDefines.kBeginSection[leave.startPeriod!]
+        endTimeLbl.text = endDate.toString(format: .isoDate)
+        endPeriodLbl.text = tbDefines.kEndSection[leave.endPeriod!]
+        hoursLbl.text = "\(hour/8) 天 \(hour%8) 小時"
+        typeLbl.text = leave.type
+        messageLbl.text = leave.message
+        approvalMessageField.text = approval.message
+        
+        statusLbl.isHidden = (approval.status == 0)
+    }
+    
+    //MARK: Action
     @IBAction func onAgree() {
-        guard let approval: Approval = currentApproval![0] as? Approval else { return }
+        guard var approval = currentApproval else { return }
+        
         tbHUD.show()
-        var newApproval: Approval = approval
-        newApproval.status = 1
-        if safeString(source: ApprovalMessageField.text) != nil {
-            newApproval.message = [safeString(source: ApprovalMessageField.text)!]
-        }
-        updateApproval(approval: newApproval)
+        approval.status = 1
+        approval.message = approvalMessageField.text
+        updateApproval(approval: approval)
     }
     
     @IBAction func onReject() {
-        guard let approval: Approval = currentApproval![0] as? Approval else { return }
+        guard var approval = currentApproval else { return }
+        
         tbHUD.show()
-        var newApproval: Approval = approval
-        newApproval.status = 2
-        if safeString(source: ApprovalMessageField.text) != nil {
-            newApproval.message = [safeString(source: ApprovalMessageField.text)!]
-        }
-        updateApproval(approval: newApproval)
+        approval.status = 2
+        approval.message = approvalMessageField.text
+        updateApproval(approval: approval)
     }
     
     func updateApproval(approval: Approval) {
@@ -82,36 +105,7 @@ class ApprovalDetailViewController: UITableViewController {
         self.view.endEditing(true)
     }
     
-    func layoutApproval() {
-        guard let leave: Leave = currentApproval![1] as? Leave,
-              let approval: Approval = currentApproval![0] as? Approval else { return }
-        beginTimeLbl.text = Date(timeIntervalSince1970: TimeInterval(leave.startTime!)).toString(format: .isoDate)
-        beginPeriodLbl.text = tbDefines.kBeginSection[leave.startPeriod!]
-        endTimeLbl.text = Date(timeIntervalSince1970: TimeInterval(leave.endTime!)).toString(format: .isoDate)
-        endPeriodLbl.text = tbDefines.kEndSection[leave.endPeriod!]
-        typeLbl.text = leave.type
-        messageLbl.text = leave.message
-        if approval.message?.isEmpty == false {
-            ApprovalMessageField.text = approval.message?[0]
-        }
-        if approval.status != 0 {
-            agreeBtn.isEnabled = false
-            rejectBtn.isEnabled = false
-        }
-        else {
-            agreeBtn.isEnabled = true
-            rejectBtn.isEnabled = true
-        }
-    }
-    
-    func safeString(source: String?) -> String? {
-        if source?.count == 0 {
-            return nil
-        } else {
-            return source
-        }
-    }
-    
+    //MARK: UITableViewDelegate
     override func tableView(_ tableView: UITableView,didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }

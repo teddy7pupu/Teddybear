@@ -209,9 +209,9 @@
 			children = (
 				8DB2938C1FFF1BF3007C39F8 /* LaunchScreen.storyboard */,
 				8DB293871FFF1BF3007C39F8 /* Main.storyboard */,
+				79867D79201E348A001E21AB /* Approval.storyboard */,
 				8D90E7BD201BA80F0097636E /* Leave.storyboard */,
 				8D90E7BA201BA7780097636E /* Staff.storyboard */,
-				79867D79201E348A001E21AB /* Approval.storyboard */,
 				8DC3F2EF200DC2BD00BF2862 /* DatePickerView.swift */,
 				8DC3F307200F550300BF2862 /* DeptCell.swift */,
 				79867D7D201EFC41001E21AB /* ApprovalCell.swift */,
@@ -226,8 +226,8 @@
 		8DB293A41FFF1D39007C39F8 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				79867D7B201E3796001E21AB /* ApprovalManageViewController.swift */,
 				796954CA201F4F61004704AD /* ApprovalDetailViewController.swift */,
+				79867D7B201E3796001E21AB /* ApprovalManageViewController.swift */,
 				8D981060200FC61600072804 /* DeptDetailViewController.swift */,
 				8DC3F305200F43A700BF2862 /* DeptManageViewController.swift */,
 				8D90E7C0201BB9900097636E /* LeaveDetailViewController.swift */,
@@ -722,7 +722,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = E3CE76ZT7U;
+				DEVELOPMENT_TEAM = 79V8F6N3Z8;
 				INFOPLIST_FILE = "$(SRCROOT)/teddybear/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -742,7 +742,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = E3CE76ZT7U;
+				DEVELOPMENT_TEAM = 79V8F6N3Z8;
 				INFOPLIST_FILE = "$(SRCROOT)/teddybear/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

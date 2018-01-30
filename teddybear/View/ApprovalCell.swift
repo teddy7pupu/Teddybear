@@ -10,24 +10,66 @@ import UIKit
 
 class ApprovalCell: UITableViewCell {
 
-    @IBOutlet weak var applicant: UILabel!
-    @IBOutlet weak var status: UILabel!
-    @IBOutlet weak var applyTime: UILabel!
+    @IBOutlet weak var nameLbl: UILabel!
+    @IBOutlet weak var hoursLbl: UILabel!
+    @IBOutlet weak var typeLbl: UILabel!
+    @IBOutlet weak var applyTimeLbl: UILabel!
+    @IBOutlet weak var aTypeBtn: UIButton!
+    @IBOutlet weak var statusBtn: UIButton!
+    
     private weak var manager: StaffManager? = StaffManager.sharedInstance()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+        aTypeBtn.layer.cornerRadius = 5
+        aTypeBtn.layer.borderWidth = 1.5
+        statusBtn.layer.cornerRadius = 5
     }
 
     func layoutCell(with approval:Approval?, leave:Leave?){
-        guard let sid = leave?.sid,
-              let applicantStatus = approval?.status,
-              let time = leave?.applyTime else { return }
-        applicant.text = manager?.getStaff(byStaffId: sid)?.name
-        status.text = tbDefines.kStatus[applicantStatus]
-        applyTime.text = Date(timeIntervalSince1970: TimeInterval(time)).toString(format: .isoDate)
+        guard let approval = approval, let leave = leave else { return }
+        layoutHoursLabel(leave: leave)
+        layoutATypeButton(approval: approval, leave: leave)
+        layoutStatusButton(approval: approval)
+        nameLbl.text = manager?.getStaff(byStaffId: leave.sid!)?.name
+        typeLbl.text = leave.type
+        applyTimeLbl.text = Date(timeIntervalSince1970: TimeInterval(leave.applyTime!))
+            .toString(format: .custom("yyyy-MM-dd HH:mm:ss"))
+    }
+    
+    private func layoutHoursLabel(leave: Leave) {
+        let beginDate = Date(timeIntervalSince1970: TimeInterval((leave.startTime)!))
+        let endDate = Date(timeIntervalSince1970: TimeInterval((leave.endTime)!))
+        let hours = Date.leaveHour(beginDate, leave.startPeriod!, endDate, leave.endPeriod!)
+        hoursLbl.text = "\(hours/8) 天 \(hours%8) 小時"
+    }
+    
+    private func layoutATypeButton(approval: Approval, leave: Leave) {
+        guard let aid = leave.approvals?.first else {
+            aTypeBtn.isHidden = true
+            return
+        }
+        aTypeBtn.isHidden = false
+        aTypeBtn.isSelected = (aid != approval.aid)
+        aTypeBtn.layer.borderColor = aTypeBtn.currentTitleColor.cgColor
+    }
+    
+    private func layoutStatusButton(approval: Approval) {
+        switch approval.status {
+        case 1?:
+            statusBtn.isSelected = true
+            statusBtn.isEnabled = true
+            statusBtn.backgroundColor = UIColor(named: "SPGreen")
+            break
+        case 2?:
+            statusBtn.isSelected = false
+            statusBtn.isEnabled = false
+            statusBtn.backgroundColor = UIColor.darkGray
+            break
+        default:
+            statusBtn.isSelected = false
+            statusBtn.isEnabled = true
+            statusBtn.backgroundColor = UIColor.lightGray
+        }
     }
 }

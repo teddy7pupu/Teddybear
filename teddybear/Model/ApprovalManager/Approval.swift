@@ -14,7 +14,7 @@ struct Approval: Codable {
     var leaveId: String? //leave ID
     var sid: String? //簽核者 ID
     var status: Int? // 簽核狀態 0:未簽核 / 1:通過 / 2:拒絕
-    var message: [String]? // 簽核者回應
+    var message: String? // 簽核者回應
     
     init() {
     }
