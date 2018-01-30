@@ -14,4 +14,10 @@ extension UIViewController {
         tbHUD.dismiss()
         UIAlertController.alert(message: message).otherHandle(alertAction: nil).show(currentVC: self)
     }
+    
+    func showAlert(message: String!, completion:@escaping () -> Void) {
+        UIAlertController.alert(message: message).otherHandle(alertAction: { (action) in
+            completion()
+        }).cancelHandle(alertAction: nil ).show(currentVC: self)
+    }
 }
