@@ -30,7 +30,6 @@ class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDeleg
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        onBearBtn()
         if let user = UserManager.currentUser() {
             tbHUD.show()
             getUserProfile(email: user.email)

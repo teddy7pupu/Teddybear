@@ -18,7 +18,7 @@ struct Leave: Codable {
     var endPeriod: Int?     //假單結束時段 0 -> 14:00 ; 1 -> 19:00
     var message: String?    //請假原因
     var assigneeId: String? //代理人ID
-    var approvals: [String?]? //簽核清單
+    var approvals: [Approval]? //簽核清單
     var departmentId: String?//部門ID
     
     init() {
@@ -32,6 +32,21 @@ struct Leave: Codable {
         let encoder: JSONEncoder = JSONEncoder()
         let encoded = try? encoder.encode(self)
         return try! JSONSerialization.jsonObject(with: encoded!, options: .allowFragments) as! [String : Any]
+    }
+    
+    func leaveStatus() -> Int { //0:待簽核, 1:核准: 2:拒絕
+        guard let approvals = self.approvals else { return 0 }
+        
+        var status = 0
+        switch approvals.count {
+        case 1:
+            status = approvals[0].status!
+            break
+        case 2:
+            status = approvals[1].status!
+        default: break
+        }
+        return status
     }
     
     static func get(data: NSDictionary) -> Leave? {

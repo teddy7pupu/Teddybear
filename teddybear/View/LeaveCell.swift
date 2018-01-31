@@ -14,9 +14,7 @@ class LeaveCell: UITableViewCell {
     @IBOutlet weak var dayLbl: UILabel!
     @IBOutlet weak var typeLbl: UILabel!
     @IBOutlet weak var durationLbl: UILabel!
-    @IBOutlet weak var statusLbl: UILabel!
-    
-
+    @IBOutlet weak var statusBtn: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,6 +28,26 @@ class LeaveCell: UITableViewCell {
         typeLbl.text = leave?.type
         let duration = Date.leaveHour(beginDate, (leave?.startPeriod)!, endDate, (leave?.endPeriod)!)
         durationLbl.text = duration > 8 ? String(format:"%.1f天", Double(duration)/8) : "\(duration)小時"
-        statusLbl.text = "等待代理人簽核"//mock
+        layoutStatusButton(leave: leave)
+    }
+    
+    private func layoutStatusButton(leave: Leave!) {
+        let status = leave.leaveStatus()
+        switch status {
+        case 1:
+            statusBtn.isSelected = true
+            statusBtn.isEnabled = true
+            statusBtn.backgroundColor = UIColor(named: "SPGreen")
+            break
+        case 2:
+            statusBtn.isSelected = false
+            statusBtn.isEnabled = false
+            statusBtn.backgroundColor = UIColor.darkGray
+            break
+        default:
+            statusBtn.isSelected = false
+            statusBtn.isEnabled = true
+            statusBtn.backgroundColor = UIColor.lightGray
+        }
     }
 }

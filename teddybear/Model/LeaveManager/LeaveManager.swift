@@ -46,6 +46,16 @@ class LeaveManager: NSObject{
         })
     }
     
+    func removeLeaveData(_ leave: Leave!, completion:@escaping (Error?) -> Void) {
+        leaveRef()?.child(leave.leaveId!).removeValue(completionBlock: { (error, reference) in
+            if let error = error {
+                completion(error)
+                return
+            }
+            completion(nil)
+        })
+    }
+    
     func getLeaveList(_ sid:String!, completion:@escaping ([Leave]?, Error?) -> Void) {
         queryLeaveList(key:"sid", value: sid, completion: completion)
     }

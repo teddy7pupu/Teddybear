@@ -20,8 +20,11 @@ class LeaveDetailViewController: UITableViewController
     @IBOutlet weak var messageField: UITextField!
     @IBOutlet weak var summationLbl: UILabel!
     @IBOutlet weak var sendBtn: UIButton!
+    @IBOutlet weak var statusLbl: UILabel!
     @IBOutlet weak var datePickerView: DatePickerView!
     @IBOutlet weak var pickerView: tbPickerView!
+    @IBOutlet weak var assigneeCell: ApprovalCell!
+    @IBOutlet weak var managerCell: ApprovalCell!
     
     private var mFields: [UITextField?]?
     private func fields() -> [UITextField?] {
@@ -41,6 +44,7 @@ class LeaveDetailViewController: UITableViewController
             return staff.name!
         })
     }
+    private var tableStatus: Int = 0    //0:Only section(0), 1:Section(1,0), 2:Section(1,1)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,10 +78,30 @@ class LeaveDetailViewController: UITableViewController
         endPeriodField.text = tbDefines.kEndSection[leave.endPeriod!]
         typeField.text = leave.type
         assigneeField.text = manager?.getStaff(byStaffId: leave.assigneeId!)?.name
+        assigneeField.isEnabled = false
         messageField.text = leave.message
         sendBtn.setTitle("確定修改", for: .normal)
-        
         self.textFieldDidChanged(field: messageField)
+        
+        let assignee = leave.approvals?.first
+        if assignee == nil {
+            self.tableView.isUserInteractionEnabled = false
+            statusLbl.text = "假單處理中"
+            statusLbl.isHidden = false
+            return
+        }
+        tableStatus = 1
+        if assignee?.status != 0 {
+            statusLbl.isHidden = false
+            messageField.isEnabled = false
+        }
+        assigneeCell.layoutCell(with: assignee)
+        
+        guard (leave.approvals?.count)! > Int(1) else { return }
+        tableStatus = 2
+        let supervisor = leave.approvals![1]
+        managerCell.layoutCell(with: supervisor)
+        self.tableView.reloadData()
     }
     
     //MARK: Action
@@ -94,16 +118,6 @@ class LeaveDetailViewController: UITableViewController
         } else {
             completion(nil)
         }
-    }
-    
-    func getSupperId(departmentId: String?) -> String? {
-        guard let list = coworkerList else { return nil }
-        for count in 0...(list.count - 1) {
-            if list[count].department == manager?.currentStaff?.department && list[count].role!.rawValue == 4 {
-                return list[count].sid
-            }
-        }
-        return nil
     }
     
     @IBAction func onUpdateLeave() {
@@ -129,7 +143,6 @@ class LeaveDetailViewController: UITableViewController
         leave.sid = manager?.currentStaff?.sid
         leave.departmentId = manager?.currentStaff?.department
         leave.applyTime = Int(Date().timeIntervalSince1970)
-        leave.approvals = [ApprovalManager.sharedInstance().getAutoKey()!]
         
         tbHUD.show()
         LeaveManager.sharedInstance().updateLeaveData(leave) { (leave, error) in
@@ -199,6 +212,18 @@ class LeaveDetailViewController: UITableViewController
         }
         let hour = Date.leaveHour(beginDate, beginPeriod, endDate, endPeriod)
         summationLbl.text = "總計: \(hour) 小時"
+    }
+    
+    // MARK: UITableViewDataSource
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return (tableStatus > 0) ? 2 : 1
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 0 {
+            return 8
+        }
+        return tableStatus
     }
     
     // MARK: UITableViewDelegate
