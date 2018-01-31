@@ -19,7 +19,7 @@ const mailTransport = nodemailer.createTransport({
 });
 
 exports.sendApprovalMail = function(staff, assignee, leave) {
-  let email = staff.email;
+  let email = assignee.email;
   const mailOptions = {
     from: `teddyBear <noreply@appmaster.cc>`,
     to: email
