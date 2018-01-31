@@ -1,11 +1,19 @@
+'use strict';
+
+//Require
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
-admin.initializeApp(functions.config().firebase);
+const Q = require('q');
+const mail = require('./utils/mail');
 
+try {admin.initializeApp(functions.config().firebase);} catch(e) {}
+
+//Database Reference
 var db = admin.database();
 var approvalRef = db.ref('Approval');
 var leaveRef = db.ref('Leave');
 var deptRef = db.ref('Department');
+var staffRef = db.ref('Staff');
 
 exports.onCreateLeave = functions.database.ref('Leave/{leaveId}')
   .onCreate(event => {
@@ -37,17 +45,17 @@ exports.onUpdateApproval = functions.database.ref('Approval/{aid}')
     var leave = snap.val();
     console.log('[LEAVE]',leave);
 
-    updateApproval(leave, approval)
+    updateApproval(leave, approval);
     if (oldStatus == 0 && newStatus == 1) { //Accept
       if (leave.approvals.length == 1) { //Assignee -> Supervisor
         generateSupervisorApproval(leave);
       }
       if (leave.approvals.length == 2) { //Supervisor -> Finish
-
+        finishLeaveApply(leave);
       }
     }
     if (newStatus == 2) { //Reject
-      //Send notification to related people.
+      rejectLeave(leave, approval);
     }
   });
 })
@@ -59,6 +67,12 @@ exports.onRemoveLeave = functions.database.ref('Leave/{leaveId}')
     approvals.forEach( function(approval) {
       approvalRef.child(approval.aid).remove();
     });
+
+    queryStaff(leave.sid).then(function(staff) {
+      queryStaff(leave.assigneeId).then(function(assignee) {
+        mail.sendDeleteMail(staff, assignee, leave);
+      })
+    })
 })
 
 function generateAssigneeApproval(leave) {
@@ -73,6 +87,12 @@ function generateAssigneeApproval(leave) {
     status: 0
   };
   newApprovalRef.set(approval);
+  queryStaff(leave.sid).then(function(staff) {
+    queryStaff(_sid).then(function(assignee) {
+      mail.sendApprovalMail(staff, assignee, leave);
+    })
+  })
+
   return approval;
 }
 
@@ -98,6 +118,28 @@ function generateSupervisorApproval(leave) {
     leaveRef.child(leave.leaveId).update({
       approvals: approvals
     });
+
+    queryStaff(leave.sid).then(function(staff) {
+      queryStaff(_sid).then(function(assignee) {
+        mail.sendApprovalMail(staff, assignee, leave);
+      })
+    })
+  });
+}
+
+function finishLeaveApply(leave) {
+  queryStaff(leave.sid).then(function(staff) {
+    queryAccount().then(function(account) {
+      mail.sendFinishMail(staff, account, leave);
+    })
+  });
+}
+
+function rejectLeave(leave, approval) {
+  queryStaff(leave.sid).then(function(staff) {
+    queryStaff(approval.sid).then(function(assignee) {
+      mail.sendRejectMail(staff, assignee, approval.message, leave);
+    });
   });
 }
 
@@ -114,4 +156,30 @@ function updateApproval(leave, approval) {
   leaveRef.child(leave.leaveId).update({
     approvals: newApprovals
   });
+}
+
+function queryStaff(staffId) {
+  var deferred = Q.defer();
+  staffRef.child(staffId).once('value').then(function(snap) {
+    var staff = snap.val();
+    if (!staff) {
+      deferred.reject('No Data');
+    } else {
+      deferred.resolve(staff);
+    }
+  });
+  return deferred.promise;
+}
+
+function queryAccount() {
+  var deferred = Q.defer();
+  staffRef.orderByChild("role").equalTo(3).on("child_added", function(snap) {
+    var staff = snap.val();
+    if (!staff) {
+      deferred.reject('No Data');
+    } else {
+      deferred.resolve(staff);
+    }
+  });
+  return deferred.promise;
 }
