@@ -48,7 +48,7 @@ exports.onUpdateApproval = functions.database.ref('Approval/{aid}')
     updateApproval(leave, approval);
     if (oldStatus == 0 && newStatus == 1) { //Accept
       if (leave.approvals.length == 1) { //Assignee -> Supervisor
-        generateSupervisorApproval(leave);
+        generateSupervisorApproval(leave, approval);
       }
       if (leave.approvals.length == 2) { //Supervisor -> Finish
         finishLeaveApply(leave);
@@ -96,7 +96,7 @@ function generateAssigneeApproval(leave) {
   return approval;
 }
 
-function generateSupervisorApproval(leave) {
+function generateSupervisorApproval(leave, approval) {
   var newApprovalRef = approvalRef.push();
   const _aid = newApprovalRef.key;
   const _leaveId = leave.leaveId;
@@ -104,17 +104,17 @@ function generateSupervisorApproval(leave) {
   deptRef.child(deptId).once('value').then(function(snap) {
     var dept = snap.val();
     const _sid = dept.supervisor;
-    var approval = {
+    var newApproval = {
       aid: _aid,
       leaveId: _leaveId,
       sid: _sid,
       status: 0
     };
-    newApprovalRef.set(approval);
+    newApprovalRef.set(newApproval);
 
     var approvals = leave.approvals;
-    approvals[0].status = 1;
-    approvals.push(approval);
+    approvals[0] = approval;
+    approvals.push(newApproval);
     leaveRef.child(leave.leaveId).update({
       approvals: approvals
     });
