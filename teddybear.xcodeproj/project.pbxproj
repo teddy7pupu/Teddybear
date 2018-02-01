@@ -7,7 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		15A219862017183500B2AE20 /* UITextFieldHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A219852017183500B2AE20 /* UITextFieldHelper.swift */; };
 		576AA304058EF70E8187654B /* Pods_teddybear.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE34B84A6FAB7255B2C35CAA /* Pods_teddybear.framework */; };
+		796954CB201F4F61004704AD /* ApprovalDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796954CA201F4F61004704AD /* ApprovalDetailViewController.swift */; };
+		79867D76201E1443001E21AB /* Approval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79867D75201E1443001E21AB /* Approval.swift */; };
+		79867D78201E1669001E21AB /* ApprovalManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79867D77201E1669001E21AB /* ApprovalManager.swift */; };
+		79867D7A201E348A001E21AB /* Approval.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79867D79201E348A001E21AB /* Approval.storyboard */; };
+		79867D7C201E3796001E21AB /* ApprovalManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79867D7B201E3796001E21AB /* ApprovalManageViewController.swift */; };
+		79867D7E201EFC41001E21AB /* ApprovalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79867D7D201EFC41001E21AB /* ApprovalCell.swift */; };
+		8D139E012003EAFB00F73760 /* tbDefines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D139E002003EAFB00F73760 /* tbDefines.swift */; };
+		8D753C91201B7FCD002FB369 /* LeaveManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D753C90201B7FCD002FB369 /* LeaveManager.swift */; };
+		8D753C93201B80A7002FB369 /* Leave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D753C92201B80A7002FB369 /* Leave.swift */; };
+		8D753C95201B87B8002FB369 /* LeaveManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D753C94201B87B8002FB369 /* LeaveManageViewController.swift */; };
+		8D753C97201B934B002FB369 /* LeaveCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D753C96201B934B002FB369 /* LeaveCell.swift */; };
+		8D90E7BC201BA7780097636E /* Staff.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D90E7BA201BA7780097636E /* Staff.storyboard */; };
+		8D90E7BF201BA80F0097636E /* Leave.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D90E7BD201BA80F0097636E /* Leave.storyboard */; };
+		8D90E7C1201BB9900097636E /* LeaveDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D90E7C0201BB9900097636E /* LeaveDetailViewController.swift */; };
+		8D981061200FC61600072804 /* DeptDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D981060200FC61600072804 /* DeptDetailViewController.swift */; };
+		8D981063200FCAF600072804 /* Department.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D981062200FCAF600072804 /* Department.swift */; };
+		8D981065200FD1F900072804 /* tbPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D981064200FD1F900072804 /* tbPickerView.swift */; };
 		8DB293841FFF1BF3007C39F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB293831FFF1BF3007C39F8 /* AppDelegate.swift */; };
 		8DB293861FFF1BF3007C39F8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB293851FFF1BF3007C39F8 /* LoginViewController.swift */; };
 		8DB293891FFF1BF3007C39F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DB293871FFF1BF3007C39F8 /* Main.storyboard */; };
@@ -15,6 +33,20 @@
 		8DB2938E1FFF1BF3007C39F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DB2938C1FFF1BF3007C39F8 /* LaunchScreen.storyboard */; };
 		8DB293991FFF1BF3007C39F8 /* teddybearTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB293981FFF1BF3007C39F8 /* teddybearTests.swift */; };
 		8DB293A91FFF1E5D007C39F8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8DB293A81FFF1E5D007C39F8 /* GoogleService-Info.plist */; };
+		8DB293AB1FFF30CA007C39F8 /* LobbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB293AA1FFF30CA007C39F8 /* LobbyViewController.swift */; };
+		8DB293AE1FFF35AC007C39F8 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB293AD1FFF35AC007C39F8 /* UserManager.swift */; };
+		8DC3F2E7200CC05200BF2862 /* StaffManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC3F2E6200CC05200BF2862 /* StaffManageViewController.swift */; };
+		8DC3F2E9200CC18400BF2862 /* Staff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC3F2E8200CC18400BF2862 /* Staff.swift */; };
+		8DC3F2EB200D125500BF2862 /* StaffManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC3F2EA200D125500BF2862 /* StaffManager.swift */; };
+		8DC3F2EE200D262400BF2862 /* StaffDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC3F2ED200D262400BF2862 /* StaffDetailViewController.swift */; };
+		8DC3F2F0200DC2BD00BF2862 /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC3F2EF200DC2BD00BF2862 /* DatePickerView.swift */; };
+		8DC3F2F8200DDFFE00BF2862 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC3F2F7200DDFFE00BF2862 /* DateHelper.swift */; };
+		8DC3F2FA200E076D00BF2862 /* StaffCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC3F2F9200E076D00BF2862 /* StaffCell.swift */; };
+		8DC3F300200E62E400BF2862 /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC3F2FF200E62E400BF2862 /* AlertHelper.swift */; };
+		8DC3F302200F275400BF2862 /* tbHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC3F301200F275400BF2862 /* tbHUD.swift */; };
+		8DC3F304200F371A00BF2862 /* ViewControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC3F303200F371A00BF2862 /* ViewControllerHelper.swift */; };
+		8DC3F306200F43A700BF2862 /* DeptManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC3F305200F43A700BF2862 /* DeptManageViewController.swift */; };
+		8DC3F308200F550300BF2862 /* DeptCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC3F307200F550300BF2862 /* DeptCell.swift */; };
 		A4CEEFC4C02733B35798CC5A /* Pods_teddybearTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 708D75B9E55DB60CEE06682B /* Pods_teddybearTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,9 +61,27 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		15A219852017183500B2AE20 /* UITextFieldHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldHelper.swift; sourceTree = "<group>"; };
 		20F00CF83DA19EA30D2FC01A /* Pods-teddybearTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teddybearTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-teddybearTests/Pods-teddybearTests.release.xcconfig"; sourceTree = "<group>"; };
 		41A88EDAF7AACDF119CF59C8 /* Pods-teddybearTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teddybearTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-teddybearTests/Pods-teddybearTests.debug.xcconfig"; sourceTree = "<group>"; };
 		708D75B9E55DB60CEE06682B /* Pods_teddybearTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_teddybearTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		796954CA201F4F61004704AD /* ApprovalDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApprovalDetailViewController.swift; sourceTree = "<group>"; };
+		79867D75201E1443001E21AB /* Approval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Approval.swift; sourceTree = "<group>"; };
+		79867D77201E1669001E21AB /* ApprovalManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApprovalManager.swift; sourceTree = "<group>"; };
+		79867D79201E348A001E21AB /* Approval.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Approval.storyboard; sourceTree = "<group>"; };
+		79867D7B201E3796001E21AB /* ApprovalManageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApprovalManageViewController.swift; sourceTree = "<group>"; };
+		79867D7D201EFC41001E21AB /* ApprovalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApprovalCell.swift; sourceTree = "<group>"; };
+		8D139E002003EAFB00F73760 /* tbDefines.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tbDefines.swift; sourceTree = "<group>"; };
+		8D753C90201B7FCD002FB369 /* LeaveManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaveManager.swift; sourceTree = "<group>"; };
+		8D753C92201B80A7002FB369 /* Leave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Leave.swift; sourceTree = "<group>"; };
+		8D753C94201B87B8002FB369 /* LeaveManageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaveManageViewController.swift; sourceTree = "<group>"; };
+		8D753C96201B934B002FB369 /* LeaveCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaveCell.swift; sourceTree = "<group>"; };
+		8D90E7BB201BA7780097636E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Staff.storyboard; sourceTree = "<group>"; };
+		8D90E7BE201BA80F0097636E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Leave.storyboard; sourceTree = "<group>"; };
+		8D90E7C0201BB9900097636E /* LeaveDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaveDetailViewController.swift; sourceTree = "<group>"; };
+		8D981060200FC61600072804 /* DeptDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeptDetailViewController.swift; sourceTree = "<group>"; };
+		8D981062200FCAF600072804 /* Department.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Department.swift; sourceTree = "<group>"; };
+		8D981064200FD1F900072804 /* tbPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tbPickerView.swift; sourceTree = "<group>"; };
 		8DB293801FFF1BF3007C39F8 /* teddybear.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = teddybear.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DB293831FFF1BF3007C39F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8DB293851FFF1BF3007C39F8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -43,6 +93,20 @@
 		8DB293981FFF1BF3007C39F8 /* teddybearTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = teddybearTests.swift; sourceTree = "<group>"; };
 		8DB2939A1FFF1BF3007C39F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8DB293A81FFF1E5D007C39F8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8DB293AA1FFF30CA007C39F8 /* LobbyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LobbyViewController.swift; sourceTree = "<group>"; };
+		8DB293AD1FFF35AC007C39F8 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserManager.swift; path = teddybear/Model/UserManager.swift; sourceTree = SOURCE_ROOT; };
+		8DC3F2E6200CC05200BF2862 /* StaffManageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffManageViewController.swift; sourceTree = "<group>"; };
+		8DC3F2E8200CC18400BF2862 /* Staff.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Staff.swift; sourceTree = "<group>"; };
+		8DC3F2EA200D125500BF2862 /* StaffManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffManager.swift; sourceTree = "<group>"; };
+		8DC3F2ED200D262400BF2862 /* StaffDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffDetailViewController.swift; sourceTree = "<group>"; };
+		8DC3F2EF200DC2BD00BF2862 /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
+		8DC3F2F7200DDFFE00BF2862 /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
+		8DC3F2F9200E076D00BF2862 /* StaffCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffCell.swift; sourceTree = "<group>"; };
+		8DC3F2FF200E62E400BF2862 /* AlertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
+		8DC3F301200F275400BF2862 /* tbHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tbHUD.swift; sourceTree = "<group>"; };
+		8DC3F303200F371A00BF2862 /* ViewControllerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerHelper.swift; sourceTree = "<group>"; };
+		8DC3F305200F43A700BF2862 /* DeptManageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeptManageViewController.swift; sourceTree = "<group>"; };
+		8DC3F307200F550300BF2862 /* DeptCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeptCell.swift; sourceTree = "<group>"; };
 		9C9DC75B2E71482436D38C08 /* Pods-teddybear.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teddybear.release.xcconfig"; path = "Pods/Target Support Files/Pods-teddybear/Pods-teddybear.release.xcconfig"; sourceTree = "<group>"; };
 		BF9F63BFFBAAC4F147C965CA /* Pods-teddybear.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teddybear.debug.xcconfig"; path = "Pods/Target Support Files/Pods-teddybear/Pods-teddybear.debug.xcconfig"; sourceTree = "<group>"; };
 		FE34B84A6FAB7255B2C35CAA /* Pods_teddybear.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_teddybear.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,6 +143,24 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		79867D74201E1414001E21AB /* ApprovalManager */ = {
+			isa = PBXGroup;
+			children = (
+				79867D75201E1443001E21AB /* Approval.swift */,
+				79867D77201E1669001E21AB /* ApprovalManager.swift */,
+			);
+			path = ApprovalManager;
+			sourceTree = "<group>";
+		};
+		8D753C8F201B7FB0002FB369 /* LeaveManager */ = {
+			isa = PBXGroup;
+			children = (
+				8D753C92201B80A7002FB369 /* Leave.swift */,
+				8D753C90201B7FCD002FB369 /* LeaveManager.swift */,
+			);
+			path = LeaveManager;
+			sourceTree = "<group>";
+		};
 		8DB293771FFF1BF3007C39F8 = {
 			isa = PBXGroup;
 			children = (
@@ -102,7 +184,10 @@
 		8DB293821FFF1BF3007C39F8 /* teddybear */ = {
 			isa = PBXGroup;
 			children = (
+				8D139E002003EAFB00F73760 /* tbDefines.swift */,
 				8DB293831FFF1BF3007C39F8 /* AppDelegate.swift */,
+				8DC3F2F6200DDFEE00BF2862 /* Extension */,
+				8DB293AC1FFF3561007C39F8 /* Model */,
 				8DB293A31FFF1D19007C39F8 /* View */,
 				8DB293A41FFF1D39007C39F8 /* Controller */,
 				8DB293A51FFF1D4E007C39F8 /* Resources */,
@@ -124,6 +209,16 @@
 			children = (
 				8DB2938C1FFF1BF3007C39F8 /* LaunchScreen.storyboard */,
 				8DB293871FFF1BF3007C39F8 /* Main.storyboard */,
+				79867D79201E348A001E21AB /* Approval.storyboard */,
+				8D90E7BD201BA80F0097636E /* Leave.storyboard */,
+				8D90E7BA201BA7780097636E /* Staff.storyboard */,
+				8DC3F2EF200DC2BD00BF2862 /* DatePickerView.swift */,
+				8DC3F307200F550300BF2862 /* DeptCell.swift */,
+				79867D7D201EFC41001E21AB /* ApprovalCell.swift */,
+				8D753C96201B934B002FB369 /* LeaveCell.swift */,
+				8DC3F2F9200E076D00BF2862 /* StaffCell.swift */,
+				8DC3F301200F275400BF2862 /* tbHUD.swift */,
+				8D981064200FD1F900072804 /* tbPickerView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -131,7 +226,16 @@
 		8DB293A41FFF1D39007C39F8 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				796954CA201F4F61004704AD /* ApprovalDetailViewController.swift */,
+				79867D7B201E3796001E21AB /* ApprovalManageViewController.swift */,
+				8D981060200FC61600072804 /* DeptDetailViewController.swift */,
+				8DC3F305200F43A700BF2862 /* DeptManageViewController.swift */,
+				8D90E7C0201BB9900097636E /* LeaveDetailViewController.swift */,
+				8D753C94201B87B8002FB369 /* LeaveManageViewController.swift */,
+				8DB293AA1FFF30CA007C39F8 /* LobbyViewController.swift */,
 				8DB293851FFF1BF3007C39F8 /* LoginViewController.swift */,
+				8DC3F2ED200D262400BF2862 /* StaffDetailViewController.swift */,
+				8DC3F2E6200CC05200BF2862 /* StaffManageViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -144,6 +248,38 @@
 				8DB293A81FFF1E5D007C39F8 /* GoogleService-Info.plist */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		8DB293AC1FFF3561007C39F8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				79867D74201E1414001E21AB /* ApprovalManager */,
+				8D753C8F201B7FB0002FB369 /* LeaveManager */,
+				8DC3F2EC200D125B00BF2862 /* StaffManager */,
+				8DB293AD1FFF35AC007C39F8 /* UserManager.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8DC3F2EC200D125B00BF2862 /* StaffManager */ = {
+			isa = PBXGroup;
+			children = (
+				8D981062200FCAF600072804 /* Department.swift */,
+				8DC3F2E8200CC18400BF2862 /* Staff.swift */,
+				8DC3F2EA200D125500BF2862 /* StaffManager.swift */,
+			);
+			path = StaffManager;
+			sourceTree = "<group>";
+		};
+		8DC3F2F6200DDFEE00BF2862 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				8DC3F2FF200E62E400BF2862 /* AlertHelper.swift */,
+				8DC3F2F7200DDFFE00BF2862 /* DateHelper.swift */,
+				8DC3F303200F371A00BF2862 /* ViewControllerHelper.swift */,
+				15A219852017183500B2AE20 /* UITextFieldHelper.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		B675E0E662568972A34C34DA /* Frameworks */ = {
@@ -211,6 +347,7 @@
 				TargetAttributes = {
 					8DB2937F1FFF1BF3007C39F8 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 					8DB293931FFF1BF3007C39F8 = {
@@ -246,8 +383,11 @@
 			files = (
 				8DB2938E1FFF1BF3007C39F8 /* LaunchScreen.storyboard in Resources */,
 				8DB293A91FFF1E5D007C39F8 /* GoogleService-Info.plist in Resources */,
+				8D90E7BF201BA80F0097636E /* Leave.storyboard in Resources */,
+				79867D7A201E348A001E21AB /* Approval.storyboard in Resources */,
 				8DB2938B1FFF1BF3007C39F8 /* Assets.xcassets in Resources */,
 				8DB293891FFF1BF3007C39F8 /* Main.storyboard in Resources */,
+				8D90E7BC201BA7780097636E /* Staff.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,9 +407,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-teddybear/Pods-teddybear-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -349,15 +492,19 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-teddybear/Pods-teddybear-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -373,8 +520,37 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DC3F300200E62E400BF2862 /* AlertHelper.swift in Sources */,
+				8DC3F308200F550300BF2862 /* DeptCell.swift in Sources */,
+				8DC3F2E7200CC05200BF2862 /* StaffManageViewController.swift in Sources */,
+				8DC3F2FA200E076D00BF2862 /* StaffCell.swift in Sources */,
+				8DC3F302200F275400BF2862 /* tbHUD.swift in Sources */,
+				8DB293AB1FFF30CA007C39F8 /* LobbyViewController.swift in Sources */,
+				8DC3F304200F371A00BF2862 /* ViewControllerHelper.swift in Sources */,
+				8DC3F2E9200CC18400BF2862 /* Staff.swift in Sources */,
+				796954CB201F4F61004704AD /* ApprovalDetailViewController.swift in Sources */,
+				8D753C97201B934B002FB369 /* LeaveCell.swift in Sources */,
+				8D90E7C1201BB9900097636E /* LeaveDetailViewController.swift in Sources */,
+				8DC3F2F0200DC2BD00BF2862 /* DatePickerView.swift in Sources */,
+				8DC3F306200F43A700BF2862 /* DeptManageViewController.swift in Sources */,
+				79867D78201E1669001E21AB /* ApprovalManager.swift in Sources */,
+				8D139E012003EAFB00F73760 /* tbDefines.swift in Sources */,
+				79867D7E201EFC41001E21AB /* ApprovalCell.swift in Sources */,
+				79867D7C201E3796001E21AB /* ApprovalManageViewController.swift in Sources */,
+				8DC3F2EE200D262400BF2862 /* StaffDetailViewController.swift in Sources */,
+				8D981061200FC61600072804 /* DeptDetailViewController.swift in Sources */,
+				8D753C91201B7FCD002FB369 /* LeaveManager.swift in Sources */,
+				15A219862017183500B2AE20 /* UITextFieldHelper.swift in Sources */,
+				8D753C95201B87B8002FB369 /* LeaveManageViewController.swift in Sources */,
+				8D753C93201B80A7002FB369 /* Leave.swift in Sources */,
+				8DC3F2EB200D125500BF2862 /* StaffManager.swift in Sources */,
 				8DB293861FFF1BF3007C39F8 /* LoginViewController.swift in Sources */,
+				8DB293AE1FFF35AC007C39F8 /* UserManager.swift in Sources */,
+				8D981065200FD1F900072804 /* tbPickerView.swift in Sources */,
+				8DC3F2F8200DDFFE00BF2862 /* DateHelper.swift in Sources */,
 				8DB293841FFF1BF3007C39F8 /* AppDelegate.swift in Sources */,
+				79867D76201E1443001E21AB /* Approval.swift in Sources */,
+				8D981063200FCAF600072804 /* Department.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,6 +573,22 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		8D90E7BA201BA7780097636E /* Staff.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8D90E7BB201BA7780097636E /* Base */,
+			);
+			name = Staff.storyboard;
+			sourceTree = "<group>";
+		};
+		8D90E7BD201BA80F0097636E /* Leave.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8D90E7BE201BA80F0097636E /* Base */,
+			);
+			name = Leave.storyboard;
+			sourceTree = "<group>";
+		};
 		8DB293871FFF1BF3007C39F8 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -528,12 +720,16 @@
 			baseConfigurationReference = BF9F63BFFBAAC4F147C965CA /* Pods-teddybear.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 79V8F6N3Z8;
 				INFOPLIST_FILE = "$(SRCROOT)/teddybear/Resources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.appmaster.teddybear;
+				PRODUCT_BUNDLE_IDENTIFIER = com.appmaster.teddybearx;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -544,12 +740,15 @@
 			baseConfigurationReference = 9C9DC75B2E71482436D38C08 /* Pods-teddybear.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 79V8F6N3Z8;
 				INFOPLIST_FILE = "$(SRCROOT)/teddybear/Resources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.appmaster.teddybear;
+				PRODUCT_BUNDLE_IDENTIFIER = com.appmaster.teddybearx;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
