@@ -726,7 +726,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/teddybear/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.appmaster.teddybear;
+				PRODUCT_BUNDLE_IDENTIFIER = com.appmaster.teddybearx;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -746,7 +746,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/teddybear/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.appmaster.teddybear;
+				PRODUCT_BUNDLE_IDENTIFIER = com.appmaster.teddybearx;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.0;
