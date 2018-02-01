@@ -37,7 +37,7 @@ class DeptDetailViewController: UITableViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = (currentDepartment == nil ? "新增員工" : currentDepartment?.title)
+        self.title = (currentDepartment == nil ? "新增部門" : currentDepartment?.title)
         
         setupLayout()
         layoutWithDept(currentDepartment)
