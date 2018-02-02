@@ -13,12 +13,13 @@ class ReportManageViewController: UIViewController
     
     @IBOutlet weak var mainTable: UITableView!
     private var list: [Staff]? = []
-
+    private var staffLeaveList: [[Leave]]? = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "出勤報表"
+        self.title = "假勤報表"
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -32,26 +33,29 @@ class ReportManageViewController: UIViewController
     func getStaffList() {
         tbHUD.show()
         StaffManager.sharedInstance().getStaffList { (list, error) in
-            tbHUD.dismiss()
             if let error = error {
                 NSLog(error.localizedDescription)
                 return
             }
             self.list = list
-            if list?.isEmpty != true { self.removeIsQuitStaff(list: list) }
-            self.mainTable.performSelector(onMainThread: #selector(UITableView.reloadData), with: nil, waitUntilDone: false)
+            self.getStaffLeaves(staffList: list)
         }
     }
     
-    func removeIsQuitStaff(list: [Staff]?) {
+    func getStaffLeaves(staffList: [Staff]?) {
         var count: Int = 0
-        for staff in list!{
-            if staff.isQuit == true {
-                self.list?.remove(at: count)
-            }
-            else {
-                count += 1
-            }
+        for staff in staffList!{
+            LeaveManager.sharedInstance().getLeaveList(staff.sid, completion: { (list, error) in
+                tbHUD.dismiss()
+                if list?.count == 0 {
+                    self.list?.remove(at: count)
+                }
+                else {
+                    self.staffLeaveList?.append(list!)
+                    count += 1
+                }
+                self.mainTable.performSelector(onMainThread: #selector(UITableView.reloadData), with: nil, waitUntilDone: false)
+            })
         }
     }
     
@@ -63,7 +67,10 @@ class ReportManageViewController: UIViewController
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ReportCell.self) , for: indexPath) as! ReportCell
-        cell.layoutCell(with:list?[indexPath.row])
+        if (self.staffLeaveList?.count)! - 1 >= indexPath.row {
+            cell.layoutCell(with: list?[indexPath.row], leaves: self.staffLeaveList?[indexPath.row])
+        }
         return cell
     }
 }
+

@@ -21,12 +21,26 @@ class ReportCell: UITableViewCell {
         avatarImg.clipsToBounds = true
     }
 
-    func layoutCell(with staff:Staff?) {
+    func layoutCell(with staff: Staff?, leaves: [Leave]?) {
         if let avatar = staff?.avatar {
             avatarImg.sd_setImage(with: URL(string: avatar), completed: nil)
         } else {
             avatarImg.image = nil
         }
         nameLbl.text = staff?.name
+        guard let count = leaves?.count else { return }
+        leaveCountLbl.text = String(count)
+        hourTotalLbl.text = String(calculateHours(leaves: leaves))
+    }
+    
+    func calculateHours(leaves: [Leave]?) -> Int {
+        var summation: Int = 0
+        for leave in leaves! {
+            let beginDate = Date(timeIntervalSinceReferenceDate: TimeInterval(leave.startTime!))
+            let endDate = Date(timeIntervalSinceReferenceDate: TimeInterval(leave.endTime!))
+            let hour = Date.leaveHour(beginDate, leave.startPeriod!, endDate, leave.endPeriod!)
+            summation += hour
+        }
+        return summation
     }
 }
