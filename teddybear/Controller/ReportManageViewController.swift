@@ -73,16 +73,29 @@ class ReportManageViewController: UIViewController
         for staff in staffList!{
             LeaveManager.sharedInstance().getLeaveList(staff.sid, completion: { (list, error) in
                 tbHUD.dismiss()
-                if list?.count == 0 {
+                let passLeaves = self.filterPassLeave(leaves: list)
+                if passLeaves?.count == 0 {
                     self.list?.remove(at: count)
                 }
                 else {
-                    self.staffLeaveList?.append(list!)
+                    self.staffLeaveList?.append(passLeaves!)
                     count += 1
                 }
                 self.mainTable.performSelector(onMainThread: #selector(UITableView.reloadData), with: nil, waitUntilDone: false)
             })
         }
+    }
+    
+    func filterPassLeave(leaves: [Leave]?) -> [Leave]?{
+        var returnList: [Leave]? = []
+        for leave in leaves! {
+            var passStatus: Int = 0
+            for approval in leave.approvals! {
+                if approval.status == 1 { passStatus += 1}
+                if passStatus == 2 { returnList?.append(leave) }
+            }
+        }
+        return returnList
     }
     
     func getMonthDataSource() -> [String] {
