@@ -12,12 +12,16 @@ class ReportManageViewController: UIViewController
 ,UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var mainTable: UITableView!
+    @IBOutlet weak var monthButton: UIButton!
+    @IBOutlet weak var datePickerView: DatePickerView!
+    @IBOutlet weak var dateField: UITextField!
     private var list: [Staff]? = []
     private var staffLeaveList: [[Leave]]? = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "假勤報表"
+        setupLayout()
     }
     
     override func didReceiveMemoryWarning() {
@@ -27,6 +31,27 @@ class ReportManageViewController: UIViewController
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         getStaffList()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == tbDefines.kSegueReport {
+            let detailView = segue.destination as! ReportDetailViewController
+            let count = sender as! Int
+            let staff = list?[count]
+            let leaves = staffLeaveList?[count]
+            detailView.staffName = staff?.name
+            detailView.staffLeaves = leaves
+        }
+    }
+    
+    //MARK: Layout & Animation
+    func setupLayout() {
+        dateField.inputView = datePickerView
+        datePickerView.owner = dateField
+        
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(ReportManageViewController.keyboardDismiss(gesture:)))
+        gesture.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(gesture)
     }
     
     //MARK: Action
@@ -59,6 +84,14 @@ class ReportManageViewController: UIViewController
         }
     }
     
+    @IBAction func onSelectMonth() {
+        dateField.becomeFirstResponder()
+    }
+    
+    @objc func keyboardDismiss(gesture: UITapGestureRecognizer) {
+        self.view.endEditing(true)
+    }
+    
     //MARK: UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let count = list?.count else {return 0 }
@@ -71,6 +104,23 @@ class ReportManageViewController: UIViewController
             cell.layoutCell(with: list?[indexPath.row], leaves: self.staffLeaveList?[indexPath.row])
         }
         return cell
+    }
+    
+    //MARK: UITableViewDelegate
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        performSegue(withIdentifier: tbDefines.kSegueReport, sender: indexPath.row)
+    }
+    
+    // MARK: UITextFieldDelegate
+    @IBAction func textFieldDidChanged(field: UITextField) {
+        if field == dateField {
+            guard let text = field.text, !text.isEmpty else {
+                monthButton.setTitle("選擇月份", for: .normal)
+                return
+            }
+            monthButton.setTitle(text, for: .normal)
+        }
     }
 }
 

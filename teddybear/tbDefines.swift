@@ -24,6 +24,7 @@ class tbDefines: NSObject {
     static let kSegueLobby = "SegueLobby"
     static let kSegueDetail = "SegueDetail"
     static let kSegueApproval = "SegueApproval"
+    static let kSegueReport = "SegueReport"
     
     // MARK: Config
     static let kBeginSection = ["10:00", "15:00"]

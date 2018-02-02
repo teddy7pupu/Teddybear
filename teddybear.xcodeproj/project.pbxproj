@@ -51,6 +51,8 @@
 		8DC3F306200F43A700BF2862 /* DeptManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC3F305200F43A700BF2862 /* DeptManageViewController.swift */; };
 		8DC3F308200F550300BF2862 /* DeptCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC3F307200F550300BF2862 /* DeptCell.swift */; };
 		A4CEEFC4C02733B35798CC5A /* Pods_teddybearTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 708D75B9E55DB60CEE06682B /* Pods_teddybearTests.framework */; };
+		B841C78920241E0F0014A602 /* ReportDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B841C78820241E0F0014A602 /* ReportDetailViewController.swift */; };
+		B841C78B202430E80014A602 /* ReportDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B841C78A202430E80014A602 /* ReportDetailCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +117,8 @@
 		8DC3F305200F43A700BF2862 /* DeptManageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeptManageViewController.swift; sourceTree = "<group>"; };
 		8DC3F307200F550300BF2862 /* DeptCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeptCell.swift; sourceTree = "<group>"; };
 		9C9DC75B2E71482436D38C08 /* Pods-teddybear.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teddybear.release.xcconfig"; path = "Pods/Target Support Files/Pods-teddybear/Pods-teddybear.release.xcconfig"; sourceTree = "<group>"; };
+		B841C78820241E0F0014A602 /* ReportDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportDetailViewController.swift; sourceTree = "<group>"; };
+		B841C78A202430E80014A602 /* ReportDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportDetailCell.swift; sourceTree = "<group>"; };
 		BF9F63BFFBAAC4F147C965CA /* Pods-teddybear.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teddybear.debug.xcconfig"; path = "Pods/Target Support Files/Pods-teddybear/Pods-teddybear.debug.xcconfig"; sourceTree = "<group>"; };
 		FE34B84A6FAB7255B2C35CAA /* Pods_teddybear.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_teddybear.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -226,6 +230,7 @@
 				79867D7D201EFC41001E21AB /* ApprovalCell.swift */,
 				8D753C96201B934B002FB369 /* LeaveCell.swift */,
 				79AAA8B02023632B007E0EAB /* ReportCell.swift */,
+				B841C78A202430E80014A602 /* ReportDetailCell.swift */,
 				8DC3F2F9200E076D00BF2862 /* StaffCell.swift */,
 				8DC3F301200F275400BF2862 /* tbHUD.swift */,
 				8D981064200FD1F900072804 /* tbPickerView.swift */,
@@ -238,8 +243,9 @@
 			children = (
 				796954CA201F4F61004704AD /* ApprovalDetailViewController.swift */,
 				79867D7B201E3796001E21AB /* ApprovalManageViewController.swift */,
-				8D981060200FC61600072804 /* DeptDetailViewController.swift */,
+				B841C78820241E0F0014A602 /* ReportDetailViewController.swift */,
 				79AAA8AE20236220007E0EAB /* ReportManageViewController.swift */,
+				8D981060200FC61600072804 /* DeptDetailViewController.swift */,
 				8DC3F305200F43A700BF2862 /* DeptManageViewController.swift */,
 				8D90E7C0201BB9900097636E /* LeaveDetailViewController.swift */,
 				8D753C94201B87B8002FB369 /* LeaveManageViewController.swift */,
@@ -561,6 +567,7 @@
 				8D753C95201B87B8002FB369 /* LeaveManageViewController.swift in Sources */,
 				8D753C93201B80A7002FB369 /* Leave.swift in Sources */,
 				8DC3F2EB200D125500BF2862 /* StaffManager.swift in Sources */,
+				B841C78920241E0F0014A602 /* ReportDetailViewController.swift in Sources */,
 				8DB293861FFF1BF3007C39F8 /* LoginViewController.swift in Sources */,
 				8DB293AE1FFF35AC007C39F8 /* UserManager.swift in Sources */,
 				8D981065200FD1F900072804 /* tbPickerView.swift in Sources */,
@@ -568,6 +575,7 @@
 				8DB293841FFF1BF3007C39F8 /* AppDelegate.swift in Sources */,
 				79AAA8B12023632B007E0EAB /* ReportCell.swift in Sources */,
 				79867D76201E1443001E21AB /* Approval.swift in Sources */,
+				B841C78B202430E80014A602 /* ReportDetailCell.swift in Sources */,
 				79AAA8AF20236220007E0EAB /* ReportManageViewController.swift in Sources */,
 				8D981063200FCAF600072804 /* Department.swift in Sources */,
 			);
