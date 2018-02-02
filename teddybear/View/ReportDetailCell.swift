@@ -10,15 +10,34 @@ import UIKit
 
 class ReportDetailCell: UITableViewCell {
 
+    @IBOutlet weak var typeLbl: UILabel!
+    @IBOutlet weak var startDayLbl: UILabel!
+    @IBOutlet weak var startMonthLbl: UILabel!
+    @IBOutlet weak var startPeriodLbl: UILabel!
+    @IBOutlet weak var endDayLbl: UILabel!
+    @IBOutlet weak var endMonthLbl: UILabel!
+    @IBOutlet weak var endPeriodLbl: UILabel!
+    @IBOutlet weak var totalLbl: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
+    func layoutCell(with leave: Leave) {
+        let beginDate = Date(timeIntervalSinceReferenceDate: TimeInterval(leave.startTime!))
+        let endDate = Date(timeIntervalSinceReferenceDate: TimeInterval(leave.endTime!))
+        let hour = Date.leaveHour(beginDate, leave.startPeriod!, endDate, leave.endPeriod!)
+        startDayLbl.text = String(Calendar.current.component(.day, from: beginDate))
+        startMonthLbl.text = beginDate.toString(style: .shortMonth)
+        startPeriodLbl.text = tbDefines.kBeginSection[leave.startPeriod!]
+        endDayLbl.text = String(Calendar.current.component(.day, from: endDate))
+        endMonthLbl.text = endDate.toString(style: .shortMonth)
+        endPeriodLbl.text = tbDefines.kEndSection[leave.endPeriod!]
+        typeLbl.text = "\(leave.type!) :"
+        totalLbl.text = hour > 8 ? String(format:"%.1f天", Double(hour)/8) : "\(hour)小時"
+    }
 }

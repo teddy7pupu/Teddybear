@@ -33,7 +33,7 @@ class ReportCell: UITableViewCell {
         hourTotalLbl.text = String(calculateHours(leaves: leaves))
     }
     
-    func calculateHours(leaves: [Leave]?) -> Int {
+    func calculateHours(leaves: [Leave]?) -> String {
         var summation: Int = 0
         for leave in leaves! {
             let beginDate = Date(timeIntervalSinceReferenceDate: TimeInterval(leave.startTime!))
@@ -41,6 +41,6 @@ class ReportCell: UITableViewCell {
             let hour = Date.leaveHour(beginDate, leave.startPeriod!, endDate, leave.endPeriod!)
             summation += hour
         }
-        return summation
+        return summation > 8 ? String(format:"%.1f天", Double(summation)/8) : "\(summation)小時"
     }
 }

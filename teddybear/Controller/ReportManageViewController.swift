@@ -13,7 +13,7 @@ class ReportManageViewController: UIViewController
     
     @IBOutlet weak var mainTable: UITableView!
     @IBOutlet weak var monthButton: UIButton!
-    @IBOutlet weak var datePickerView: DatePickerView!
+    @IBOutlet weak var pickerView: tbPickerView!
     @IBOutlet weak var dateField: UITextField!
     private var list: [Staff]? = []
     private var staffLeaveList: [[Leave]]? = []
@@ -46,8 +46,9 @@ class ReportManageViewController: UIViewController
     
     //MARK: Layout & Animation
     func setupLayout() {
-        dateField.inputView = datePickerView
-        datePickerView.owner = dateField
+        dateField.inputView = pickerView
+        pickerView.dataSource = getMonthDataSource()
+        pickerView.owner = dateField
         
         let gesture = UITapGestureRecognizer(target: self, action: #selector(ReportManageViewController.keyboardDismiss(gesture:)))
         gesture.cancelsTouchesInView = false
@@ -82,6 +83,15 @@ class ReportManageViewController: UIViewController
                 self.mainTable.performSelector(onMainThread: #selector(UITableView.reloadData), with: nil, waitUntilDone: false)
             })
         }
+    }
+    
+    func getMonthDataSource() -> [String] {
+        let month: Int = Calendar.current.component(.month, from: Date())
+        var lastMonth: Int = month - 1
+        if lastMonth == 0 { lastMonth = 12 }
+        var twoLastMonth: Int = lastMonth - 1
+        if twoLastMonth == 0 { twoLastMonth = 12 }
+        return [String(twoLastMonth), String(lastMonth), String(month)]
     }
     
     @IBAction func onSelectMonth() {
@@ -119,7 +129,7 @@ class ReportManageViewController: UIViewController
                 monthButton.setTitle("選擇月份", for: .normal)
                 return
             }
-            monthButton.setTitle(text, for: .normal)
+            monthButton.setTitle(("\(text)月"), for: .normal)
         }
     }
 }
