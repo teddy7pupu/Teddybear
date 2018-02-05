@@ -32,7 +32,7 @@ class MonthYearPickerView: UIView
     @IBAction func onDoneAction() {
         let year = self.year[pickerView.selectedRow(inComponent: 1)]
         let month = self.month[pickerView.selectedRow(inComponent: 0)]
-        owner?.text = "\(month)/\(year)"
+        owner?.text = "\(year)-\(month)"
         owner?.sendActions(for: .editingChanged)
         owner?.resignFirstResponder()
     }

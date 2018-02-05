@@ -230,12 +230,12 @@
 				8DC3F2EF200DC2BD00BF2862 /* DatePickerView.swift */,
 				8DC3F307200F550300BF2862 /* DeptCell.swift */,
 				79867D7D201EFC41001E21AB /* ApprovalCell.swift */,
-				79AAA8B820281F81007E0EAB /* MonthYearPickerView.swift */,
 				8D753C96201B934B002FB369 /* LeaveCell.swift */,
 				79AAA8B02023632B007E0EAB /* ReportCell.swift */,
 				B841C78A202430E80014A602 /* ReportDetailCell.swift */,
 				8DC3F2F9200E076D00BF2862 /* StaffCell.swift */,
 				8DC3F301200F275400BF2862 /* tbHUD.swift */,
+				79AAA8B820281F81007E0EAB /* MonthYearPickerView.swift */,
 				8D981064200FD1F900072804 /* tbPickerView.swift */,
 			);
 			path = View;

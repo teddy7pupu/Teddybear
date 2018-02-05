@@ -15,9 +15,13 @@ class ReportManageViewController: UIViewController
     @IBOutlet weak var monthButton: UIButton!
     @IBOutlet weak var pickerView: MonthYearPickerView!
     @IBOutlet weak var dateField: UITextField!
-    private var list: [Staff]? = []
-    private var staffLeaveList: [[Leave]]? = []
     
+    private weak var manager: StaffManager? = StaffManager.sharedInstance()
+    private var coworkerList: [Staff]? =  StaffManager.sharedInstance().coworkerList()
+    private var staffList: [Staff]? = []
+    private var staffLeaveList: [[Leave]]? = [] //放每個員工的假單, 位置對應到staffList
+    private var passLeaveList: [Leave]? = [] //放有成立的假單
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "假勤報表"
@@ -30,14 +34,15 @@ class ReportManageViewController: UIViewController
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        getStaffList()
+        tbHUD.show()
+        getMonthList()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == tbDefines.kSegueReport {
             let detailView = segue.destination as! ReportDetailViewController
             let count = sender as! Int
-            let staff = list?[count]
+            let staff = staffList?[count]
             let leaves = staffLeaveList?[count]
             detailView.staffName = staff?.name
             detailView.staffLeaves = leaves
@@ -55,34 +60,56 @@ class ReportManageViewController: UIViewController
     }
     
     //MARK: Action
+    func getMonthList() {
+        getStaffList()
+        let nowYear: Int = Calendar.current.component(.year, from: Date())
+        let nowMonth: Int = Calendar.current.component(.month, from: Date())
+        let start = getStartAndEndTime(stringDate: "\(nowYear)-\(nowMonth)")[0]
+        let end = getStartAndEndTime(stringDate: "\(nowYear)-\(nowMonth)")[1]
+        self.getRangeLeaveList(start, end)
+    }
+    
     func getStaffList() {
-        tbHUD.show()
-        StaffManager.sharedInstance().getStaffList { (list, error) in
-            if let error = error {
-                NSLog(error.localizedDescription)
-                return
-            }
-            self.list = list
-            self.getStaffLeaves(staffList: list)
+        if coworkerList == nil {
+            manager?.getStaffList(completion: { (list, error) in
+                if let error = error {
+                    self.showAlert(message: error.localizedDescription)
+                    return
+                }
+                self.coworkerList = list
+                self.getStaffList()
+            })
+            return
         }
     }
     
-    func getStaffLeaves(staffList: [Staff]?) {
-        var count: Int = 0
-        for staff in staffList!{
-            LeaveManager.sharedInstance().getLeaveList(staff.sid, completion: { (list, error) in
-                tbHUD.dismiss()
-                let passLeaves = self.filterPassLeave(leaves: list)
-                if passLeaves?.count == 0 {
-                    self.list?.remove(at: count)
+    //輸入開始和結束的時間拿這個區間的假單
+    func getRangeLeaveList(_ start: Int, _ end: Int){
+        LeaveManager.sharedInstance().getRangeLeaveList(start, end,completion: { (list, error) in
+            if error != nil { return }
+            self.passLeaveList = self.filterPassLeave(leaves: list)
+            self.getStaffLeaves()
+        })
+    }
+    
+    func getStaffLeaves() {
+        staffList = []
+        staffLeaveList = []
+        for staff in coworkerList!{
+            var staffLeaves: [Leave] = []
+            for leave in passLeaveList! {
+                if staff.sid == leave.sid {
+                    staffLeaves.append(leave)
                 }
-                else {
-                    self.staffLeaveList?.append(passLeaves!)
-                    count += 1
-                }
-                self.mainTable.performSelector(onMainThread: #selector(UITableView.reloadData), with: nil, waitUntilDone: false)
-            })
+            }
+            if staffLeaves.isEmpty != true {
+                staffList?.append(staff)
+                staffLeaveList?.append(staffLeaves)
+            }
         }
+        
+        self.mainTable.performSelector(onMainThread: #selector(UITableView.reloadData), with: nil, waitUntilDone: false)
+        tbHUD.dismiss()
     }
     
     func filterPassLeave(leaves: [Leave]?) -> [Leave]?{
@@ -97,13 +124,22 @@ class ReportManageViewController: UIViewController
         return returnList
     }
     
-    func getMonthDataSource() -> [String] {
-        let month: Int = Calendar.current.component(.month, from: Date())
-        var lastMonth: Int = month - 1
-        if lastMonth == 0 { lastMonth = 12 }
-        var twoLastMonth: Int = lastMonth - 1
-        if twoLastMonth == 0 { twoLastMonth = 12 }
-        return [String(twoLastMonth), String(lastMonth), String(month)]
+    func getStartAndEndTime(stringDate: String) -> [Int] {
+        let startDate = Date(fromString: "\(stringDate)-01", format: .isoDate)
+        let startYear: Int = Calendar.current.component(.year, from: startDate!)
+        let startMonth: Int = Calendar.current.component(.month, from: startDate!)
+        var endYear = 0
+        var endmonth = 0
+        if (startMonth + 1) > 12 {
+            endmonth = 1
+            endYear = startYear + 1
+        }
+        else {
+            endmonth = startMonth + 1
+            endYear = startYear
+        }
+        let endDate = Date(fromString: "\(endYear)-\(endmonth)-01", format: .isoDate)
+        return [Int((startDate?.timeIntervalSince1970)!),Int((endDate?.timeIntervalSince1970)!)]
     }
     
     @IBAction func onSelectMonth() {
@@ -116,14 +152,14 @@ class ReportManageViewController: UIViewController
     
     //MARK: UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let count = list?.count else {return 0 }
+        guard let count = staffList?.count else { return 0 }
         return count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ReportCell.self) , for: indexPath) as! ReportCell
         if (self.staffLeaveList?.count)! - 1 >= indexPath.row {
-            cell.layoutCell(with: list?[indexPath.row], leaves: self.staffLeaveList?[indexPath.row])
+            cell.layoutCell(with: staffList?[indexPath.row], leaves: self.staffLeaveList?[indexPath.row])
         }
         return cell
     }
@@ -142,6 +178,9 @@ class ReportManageViewController: UIViewController
                 return
             }
             monthButton.setTitle(("\(text)"), for: .normal)
+            let start = getStartAndEndTime(stringDate: text)[0]
+            let end = getStartAndEndTime(stringDate: text)[1]
+            self.getRangeLeaveList(start, end)
         }
     }
 }
