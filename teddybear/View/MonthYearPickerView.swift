@@ -13,14 +13,16 @@ class MonthYearPickerView: UIView
     
     @IBOutlet weak var pickerView: UIPickerView!
     weak var owner: UITextField?
-    let year = ["2017","2018","2019","2020","2021","2022"]
-    let month = ["01","02","03","04","05","06","07","08","09","10","11","12"]
+    var years: [String] = []
+    var months: [String] = []
+    
     //MARK: Layout
     override func awakeFromNib() {
         super.awakeFromNib()
     }
     
     override func layoutSubviews() {
+        getYearMonthSource()
         super.layoutSubviews()
     }
     
@@ -30,11 +32,23 @@ class MonthYearPickerView: UIView
     }
     
     @IBAction func onDoneAction() {
-        let year = self.year[pickerView.selectedRow(inComponent: 1)]
-        let month = self.month[pickerView.selectedRow(inComponent: 0)]
+        let year = self.years[pickerView.selectedRow(inComponent: 1)]
+        let month = self.months[pickerView.selectedRow(inComponent: 0)]
         owner?.text = "\(year)-\(month)"
         owner?.sendActions(for: .editingChanged)
         owner?.resignFirstResponder()
+    }
+    
+    func getYearMonthSource() {
+        years = []
+        months = []
+        let year: Int = Calendar.current.component(.year, from: Date())
+        for count in (year-2)...(year+2) {
+            years.append("\(count)")
+        }
+        for count in 1...12 {
+            months.append("\(count)")
+        }
     }
     
     //MARK: UIPickerViewDataSource
@@ -43,13 +57,13 @@ class MonthYearPickerView: UIView
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        if component == 1 { return year.count }
-        return month.count
+        if component == 1 { return years.count }
+        return months.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        if component == 1 { return year[row] }
-        return month[row]
+        if component == 1 { return years[row] }
+        return months[row]
     }
 }
 

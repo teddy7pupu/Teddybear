@@ -21,15 +21,14 @@ class ReportCell: UITableViewCell {
         avatarImg.clipsToBounds = true
     }
 
-    func layoutCell(with staff: Staff?, leaves: [Leave]?) {
-        if let avatar = staff?.avatar {
+    func layoutCell(staff: Staff, leaves: [Leave]?) {
+        if let avatar = staff.avatar {
             avatarImg.sd_setImage(with: URL(string: avatar), completed: nil)
         } else {
             avatarImg.image = nil
         }
-        nameLbl.text = staff?.name
-        guard let count = leaves?.count else { return }
-        leaveCountLbl.text = String(count)
+        nameLbl.text = staff.name
+        leaveCountLbl.text = String(leaves!.count)
         hourTotalLbl.text = String(calculateHours(leaves: leaves))
     }
     

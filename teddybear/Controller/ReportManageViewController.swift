@@ -16,11 +16,10 @@ class ReportManageViewController: UIViewController
     @IBOutlet weak var pickerView: MonthYearPickerView!
     @IBOutlet weak var dateField: UITextField!
     
-    private weak var manager: StaffManager? = StaffManager.sharedInstance()
-    private var coworkerList: [Staff]? =  StaffManager.sharedInstance().coworkerList()
-    private var staffList: [Staff]? = []
-    private var staffLeaveList: [[Leave]]? = [] //放每個員工的假單, 位置對應到staffList
+    private var stafflist: [Staff]?
     private var passLeaveList: [Leave]? = [] //放有成立的假單
+    private var staffsLeaves: Dictionary<String, Any> = [:]
+    private var staffLeaveListArray: [Dictionary<String, Any>] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,18 +33,18 @@ class ReportManageViewController: UIViewController
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tbHUD.show()
         getMonthList()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == tbDefines.kSegueReport {
             let detailView = segue.destination as! ReportDetailViewController
-            let count = sender as! Int
-            let staff = staffList?[count]
-            let leaves = staffLeaveList?[count]
-            detailView.staffName = staff?.name
-            detailView.staffLeaves = leaves
+            for (staffSid, leaves) in sender as! Dictionary<String, Any> {
+                for staff in stafflist! {
+                    if staff.sid == staffSid { detailView.staffName = staff.name }
+                }
+                detailView.staffLeaves = leaves as? [Leave]
+            }
         }
     }
     
@@ -53,6 +52,10 @@ class ReportManageViewController: UIViewController
     func setupLayout() {
         dateField.inputView = pickerView
         pickerView.owner = dateField
+        
+        let nowYear: Int = Calendar.current.component(.year, from: Date())
+        let nowMonth: Int = Calendar.current.component(.month, from: Date())
+        monthButton.setTitle("\(nowYear)-\(nowMonth)", for: .normal)
         
         let gesture = UITapGestureRecognizer(target: self, action: #selector(ReportManageViewController.keyboardDismiss(gesture:)))
         gesture.cancelsTouchesInView = false
@@ -70,16 +73,15 @@ class ReportManageViewController: UIViewController
     }
     
     func getStaffList() {
-        if coworkerList == nil {
-            manager?.getStaffList(completion: { (list, error) in
+        if stafflist == nil {
+            StaffManager.sharedInstance().getStaffList { (list, error) in
                 if let error = error {
-                    self.showAlert(message: error.localizedDescription)
+                    NSLog(error.localizedDescription)
                     return
                 }
-                self.coworkerList = list
+                self.stafflist = list
                 self.getStaffList()
-            })
-            return
+            }
         }
     }
     
@@ -87,41 +89,41 @@ class ReportManageViewController: UIViewController
     func getRangeLeaveList(_ start: Int, _ end: Int){
         LeaveManager.sharedInstance().getRangeLeaveList(start, end,completion: { (list, error) in
             if error != nil { return }
-            self.passLeaveList = self.filterPassLeave(leaves: list)
-            self.getStaffLeaves()
+            self.filterPassLeave(leaves: list)
+            self.mapping()
         })
     }
     
-    func getStaffLeaves() {
-        staffList = []
-        staffLeaveList = []
-        for staff in coworkerList!{
-            var staffLeaves: [Leave] = []
-            for leave in passLeaveList! {
-                if staff.sid == leave.sid {
-                    staffLeaves.append(leave)
-                }
+    //過濾出成立假單
+    func filterPassLeave(leaves: [Leave]?){
+        var list: [Leave]? = []
+        for leave in leaves! {
+            guard let approvals = leave.approvals else { continue }
+            if approvals.count > 1 && approvals[1].status == 1 {
+                list?.append(leave)
             }
-            if staffLeaves.isEmpty != true {
-                staffList?.append(staff)
-                staffLeaveList?.append(staffLeaves)
+        }
+        self.passLeaveList = list
+    }
+    
+    //假單和員工分類成字典
+    func mapping(){
+        staffsLeaves = [:]
+        staffLeaveListArray = []
+        for staff in stafflist! {
+            var list: [Leave]? = []
+            for leave in passLeaveList! {
+                if staff.sid == leave.sid { list?.append(leave) }
+            }
+            if list?.isEmpty == false {
+                staffsLeaves["\(staff.sid!)"] = list
             }
         }
         
-        self.mainTable.performSelector(onMainThread: #selector(UITableView.reloadData), with: nil, waitUntilDone: false)
-        tbHUD.dismiss()
-    }
-    
-    func filterPassLeave(leaves: [Leave]?) -> [Leave]?{
-        var returnList: [Leave]? = []
-        for leave in leaves! {
-            var passStatus: Int = 0
-            for approval in leave.approvals! {
-                if approval.status == 1 { passStatus += 1}
-                if passStatus == 2 { returnList?.append(leave) }
-            }
+        for  (staff, leaves) in staffsLeaves {
+            staffLeaveListArray.append([staff:leaves])
         }
-        return returnList
+        self.mainTable.performSelector(onMainThread: #selector(UITableView.reloadData), with: nil, waitUntilDone: false)
     }
     
     func getStartAndEndTime(stringDate: String) -> [Int] {
@@ -152,14 +154,15 @@ class ReportManageViewController: UIViewController
     
     //MARK: UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let count = staffList?.count else { return 0 }
-        return count
+        return staffLeaveListArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ReportCell.self) , for: indexPath) as! ReportCell
-        if (self.staffLeaveList?.count)! - 1 >= indexPath.row {
-            cell.layoutCell(with: staffList?[indexPath.row], leaves: self.staffLeaveList?[indexPath.row])
+        for (staffSid, leaves) in staffLeaveListArray[indexPath.row] {
+            for staff in stafflist! {
+                if staff.sid == staffSid { cell.layoutCell(staff: staff, leaves: leaves as? [Leave] ) }
+            }
         }
         return cell
     }
@@ -167,7 +170,7 @@ class ReportManageViewController: UIViewController
     //MARK: UITableViewDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        performSegue(withIdentifier: tbDefines.kSegueReport, sender: indexPath.row)
+        performSegue(withIdentifier: tbDefines.kSegueReport, sender: staffLeaveListArray[indexPath.row])
     }
     
     // MARK: UITextFieldDelegate
