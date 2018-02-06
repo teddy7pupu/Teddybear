@@ -18,9 +18,8 @@ class ReportManageViewController: UIViewController
     
     private var stafflist: [Staff]?
     private var passLeaveList: [Leave]? = [] //放有成立的假單
-    private var staffsLeaves: Dictionary<String, Any> = [:]
-    private var staffLeaveListArray: [Dictionary<String, Any>] = []
-
+    private var staffsLeaves: Dictionary<String, [Leave]?> = [:]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "假勤報表"
@@ -39,12 +38,11 @@ class ReportManageViewController: UIViewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == tbDefines.kSegueReport {
             let detailView = segue.destination as! ReportDetailViewController
-            for (staffSid, leaves) in sender as! Dictionary<String, Any> {
-                for staff in stafflist! {
-                    if staff.sid == staffSid { detailView.staffName = staff.name }
-                }
-                detailView.staffLeaves = leaves as? [Leave]
-            }
+            let staffId = sender as? String
+            let leaves = staffsLeaves[staffId!]
+            let staff = getStaff(staffId: staffId!)
+            detailView.staffName = staff?.name
+            detailView.staffLeaves = leaves!
         }
     }
     
@@ -63,6 +61,55 @@ class ReportManageViewController: UIViewController
     }
     
     //MARK: Action
+    func writeText(path: URL?){
+        var csvText = "姓名,假別,開始時間,結束時間,小計,總計\n"
+        for (staffSid, leaves) in staffsLeaves {
+            for staff in stafflist! {
+                if staffSid == staff.sid { csvText.append("\(staff.name!),") }
+            }
+            var totalHour = 0
+            for leave in leaves! {
+                let type = leave.type!
+                let beginDate = Date(timeIntervalSinceReferenceDate: TimeInterval(leave.startTime!))
+                let finishDate = Date(timeIntervalSinceReferenceDate: TimeInterval(leave.endTime!))
+                let hour = Date.leaveHour(beginDate, leave.startPeriod!, finishDate, leave.endPeriod!)
+                totalHour += hour
+                let startDay = String(Calendar.current.component(.day, from: beginDate))
+                let startMonth = String(Calendar.current.component(.month, from: beginDate))
+                let startPeriod = tbDefines.kBeginSection[leave.startPeriod!]
+                let endDay = String(Calendar.current.component(.day, from: finishDate))
+                let endMonth = String(Calendar.current.component(.month, from: finishDate))
+                let endPeriod = tbDefines.kEndSection[leave.endPeriod!]
+                csvText.append("\(type),\(startMonth)月\(startDay)日\(startPeriod),\(endMonth)月\(endDay)日\(endPeriod),\(hour)小時\n")
+            }
+            csvText.append(",,,,總共\(totalHour)小時\n")
+        }
+        let vc = UIActivityViewController(activityItems: [path as Any], applicationActivities: [])
+        vc.excludedActivityTypes = [UIActivityType.assignToContact
+            ,UIActivityType.saveToCameraRoll
+            ,UIActivityType.postToFlickr
+            ,UIActivityType.postToVimeo
+            ,UIActivityType.postToTencentWeibo
+            ,UIActivityType.postToTwitter
+            ,UIActivityType.postToFacebook
+            ,UIActivityType.openInIBooks]
+        present(vc, animated: true, completion: nil)
+        do {
+            try csvText.write(to: path!, atomically: true, encoding: String.Encoding.utf8)
+        }
+        catch {
+            showAlert(message: "Failed to create file")
+        }
+    }
+    
+    @IBAction func onOutPut(_ sender: Any) {
+        if let time = monthButton.titleLabel?.text {
+            let fileName = "\(time)假勤報表.csv"
+            let path = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(fileName)
+            writeText(path: path)
+        }
+    }
+    
     func getMonthList() {
         getStaffList()
         let nowYear: Int = Calendar.current.component(.year, from: Date())
@@ -109,19 +156,14 @@ class ReportManageViewController: UIViewController
     //假單和員工分類成字典
     func mapping(){
         staffsLeaves = [:]
-        staffLeaveListArray = []
-        for staff in stafflist! {
-            var list: [Leave]? = []
-            for leave in passLeaveList! {
-                if staff.sid == leave.sid { list?.append(leave) }
+        for leave in passLeaveList! {
+            if staffsLeaves[leave.sid!] == nil {
+                staffsLeaves[leave.sid!] = [leave]
+            } else {
+                var tmp = staffsLeaves[leave.sid!]!
+                tmp?.append(leave)
+                staffsLeaves[leave.sid!] = tmp
             }
-            if list?.isEmpty == false {
-                staffsLeaves["\(staff.sid!)"] = list
-            }
-        }
-        
-        for  (staff, leaves) in staffsLeaves {
-            staffLeaveListArray.append([staff:leaves])
         }
         self.mainTable.performSelector(onMainThread: #selector(UITableView.reloadData), with: nil, waitUntilDone: false)
     }
@@ -154,23 +196,23 @@ class ReportManageViewController: UIViewController
     
     //MARK: UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return staffLeaveListArray.count
+        guard let count = staffKeys()?.count else { return 0 }
+        return count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ReportCell.self) , for: indexPath) as! ReportCell
-        for (staffSid, leaves) in staffLeaveListArray[indexPath.row] {
-            for staff in stafflist! {
-                if staff.sid == staffSid { cell.layoutCell(staff: staff, leaves: leaves as? [Leave] ) }
-            }
-        }
+        let staffId = staffKeys()?[indexPath.row]
+        let leaves = staffsLeaves[staffId!]
+        let staff = getStaff(staffId: staffId!)
+        cell.layoutCell(staff: staff!, leaves: leaves!)
         return cell
     }
     
     //MARK: UITableViewDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        performSegue(withIdentifier: tbDefines.kSegueReport, sender: staffLeaveListArray[indexPath.row])
+        performSegue(withIdentifier: tbDefines.kSegueReport, sender: staffKeys()?[indexPath.row])
     }
     
     // MARK: UITextFieldDelegate
@@ -186,5 +228,20 @@ class ReportManageViewController: UIViewController
             self.getRangeLeaveList(start, end)
         }
     }
+    
+    //MARK: Getter
+    private func staffKeys() -> [String]? {
+        var allkeys: [String]? = []
+        for keys in staffsLeaves.keys{
+            allkeys?.append(keys)
+        }
+        return allkeys
+    }
+    
+    private func getStaff(staffId: String) -> Staff? {
+        for staff in stafflist!{
+            if staffId == staff.sid { return staff }
+        }
+        return nil
+    }
 }
-

@@ -141,6 +141,9 @@
                                 <state key="normal" title="匯出表單">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="onOutPut:" destination="wt4-Vf-JPM" eventType="touchUpInside" id="4Ng-dU-36f"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
