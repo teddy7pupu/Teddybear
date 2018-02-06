@@ -16,7 +16,7 @@ class ReportManageViewController: UIViewController
     @IBOutlet weak var pickerView: MonthYearPickerView!
     @IBOutlet weak var dateField: UITextField!
     
-    private var stafflist: [Staff]?
+    private weak var manager = StaffManager.sharedInstance()
     private var passLeaveList: [Leave]? = [] //放有成立的假單
     private var staffsLeaves: Dictionary<String, [Leave]?> = [:]
     
@@ -32,6 +32,7 @@ class ReportManageViewController: UIViewController
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        tbHUD.show()
         getMonthList()
     }
     
@@ -40,7 +41,7 @@ class ReportManageViewController: UIViewController
             let detailView = segue.destination as! ReportDetailViewController
             let staffId = sender as? String
             let leaves = staffsLeaves[staffId!]
-            let staff = getStaff(staffId: staffId!)
+            let staff = manager?.getStaff(byStaffId: staffId!)
             detailView.staffName = staff?.name
             detailView.staffLeaves = leaves!
         }
@@ -64,8 +65,8 @@ class ReportManageViewController: UIViewController
     func writeText(path: URL?){
         var csvText = "姓名,假別,開始時間,結束時間,小計,總計\n"
         for (staffSid, leaves) in staffsLeaves {
-            for staff in stafflist! {
-                if staffSid == staff.sid { csvText.append("\(staff.name!),") }
+            if let staffName = manager?.getStaff(byStaffId: staffSid)?.name{
+                csvText.append("\(staffName),")
             }
             var totalHour = 0
             for leave in leaves! {
@@ -82,7 +83,7 @@ class ReportManageViewController: UIViewController
                 let endPeriod = tbDefines.kEndSection[leave.endPeriod!]
                 csvText.append("\(type),\(startMonth)月\(startDay)日\(startPeriod),\(endMonth)月\(endDay)日\(endPeriod),\(hour)小時\n")
             }
-            csvText.append(",,,,總共\(totalHour)小時\n")
+            csvText.append(",,,,,總共\(totalHour)小時\n")
         }
         let vc = UIActivityViewController(activityItems: [path as Any], applicationActivities: [])
         vc.excludedActivityTypes = [UIActivityType.assignToContact
@@ -100,9 +101,11 @@ class ReportManageViewController: UIViewController
         catch {
             showAlert(message: "Failed to create file")
         }
+        tbHUD.dismiss()
     }
     
     @IBAction func onOutPut(_ sender: Any) {
+        tbHUD.show()
         if let time = monthButton.titleLabel?.text {
             let fileName = "\(time)假勤報表.csv"
             let path = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(fileName)
@@ -120,15 +123,13 @@ class ReportManageViewController: UIViewController
     }
     
     func getStaffList() {
-        if stafflist == nil {
-            StaffManager.sharedInstance().getStaffList { (list, error) in
+        guard manager?.staffList() != nil else {
+            manager?.getStaffList { (list, error) in
                 if let error = error {
-                    NSLog(error.localizedDescription)
-                    return
+                    self.showAlert(message: error.localizedDescription)
                 }
-                self.stafflist = list
-                self.getStaffList()
             }
+            return
         }
     }
     
@@ -166,6 +167,7 @@ class ReportManageViewController: UIViewController
             }
         }
         self.mainTable.performSelector(onMainThread: #selector(UITableView.reloadData), with: nil, waitUntilDone: false)
+        tbHUD.dismiss()
     }
     
     func getStartAndEndTime(stringDate: String) -> [Int] {
@@ -177,8 +179,7 @@ class ReportManageViewController: UIViewController
         if (startMonth + 1) > 12 {
             endmonth = 1
             endYear = startYear + 1
-        }
-        else {
+        } else {
             endmonth = startMonth + 1
             endYear = startYear
         }
@@ -204,7 +205,7 @@ class ReportManageViewController: UIViewController
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ReportCell.self) , for: indexPath) as! ReportCell
         let staffId = staffKeys()?[indexPath.row]
         let leaves = staffsLeaves[staffId!]
-        let staff = getStaff(staffId: staffId!)
+        let staff = manager?.getStaff(byStaffId: staffId!)
         cell.layoutCell(staff: staff!, leaves: leaves!)
         return cell
     }
@@ -231,17 +232,6 @@ class ReportManageViewController: UIViewController
     
     //MARK: Getter
     private func staffKeys() -> [String]? {
-        var allkeys: [String]? = []
-        for keys in staffsLeaves.keys{
-            allkeys?.append(keys)
-        }
-        return allkeys
-    }
-    
-    private func getStaff(staffId: String) -> Staff? {
-        for staff in stafflist!{
-            if staffId == staff.sid { return staff }
-        }
-        return nil
+        return Array(staffsLeaves.keys)
     }
 }
