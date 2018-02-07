@@ -41,12 +41,12 @@ class MonthYearPickerView: UIView
     
     func getYearMonthSource() {
         years = []
-        months = []
+        months = [] //Calendar.current.standaloneMonthSymbols
         let year: Int = Calendar.current.component(.year, from: Date())
         for count in (year-2)...(year+2) {
             years.append("\(count)")
         }
-        for count in 1...12 {
+        for count in 1...12{
             months.append("\(count)")
         }
     }

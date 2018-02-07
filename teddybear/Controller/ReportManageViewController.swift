@@ -33,6 +33,7 @@ class ReportManageViewController: UIViewController
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tbHUD.show()
+        getStaffList()
         getMonthList()
     }
     
@@ -114,12 +115,9 @@ class ReportManageViewController: UIViewController
     }
     
     func getMonthList() {
-        getStaffList()
-        let nowYear: Int = Calendar.current.component(.year, from: Date())
-        let nowMonth: Int = Calendar.current.component(.month, from: Date())
-        let start = getStartAndEndTime(stringDate: "\(nowYear)-\(nowMonth)")[0]
-        let end = getStartAndEndTime(stringDate: "\(nowYear)-\(nowMonth)")[1]
-        self.getRangeLeaveList(start, end)
+        let start = startMonth(yearMonth: (monthButton.titleLabel?.text)!).timeIntervalSince1970
+        let end = endMonth(yearMonth: (monthButton.titleLabel?.text)!).timeIntervalSince1970
+        self.getRangeLeaveList(Int(start), Int(end))
     }
     
     func getStaffList() {
@@ -170,21 +168,25 @@ class ReportManageViewController: UIViewController
         tbHUD.dismiss()
     }
     
-    func getStartAndEndTime(stringDate: String) -> [Int] {
-        let startDate = Date(fromString: "\(stringDate)-01", format: .isoDate)
-        let startYear: Int = Calendar.current.component(.year, from: startDate!)
-        let startMonth: Int = Calendar.current.component(.month, from: startDate!)
-        var endYear = 0
-        var endmonth = 0
-        if (startMonth + 1) > 12 {
-            endmonth = 1
-            endYear = startYear + 1
+    func startMonth(yearMonth: String) -> Date {
+        let startDate = Date(fromString: "\(yearMonth)-01", format: .isoDate)
+        let components = NSCalendar.current.dateComponents(
+            Set<Calendar.Component>([.year, .month]), from: startDate!)
+        let startOfMonth = NSCalendar.current.date(from: components)!
+        return startOfMonth
+    }
+    
+    func endMonth(yearMonth: String, returnEndTime:Bool = false) -> Date {
+        let calendar = NSCalendar.current
+        var components = DateComponents()
+        components.month = 1
+        if returnEndTime {
+            components.second = -1
         } else {
-            endmonth = startMonth + 1
-            endYear = startYear
+            components.day = -1
         }
-        let endDate = Date(fromString: "\(endYear)-\(endmonth)-01", format: .isoDate)
-        return [Int((startDate?.timeIntervalSince1970)!),Int((endDate?.timeIntervalSince1970)!)]
+        let endOfMonth =  calendar.date(byAdding: components, to: startMonth(yearMonth: yearMonth))!
+        return endOfMonth
     }
     
     @IBAction func onSelectMonth() {
@@ -220,13 +222,12 @@ class ReportManageViewController: UIViewController
     @IBAction func textFieldDidChanged(field: UITextField) {
         if field == dateField {
             guard let text = field.text, !text.isEmpty else {
-                monthButton.setTitle("選擇月份", for: .normal)
                 return
             }
             monthButton.setTitle(("\(text)"), for: .normal)
-            let start = getStartAndEndTime(stringDate: text)[0]
-            let end = getStartAndEndTime(stringDate: text)[1]
-            self.getRangeLeaveList(start, end)
+            let start = startMonth(yearMonth: text).timeIntervalSince1970
+            let end = endMonth(yearMonth: text).timeIntervalSince1970
+            self.getRangeLeaveList(Int(start), Int(end))
         }
     }
     
