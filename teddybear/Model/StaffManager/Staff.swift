@@ -11,11 +11,15 @@ import Foundation
 struct UserRole: OptionSet, Codable {
     let rawValue: Int
     
+    static let intern   = UserRole(rawValue: 0)
     static let employee = UserRole(rawValue: 1)
     static let manager  = UserRole(rawValue: 2)
     static let account  = UserRole(rawValue: 3)
     static let admin    = UserRole(rawValue: 4)
     
+    func isIntern() -> Bool {
+        return (self == .intern) || (self == .admin)
+    }
     func isManager() -> Bool {
         return (self == .manager) || (self == .admin)
     }
@@ -25,13 +29,15 @@ struct UserRole: OptionSet, Codable {
     func isAdmin() -> Bool {
         return self == .admin
     }
-    mutating func setRole(_ isManager:Bool, _ isAccount:Bool) {
+    mutating func setRole(_ isManager:Bool, _ isAccount:Bool, _ isIntern:Bool) {
         if isManager && isAccount {
             self = .admin
         } else if isManager {
             self = .manager
         } else if isAccount {
             self = .account
+        } else if isIntern {
+            self = .intern
         } else {
             self = .employee
         }
@@ -47,6 +53,8 @@ struct UserRole: OptionSet, Codable {
             count = 4
         case UserRole.manager:
             count = 3
+        case UserRole.intern:
+            count = 0
         default:
             count = 2
         }

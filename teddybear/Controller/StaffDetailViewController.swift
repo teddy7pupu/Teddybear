@@ -22,6 +22,7 @@ class StaffDetailViewController: UITableViewController
     @IBOutlet weak var sidField: UITextField!
     @IBOutlet weak var manageSwitch: UISwitch!
     @IBOutlet weak var accountSwitch: UISwitch!
+    @IBOutlet weak var internSwitch: UISwitch!
     @IBOutlet weak var sendBtn: UIButton!
     @IBOutlet weak var datePickerView: DatePickerView!
     @IBOutlet weak var pickerView: tbPickerView!
@@ -80,6 +81,7 @@ class StaffDetailViewController: UITableViewController
         sidField.isEnabled = false
         manageSwitch.isOn = (staff.role?.isManager())!
         accountSwitch.isOn = (staff.role?.isAccount())!
+        internSwitch.isOn = (staff.role?.isIntern())!
         accountSwitch.isEnabled = { () -> Bool in
             staff.uid != UserManager.currentUser()?.uid
         }()
@@ -117,7 +119,7 @@ class StaffDetailViewController: UITableViewController
             } else {
                 _staff.sid = sidField.text!
             }
-            _staff.role?.setRole(manageSwitch.isOn, accountSwitch.isOn)
+            _staff.role?.setRole(manageSwitch.isOn, accountSwitch.isOn, internSwitch.isOn)
             
             
             tbHUD.show()
