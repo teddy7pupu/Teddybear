@@ -15,6 +15,7 @@ class MonthYearPickerView: UIView
     weak var owner: UITextField?
     var years: [String] = []
     var months: [String] = []
+    let formatter = DateFormatter()
     
     //MARK: Layout
     override func awakeFromNib() {
@@ -32,8 +33,8 @@ class MonthYearPickerView: UIView
     }
     
     @IBAction func onDoneAction() {
-        let year = self.years[pickerView.selectedRow(inComponent: 1)]
-        let month = self.months[pickerView.selectedRow(inComponent: 0)]
+        let year = self.years[pickerView.selectedRow(inComponent: 0)]
+        let month = self.months[pickerView.selectedRow(inComponent: 1)]
         owner?.text = "\(year)-\(month)"
         owner?.sendActions(for: .editingChanged)
         owner?.resignFirstResponder()
@@ -41,13 +42,11 @@ class MonthYearPickerView: UIView
     
     func getYearMonthSource() {
         years = []
-        months = [] //Calendar.current.standaloneMonthSymbols
+        formatter.locale = Locale(identifier: "zh_TW")
+        months = formatter.shortMonthSymbols
         let year: Int = Calendar.current.component(.year, from: Date())
         for count in (year-2)...(year+2) {
             years.append("\(count)")
-        }
-        for count in 1...12{
-            months.append("\(count)")
         }
     }
     
@@ -57,12 +56,12 @@ class MonthYearPickerView: UIView
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        if component == 1 { return years.count }
+        if component == 0 { return years.count }
         return months.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        if component == 1 { return years[row] }
+        if component == 0 { return years[row] }
         return months[row]
     }
 }

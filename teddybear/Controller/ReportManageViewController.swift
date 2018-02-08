@@ -17,7 +17,7 @@ class ReportManageViewController: UIViewController
     @IBOutlet weak var dateField: UITextField!
     
     private weak var manager = StaffManager.sharedInstance()
-    private var passLeaveList: [Leave]? = [] //放有成立的假單
+    private var passLeaveList: [Leave]? = []
     private var staffsLeaves: Dictionary<String, [Leave]?> = [:]
     
     override func viewDidLoad() {
@@ -55,7 +55,7 @@ class ReportManageViewController: UIViewController
         
         let nowYear: Int = Calendar.current.component(.year, from: Date())
         let nowMonth: Int = Calendar.current.component(.month, from: Date())
-        monthButton.setTitle("\(nowYear)-\(nowMonth)", for: .normal)
+        monthButton.setTitle("\(nowYear)-\(nowMonth)月", for: .normal)
         
         let gesture = UITapGestureRecognizer(target: self, action: #selector(ReportManageViewController.keyboardDismiss(gesture:)))
         gesture.cancelsTouchesInView = false
@@ -63,7 +63,7 @@ class ReportManageViewController: UIViewController
     }
     
     //MARK: Action
-    func writeText(path: URL?){
+    func csvFileOut(path: URL?){
         var csvText = "姓名,假別,開始時間,結束時間,小計,總計\n"
         for (staffSid, leaves) in staffsLeaves {
             if let staffName = manager?.getStaff(byStaffId: staffSid)?.name{
@@ -102,15 +102,15 @@ class ReportManageViewController: UIViewController
         catch {
             showAlert(message: "Failed to create file")
         }
-        tbHUD.dismiss()
+        //tbHUD.dismiss()
     }
     
     @IBAction func onOutPut(_ sender: Any) {
-        tbHUD.show()
+        //tbHUD.show()
         if let time = monthButton.titleLabel?.text {
             let fileName = "\(time)假勤報表.csv"
             let path = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(fileName)
-            writeText(path: path)
+            csvFileOut(path: path)
         }
     }
     
@@ -169,23 +169,15 @@ class ReportManageViewController: UIViewController
     }
     
     func startMonth(yearMonth: String) -> Date {
-        let startDate = Date(fromString: "\(yearMonth)-01", format: .isoDate)
-        let components = NSCalendar.current.dateComponents(
-            Set<Calendar.Component>([.year, .month]), from: startDate!)
-        let startOfMonth = NSCalendar.current.date(from: components)!
-        return startOfMonth
+        let startOfMonth = Date(fromString: "\(yearMonth)-01", format: .isoCHDate)
+        return startOfMonth!
     }
     
-    func endMonth(yearMonth: String, returnEndTime:Bool = false) -> Date {
-        let calendar = NSCalendar.current
+    func endMonth(yearMonth: String) -> Date {
         var components = DateComponents()
         components.month = 1
-        if returnEndTime {
-            components.second = -1
-        } else {
-            components.day = -1
-        }
-        let endOfMonth =  calendar.date(byAdding: components, to: startMonth(yearMonth: yearMonth))!
+        components.day = -1
+        let endOfMonth =  NSCalendar.current.date(byAdding: components, to: startMonth(yearMonth: yearMonth))!
         return endOfMonth
     }
     
@@ -224,6 +216,7 @@ class ReportManageViewController: UIViewController
             guard let text = field.text, !text.isEmpty else {
                 return
             }
+            tbHUD.show()
             monthButton.setTitle(("\(text)"), for: .normal)
             let start = startMonth(yearMonth: text).timeIntervalSince1970
             let end = endMonth(yearMonth: text).timeIntervalSince1970

@@ -31,10 +31,10 @@ class ReportDetailCell: UITableViewCell {
         let beginDate = Date(timeIntervalSinceReferenceDate: TimeInterval(leave.startTime!))
         let endDate = Date(timeIntervalSinceReferenceDate: TimeInterval(leave.endTime!))
         let hour = Date.leaveHour(beginDate, leave.startPeriod!, endDate, leave.endPeriod!)
-        startDayLbl.text = String(Calendar.current.component(.day, from: beginDate))
+        startDayLbl.text = String(format:"%02d", beginDate.component(.day)!)
         startMonthLbl.text = beginDate.toString(style: .shortMonth)
         startPeriodLbl.text = tbDefines.kBeginSection[leave.startPeriod!]
-        endDayLbl.text = String(Calendar.current.component(.day, from: endDate))
+        endDayLbl.text = String(format:"%02d", endDate.component(.day)!)
         endMonthLbl.text = endDate.toString(style: .shortMonth)
         endPeriodLbl.text = tbDefines.kEndSection[leave.endPeriod!]
         typeLbl.text = "\(leave.type!) :"
