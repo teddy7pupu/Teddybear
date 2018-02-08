@@ -17,14 +17,15 @@ struct UserRole: OptionSet, Codable {
     static let account  = UserRole(rawValue: 3)
     static let admin    = UserRole(rawValue: 4)
     
-    func isIntern() -> Bool {
-        return (self == .intern) || (self == .admin)
-    }
+    
     func isManager() -> Bool {
         return (self == .manager) || (self == .admin)
     }
     func isAccount() -> Bool {
         return (self == .account) || (self == .admin)
+    }
+    func isIntern() -> Bool {
+        return self == .intern
     }
     func isAdmin() -> Bool {
         return self == .admin
@@ -54,7 +55,7 @@ struct UserRole: OptionSet, Codable {
         case UserRole.manager:
             count = 3
         case UserRole.intern:
-            count = 0
+            count = 1
         default:
             count = 2
         }

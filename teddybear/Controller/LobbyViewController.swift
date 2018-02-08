@@ -61,9 +61,22 @@ class LobbyViewController: UITableViewController {
     }
     
     //MARK: UITableViewDataSource
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let count = currentStaff?.role?.functionList() else { return 4 }
-        return count
+        if currentStaff?.role?.isIntern() == true {
+            let count = (section == 0 ? 0 : 2)
+            return count
+        } else {
+            guard let count = currentStaff?.role?.functionList() else { return (section == 0 ? 4 : 2)}
+            return (section == 0 ? count : 0)
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return (section == 0 ? "   正職員工" : "   實習生")
     }
     
     //MARK: UITableViewDelegate
