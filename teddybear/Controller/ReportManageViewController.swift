@@ -53,9 +53,8 @@ class ReportManageViewController: UIViewController
         dateField.inputView = pickerView
         pickerView.owner = dateField
         
-        let nowYear: Int = Calendar.current.component(.year, from: Date())
-        let nowMonth: Int = Calendar.current.component(.month, from: Date())
-        monthButton.setTitle("\(nowYear)-\(nowMonth)月", for: .normal)
+        let current = Date().toString(format: .isoYearMonth)
+        monthButton.setTitle("\(current)", for: .normal)
         
         let gesture = UITapGestureRecognizer(target: self, action: #selector(ReportManageViewController.keyboardDismiss(gesture:)))
         gesture.cancelsTouchesInView = false
@@ -169,7 +168,11 @@ class ReportManageViewController: UIViewController
     }
     
     func startMonth(yearMonth: String) -> Date {
-        let startOfMonth = Date(fromString: "\(yearMonth)-01", format: .isoCHDate)
+        var format: DateFormatType = .isoDate
+        if DateFormatter().locale.identifier == "zh_TW"{
+            format = .isoCHDate
+        }
+        let startOfMonth = Date(fromString: "\(yearMonth)-01", format: format)
         return startOfMonth!
     }
     
@@ -217,8 +220,10 @@ class ReportManageViewController: UIViewController
                 return
             }
             tbHUD.show()
-            monthButton.setTitle(("\(text)"), for: .normal)
-            let start = startMonth(yearMonth: text).timeIntervalSince1970
+            let startDate = startMonth(yearMonth: text)
+            let title = startDate.toString(format: .isoYearMonth)
+            monthButton.setTitle(("\(title)"), for: .normal)
+            let start = startDate.timeIntervalSince1970
             let end = endMonth(yearMonth: text).timeIntervalSince1970
             self.getRangeLeaveList(Int(start), Int(end))
         }

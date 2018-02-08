@@ -15,7 +15,6 @@ class MonthYearPickerView: UIView
     weak var owner: UITextField?
     var years: [String] = []
     var months: [String] = []
-    let formatter = DateFormatter()
     
     //MARK: Layout
     override func awakeFromNib() {
@@ -42,8 +41,7 @@ class MonthYearPickerView: UIView
     
     func getYearMonthSource() {
         years = []
-        formatter.locale = Locale(identifier: "zh_TW")
-        months = formatter.shortMonthSymbols
+        months = DateFormatter().shortMonthSymbols
         let year: Int = Calendar.current.component(.year, from: Date())
         for count in (year-2)...(year+2) {
             years.append("\(count)")
