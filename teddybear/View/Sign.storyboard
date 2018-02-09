@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bvL-hl-o91">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Sign Manage View Controller-->
+        <scene sceneID="roV-xZ-TgA">
+            <objects>
+                <tableViewController id="bvL-hl-o91" customClass="SignManageViewController" customModule="teddybear" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="diC-el-jZn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="FQM-fa-hDp">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="190"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LVd-q7-YLb">
+                                    <rect key="frame" x="8" y="18" width="359" height="60"/>
+                                    <color key="backgroundColor" name="SPLight"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="60" id="B8B-45-EW3"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                    <state key="normal" title="簽到">
+                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="onSignIn:" destination="bvL-hl-o91" eventType="touchUpInside" id="fUd-3T-fi0"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HQK-rl-wkh">
+                                    <rect key="frame" x="8" y="98" width="359" height="60"/>
+                                    <color key="backgroundColor" name="SPGreen"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="60" id="eTt-kw-bb0"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <state key="normal" title="簽退">
+                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="onSignOut:" destination="bvL-hl-o91" eventType="touchUpInside" id="V9W-4Y-KEq"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="HQK-rl-wkh" firstAttribute="top" secondItem="LVd-q7-YLb" secondAttribute="bottom" constant="20" id="3iJ-d6-hRP"/>
+                                <constraint firstAttribute="trailingMargin" secondItem="HQK-rl-wkh" secondAttribute="trailing" id="79m-12-Mbl"/>
+                                <constraint firstItem="HQK-rl-wkh" firstAttribute="top" secondItem="LVd-q7-YLb" secondAttribute="bottom" constant="20" id="7aK-8u-nYU"/>
+                                <constraint firstItem="HQK-rl-wkh" firstAttribute="leading" secondItem="FQM-fa-hDp" secondAttribute="leadingMargin" id="7tW-uN-iWH"/>
+                                <constraint firstItem="LVd-q7-YLb" firstAttribute="top" secondItem="FQM-fa-hDp" secondAttribute="topMargin" constant="10" id="Tmk-7A-HL8"/>
+                                <constraint firstItem="LVd-q7-YLb" firstAttribute="leading" secondItem="FQM-fa-hDp" secondAttribute="leadingMargin" id="b39-ow-Qpj"/>
+                                <constraint firstAttribute="trailingMargin" secondItem="LVd-q7-YLb" secondAttribute="trailing" id="xsa-mu-wew"/>
+                            </constraints>
+                        </view>
+                        <sections>
+                            <tableViewSection id="aa2-je-o1U">
+                                <cells/>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="bvL-hl-o91" id="rVa-fF-or8"/>
+                            <outlet property="delegate" destination="bvL-hl-o91" id="fdD-Uo-qdB"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="signInBtn" destination="LVd-q7-YLb" id="ao4-yg-u3A"/>
+                        <outlet property="signOutBtn" destination="HQK-rl-wkh" id="5R6-fo-qin"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Fb-wC-Qq2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-546.39999999999998" y="-104.7976011994003"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="SPGreen">
+            <color red="0.11372549019607843" green="0.72549019607843135" blue="0.32941176470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SPLight">
+            <color red="0.70196078431372544" green="0.70196078431372544" blue="0.70196078431372544" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

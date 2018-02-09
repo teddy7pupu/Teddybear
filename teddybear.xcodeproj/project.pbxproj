@@ -50,6 +50,8 @@
 		A4CEEFC4C02733B35798CC5A /* Pods_teddybearTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 708D75B9E55DB60CEE06682B /* Pods_teddybearTests.framework */; };
 		B85AE19F202D470000C4C246 /* Sign.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85AE19E202D470000C4C246 /* Sign.swift */; };
 		B85AE1A1202D484900C4C246 /* SignManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85AE1A0202D484900C4C246 /* SignManager.swift */; };
+		B85AE1A3202D4F9E00C4C246 /* Sign.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B85AE1A2202D4F9E00C4C246 /* Sign.storyboard */; };
+		B85AE1A5202D50BD00C4C246 /* SignManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85AE1A4202D50BD00C4C246 /* SignManageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +115,8 @@
 		9C9DC75B2E71482436D38C08 /* Pods-teddybear.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teddybear.release.xcconfig"; path = "Pods/Target Support Files/Pods-teddybear/Pods-teddybear.release.xcconfig"; sourceTree = "<group>"; };
 		B85AE19E202D470000C4C246 /* Sign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sign.swift; sourceTree = "<group>"; };
 		B85AE1A0202D484900C4C246 /* SignManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignManager.swift; sourceTree = "<group>"; };
+		B85AE1A2202D4F9E00C4C246 /* Sign.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Sign.storyboard; sourceTree = "<group>"; };
+		B85AE1A4202D50BD00C4C246 /* SignManageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignManageViewController.swift; sourceTree = "<group>"; };
 		BF9F63BFFBAAC4F147C965CA /* Pods-teddybear.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teddybear.debug.xcconfig"; path = "Pods/Target Support Files/Pods-teddybear/Pods-teddybear.debug.xcconfig"; sourceTree = "<group>"; };
 		FE34B84A6FAB7255B2C35CAA /* Pods_teddybear.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_teddybear.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -216,6 +220,7 @@
 				8DB2938C1FFF1BF3007C39F8 /* LaunchScreen.storyboard */,
 				8DB293871FFF1BF3007C39F8 /* Main.storyboard */,
 				79867D79201E348A001E21AB /* Approval.storyboard */,
+				B85AE1A2202D4F9E00C4C246 /* Sign.storyboard */,
 				8D90E7BD201BA80F0097636E /* Leave.storyboard */,
 				8D90E7BA201BA7780097636E /* Staff.storyboard */,
 				8DC3F2EF200DC2BD00BF2862 /* DatePickerView.swift */,
@@ -235,6 +240,7 @@
 				796954CA201F4F61004704AD /* ApprovalDetailViewController.swift */,
 				79867D7B201E3796001E21AB /* ApprovalManageViewController.swift */,
 				8D981060200FC61600072804 /* DeptDetailViewController.swift */,
+				B85AE1A4202D50BD00C4C246 /* SignManageViewController.swift */,
 				8DC3F305200F43A700BF2862 /* DeptManageViewController.swift */,
 				8D90E7C0201BB9900097636E /* LeaveDetailViewController.swift */,
 				8D753C94201B87B8002FB369 /* LeaveManageViewController.swift */,
@@ -409,6 +415,7 @@
 				8DB2938B1FFF1BF3007C39F8 /* Assets.xcassets in Resources */,
 				8DB293891FFF1BF3007C39F8 /* Main.storyboard in Resources */,
 				8D90E7BC201BA7780097636E /* Staff.storyboard in Resources */,
+				B85AE1A3202D4F9E00C4C246 /* Sign.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -561,6 +568,7 @@
 				79867D7C201E3796001E21AB /* ApprovalManageViewController.swift in Sources */,
 				8DC3F2EE200D262400BF2862 /* StaffDetailViewController.swift in Sources */,
 				8D981061200FC61600072804 /* DeptDetailViewController.swift in Sources */,
+				B85AE1A5202D50BD00C4C246 /* SignManageViewController.swift in Sources */,
 				8D753C91201B7FCD002FB369 /* LeaveManager.swift in Sources */,
 				15A219862017183500B2AE20 /* UITextFieldHelper.swift in Sources */,
 				8D753C95201B87B8002FB369 /* LeaveManageViewController.swift in Sources */,
