@@ -119,7 +119,11 @@ class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDeleg
     func openLobby() {
         tbHUD.dismiss()
         onBearBtn()
-        self.performSegue(withIdentifier: tbDefines.kSegueLobby, sender: nil)
+        if (StaffManager.sharedInstance().currentStaff?.role?.isIntern())! {
+            self.performSegue(withIdentifier: tbDefines.kSegueITNLobby, sender: nil)
+        } else {
+            self.performSegue(withIdentifier: tbDefines.kSegueLobby, sender: nil)
+        }
     }
     
     @objc func keyboardDismiss(gesture: UITapGestureRecognizer) {

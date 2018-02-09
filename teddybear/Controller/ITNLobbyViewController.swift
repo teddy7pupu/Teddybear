@@ -1,16 +1,16 @@
 //
-//  LobbyViewController.swift
+//  ITNLobbyViewController.swift
 //  teddybear
 //
-//  Created by JLee21 on 2018/1/5.
+//  Created by RD-Ops02 on 2018/2/9.
 //  Copyright © 2018年 AppMaster Co.,Ltd. All rights reserved.
 //
 
 import UIKit
 import GoogleSignIn
 
-class LobbyViewController: UITableViewController {
-    
+class ITNLobbyViewController: UITableViewController {
+
     @IBOutlet weak var englishLbl: UILabel!
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var titleLbl: UILabel!
@@ -31,7 +31,7 @@ class LobbyViewController: UITableViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         super.viewWillDisappear(animated)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -58,12 +58,6 @@ class LobbyViewController: UITableViewController {
         self.dismiss(animated: true) {
             
         }
-    }
-    
-    //MARK: UITableViewDataSource
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            guard let count = currentStaff?.role?.functionList() else { return 4}
-            return count
     }
     
     //MARK: UITableViewDelegate
