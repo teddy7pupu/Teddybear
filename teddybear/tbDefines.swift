@@ -19,6 +19,8 @@ class tbDefines: NSObject {
     static let kDepartment = "Department"
     static let kLeave = "Leave"
     static let kApproval = "Approval"
+    static let kSign = "Sign"
+
     
     // MARK: Segue
     static let kSegueLobby = "SegueLobby"

@@ -48,6 +48,8 @@
 		8DC3F306200F43A700BF2862 /* DeptManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC3F305200F43A700BF2862 /* DeptManageViewController.swift */; };
 		8DC3F308200F550300BF2862 /* DeptCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC3F307200F550300BF2862 /* DeptCell.swift */; };
 		A4CEEFC4C02733B35798CC5A /* Pods_teddybearTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 708D75B9E55DB60CEE06682B /* Pods_teddybearTests.framework */; };
+		B85AE19F202D470000C4C246 /* Sign.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85AE19E202D470000C4C246 /* Sign.swift */; };
+		B85AE1A1202D484900C4C246 /* SignManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85AE1A0202D484900C4C246 /* SignManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +111,8 @@
 		8DC3F305200F43A700BF2862 /* DeptManageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeptManageViewController.swift; sourceTree = "<group>"; };
 		8DC3F307200F550300BF2862 /* DeptCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeptCell.swift; sourceTree = "<group>"; };
 		9C9DC75B2E71482436D38C08 /* Pods-teddybear.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teddybear.release.xcconfig"; path = "Pods/Target Support Files/Pods-teddybear/Pods-teddybear.release.xcconfig"; sourceTree = "<group>"; };
+		B85AE19E202D470000C4C246 /* Sign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sign.swift; sourceTree = "<group>"; };
+		B85AE1A0202D484900C4C246 /* SignManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignManager.swift; sourceTree = "<group>"; };
 		BF9F63BFFBAAC4F147C965CA /* Pods-teddybear.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teddybear.debug.xcconfig"; path = "Pods/Target Support Files/Pods-teddybear/Pods-teddybear.debug.xcconfig"; sourceTree = "<group>"; };
 		FE34B84A6FAB7255B2C35CAA /* Pods_teddybear.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_teddybear.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -255,6 +259,7 @@
 		8DB293AC1FFF3561007C39F8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B85AE19B202D46B900C4C246 /* Sign */,
 				79867D74201E1414001E21AB /* ApprovalManager */,
 				8D753C8F201B7FB0002FB369 /* LeaveManager */,
 				8DC3F2EC200D125B00BF2862 /* StaffManager */,
@@ -291,6 +296,15 @@
 				708D75B9E55DB60CEE06682B /* Pods_teddybearTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B85AE19B202D46B900C4C246 /* Sign */ = {
+			isa = PBXGroup;
+			children = (
+				B85AE19E202D470000C4C246 /* Sign.swift */,
+				B85AE1A0202D484900C4C246 /* SignManager.swift */,
+			);
+			path = Sign;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -532,6 +546,7 @@
 				8DC3F2E7200CC05200BF2862 /* StaffManageViewController.swift in Sources */,
 				8DC3F2FA200E076D00BF2862 /* StaffCell.swift in Sources */,
 				8DC3F302200F275400BF2862 /* tbHUD.swift in Sources */,
+				B85AE1A1202D484900C4C246 /* SignManager.swift in Sources */,
 				8DB293AB1FFF30CA007C39F8 /* LobbyViewController.swift in Sources */,
 				8DC3F304200F371A00BF2862 /* ViewControllerHelper.swift in Sources */,
 				8DC3F2E9200CC18400BF2862 /* Staff.swift in Sources */,
@@ -549,6 +564,7 @@
 				8D753C91201B7FCD002FB369 /* LeaveManager.swift in Sources */,
 				15A219862017183500B2AE20 /* UITextFieldHelper.swift in Sources */,
 				8D753C95201B87B8002FB369 /* LeaveManageViewController.swift in Sources */,
+				B85AE19F202D470000C4C246 /* Sign.swift in Sources */,
 				8D753C93201B80A7002FB369 /* Leave.swift in Sources */,
 				8DC3F2EB200D125500BF2862 /* StaffManager.swift in Sources */,
 				8DB293861FFF1BF3007C39F8 /* LoginViewController.swift in Sources */,
