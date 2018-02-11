@@ -17,7 +17,7 @@ class SignManageViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let name = StaffManager.sharedInstance().currentStaff?.name { self.title = "\(name)" }
+        self.title = Date().toString(format: .isoDate)
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,6 +32,7 @@ class SignManageViewController: UITableViewController {
     
     @IBAction func onSignOut(_ sender: Any) {
         self.showAlert(message: "要\((signOutBtn.titleLabel?.text)!)嗎", completion: {
+            tbHUD.show()
             self.reviseSign(startTime: nil, endTime: Int(Date().timeIntervalSince1970))
         })
         
@@ -39,12 +40,14 @@ class SignManageViewController: UITableViewController {
     
     @IBAction func onSignIn(_ sender: Any) {
         self.showAlert(message: "要\((signInBtn.titleLabel?.text)!)嗎", completion: {
+            tbHUD.show()
             self.reviseSign(startTime: Int(Date().timeIntervalSince1970) , endTime: nil)
         })
     }
     
     func updateSign(sign: Sign) {
         SignManager.sharedInstance().updateSignData(sign) { (sign, error) in
+            tbHUD.dismiss()
             self.navigationController?.popToRootViewController(animated: true)
         }
     }
@@ -71,12 +74,18 @@ class SignManageViewController: UITableViewController {
             signInBtn.isEnabled = false
             signOutBtn.isEnabled = true
         }
+        if let startTitle = self.todaySign?.startTime {
+            let title = Date(timeIntervalSince1970: TimeInterval(startTitle)).toString(format: .isoTime)
+            signInBtn.setTitle("已完成簽到\(title)", for: .normal)
+        }
+        if let endTitle = self.todaySign?.endTime {
+            let title = Date(timeIntervalSince1970: TimeInterval(endTitle)).toString(format: .isoTime)
+            signOutBtn.setTitle("已完成簽退\(title)", for: .normal)
+        }
         signInBtn.backgroundColor = signInBtn.isEnabled ? UIColor(named:"SPGreen") : UIColor(named:"SPLight")
         signOutBtn.backgroundColor = signOutBtn.isEnabled ? UIColor(named:"SPGreen") : UIColor(named:"SPLight")
         if !signInBtn.isEnabled && !signOutBtn.isEnabled {
-            self.showAlert(message: "完成今日簽到囉", completion: {
-                self.navigationController?.popToRootViewController(animated: true)
-            })
+            self.showAlert(message: "完成今日簽到囉")
         }
         tbHUD.dismiss()
     }
