@@ -13,7 +13,7 @@ class ReportManageViewController: UIViewController
     
     @IBOutlet weak var mainTable: UITableView!
     @IBOutlet weak var monthButton: UIButton!
-    @IBOutlet weak var pickerView: MonthYearPickerView!
+    @IBOutlet weak var pickerView: tbPickerView!
     @IBOutlet weak var dateField: UITextField!
     
     private weak var manager = StaffManager.sharedInstance()
@@ -51,6 +51,7 @@ class ReportManageViewController: UIViewController
     //MARK: Layout & Animation
     func setupLayout() {
         dateField.inputView = pickerView
+        pickerView.type = .MonthYear
         pickerView.owner = dateField
         
         let current = Date().toString(format: .isoYearMonth)

@@ -173,7 +173,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n63-dI-G2S" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <view contentMode="scaleToFill" id="LNM-Cd-fhj" customClass="MonthYearPickerView" customModule="teddybear" customModuleProvider="target">
+                <view contentMode="scaleToFill" id="LNM-Cd-fhj" customClass="tbPickerView" customModule="teddybear" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="240" height="200"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>

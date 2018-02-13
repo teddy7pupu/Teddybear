@@ -18,7 +18,6 @@
 		79AAA8AD20235FEB007E0EAB /* Report.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79AAA8AC20235FEB007E0EAB /* Report.storyboard */; };
 		79AAA8AF20236220007E0EAB /* ReportManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AAA8AE20236220007E0EAB /* ReportManageViewController.swift */; };
 		79AAA8B12023632B007E0EAB /* ReportCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AAA8B02023632B007E0EAB /* ReportCell.swift */; };
-		79AAA8B920281F82007E0EAB /* MonthYearPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AAA8B820281F81007E0EAB /* MonthYearPickerView.swift */; };
 		8D139E012003EAFB00F73760 /* tbDefines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D139E002003EAFB00F73760 /* tbDefines.swift */; };
 		8D753C91201B7FCD002FB369 /* LeaveManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D753C90201B7FCD002FB369 /* LeaveManager.swift */; };
 		8D753C93201B80A7002FB369 /* Leave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D753C92201B80A7002FB369 /* Leave.swift */; };
@@ -80,7 +79,6 @@
 		79AAA8AC20235FEB007E0EAB /* Report.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Report.storyboard; sourceTree = "<group>"; };
 		79AAA8AE20236220007E0EAB /* ReportManageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportManageViewController.swift; sourceTree = "<group>"; };
 		79AAA8B02023632B007E0EAB /* ReportCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportCell.swift; sourceTree = "<group>"; };
-		79AAA8B820281F81007E0EAB /* MonthYearPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthYearPickerView.swift; sourceTree = "<group>"; };
 		8D139E002003EAFB00F73760 /* tbDefines.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tbDefines.swift; sourceTree = "<group>"; };
 		8D5871402022F66E0096A5D2 /* teddybear.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = teddybear.entitlements; sourceTree = "<group>"; };
 		8D753C90201B7FCD002FB369 /* LeaveManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaveManager.swift; sourceTree = "<group>"; };
@@ -235,7 +233,6 @@
 				B841C78A202430E80014A602 /* ReportDetailCell.swift */,
 				8DC3F2F9200E076D00BF2862 /* StaffCell.swift */,
 				8DC3F301200F275400BF2862 /* tbHUD.swift */,
-				79AAA8B820281F81007E0EAB /* MonthYearPickerView.swift */,
 				8D981064200FD1F900072804 /* tbPickerView.swift */,
 			);
 			path = View;
@@ -558,7 +555,6 @@
 				8D753C97201B934B002FB369 /* LeaveCell.swift in Sources */,
 				8D90E7C1201BB9900097636E /* LeaveDetailViewController.swift in Sources */,
 				8DC3F2F0200DC2BD00BF2862 /* DatePickerView.swift in Sources */,
-				79AAA8B920281F82007E0EAB /* MonthYearPickerView.swift in Sources */,
 				8DC3F306200F43A700BF2862 /* DeptManageViewController.swift in Sources */,
 				79867D78201E1669001E21AB /* ApprovalManager.swift in Sources */,
 				8D139E012003EAFB00F73760 /* tbDefines.swift in Sources */,
