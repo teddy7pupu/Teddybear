@@ -32,4 +32,7 @@ class tbDefines: NSObject {
     static let kBeginSection = ["10:00", "15:00"]
     static let kEndSection = ["14:00", "19:00"]
     static let kLeaveType = ["特休假", "事假", "病假", "婚假", "喪假", "產假", "育嬰假"]
+    
+    // MARk: WifiMac
+    static let kWifiMac = ["1c:5f:2b:8b:7:7a", "5c:f4:ab:7d:a6:15"]
 }

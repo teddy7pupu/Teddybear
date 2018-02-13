@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SystemConfiguration.CaptiveNetwork
 
 class SignManageViewController: UITableViewController {
     
@@ -27,9 +28,19 @@ class SignManageViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tbHUD.show()
-        getTodaySign()
+        guard let wifiMac = getMAC().mac else {
+            self.showAlert(message: "請確認已連結 Wifi")
+            return
+        }
+        if tbDefines.kWifiMac.index(of: wifiMac) == nil{
+            self.showAlert(message: "請確認已連結 艾普Wifi")
+            return
+        } else {
+            getTodaySign()
+        }
     }
     
+    //MARK: Active
     @IBAction func onSignOut(_ sender: Any) {
         self.showAlert(message: "要\((signOutBtn.titleLabel?.text)!)嗎", completion: {
             tbHUD.show()
@@ -102,6 +113,20 @@ class SignManageViewController: UITableViewController {
             }
             self.btnSwitch()
         })
+    }
+    
+    //MARK: Getter
+    func getMAC() -> (success: Bool, ssid: String?, mac: String?){
+        if let cfa:NSArray = CNCopySupportedInterfaces() {
+            for x in cfa {
+                if let dict = CFBridgingRetain(CNCopyCurrentNetworkInfo(x as! CFString)) {
+                    let ssid = dict["SSID"]!
+                    let mac  = dict["BSSID"]!
+                    return (true, ssid as? String, mac as? String)
+                }
+            }
+        }
+        return (false,nil,nil)
     }
     
     func startDay() -> Date {
