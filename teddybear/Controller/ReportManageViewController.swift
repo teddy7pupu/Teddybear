@@ -19,6 +19,7 @@ class ReportManageViewController: UIViewController
     private weak var manager = StaffManager.sharedInstance()
     private var passLeaveList: [Leave]? = []
     private var staffsLeaves: Dictionary<String, [Leave]?> = [:]
+    private var staffsLeaveHours: Dictionary<String, String> = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -155,6 +156,7 @@ class ReportManageViewController: UIViewController
     //假單和員工分類成字典
     func mapping(){
         staffsLeaves = [:]
+        staffsLeaveHours = [:]
         for leave in passLeaveList! {
             if staffsLeaves[leave.sid!] == nil {
                 staffsLeaves[leave.sid!] = [leave]
@@ -164,8 +166,22 @@ class ReportManageViewController: UIViewController
                 staffsLeaves[leave.sid!] = tmp
             }
         }
+        for staffId in staffKeys()!{
+            staffsLeaveHours[staffId] = getTotalHours(leaves: staffsLeaves[staffId]!)
+        }
         self.mainTable.performSelector(onMainThread: #selector(UITableView.reloadData), with: nil, waitUntilDone: false)
         tbHUD.dismiss()
+    }
+    
+    func getTotalHours(leaves: [Leave]?) -> String {
+        var summation: Int = 0
+        for leave in leaves! {
+            let beginDate = Date(timeIntervalSinceReferenceDate: TimeInterval(leave.startTime!))
+            let endDate = Date(timeIntervalSinceReferenceDate: TimeInterval(leave.endTime!))
+            let hour = Date.leaveHour(beginDate, leave.startPeriod!, endDate, leave.endPeriod!)
+            summation += hour
+        }
+        return summation > 8 ? String(format:"%.1f天", Double(summation)/8) : "\(summation)小時"
     }
     
     func startMonth(yearMonth: String) -> Date {
@@ -204,7 +220,8 @@ class ReportManageViewController: UIViewController
         let staffId = staffKeys()?[indexPath.row]
         let leaves = staffsLeaves[staffId!]
         let staff = manager?.getStaff(byStaffId: staffId!)
-        cell.layoutCell(staff: staff!, leaves: leaves!)
+        let total = staffsLeaveHours[staffId!]
+        cell.layoutCell(staff: staff!, leavesCount: (leaves!!.count), total: total!)
         return cell
     }
     
