@@ -29,10 +29,10 @@ class ReportCell: UITableViewCell {
         }
         nameLbl.text = staff.name
         leaveCountLbl.text = String(leaves!.count)
-        hourTotalLbl.text = String(calculateHours(leaves: leaves))
+        hourTotalLbl.text = String(getTotalHours(leaves: leaves))
     }
     
-    func calculateHours(leaves: [Leave]?) -> String {
+    func getTotalHours(leaves: [Leave]?) -> String {
         var summation: Int = 0
         for leave in leaves! {
             let beginDate = Date(timeIntervalSinceReferenceDate: TimeInterval(leave.startTime!))
