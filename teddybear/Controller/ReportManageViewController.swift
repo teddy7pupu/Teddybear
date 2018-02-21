@@ -17,9 +17,8 @@ class ReportManageViewController: UIViewController
     @IBOutlet weak var dateField: UITextField!
     
     private weak var manager = StaffManager.sharedInstance()
-    private var passLeaveList: [Leave]? = []
-    private var staffsLeaves: Dictionary<String, [Leave]?> = [:]
-    private var staffsLeaveHours: Dictionary<String, String> = [:]
+    private var staffsLeaves: Dictionary<String, [Leave]>?
+    private var staffsLeaveHours: Dictionary<String, String>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,10 +41,12 @@ class ReportManageViewController: UIViewController
         if segue.identifier == tbDefines.kSegueReport {
             let detailView = segue.destination as! ReportDetailViewController
             let staffId = sender as? String
-            let leaves = staffsLeaves[staffId!]
-            let staff = manager?.getStaff(byStaffId: staffId!)
-            detailView.staffName = staff?.name
-            detailView.staffLeaves = leaves!
+            guard let leaves = staffsLeaves?[staffId!]
+                ,let staff = manager?.getStaff(byStaffId: staffId!) else {
+                    return
+            }
+            detailView.staffName = staff.name
+            detailView.staffLeaves = leaves
         }
     }
     
@@ -66,12 +67,12 @@ class ReportManageViewController: UIViewController
     //MARK: Action
     func csvFileOut(path: URL?){
         var csvText = "姓名,假別,開始時間,結束時間,小計,總計\n"
-        for (staffSid, leaves) in staffsLeaves {
+        for (staffSid, leaves) in staffsLeaves! {
             if let staffName = manager?.getStaff(byStaffId: staffSid)?.name{
                 csvText.append("\(staffName),")
             }
             var totalHour = 0
-            for leave in leaves! {
+            for leave in leaves {
                 let type = leave.type!
                 let beginDate = Date(timeIntervalSinceReferenceDate: TimeInterval(leave.startTime!))
                 let finishDate = Date(timeIntervalSinceReferenceDate: TimeInterval(leave.endTime!))
@@ -103,12 +104,12 @@ class ReportManageViewController: UIViewController
         catch {
             showAlert(message: "Failed to create file")
         }
-        //tbHUD.dismiss()
+        tbHUD.dismiss()
     }
     
-    @IBAction func onOutPut(_ sender: Any) {
-        //tbHUD.show()
+    @IBAction func onOutput(_ sender: Any) {
         if let time = monthButton.titleLabel?.text {
+            tbHUD.show()
             let fileName = "\(time)假勤報表.csv"
             let path = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(fileName)
             csvFileOut(path: path)
@@ -137,7 +138,6 @@ class ReportManageViewController: UIViewController
         LeaveManager.sharedInstance().getRangeLeaveList(start, end,completion: { (list, error) in
             if error != nil { return }
             self.filterPassLeave(leaves: list)
-            self.mapping()
         })
     }
     
@@ -150,24 +150,24 @@ class ReportManageViewController: UIViewController
                 list?.append(leave)
             }
         }
-        self.passLeaveList = list
+        self.mapping(passLeaveList: list)
     }
     
     //假單和員工分類成字典
-    func mapping(){
+    func mapping(passLeaveList: [Leave]?){
         staffsLeaves = [:]
         staffsLeaveHours = [:]
         for leave in passLeaveList! {
-            if staffsLeaves[leave.sid!] == nil {
-                staffsLeaves[leave.sid!] = [leave]
+            if staffsLeaves?[leave.sid!] == nil {
+                staffsLeaves?[leave.sid!] = [leave]
             } else {
-                var tmp = staffsLeaves[leave.sid!]!
-                tmp?.append(leave)
-                staffsLeaves[leave.sid!] = tmp
+                var tmp: [Leave] = staffsLeaves![leave.sid!]!
+                tmp.append(leave)
+                staffsLeaves?[leave.sid!] = tmp
             }
         }
         for staffId in staffKeys()!{
-            staffsLeaveHours[staffId] = getTotalHours(leaves: staffsLeaves[staffId]!)
+            staffsLeaveHours?[staffId] = getTotalHours(leaves: staffsLeaves?[staffId]!)
         }
         self.mainTable.performSelector(onMainThread: #selector(UITableView.reloadData), with: nil, waitUntilDone: false)
         tbHUD.dismiss()
@@ -218,10 +218,10 @@ class ReportManageViewController: UIViewController
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ReportCell.self) , for: indexPath) as! ReportCell
         let staffId = staffKeys()?[indexPath.row]
-        let leaves = staffsLeaves[staffId!]
+        let leaves = staffsLeaves?[staffId!]
         let staff = manager?.getStaff(byStaffId: staffId!)
-        let total = staffsLeaveHours[staffId!]
-        cell.layoutCell(staff: staff!, leavesCount: (leaves!!.count), total: total!)
+        let total = staffsLeaveHours?[staffId!]
+        cell.layoutCell(staff: staff!, leavesCount: (leaves!.count), total: total!)
         return cell
     }
     
@@ -249,6 +249,8 @@ class ReportManageViewController: UIViewController
     
     //MARK: Getter
     private func staffKeys() -> [String]? {
+        guard let staffsLeaves = staffsLeaves else { return nil }
         return Array(staffsLeaves.keys)
     }
 }
+
