@@ -55,6 +55,9 @@
 		B85AE1A7202D856100C4C246 /* ITNLobbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85AE1A6202D856100C4C246 /* ITNLobbyViewController.swift */; };
 		B85AE1A9202D8B2700C4C246 /* SignDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85AE1A8202D8B2700C4C246 /* SignDetailViewController.swift */; };
 		B85AE1AB202D8BEB00C4C246 /* SignCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85AE1AA202D8BEB00C4C246 /* SignCell.swift */; };
+		B8C23A32203E656D00EDA743 /* Wifi.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C23A31203E656D00EDA743 /* Wifi.swift */; };
+		B8C23A34203E65AB00EDA743 /* WifiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C23A33203E65AB00EDA743 /* WifiManager.swift */; };
+		B8C23A36203E677F00EDA743 /* WifiManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C23A35203E677F00EDA743 /* WifiManagerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +126,9 @@
 		B85AE1A6202D856100C4C246 /* ITNLobbyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ITNLobbyViewController.swift; sourceTree = "<group>"; };
 		B85AE1A8202D8B2700C4C246 /* SignDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignDetailViewController.swift; sourceTree = "<group>"; };
 		B85AE1AA202D8BEB00C4C246 /* SignCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignCell.swift; sourceTree = "<group>"; };
+		B8C23A31203E656D00EDA743 /* Wifi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wifi.swift; sourceTree = "<group>"; };
+		B8C23A33203E65AB00EDA743 /* WifiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiManager.swift; sourceTree = "<group>"; };
+		B8C23A35203E677F00EDA743 /* WifiManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiManagerViewController.swift; sourceTree = "<group>"; };
 		BF9F63BFFBAAC4F147C965CA /* Pods-teddybear.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teddybear.debug.xcconfig"; path = "Pods/Target Support Files/Pods-teddybear/Pods-teddybear.debug.xcconfig"; sourceTree = "<group>"; };
 		FE34B84A6FAB7255B2C35CAA /* Pods_teddybear.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_teddybear.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -244,11 +250,12 @@
 		8DB293A41FFF1D39007C39F8 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B8C23A35203E677F00EDA743 /* WifiManagerViewController.swift */,
 				796954CA201F4F61004704AD /* ApprovalDetailViewController.swift */,
 				79867D7B201E3796001E21AB /* ApprovalManageViewController.swift */,
 				B85AE1A8202D8B2700C4C246 /* SignDetailViewController.swift */,
-				8D981060200FC61600072804 /* DeptDetailViewController.swift */,
 				B85AE1A4202D50BD00C4C246 /* SignManageViewController.swift */,
+				8D981060200FC61600072804 /* DeptDetailViewController.swift */,
 				8DC3F305200F43A700BF2862 /* DeptManageViewController.swift */,
 				8D90E7C0201BB9900097636E /* LeaveDetailViewController.swift */,
 				8D753C94201B87B8002FB369 /* LeaveManageViewController.swift */,
@@ -274,6 +281,7 @@
 		8DB293AC1FFF3561007C39F8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B8C23A30203E654800EDA743 /* Wifi */,
 				B85AE19B202D46B900C4C246 /* Sign */,
 				79867D74201E1414001E21AB /* ApprovalManager */,
 				8D753C8F201B7FB0002FB369 /* LeaveManager */,
@@ -320,6 +328,15 @@
 				B85AE1A0202D484900C4C246 /* SignManager.swift */,
 			);
 			path = Sign;
+			sourceTree = "<group>";
+		};
+		B8C23A30203E654800EDA743 /* Wifi */ = {
+			isa = PBXGroup;
+			children = (
+				B8C23A31203E656D00EDA743 /* Wifi.swift */,
+				B8C23A33203E65AB00EDA743 /* WifiManager.swift */,
+			);
+			path = Wifi;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -576,10 +593,13 @@
 				8D139E012003EAFB00F73760 /* tbDefines.swift in Sources */,
 				79867D7E201EFC41001E21AB /* ApprovalCell.swift in Sources */,
 				79867D7C201E3796001E21AB /* ApprovalManageViewController.swift in Sources */,
+				B8C23A36203E677F00EDA743 /* WifiManagerViewController.swift in Sources */,
 				8DC3F2EE200D262400BF2862 /* StaffDetailViewController.swift in Sources */,
+				B8C23A32203E656D00EDA743 /* Wifi.swift in Sources */,
 				8D981061200FC61600072804 /* DeptDetailViewController.swift in Sources */,
 				B85AE1A5202D50BD00C4C246 /* SignManageViewController.swift in Sources */,
 				8D753C91201B7FCD002FB369 /* LeaveManager.swift in Sources */,
+				B8C23A34203E65AB00EDA743 /* WifiManager.swift in Sources */,
 				15A219862017183500B2AE20 /* UITextFieldHelper.swift in Sources */,
 				8D753C95201B87B8002FB369 /* LeaveManageViewController.swift in Sources */,
 				B85AE19F202D470000C4C246 /* Sign.swift in Sources */,

@@ -28,16 +28,7 @@ class SignManageViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tbHUD.show()
-        guard let wifiMac = getMAC().mac else {
-            self.showAlert(message: "請確認已連結 Wifi")
-            return
-        }
-        if tbDefines.kWifiMac.index(of: wifiMac) == nil{
-            self.showAlert(message: "請確認已連結 艾普Wifi")
-            return
-        } else {
-            getTodaySign()
-        }
+        checkWifi()
     }
     
     //MARK: Active
@@ -115,20 +106,6 @@ class SignManageViewController: UITableViewController {
         })
     }
     
-    //MARK: Getter
-    func getMAC() -> (success: Bool, ssid: String?, mac: String?){
-        if let cfa:NSArray = CNCopySupportedInterfaces() {
-            for x in cfa {
-                if let dict = CFBridgingRetain(CNCopyCurrentNetworkInfo(x as! CFString)) {
-                    let ssid = dict["SSID"]!
-                    let mac  = dict["BSSID"]!
-                    return (true, ssid as? String, mac as? String)
-                }
-            }
-        }
-        return (false,nil,nil)
-    }
-    
     func startDay() -> Date {
         let current = Date().toString(format: .isoDate)
         let startOfDay = Date(fromString: "\(current)", format: .isoDate)
@@ -141,5 +118,28 @@ class SignManageViewController: UITableViewController {
         components.second = -1
         let endOfDay =  NSCalendar.current.date(byAdding: components, to: startDay())!
         return endOfDay
+    }
+    
+    //MARK: getter
+    func checkWifi() {
+        WifiManager.sharedInstance().getWifiList(completion: { (wifi, error) in
+            let list = wifi?.mac
+            tbHUD.dismiss()
+            guard let mac = self.getWifi().mac else { return }
+            if list?.index(of: mac) == nil{
+                self.showAlert(message: "請確認已連結 艾普Wifi")
+            } else {
+                self.getTodaySign()
+            }
+        })
+    }
+    
+    func getWifi() -> (ssid: String?, mac: String?){
+        guard let name = WifiManager.sharedInstance().getCurrentWifi().ssid
+            , let mac = WifiManager.sharedInstance().getCurrentWifi().mac else {
+                self.showAlert(message: "請確認已連結 Wifi")
+                return(nil, nil)
+        }
+        return(name, mac)
     }
 }

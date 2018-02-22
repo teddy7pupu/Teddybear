@@ -62,7 +62,7 @@ class LobbyViewController: UITableViewController {
     
     //MARK: UITableViewDataSource
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            guard let count = currentStaff?.role?.functionList() else { return 4}
+            guard let count = currentStaff?.role?.functionList() else { return 5}
             return count
     }
     
