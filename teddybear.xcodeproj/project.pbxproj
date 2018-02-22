@@ -250,20 +250,20 @@
 		8DB293A41FFF1D39007C39F8 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				B8C23A35203E677F00EDA743 /* WifiManagerViewController.swift */,
 				796954CA201F4F61004704AD /* ApprovalDetailViewController.swift */,
 				79867D7B201E3796001E21AB /* ApprovalManageViewController.swift */,
-				B85AE1A8202D8B2700C4C246 /* SignDetailViewController.swift */,
-				B85AE1A4202D50BD00C4C246 /* SignManageViewController.swift */,
 				8D981060200FC61600072804 /* DeptDetailViewController.swift */,
 				8DC3F305200F43A700BF2862 /* DeptManageViewController.swift */,
+				B85AE1A6202D856100C4C246 /* ITNLobbyViewController.swift */,
 				8D90E7C0201BB9900097636E /* LeaveDetailViewController.swift */,
 				8D753C94201B87B8002FB369 /* LeaveManageViewController.swift */,
-				B85AE1A6202D856100C4C246 /* ITNLobbyViewController.swift */,
 				8DB293AA1FFF30CA007C39F8 /* LobbyViewController.swift */,
 				8DB293851FFF1BF3007C39F8 /* LoginViewController.swift */,
+				B85AE1A8202D8B2700C4C246 /* SignDetailViewController.swift */,
+				B85AE1A4202D50BD00C4C246 /* SignManageViewController.swift */,
 				8DC3F2ED200D262400BF2862 /* StaffDetailViewController.swift */,
 				8DC3F2E6200CC05200BF2862 /* StaffManageViewController.swift */,
+				B8C23A35203E677F00EDA743 /* WifiManagerViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -281,12 +281,12 @@
 		8DB293AC1FFF3561007C39F8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B8C23A30203E654800EDA743 /* Wifi */,
-				B85AE19B202D46B900C4C246 /* Sign */,
 				79867D74201E1414001E21AB /* ApprovalManager */,
 				8D753C8F201B7FB0002FB369 /* LeaveManager */,
+				B85AE19B202D46B900C4C246 /* SignManager */,
 				8DC3F2EC200D125B00BF2862 /* StaffManager */,
 				8DB293AD1FFF35AC007C39F8 /* UserManager.swift */,
+				B8C23A30203E654800EDA743 /* WifiManager */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -321,22 +321,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		B85AE19B202D46B900C4C246 /* Sign */ = {
+		B85AE19B202D46B900C4C246 /* SignManager */ = {
 			isa = PBXGroup;
 			children = (
 				B85AE19E202D470000C4C246 /* Sign.swift */,
 				B85AE1A0202D484900C4C246 /* SignManager.swift */,
 			);
-			path = Sign;
+			path = SignManager;
 			sourceTree = "<group>";
 		};
-		B8C23A30203E654800EDA743 /* Wifi */ = {
+		B8C23A30203E654800EDA743 /* WifiManager */ = {
 			isa = PBXGroup;
 			children = (
 				B8C23A31203E656D00EDA743 /* Wifi.swift */,
 				B8C23A33203E65AB00EDA743 /* WifiManager.swift */,
 			);
-			path = Wifi;
+			path = WifiManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
