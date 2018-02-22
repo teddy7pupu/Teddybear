@@ -647,7 +647,7 @@ public enum DateFormatType {
         case .isoYear: return "yyyy"
         case .isoYearMonth: return "yyyy-MM"
         case .isoDate: return "yyyy-MM-dd"
-        case .isoDateWeek: return "yyyy-MM-dd,EEE"
+        case .isoDateWeek: return "EEE"
         case .isoDateTime: return "yyyy-MM-dd'T'HH:mmZ"
         case .isoDateTimeSec: return "yyyy-MM-dd'T'HH:mm:ssZ"
         case .isoDateTimeMilliSec: return "yyyy-MM-dd'T'HH:mm:ss.SSSZ"

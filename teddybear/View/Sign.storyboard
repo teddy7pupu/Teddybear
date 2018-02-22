@@ -252,20 +252,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Wji-cq-gR4">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Wji-cq-gR4">
                                 <rect key="frame" x="0.0" y="30" width="375" height="637"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="MpK-gS-gsF">
-                                    <rect key="frame" x="0.0" y="108" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="98" width="375" height="0.5"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SignCell" rowHeight="80" id="1nL-yQ-aBH" customClass="SignCell" customModule="teddybear" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="80"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SignCell" rowHeight="70" id="1nL-yQ-aBH" customClass="SignCell" customModule="teddybear" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1nL-yQ-aBH" id="afh-o0-AFM">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="上班時間" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E8t-a2-hE6">
@@ -275,7 +276,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="下班時間" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5bN-8d-9cC">
-                                                    <rect key="frame" x="15" y="60" width="61.5" height="18"/>
+                                                    <rect key="frame" x="98.5" y="37" width="61.5" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -292,24 +293,31 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="week" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L8E-uv-2cA">
+                                                    <rect key="frame" x="320" y="11" width="40" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HcJ-1c-aKI">
-                                                    <rect key="frame" x="81" y="60" width="7" height="18"/>
+                                                    <rect key="frame" x="165" y="37" width="7" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="5bN-8d-9cC" firstAttribute="leading" secondItem="afh-o0-AFM" secondAttribute="leadingMargin" id="COJ-f4-6ZT"/>
-                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="HcJ-1c-aKI" secondAttribute="trailing" id="EPq-t5-ow0"/>
                                                 <constraint firstItem="vI0-NX-16V" firstAttribute="top" secondItem="E8t-a2-hE6" secondAttribute="top" id="EtE-DZ-YDk"/>
+                                                <constraint firstItem="HcJ-1c-aKI" firstAttribute="top" secondItem="5bN-8d-9cC" secondAttribute="top" id="JQS-Gr-gFU"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="L8E-uv-2cA" secondAttribute="trailing" id="MDX-Nl-pRP"/>
+                                                <constraint firstItem="HcJ-1c-aKI" firstAttribute="leading" secondItem="5bN-8d-9cC" secondAttribute="trailing" constant="5" id="O4U-up-8za"/>
                                                 <constraint firstItem="Zbp-Qd-QHn" firstAttribute="leading" secondItem="afh-o0-AFM" secondAttribute="leadingMargin" id="T2P-gY-M1a"/>
                                                 <constraint firstItem="vI0-NX-16V" firstAttribute="leading" secondItem="E8t-a2-hE6" secondAttribute="trailing" constant="5" id="TW9-au-pCM"/>
-                                                <constraint firstItem="HcJ-1c-aKI" firstAttribute="leading" secondItem="5bN-8d-9cC" secondAttribute="trailing" constant="5" id="U4z-Hl-DHJ"/>
-                                                <constraint firstItem="5bN-8d-9cC" firstAttribute="top" secondItem="E8t-a2-hE6" secondAttribute="bottom" constant="5" id="dgX-oE-HQ0"/>
-                                                <constraint firstItem="HcJ-1c-aKI" firstAttribute="top" secondItem="5bN-8d-9cC" secondAttribute="top" id="g15-hP-uHa"/>
+                                                <constraint firstItem="5bN-8d-9cC" firstAttribute="leading" secondItem="vI0-NX-16V" secondAttribute="trailing" constant="10" id="Y9D-7P-SZj"/>
                                                 <constraint firstItem="Zbp-Qd-QHn" firstAttribute="top" secondItem="afh-o0-AFM" secondAttribute="topMargin" id="qO9-kX-mqG"/>
                                                 <constraint firstItem="E8t-a2-hE6" firstAttribute="top" secondItem="Zbp-Qd-QHn" secondAttribute="bottom" constant="5" id="r8O-hp-h91"/>
+                                                <constraint firstItem="5bN-8d-9cC" firstAttribute="top" secondItem="E8t-a2-hE6" secondAttribute="top" id="vNc-F2-mIN"/>
+                                                <constraint firstItem="L8E-uv-2cA" firstAttribute="top" secondItem="Zbp-Qd-QHn" secondAttribute="top" id="yb6-6N-Ehy"/>
                                                 <constraint firstItem="E8t-a2-hE6" firstAttribute="leading" secondItem="afh-o0-AFM" secondAttribute="leadingMargin" id="z6b-fY-Itk"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -317,6 +325,7 @@
                                             <outlet property="day" destination="Zbp-Qd-QHn" id="94e-9B-tUH"/>
                                             <outlet property="endTime" destination="HcJ-1c-aKI" id="O7k-8G-Z0c"/>
                                             <outlet property="startTime" destination="vI0-NX-16V" id="q5p-rf-Ihd"/>
+                                            <outlet property="week" destination="L8E-uv-2cA" id="DBs-OM-gyc"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -354,9 +363,6 @@
         </namedColor>
         <namedColor name="SPGreen">
             <color red="0.11372549019607843" green="0.72549019607843135" blue="0.32941176470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="SPLight">
-            <color red="0.70196078431372544" green="0.70196078431372544" blue="0.70196078431372544" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="SPLight">
             <color red="0.70196078431372544" green="0.70196078431372544" blue="0.70196078431372544" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

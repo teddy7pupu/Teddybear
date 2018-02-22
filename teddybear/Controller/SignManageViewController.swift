@@ -78,11 +78,11 @@ class SignManageViewController: UITableViewController {
         }
         if let startTitle = self.todaySign?.startTime {
             let title = Date(timeIntervalSince1970: TimeInterval(startTitle)).toString(format: .isoTime)
-            signInBtn.setTitle("已完成簽到\(title)", for: .normal)
+            signInBtn.setTitle("已完成簽到 \(title)", for: .normal)
         }
         if let endTitle = self.todaySign?.endTime {
             let title = Date(timeIntervalSince1970: TimeInterval(endTitle)).toString(format: .isoTime)
-            signOutBtn.setTitle("已完成簽退\(title)", for: .normal)
+            signOutBtn.setTitle("已完成簽退 \(title)", for: .normal)
         }
         signInBtn.backgroundColor = signInBtn.isEnabled ? UIColor(named:"SPGreen") : UIColor(named:"SPLight")
         signOutBtn.backgroundColor = signOutBtn.isEnabled ? UIColor(named:"SPGreen") : UIColor(named:"SPLight")
