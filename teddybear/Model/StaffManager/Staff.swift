@@ -67,7 +67,7 @@ struct Staff: Codable {
     var role: UserRole?
     var department: String?
     var sid: String?
-    var isQuit: Bool?
+    var quitDate: Int?
     
     init() {
         role = .employee
