@@ -325,6 +325,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="nmn-RR-KSd" kind="show" id="a7F-mM-B1y"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -361,6 +364,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0hV-cM-RPl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1973" y="466"/>
+        </scene>
+        <!--Report-->
+        <scene sceneID="6OY-xb-jaU">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Report" id="nmn-RR-KSd" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HzL-Yr-Zpa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2562" y="283"/>
         </scene>
         <!--Approval-->
         <scene sceneID="3Lg-C4-JMN">
