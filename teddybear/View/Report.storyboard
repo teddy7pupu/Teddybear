@@ -142,7 +142,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="onOutPut:" destination="wt4-Vf-JPM" eventType="touchUpInside" id="4Ng-dU-36f"/>
+                                    <action selector="onOutput:" destination="wt4-Vf-JPM" eventType="touchUpInside" id="Vuk-jJ-cWR"/>
                                 </connections>
                             </button>
                         </subviews>
