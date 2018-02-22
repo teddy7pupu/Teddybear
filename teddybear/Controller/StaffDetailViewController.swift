@@ -17,7 +17,7 @@ class StaffDetailViewController: UITableViewController
     @IBOutlet weak var phoneField: UITextField!
     @IBOutlet weak var birthdayField: UITextField!
     @IBOutlet weak var onboardField: UITextField!
-    @IBOutlet weak var isQuitField: UITextField!
+    @IBOutlet weak var quitDateField: UITextField!
     @IBOutlet weak var deptField: UITextField!
     @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var sidField: UITextField!
@@ -75,8 +75,8 @@ class StaffDetailViewController: UITableViewController
         phoneField.text = staff.mobile
         birthdayField.text = Date(timeIntervalSince1970: TimeInterval(staff.birthday!)).toString(format: .isoDate)
         onboardField.text = Date(timeIntervalSince1970: TimeInterval(staff.onBoardDate!)).toString(format: .isoDate)
-        if let quit = staff.isQuit {
-            isQuitField.text = Date(timeIntervalSince1970: TimeInterval(quit)).toString(format: .isoDate)
+        if let quit = staff.quitDate {
+            quitDateField.text = Date(timeIntervalSince1970: TimeInterval(quit)).toString(format: .isoDate)
         }
         deptField.text = manager?.getDepartment(byID:staff.department!)?.title
         titleField.text = staff.title
@@ -114,9 +114,9 @@ class StaffDetailViewController: UITableViewController
             _staff.birthday = Int(birthday.timeIntervalSince1970)
             let onBoardDate = Date(fromString: onboardField.text!, format: .isoDate)!
             _staff.onBoardDate = Int(onBoardDate.timeIntervalSince1970)
-            if isQuitField.text != "在職中"{
-                let isQuit = Date(fromString: isQuitField.text!, format: .isoDate)!
-                _staff.isQuit = Int(isQuit.timeIntervalSince1970)
+            if quitDateField.text != "在職中"{
+                let quitDate = Date(fromString: quitDateField.text!, format: .isoDate)!
+                _staff.quitDate = Int(quitDate.timeIntervalSince1970)
             }
             _staff.department = manager?.getDepartment(byName:deptField.text!)?.department_id
             _staff.title = titleField.text
@@ -170,7 +170,7 @@ class StaffDetailViewController: UITableViewController
     }
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        if textField == birthdayField || textField == onboardField || textField == isQuitField {
+        if textField == birthdayField || textField == onboardField || textField == quitDateField {
             textField.inputView = datePickerView
             datePickerView.maximumDate = Date()
             datePickerView.owner = textField

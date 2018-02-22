@@ -127,7 +127,7 @@ class StaffManager: NSObject {
         return staffs.filter({ (staff) -> Bool in
             (staff.sid != currentStaff?.sid) &&
                 (staff.department == currentStaff?.department) &&
-                    (staff.isQuit == nil)
+                    (staff.quitDate == nil)
         })
     }
     
