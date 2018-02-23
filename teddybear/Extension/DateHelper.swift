@@ -577,6 +577,24 @@ public extension Date {
         }
         return sumHour
     }
+    
+    static func startMonth(yearMonth: String) -> Date {
+        var format: DateFormatType = .isoDate
+        if DateFormatter().locale.identifier == "zh_TW"{
+            format = .isoCHDate
+        }
+        let startOfMonth = Date(fromString: "\(yearMonth)-01", format: format)
+        return startOfMonth!
+    }
+    
+    static func endMonth(yearMonth: String) -> Date {
+        var components = DateComponents()
+        components.month = 1
+        components.day = -1
+        let endOfMonth =  NSCalendar.current.date(byAdding: components, to: startMonth(yearMonth: yearMonth))!
+        return endOfMonth
+    }
+    
 }
 
 // MARK: Enums used

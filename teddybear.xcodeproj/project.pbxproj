@@ -276,6 +276,7 @@
 				8DB293851FFF1BF3007C39F8 /* LoginViewController.swift */,
 				B82BD3C3203FD1EB00484222 /* ReportDetailViewController.swift */,
 				B82BD3C520401A2800484222 /* ReportINTDetailViewController.swift */,
+				B82BD3C3203FD1EB00484222 /* ReportDetailViewController.swift */,
 				79AAA8AE20236220007E0EAB /* ReportManageViewController.swift */,
 				B85AE1A8202D8B2700C4C246 /* SignDetailViewController.swift */,
 				B85AE1A4202D50BD00C4C246 /* SignManageViewController.swift */,
