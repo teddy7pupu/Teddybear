@@ -56,6 +56,27 @@ class LeaveManager: NSObject{
         })
     }
     
+    func getRangeLeaveList(_ start: Int, _ end: Int, completion:@escaping ([Leave]?, Error?) -> Void) {
+        queryRangeLeaveList(key:"applyTime", start: start, end: end, completion: completion)
+    }
+    
+    private func queryRangeLeaveList(key: String!, start: Int, end: Int, completion:@escaping ([Leave]?, Error?) -> Void) {
+        leaveRef()?.queryOrdered(byChild: key).queryStarting(atValue: start).queryEnding(atValue: end).observeSingleEvent(of: .value, with: { SnapShot in
+            var list: [Leave] = []
+            for child in SnapShot.children {
+                let data = child as? DataSnapshot
+                guard let leave = Leave.get(data: data?.value as! NSDictionary) else {
+                    let error = NSError(domain: tbDefines.BUNDLEID, code: -1, userInfo: [NSLocalizedDescriptionKey: "假單資料錯誤"])
+                    completion(nil, error)
+                    return
+                }
+                list.append(leave)
+            }
+            completion(list, nil)
+        })
+    }
+    
+    
     func getLeaveList(_ sid:String!, completion:@escaping ([Leave]?, Error?) -> Void) {
         queryLeaveList(key:"sid", value: sid, completion: completion)
     }

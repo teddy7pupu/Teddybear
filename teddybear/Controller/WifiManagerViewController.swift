@@ -11,10 +11,9 @@ import UIKit
 class WifiManagerViewController: UITableViewController {
     
     @IBOutlet weak var wifiName: UILabel!
-    @IBOutlet weak var wifiMac: UILabel!
     @IBOutlet weak var addBtn: UIButton!
     @IBOutlet weak var deleteBtn: UIButton!
-    
+    @IBOutlet weak var wifiMac: UILabel!
     var wifiList: [String]?
     
     override func viewDidLoad() {

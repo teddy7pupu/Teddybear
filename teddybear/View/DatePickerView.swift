@@ -29,7 +29,12 @@ class DatePickerView: UIView {
             return
         }
         let dateString = owner?.text!
-        pickerView.date = Date(fromString: dateString!, format: .isoDate)!
+        if let textString = Date(fromString: dateString!, format: .isoDate){
+            pickerView.date = textString
+        } else {
+            pickerView.date = Date()
+        }
+        
     }
     
     //MARK: Action
