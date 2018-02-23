@@ -15,10 +15,12 @@ class ReportManageViewController: UIViewController
     @IBOutlet weak var monthButton: UIButton!
     @IBOutlet weak var pickerView: tbPickerView!
     @IBOutlet weak var dateField: UITextField!
+    @IBOutlet weak var segmented: UISegmentedControl!
     
     private weak var manager = StaffManager.sharedInstance()
     private var staffsLeaves: Dictionary<String, [Leave]>?
     private var staffsLeaveHours: Dictionary<String, String>?
+    private var internsSign: Dictionary<String, [Sign]>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,11 +49,15 @@ class ReportManageViewController: UIViewController
             }
             detailView.staffName = staff.name
             detailView.staffLeaves = leaves
+        } else {
+            
         }
     }
     
     //MARK: Layout & Animation
     func setupLayout() {
+        segmented.selectedSegmentIndex = 0
+        
         dateField.inputView = pickerView
         pickerView.type = .MonthYear
         pickerView.owner = dateField
@@ -107,6 +113,10 @@ class ReportManageViewController: UIViewController
         tbHUD.dismiss()
     }
     
+    @IBAction func onChange(_ sender: Any) {
+        print(self.segmented.selectedSegmentIndex)
+    }
+    
     @IBAction func onOutput(_ sender: Any) {
         if let time = monthButton.titleLabel?.text {
             tbHUD.show()
@@ -120,6 +130,7 @@ class ReportManageViewController: UIViewController
         let start = startMonth(yearMonth: (monthButton.titleLabel?.text)!).timeIntervalSince1970
         let end = endMonth(yearMonth: (monthButton.titleLabel?.text)!).timeIntervalSince1970
         self.getRangeLeaveList(Int(start), Int(end))
+        self.getInternSignList(Int(start), Int(end))
     }
     
     func getStaffList() {
@@ -138,6 +149,13 @@ class ReportManageViewController: UIViewController
         LeaveManager.sharedInstance().getRangeLeaveList(start, end,completion: { (list, error) in
             if error != nil { return }
             self.filterPassLeave(leaves: list)
+        })
+    }
+    
+    func getInternSignList(_ start: Int, _ end: Int){
+        SignManager.sharedInstance().getRangeSignList(start, end, completion: { (list, error) in
+            if error != nil { return }
+            self.mappingIntern(internSigns: list)
         })
     }
     
@@ -171,6 +189,20 @@ class ReportManageViewController: UIViewController
         }
         self.mainTable.performSelector(onMainThread: #selector(UITableView.reloadData), with: nil, waitUntilDone: false)
         tbHUD.dismiss()
+    }
+    
+    func mappingIntern(internSigns: [Sign]?){
+        internsSign = [:]
+        for sign in internSigns!{
+            if internsSign?[sign.sid!] == nil {
+                internsSign?[sign.sid!] = [sign]
+            } else {
+                var tmp: [Sign] = internsSign![sign.sid!]!
+                tmp.append(sign)
+                internsSign?[sign.sid!] = tmp
+            }
+        }
+        self.mainTable.performSelector(onMainThread: #selector(UITableView.reloadData), with: nil, waitUntilDone: false)
     }
     
     func getTotalHours(leaves: [Leave]?) -> String {
@@ -211,24 +243,36 @@ class ReportManageViewController: UIViewController
     
     //MARK: UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let count = staffKeys()?.count else { return 0 }
-        return count
+        guard let staffCount = staffKeys()?.count else { return 0 }
+        return staffCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ReportCell.self) , for: indexPath) as! ReportCell
-        let staffId = staffKeys()?[indexPath.row]
-        let leaves = staffsLeaves?[staffId!]
-        let staff = manager?.getStaff(byStaffId: staffId!)
-        let total = staffsLeaveHours?[staffId!]
-        cell.layoutCell(staff: staff!, leavesCount: (leaves!.count), total: total!)
+        if indexPath.section == 0 {
+            let staffId = staffKeys()?[indexPath.row]
+            let leaves = staffsLeaves?[staffId!]
+            let staff = manager?.getStaff(byStaffId: staffId!)
+            let total = staffsLeaveHours?[staffId!]
+            cell.layoutCell(staff: staff!, leavesCount: (leaves!.count), total: total!)
+        } else {
+            let internId = internKeys()?[indexPath.row]
+            let signs = internsSign?[internId!]
+            let intern = manager?.getStaff(byStaffId: internId!)
+            let total = signs?.count
+            cell.layoutInternCell(staff: intern!, signCount: total!)
+        }
         return cell
     }
     
     //MARK: UITableViewDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        performSegue(withIdentifier: tbDefines.kSegueReport, sender: staffKeys()?[indexPath.row])
+        if indexPath.section == 0 {
+            performSegue(withIdentifier: tbDefines.kSegueReport, sender: staffKeys()?[indexPath.row])
+        } else {
+            performSegue(withIdentifier: tbDefines.kSegueInternReport, sender: internKeys()?[indexPath.row])
+        }
     }
     
     // MARK: UITextFieldDelegate
@@ -244,6 +288,7 @@ class ReportManageViewController: UIViewController
             let start = startDate.timeIntervalSince1970
             let end = endMonth(yearMonth: text).timeIntervalSince1970
             self.getRangeLeaveList(Int(start), Int(end))
+            self.getInternSignList(Int(start), Int(end))
         }
     }
     
@@ -251,6 +296,11 @@ class ReportManageViewController: UIViewController
     private func staffKeys() -> [String]? {
         guard let staffsLeaves = staffsLeaves else { return nil }
         return Array(staffsLeaves.keys)
+    }
+    
+    private func internKeys() -> [String]? {
+        guard let internsSign = internsSign else { return nil }
+        return Array(internsSign.keys)
     }
 }
 

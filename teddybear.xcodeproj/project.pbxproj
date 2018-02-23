@@ -52,6 +52,7 @@
 		A4CEEFC4C02733B35798CC5A /* Pods_teddybearTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 708D75B9E55DB60CEE06682B /* Pods_teddybearTests.framework */; };
 		B82BD3C2203FD0AE00484222 /* DeptDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82BD3C1203FD0AE00484222 /* DeptDetailViewController.swift */; };
 		B82BD3C4203FD1EB00484222 /* ReportDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82BD3C3203FD1EB00484222 /* ReportDetailViewController.swift */; };
+		B82BD3C620401A2800484222 /* ReportINTDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82BD3C520401A2800484222 /* ReportINTDetailViewController.swift */; };
 		B841C78B202430E80014A602 /* ReportDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B841C78A202430E80014A602 /* ReportDetailCell.swift */; };
 		B85AE19F202D470000C4C246 /* Sign.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85AE19E202D470000C4C246 /* Sign.swift */; };
 		B85AE1A1202D484900C4C246 /* SignManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85AE1A0202D484900C4C246 /* SignManager.swift */; };
@@ -128,6 +129,7 @@
 		9C9DC75B2E71482436D38C08 /* Pods-teddybear.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teddybear.release.xcconfig"; path = "Pods/Target Support Files/Pods-teddybear/Pods-teddybear.release.xcconfig"; sourceTree = "<group>"; };
 		B82BD3C1203FD0AE00484222 /* DeptDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeptDetailViewController.swift; sourceTree = "<group>"; };
 		B82BD3C3203FD1EB00484222 /* ReportDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportDetailViewController.swift; sourceTree = "<group>"; };
+		B82BD3C520401A2800484222 /* ReportINTDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportINTDetailViewController.swift; sourceTree = "<group>"; };
 		B841C78A202430E80014A602 /* ReportDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportDetailCell.swift; sourceTree = "<group>"; };
 		B85AE19E202D470000C4C246 /* Sign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sign.swift; sourceTree = "<group>"; };
 		B85AE1A0202D484900C4C246 /* SignManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignManager.swift; sourceTree = "<group>"; };
@@ -263,7 +265,6 @@
 		8DB293A41FFF1D39007C39F8 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				B82BD3C3203FD1EB00484222 /* ReportDetailViewController.swift */,
 				796954CA201F4F61004704AD /* ApprovalDetailViewController.swift */,
 				79867D7B201E3796001E21AB /* ApprovalManageViewController.swift */,
 				B82BD3C1203FD0AE00484222 /* DeptDetailViewController.swift */,
@@ -273,6 +274,8 @@
 				8D753C94201B87B8002FB369 /* LeaveManageViewController.swift */,
 				8DB293AA1FFF30CA007C39F8 /* LobbyViewController.swift */,
 				8DB293851FFF1BF3007C39F8 /* LoginViewController.swift */,
+				B82BD3C3203FD1EB00484222 /* ReportDetailViewController.swift */,
+				B82BD3C520401A2800484222 /* ReportINTDetailViewController.swift */,
 				79AAA8AE20236220007E0EAB /* ReportManageViewController.swift */,
 				B85AE1A8202D8B2700C4C246 /* SignDetailViewController.swift */,
 				B85AE1A4202D50BD00C4C246 /* SignManageViewController.swift */,
@@ -607,6 +610,7 @@
 				8DC3F306200F43A700BF2862 /* DeptManageViewController.swift in Sources */,
 				79867D78201E1669001E21AB /* ApprovalManager.swift in Sources */,
 				8D139E012003EAFB00F73760 /* tbDefines.swift in Sources */,
+				B82BD3C620401A2800484222 /* ReportINTDetailViewController.swift in Sources */,
 				79867D7E201EFC41001E21AB /* ApprovalCell.swift in Sources */,
 				79867D7C201E3796001E21AB /* ApprovalManageViewController.swift in Sources */,
 				B8C23A36203E677F00EDA743 /* WifiManagerViewController.swift in Sources */,
