@@ -26,7 +26,6 @@
 		8D90E7BC201BA7780097636E /* Staff.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D90E7BA201BA7780097636E /* Staff.storyboard */; };
 		8D90E7BF201BA80F0097636E /* Leave.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D90E7BD201BA80F0097636E /* Leave.storyboard */; };
 		8D90E7C1201BB9900097636E /* LeaveDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D90E7C0201BB9900097636E /* LeaveDetailViewController.swift */; };
-		8D981061200FC61600072804 /* DeptDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D981060200FC61600072804 /* DeptDetailViewController.swift */; };
 		8D981063200FCAF600072804 /* Department.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D981062200FCAF600072804 /* Department.swift */; };
 		8D981065200FD1F900072804 /* tbPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D981064200FD1F900072804 /* tbPickerView.swift */; };
 		8DB293841FFF1BF3007C39F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB293831FFF1BF3007C39F8 /* AppDelegate.swift */; };
@@ -51,8 +50,19 @@
 		8DC3F306200F43A700BF2862 /* DeptManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC3F305200F43A700BF2862 /* DeptManageViewController.swift */; };
 		8DC3F308200F550300BF2862 /* DeptCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC3F307200F550300BF2862 /* DeptCell.swift */; };
 		A4CEEFC4C02733B35798CC5A /* Pods_teddybearTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 708D75B9E55DB60CEE06682B /* Pods_teddybearTests.framework */; };
-		B841C78920241E0F0014A602 /* ReportDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B841C78820241E0F0014A602 /* ReportDetailViewController.swift */; };
+		B82BD3C2203FD0AE00484222 /* DeptDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82BD3C1203FD0AE00484222 /* DeptDetailViewController.swift */; };
+		B82BD3C4203FD1EB00484222 /* ReportDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82BD3C3203FD1EB00484222 /* ReportDetailViewController.swift */; };
 		B841C78B202430E80014A602 /* ReportDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B841C78A202430E80014A602 /* ReportDetailCell.swift */; };
+		B85AE19F202D470000C4C246 /* Sign.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85AE19E202D470000C4C246 /* Sign.swift */; };
+		B85AE1A1202D484900C4C246 /* SignManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85AE1A0202D484900C4C246 /* SignManager.swift */; };
+		B85AE1A3202D4F9E00C4C246 /* Sign.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B85AE1A2202D4F9E00C4C246 /* Sign.storyboard */; };
+		B85AE1A5202D50BD00C4C246 /* SignManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85AE1A4202D50BD00C4C246 /* SignManageViewController.swift */; };
+		B85AE1A7202D856100C4C246 /* ITNLobbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85AE1A6202D856100C4C246 /* ITNLobbyViewController.swift */; };
+		B85AE1A9202D8B2700C4C246 /* SignDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85AE1A8202D8B2700C4C246 /* SignDetailViewController.swift */; };
+		B85AE1AB202D8BEB00C4C246 /* SignCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85AE1AA202D8BEB00C4C246 /* SignCell.swift */; };
+		B8C23A32203E656D00EDA743 /* Wifi.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C23A31203E656D00EDA743 /* Wifi.swift */; };
+		B8C23A34203E65AB00EDA743 /* WifiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C23A33203E65AB00EDA743 /* WifiManager.swift */; };
+		B8C23A36203E677F00EDA743 /* WifiManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C23A35203E677F00EDA743 /* WifiManagerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,7 +98,6 @@
 		8D90E7BB201BA7780097636E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Staff.storyboard; sourceTree = "<group>"; };
 		8D90E7BE201BA80F0097636E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Leave.storyboard; sourceTree = "<group>"; };
 		8D90E7C0201BB9900097636E /* LeaveDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaveDetailViewController.swift; sourceTree = "<group>"; };
-		8D981060200FC61600072804 /* DeptDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeptDetailViewController.swift; sourceTree = "<group>"; };
 		8D981062200FCAF600072804 /* Department.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Department.swift; sourceTree = "<group>"; };
 		8D981064200FD1F900072804 /* tbPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tbPickerView.swift; sourceTree = "<group>"; };
 		8DB293801FFF1BF3007C39F8 /* teddybear.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = teddybear.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,8 +126,19 @@
 		8DC3F305200F43A700BF2862 /* DeptManageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeptManageViewController.swift; sourceTree = "<group>"; };
 		8DC3F307200F550300BF2862 /* DeptCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeptCell.swift; sourceTree = "<group>"; };
 		9C9DC75B2E71482436D38C08 /* Pods-teddybear.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teddybear.release.xcconfig"; path = "Pods/Target Support Files/Pods-teddybear/Pods-teddybear.release.xcconfig"; sourceTree = "<group>"; };
-		B841C78820241E0F0014A602 /* ReportDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportDetailViewController.swift; sourceTree = "<group>"; };
+		B82BD3C1203FD0AE00484222 /* DeptDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeptDetailViewController.swift; sourceTree = "<group>"; };
+		B82BD3C3203FD1EB00484222 /* ReportDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportDetailViewController.swift; sourceTree = "<group>"; };
 		B841C78A202430E80014A602 /* ReportDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportDetailCell.swift; sourceTree = "<group>"; };
+		B85AE19E202D470000C4C246 /* Sign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sign.swift; sourceTree = "<group>"; };
+		B85AE1A0202D484900C4C246 /* SignManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignManager.swift; sourceTree = "<group>"; };
+		B85AE1A2202D4F9E00C4C246 /* Sign.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Sign.storyboard; sourceTree = "<group>"; };
+		B85AE1A4202D50BD00C4C246 /* SignManageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignManageViewController.swift; sourceTree = "<group>"; };
+		B85AE1A6202D856100C4C246 /* ITNLobbyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ITNLobbyViewController.swift; sourceTree = "<group>"; };
+		B85AE1A8202D8B2700C4C246 /* SignDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignDetailViewController.swift; sourceTree = "<group>"; };
+		B85AE1AA202D8BEB00C4C246 /* SignCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignCell.swift; sourceTree = "<group>"; };
+		B8C23A31203E656D00EDA743 /* Wifi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wifi.swift; sourceTree = "<group>"; };
+		B8C23A33203E65AB00EDA743 /* WifiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiManager.swift; sourceTree = "<group>"; };
+		B8C23A35203E677F00EDA743 /* WifiManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiManagerViewController.swift; sourceTree = "<group>"; };
 		BF9F63BFFBAAC4F147C965CA /* Pods-teddybear.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teddybear.debug.xcconfig"; path = "Pods/Target Support Files/Pods-teddybear/Pods-teddybear.debug.xcconfig"; sourceTree = "<group>"; };
 		FE34B84A6FAB7255B2C35CAA /* Pods_teddybear.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_teddybear.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -222,6 +242,7 @@
 				8DB2938C1FFF1BF3007C39F8 /* LaunchScreen.storyboard */,
 				8DB293871FFF1BF3007C39F8 /* Main.storyboard */,
 				79867D79201E348A001E21AB /* Approval.storyboard */,
+				B85AE1A2202D4F9E00C4C246 /* Sign.storyboard */,
 				8D90E7BD201BA80F0097636E /* Leave.storyboard */,
 				79AAA8AC20235FEB007E0EAB /* Report.storyboard */,
 				8D90E7BA201BA7780097636E /* Staff.storyboard */,
@@ -229,6 +250,7 @@
 				8DC3F307200F550300BF2862 /* DeptCell.swift */,
 				79867D7D201EFC41001E21AB /* ApprovalCell.swift */,
 				8D753C96201B934B002FB369 /* LeaveCell.swift */,
+				B85AE1AA202D8BEB00C4C246 /* SignCell.swift */,
 				79AAA8B02023632B007E0EAB /* ReportCell.swift */,
 				B841C78A202430E80014A602 /* ReportDetailCell.swift */,
 				8DC3F2F9200E076D00BF2862 /* StaffCell.swift */,
@@ -241,18 +263,22 @@
 		8DB293A41FFF1D39007C39F8 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B82BD3C3203FD1EB00484222 /* ReportDetailViewController.swift */,
 				796954CA201F4F61004704AD /* ApprovalDetailViewController.swift */,
 				79867D7B201E3796001E21AB /* ApprovalManageViewController.swift */,
-				B841C78820241E0F0014A602 /* ReportDetailViewController.swift */,
-				79AAA8AE20236220007E0EAB /* ReportManageViewController.swift */,
-				8D981060200FC61600072804 /* DeptDetailViewController.swift */,
+				B82BD3C1203FD0AE00484222 /* DeptDetailViewController.swift */,
 				8DC3F305200F43A700BF2862 /* DeptManageViewController.swift */,
+				B85AE1A6202D856100C4C246 /* ITNLobbyViewController.swift */,
 				8D90E7C0201BB9900097636E /* LeaveDetailViewController.swift */,
 				8D753C94201B87B8002FB369 /* LeaveManageViewController.swift */,
 				8DB293AA1FFF30CA007C39F8 /* LobbyViewController.swift */,
 				8DB293851FFF1BF3007C39F8 /* LoginViewController.swift */,
+				79AAA8AE20236220007E0EAB /* ReportManageViewController.swift */,
+				B85AE1A8202D8B2700C4C246 /* SignDetailViewController.swift */,
+				B85AE1A4202D50BD00C4C246 /* SignManageViewController.swift */,
 				8DC3F2ED200D262400BF2862 /* StaffDetailViewController.swift */,
 				8DC3F2E6200CC05200BF2862 /* StaffManageViewController.swift */,
+				B8C23A35203E677F00EDA743 /* WifiManagerViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -272,8 +298,10 @@
 			children = (
 				79867D74201E1414001E21AB /* ApprovalManager */,
 				8D753C8F201B7FB0002FB369 /* LeaveManager */,
+				B85AE19B202D46B900C4C246 /* SignManager */,
 				8DC3F2EC200D125B00BF2862 /* StaffManager */,
 				8DB293AD1FFF35AC007C39F8 /* UserManager.swift */,
+				B8C23A30203E654800EDA743 /* WifiManager */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -306,6 +334,24 @@
 				708D75B9E55DB60CEE06682B /* Pods_teddybearTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B85AE19B202D46B900C4C246 /* SignManager */ = {
+			isa = PBXGroup;
+			children = (
+				B85AE19E202D470000C4C246 /* Sign.swift */,
+				B85AE1A0202D484900C4C246 /* SignManager.swift */,
+			);
+			path = SignManager;
+			sourceTree = "<group>";
+		};
+		B8C23A30203E654800EDA743 /* WifiManager */ = {
+			isa = PBXGroup;
+			children = (
+				B8C23A31203E656D00EDA743 /* Wifi.swift */,
+				B8C23A33203E65AB00EDA743 /* WifiManager.swift */,
+			);
+			path = WifiManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -411,6 +457,7 @@
 				8DB2938B1FFF1BF3007C39F8 /* Assets.xcassets in Resources */,
 				8DB293891FFF1BF3007C39F8 /* Main.storyboard in Resources */,
 				8D90E7BC201BA7780097636E /* Staff.storyboard in Resources */,
+				B85AE1A3202D4F9E00C4C246 /* Sign.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -548,36 +595,45 @@
 				8DC3F2E7200CC05200BF2862 /* StaffManageViewController.swift in Sources */,
 				8DC3F2FA200E076D00BF2862 /* StaffCell.swift in Sources */,
 				8DC3F302200F275400BF2862 /* tbHUD.swift in Sources */,
+				B85AE1A1202D484900C4C246 /* SignManager.swift in Sources */,
 				8DB293AB1FFF30CA007C39F8 /* LobbyViewController.swift in Sources */,
 				8DC3F304200F371A00BF2862 /* ViewControllerHelper.swift in Sources */,
 				8DC3F2E9200CC18400BF2862 /* Staff.swift in Sources */,
 				796954CB201F4F61004704AD /* ApprovalDetailViewController.swift in Sources */,
 				8D753C97201B934B002FB369 /* LeaveCell.swift in Sources */,
 				8D90E7C1201BB9900097636E /* LeaveDetailViewController.swift in Sources */,
+				B85AE1A9202D8B2700C4C246 /* SignDetailViewController.swift in Sources */,
 				8DC3F2F0200DC2BD00BF2862 /* DatePickerView.swift in Sources */,
 				8DC3F306200F43A700BF2862 /* DeptManageViewController.swift in Sources */,
 				79867D78201E1669001E21AB /* ApprovalManager.swift in Sources */,
 				8D139E012003EAFB00F73760 /* tbDefines.swift in Sources */,
 				79867D7E201EFC41001E21AB /* ApprovalCell.swift in Sources */,
 				79867D7C201E3796001E21AB /* ApprovalManageViewController.swift in Sources */,
+				B8C23A36203E677F00EDA743 /* WifiManagerViewController.swift in Sources */,
 				8DC3F2EE200D262400BF2862 /* StaffDetailViewController.swift in Sources */,
-				8D981061200FC61600072804 /* DeptDetailViewController.swift in Sources */,
+				B8C23A32203E656D00EDA743 /* Wifi.swift in Sources */,
+				B85AE1A5202D50BD00C4C246 /* SignManageViewController.swift in Sources */,
 				8D753C91201B7FCD002FB369 /* LeaveManager.swift in Sources */,
+				B8C23A34203E65AB00EDA743 /* WifiManager.swift in Sources */,
 				15A219862017183500B2AE20 /* UITextFieldHelper.swift in Sources */,
 				8D753C95201B87B8002FB369 /* LeaveManageViewController.swift in Sources */,
+				B85AE19F202D470000C4C246 /* Sign.swift in Sources */,
 				8D753C93201B80A7002FB369 /* Leave.swift in Sources */,
 				8DC3F2EB200D125500BF2862 /* StaffManager.swift in Sources */,
-				B841C78920241E0F0014A602 /* ReportDetailViewController.swift in Sources */,
 				8DB293861FFF1BF3007C39F8 /* LoginViewController.swift in Sources */,
 				8DB293AE1FFF35AC007C39F8 /* UserManager.swift in Sources */,
 				8D981065200FD1F900072804 /* tbPickerView.swift in Sources */,
 				8DC3F2F8200DDFFE00BF2862 /* DateHelper.swift in Sources */,
+				B85AE1AB202D8BEB00C4C246 /* SignCell.swift in Sources */,
+				B82BD3C2203FD0AE00484222 /* DeptDetailViewController.swift in Sources */,
 				8DB293841FFF1BF3007C39F8 /* AppDelegate.swift in Sources */,
 				79AAA8B12023632B007E0EAB /* ReportCell.swift in Sources */,
 				79867D76201E1443001E21AB /* Approval.swift in Sources */,
 				B841C78B202430E80014A602 /* ReportDetailCell.swift in Sources */,
 				79AAA8AF20236220007E0EAB /* ReportManageViewController.swift in Sources */,
 				8D981063200FCAF600072804 /* Department.swift in Sources */,
+				B82BD3C4203FD1EB00484222 /* ReportDetailViewController.swift in Sources */,
+				B85AE1A7202D856100C4C246 /* ITNLobbyViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

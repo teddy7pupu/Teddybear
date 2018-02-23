@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -18,6 +19,14 @@
         </array>
     </customFonts>
     <scenes>
+        <!--Sign-->
+        <scene sceneID="pDg-NN-jWJ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Sign" id="Hsd-Oj-Krh" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XFR-6B-BTb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="852" y="-133"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="CgL-h6-auV">
             <objects>
@@ -36,7 +45,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aFV-2p-eUn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="938" y="34"/>
+            <point key="canvasLocation" x="1365" y="33"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -164,11 +173,12 @@
                         <outlet property="loginBtn" destination="Kh6-Sd-sor" id="Urc-YB-X02"/>
                         <outlet property="pwdField" destination="y0V-OY-B4T" id="m0l-wU-VX8"/>
                         <segue destination="T80-BA-olv" kind="show" identifier="SegueLobby" id="fWB-M1-awa"/>
+                        <segue destination="Hsd-Oj-Krh" kind="show" identifier="SegueITNLobby" id="XDJ-5W-Jiy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-47.200000000000003" y="33.733133433283363"/>
+            <point key="canvasLocation" x="414" y="33"/>
         </scene>
         <!--Lobby View Controller-->
         <scene sceneID="efK-M2-H05">
@@ -224,7 +234,7 @@
                             </constraints>
                         </view>
                         <view key="tableFooterView" contentMode="scaleToFill" id="V2b-Gg-SDi" userLabel="Footer">
-                            <rect key="frame" x="0.0" y="375" width="375" height="60"/>
+                            <rect key="frame" x="0.0" y="435" width="375" height="60"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QLS-bb-6Rs">
@@ -329,6 +339,26 @@
                                             <segue destination="nmn-RR-KSd" kind="show" id="a7F-mM-B1y"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="Ytz-xa-tkr" style="IBUITableViewCellStyleDefault" id="dpX-AW-ZCT">
+                                        <rect key="frame" x="0.0" y="375" width="375" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dpX-AW-ZCT" id="fsD-Jb-K2I">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Wifi 管理" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ytz-xa-tkr">
+                                                    <rect key="frame" x="15" y="0.0" width="344" height="59.666666666666664"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="xry-Ig-CSh" kind="show" id="ovz-Be-XdP"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -347,7 +377,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JTD-8O-tcz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1933.5999999999999" y="33.990147783251231"/>
+            <point key="canvasLocation" x="2060" y="33"/>
         </scene>
         <!--Leave-->
         <scene sceneID="bWp-XY-MF4">
@@ -355,7 +385,7 @@
                 <viewControllerPlaceholder storyboardName="Leave" id="hNo-mJ-VlR" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gjd-0M-1HX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1686" y="466"/>
+            <point key="canvasLocation" x="1722" y="634"/>
         </scene>
         <!--Staff-->
         <scene sceneID="fGk-f9-uuc">
@@ -363,7 +393,137 @@
                 <viewControllerPlaceholder storyboardName="Staff" id="pgx-aH-DP5" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0hV-cM-RPl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1973" y="466"/>
+            <point key="canvasLocation" x="1871" y="634"/>
+        </scene>
+        <!--Wifi Manager View Controller-->
+        <scene sceneID="gdI-eK-zVQ">
+            <objects>
+                <tableViewController id="xry-Ig-CSh" customClass="WifiManagerViewController" customModule="teddybear" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="BIs-u7-8b4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="nFY-2j-7Ut">
+                            <rect key="frame" x="0.0" y="120" width="375" height="60"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u6s-Ju-gYl">
+                                    <rect key="frame" x="0.0" y="0.0" width="185" height="60"/>
+                                    <color key="backgroundColor" name="SPGreen"/>
+                                    <state key="normal" title="新增裝置">
+                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="onAdd:" destination="xry-Ig-CSh" eventType="touchUpInside" id="l6H-7P-P3Y"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ab-6u-kyb">
+                                    <rect key="frame" x="190" y="0.0" width="185" height="60"/>
+                                    <color key="backgroundColor" name="SPLight"/>
+                                    <state key="normal" title="移除裝置">
+                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="onDelete:" destination="xry-Ig-CSh" eventType="touchUpInside" id="kqq-v2-Oe8"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="u6s-Ju-gYl" firstAttribute="top" secondItem="nFY-2j-7Ut" secondAttribute="top" id="7Ty-ks-IlN"/>
+                                <constraint firstAttribute="trailing" secondItem="1ab-6u-kyb" secondAttribute="trailing" id="7fk-MF-wRQ"/>
+                                <constraint firstItem="u6s-Ju-gYl" firstAttribute="width" secondItem="1ab-6u-kyb" secondAttribute="width" id="K97-ev-cu1"/>
+                                <constraint firstItem="1ab-6u-kyb" firstAttribute="leading" secondItem="u6s-Ju-gYl" secondAttribute="trailing" constant="5" id="MBT-D3-1O3"/>
+                                <constraint firstAttribute="bottom" secondItem="u6s-Ju-gYl" secondAttribute="bottom" id="Qfo-Zg-lXp"/>
+                                <constraint firstItem="u6s-Ju-gYl" firstAttribute="height" secondItem="1ab-6u-kyb" secondAttribute="height" id="RRX-Wg-PnJ"/>
+                                <constraint firstItem="1ab-6u-kyb" firstAttribute="top" secondItem="nFY-2j-7Ut" secondAttribute="top" id="SiV-Se-fUg"/>
+                                <constraint firstAttribute="bottom" secondItem="1ab-6u-kyb" secondAttribute="bottom" id="quM-0T-wUm"/>
+                                <constraint firstItem="u6s-Ju-gYl" firstAttribute="leading" secondItem="nFY-2j-7Ut" secondAttribute="leading" id="vDP-xQ-Bmd"/>
+                            </constraints>
+                        </view>
+                        <sections>
+                            <tableViewSection id="NrO-PP-qlf">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="60" id="S11-3x-2jk">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="S11-3x-2jk" id="AON-Ka-iUO">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wifi 名稱" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EIr-Gr-bUQ">
+                                                    <rect key="frame" x="16" y="11" width="69" height="38"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7s3-UA-rnV">
+                                                    <rect key="frame" x="359" y="11" width="0.0" height="38"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="7s3-UA-rnV" secondAttribute="bottom" id="IUB-de-5iH"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="7s3-UA-rnV" secondAttribute="trailing" id="N67-Wg-lk4"/>
+                                                <constraint firstItem="EIr-Gr-bUQ" firstAttribute="top" secondItem="AON-Ka-iUO" secondAttribute="topMargin" id="T8Q-di-gU8"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="EIr-Gr-bUQ" secondAttribute="bottom" id="V34-Sz-d6Y"/>
+                                                <constraint firstItem="EIr-Gr-bUQ" firstAttribute="leading" secondItem="AON-Ka-iUO" secondAttribute="leadingMargin" id="Vy2-wb-Tev"/>
+                                                <constraint firstItem="7s3-UA-rnV" firstAttribute="top" secondItem="AON-Ka-iUO" secondAttribute="topMargin" id="ifH-pp-EB6"/>
+                                                <constraint firstItem="7s3-UA-rnV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="EIr-Gr-bUQ" secondAttribute="trailing" id="mcl-h3-IzY"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="60" id="ALS-mq-1rz">
+                                        <rect key="frame" x="0.0" y="60" width="375" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ALS-mq-1rz" id="ubd-EX-iaE">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wifi Mac" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z4j-D4-UpF">
+                                                    <rect key="frame" x="16" y="11" width="66.666666666666671" height="38"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tjk-KR-rGV">
+                                                    <rect key="frame" x="359" y="11" width="0.0" height="38"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="z4j-D4-UpF" firstAttribute="leading" secondItem="ubd-EX-iaE" secondAttribute="leadingMargin" id="7Js-Bi-M1J"/>
+                                                <constraint firstItem="tjk-KR-rGV" firstAttribute="top" secondItem="ubd-EX-iaE" secondAttribute="topMargin" id="A3l-3S-adr"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="tjk-KR-rGV" secondAttribute="trailing" id="CfH-oX-CeV"/>
+                                                <constraint firstItem="tjk-KR-rGV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="z4j-D4-UpF" secondAttribute="trailing" id="WQV-LJ-cCk"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="z4j-D4-UpF" secondAttribute="bottom" id="baC-Kb-1fW"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="tjk-KR-rGV" secondAttribute="bottom" id="ijj-sF-7HB"/>
+                                                <constraint firstItem="z4j-D4-UpF" firstAttribute="top" secondItem="ubd-EX-iaE" secondAttribute="topMargin" id="sqR-1H-gi8"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="xry-Ig-CSh" id="clh-tI-9VY"/>
+                            <outlet property="delegate" destination="xry-Ig-CSh" id="tSi-Ia-hUE"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="addBtn" destination="u6s-Ju-gYl" id="jLe-B9-BYz"/>
+                        <outlet property="deleteBtn" destination="1ab-6u-kyb" id="bEt-ry-gwy"/>
+                        <outlet property="wifiMac" destination="tjk-KR-rGV" id="V1b-Mf-Bod"/>
+                        <outlet property="wifiName" destination="7s3-UA-rnV" id="Q8N-27-JVP"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rb8-jO-jLA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2770" y="33"/>
         </scene>
         <!--Report-->
         <scene sceneID="6OY-xb-jaU">
@@ -371,7 +531,7 @@
                 <viewControllerPlaceholder storyboardName="Report" id="nmn-RR-KSd" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HzL-Yr-Zpa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2562" y="283"/>
+            <point key="canvasLocation" x="2119" y="634"/>
         </scene>
         <!--Approval-->
         <scene sceneID="3Lg-C4-JMN">
@@ -379,7 +539,7 @@
                 <viewControllerPlaceholder storyboardName="Approval" id="wcE-p1-kHC" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hW3-yX-ZTr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2195" y="466"/>
+            <point key="canvasLocation" x="1983" y="634"/>
         </scene>
     </scenes>
     <resources>
