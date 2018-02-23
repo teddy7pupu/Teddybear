@@ -256,14 +256,50 @@
                                 <rect key="frame" x="0.0" y="30" width="375" height="637"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="0TM-ja-M3X">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p5i-rz-0UR">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                            <connections>
+                                                <action selector="textFieldDidChangedWithField:" destination="rOB-RG-xvo" eventType="editingChanged" id="bnE-Zt-06B"/>
+                                            </connections>
+                                        </textField>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oO0-5H-v7B">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                            <color key="backgroundColor" name="SPLight"/>
+                                            <state key="normal" title="選擇月份">
+                                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="onSelectMonth" destination="rOB-RG-xvo" eventType="touchUpInside" id="8PD-wr-vIt"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="oO0-5H-v7B" secondAttribute="bottom" id="3CV-Ys-nZn"/>
+                                        <constraint firstItem="p5i-rz-0UR" firstAttribute="leading" secondItem="0TM-ja-M3X" secondAttribute="leading" id="6V7-KL-5A0"/>
+                                        <constraint firstAttribute="bottom" secondItem="p5i-rz-0UR" secondAttribute="bottom" id="8k3-Uo-B9L"/>
+                                        <constraint firstAttribute="trailing" secondItem="p5i-rz-0UR" secondAttribute="trailing" id="DCh-r0-C5F"/>
+                                        <constraint firstAttribute="trailing" secondItem="oO0-5H-v7B" secondAttribute="trailing" id="Zbf-DU-o3P"/>
+                                        <constraint firstItem="p5i-rz-0UR" firstAttribute="top" secondItem="0TM-ja-M3X" secondAttribute="top" id="cQW-61-S83"/>
+                                        <constraint firstItem="oO0-5H-v7B" firstAttribute="top" secondItem="0TM-ja-M3X" secondAttribute="top" id="gqK-uG-dzp"/>
+                                        <constraint firstItem="oO0-5H-v7B" firstAttribute="leading" secondItem="0TM-ja-M3X" secondAttribute="leading" id="i4g-jL-H7A"/>
+                                    </constraints>
+                                </view>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="MpK-gS-gsF">
-                                    <rect key="frame" x="0.0" y="98" width="375" height="0.5"/>
+                                    <rect key="frame" x="0.0" y="158" width="375" height="0.5"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SignCell" rowHeight="70" id="1nL-yQ-aBH" customClass="SignCell" customModule="teddybear" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="70"/>
+                                        <rect key="frame" x="0.0" y="88" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1nL-yQ-aBH" id="afh-o0-AFM">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
@@ -345,12 +381,62 @@
                         <viewLayoutGuide key="safeArea" id="ubr-hJ-8FQ"/>
                     </view>
                     <connections>
+                        <outlet property="dateField" destination="p5i-rz-0UR" id="T6S-2l-ksr"/>
                         <outlet property="mainTable" destination="Wji-cq-gR4" id="bNI-T7-ggU"/>
+                        <outlet property="monthButton" destination="oO0-5H-v7B" id="4L8-Ic-vkq"/>
+                        <outlet property="pickerView" destination="Ecu-fx-Qll" id="vJb-kB-xwb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F72-ar-RTb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="Ecu-fx-Qll" customClass="tbPickerView" customModule="teddybear" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="200"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B40-qu-me0">
+                            <rect key="frame" x="0.0" y="0.0" width="240" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="iAD-On-cQk"/>
+                            </constraints>
+                            <items>
+                                <barButtonItem title="取消" id="CCX-kO-4ap">
+                                    <connections>
+                                        <action selector="onCancelAction" destination="Ecu-fx-Qll" id="rBQ-LW-Qal"/>
+                                    </connections>
+                                </barButtonItem>
+                                <barButtonItem style="plain" systemItem="flexibleSpace" id="HSH-nw-VeG"/>
+                                <barButtonItem title="確定" id="it5-UL-EIi">
+                                    <connections>
+                                        <action selector="onDoneAction" destination="Ecu-fx-Qll" id="Uxh-Ce-E4i"/>
+                                    </connections>
+                                </barButtonItem>
+                            </items>
+                            <color key="tintColor" name="SPGreen"/>
+                        </toolbar>
+                        <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7pV-Vs-XBY">
+                            <rect key="frame" x="0.0" y="44" width="240" height="156"/>
+                            <connections>
+                                <outlet property="dataSource" destination="Ecu-fx-Qll" id="ugy-jw-Yx3"/>
+                                <outlet property="delegate" destination="Ecu-fx-Qll" id="207-Ll-U37"/>
+                            </connections>
+                        </pickerView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="7pV-Vs-XBY" secondAttribute="bottom" id="1jp-dQ-Vkp"/>
+                        <constraint firstItem="7pV-Vs-XBY" firstAttribute="leading" secondItem="Ecu-fx-Qll" secondAttribute="leading" id="CKF-N0-gkI"/>
+                        <constraint firstItem="B40-qu-me0" firstAttribute="trailing" secondItem="lGh-ez-wDA" secondAttribute="trailing" id="FLi-L7-VpB"/>
+                        <constraint firstItem="7pV-Vs-XBY" firstAttribute="top" secondItem="B40-qu-me0" secondAttribute="bottom" id="gNL-Ae-FxI"/>
+                        <constraint firstAttribute="trailing" secondItem="7pV-Vs-XBY" secondAttribute="trailing" id="iv3-Yp-8Hp"/>
+                        <constraint firstItem="B40-qu-me0" firstAttribute="leading" secondItem="lGh-ez-wDA" secondAttribute="leading" id="jfe-SI-QCn"/>
+                        <constraint firstItem="B40-qu-me0" firstAttribute="top" secondItem="lGh-ez-wDA" secondAttribute="top" id="liS-A5-1zZ"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="lGh-ez-wDA"/>
+                    <connections>
+                        <outlet property="pickerView" destination="7pV-Vs-XBY" id="jAB-ub-iVP"/>
+                    </connections>
+                </view>
             </objects>
-            <point key="canvasLocation" x="-1428" y="480.80959520239884"/>
+            <point key="canvasLocation" x="-1428" y="612"/>
         </scene>
     </scenes>
     <resources>
@@ -363,6 +449,12 @@
         </namedColor>
         <namedColor name="SPGreen">
             <color red="0.11372549019607843" green="0.72549019607843135" blue="0.32941176470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SPGreen">
+            <color red="0.1137254902" green="0.72549019609999998" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SPLight">
+            <color red="0.70196078431372544" green="0.70196078431372544" blue="0.70196078431372544" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="SPLight">
             <color red="0.70196078431372544" green="0.70196078431372544" blue="0.70196078431372544" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

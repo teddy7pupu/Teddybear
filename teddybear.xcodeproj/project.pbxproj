@@ -263,7 +263,6 @@
 		8DB293A41FFF1D39007C39F8 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				B82BD3C3203FD1EB00484222 /* ReportDetailViewController.swift */,
 				796954CA201F4F61004704AD /* ApprovalDetailViewController.swift */,
 				79867D7B201E3796001E21AB /* ApprovalManageViewController.swift */,
 				B82BD3C1203FD0AE00484222 /* DeptDetailViewController.swift */,
@@ -273,6 +272,7 @@
 				8D753C94201B87B8002FB369 /* LeaveManageViewController.swift */,
 				8DB293AA1FFF30CA007C39F8 /* LobbyViewController.swift */,
 				8DB293851FFF1BF3007C39F8 /* LoginViewController.swift */,
+				B82BD3C3203FD1EB00484222 /* ReportDetailViewController.swift */,
 				79AAA8AE20236220007E0EAB /* ReportManageViewController.swift */,
 				B85AE1A8202D8B2700C4C246 /* SignDetailViewController.swift */,
 				B85AE1A4202D50BD00C4C246 /* SignManageViewController.swift */,
