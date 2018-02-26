@@ -50,7 +50,14 @@ class ReportManageViewController: UIViewController
             detailView.staffName = staff.name
             detailView.staffLeaves = leaves
         } else {
-            
+            let detailView = segue.destination as! ReportITNDetailViewController
+            let internId = sender as? String
+            guard let signs = internsSign?[internId!]
+                , let intern = manager?.getStaff(byStaffId: internId!) else {
+                    return
+            }
+            detailView.internName = intern.name
+            detailView.internSigns = signs
         }
     }
     
@@ -72,10 +79,31 @@ class ReportManageViewController: UIViewController
     
     //MARK: Action
     func csvFileOut(path: URL?){
+        let vc = UIActivityViewController(activityItems: [path as Any], applicationActivities: [])
+        vc.excludedActivityTypes = [UIActivityType.assignToContact
+            ,UIActivityType.saveToCameraRoll
+            ,UIActivityType.postToFlickr
+            ,UIActivityType.postToVimeo
+            ,UIActivityType.postToTencentWeibo
+            ,UIActivityType.postToTwitter
+            ,UIActivityType.postToFacebook
+            ,UIActivityType.openInIBooks]
+        present(vc, animated: true, completion: nil)
+        let output = (segmented.selectedSegmentIndex == 0 ? leaveReport() : internReport())
+        do {
+            try output.write(to: path!, atomically: true, encoding: String.Encoding.utf8)
+        }
+        catch {
+            showAlert(message: "Failed to create file")
+        }
+        tbHUD.dismiss()
+    }
+    
+    func leaveReport() -> String{
         var csvText = "姓名,假別,開始時間,結束時間,小計,總計\n"
         for (staffSid, leaves) in staffsLeaves! {
             if let staffName = manager?.getStaff(byStaffId: staffSid)?.name{
-                csvText.append("\(staffName),")
+                csvText.append("\(staffName)")
             }
             var totalHour = 0
             for leave in leaves {
@@ -90,45 +118,58 @@ class ReportManageViewController: UIViewController
                 let endDay = String(Calendar.current.component(.day, from: finishDate))
                 let endMonth = String(Calendar.current.component(.month, from: finishDate))
                 let endPeriod = tbDefines.kEndSection[leave.endPeriod!]
-                csvText.append("\(type),\(startMonth)月\(startDay)日\(startPeriod),\(endMonth)月\(endDay)日\(endPeriod),\(hour)小時\n")
+                csvText.append(",\(type),\(startMonth)月\(startDay)日\(startPeriod),\(endMonth)月\(endDay)日\(endPeriod),\(hour)小時\n")
             }
             csvText.append(",,,,,總共\(totalHour)小時\n")
         }
-        let vc = UIActivityViewController(activityItems: [path as Any], applicationActivities: [])
-        vc.excludedActivityTypes = [UIActivityType.assignToContact
-            ,UIActivityType.saveToCameraRoll
-            ,UIActivityType.postToFlickr
-            ,UIActivityType.postToVimeo
-            ,UIActivityType.postToTencentWeibo
-            ,UIActivityType.postToTwitter
-            ,UIActivityType.postToFacebook
-            ,UIActivityType.openInIBooks]
-        present(vc, animated: true, completion: nil)
-        do {
-            try csvText.write(to: path!, atomically: true, encoding: String.Encoding.utf8)
+        return csvText
+    }
+    
+    func internReport() -> String{
+        var csvText = "姓名,日期,上班時間,下班時間,總天數\n"
+        for (internSid, signs) in internsSign! {
+            var count: Int = 0
+            if let internName = manager?.getStaff(byStaffId: internSid)?.name{
+                csvText.append("\(internName)")
+            }
+            for sign in signs {
+                let time = Date(timeIntervalSince1970: TimeInterval(sign.startTime!)).toString(format: .isoDate)
+                let beginDate = Date(timeIntervalSince1970: TimeInterval(sign.startTime!)).toString(format: .isoTime)
+                var finishDate = ""
+                if sign.endTime != nil{
+                    finishDate = Date(timeIntervalSince1970: TimeInterval(sign.endTime!)).toString(format: .isoTime)
+                    count += 1
+                }
+                csvText.append(",\(time),\(beginDate),\(finishDate)\n")
+            }
+            csvText.append(",,,,總共\(count)天\n")
         }
-        catch {
-            showAlert(message: "Failed to create file")
-        }
-        tbHUD.dismiss()
+        return csvText
     }
     
     @IBAction func onChange(_ sender: Any) {
-        print(self.segmented.selectedSegmentIndex)
+        self.mainTable.performSelector(onMainThread: #selector(UITableView.reloadData), with: nil, waitUntilDone: false)
     }
     
     @IBAction func onOutput(_ sender: Any) {
         if let time = monthButton.titleLabel?.text {
             tbHUD.show()
-            let fileName = "\(time)假勤報表.csv"
-            let path = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(fileName)
-            csvFileOut(path: path)
+            if segmented.selectedSegmentIndex == 0 {
+                let fileName = "\(time)假勤報表.csv"
+                let path = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(fileName)
+                csvFileOut(path: path)
+            } else {
+                let fileName = "\(time)實習生簽到表.csv"
+                let path = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(fileName)
+                csvFileOut(path: path)
+            }
+            
         }
     }
     
     func getMonthList() {
-        let start = startMonth(yearMonth: (monthButton.titleLabel?.text)!).timeIntervalSince1970
-        let end = endMonth(yearMonth: (monthButton.titleLabel?.text)!).timeIntervalSince1970
+        let start = Date.startMonth(yearMonth: (monthButton.titleLabel?.text)!).timeIntervalSince1970
+        let end = Date.endMonth(yearMonth: (monthButton.titleLabel?.text)!).timeIntervalSince1970
         self.getRangeLeaveList(Int(start), Int(end))
         self.getInternSignList(Int(start), Int(end))
     }
@@ -216,23 +257,6 @@ class ReportManageViewController: UIViewController
         return summation > 8 ? String(format:"%.1f天", Double(summation)/8) : "\(summation)小時"
     }
     
-    func startMonth(yearMonth: String) -> Date {
-        var format: DateFormatType = .isoDate
-        if DateFormatter().locale.identifier == "zh_TW"{
-            format = .isoCHDate
-        }
-        let startOfMonth = Date(fromString: "\(yearMonth)-01", format: format)
-        return startOfMonth!
-    }
-    
-    func endMonth(yearMonth: String) -> Date {
-        var components = DateComponents()
-        components.month = 1
-        components.day = -1
-        let endOfMonth =  NSCalendar.current.date(byAdding: components, to: startMonth(yearMonth: yearMonth))!
-        return endOfMonth
-    }
-    
     @IBAction func onSelectMonth() {
         dateField.becomeFirstResponder()
     }
@@ -243,32 +267,40 @@ class ReportManageViewController: UIViewController
     
     //MARK: UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let staffCount = staffKeys()?.count else { return 0 }
-        return staffCount
+        if segmented.selectedSegmentIndex == 0{
+            guard let staffCount = staffKeys()?.count else { return 0 }
+            return staffCount
+        }
+        guard let internCount = internKeys()?.count else { return 0 }
+        return internCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ReportCell.self) , for: indexPath) as! ReportCell
-        if indexPath.section == 0 {
+        if segmented.selectedSegmentIndex == 0{
+            let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ReportCell.self) , for: indexPath) as! ReportCell
             let staffId = staffKeys()?[indexPath.row]
             let leaves = staffsLeaves?[staffId!]
             let staff = manager?.getStaff(byStaffId: staffId!)
             let total = staffsLeaveHours?[staffId!]
             cell.layoutCell(staff: staff!, leavesCount: (leaves!.count), total: total!)
-        } else {
-            let internId = internKeys()?[indexPath.row]
-            let signs = internsSign?[internId!]
-            let intern = manager?.getStaff(byStaffId: internId!)
-            let total = signs?.count
-            cell.layoutInternCell(staff: intern!, signCount: total!)
+            return cell
         }
+        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ReportITNCell.self) , for: indexPath) as! ReportITNCell
+        let internId = internKeys()?[indexPath.row]
+        let signs = internsSign?[internId!]
+        var effectSign = 0
+        for sign in signs! {
+            if sign.endTime != nil { effectSign += 1 }
+        }
+        let intern = manager?.getStaff(byStaffId: internId!)
+        cell.layoutCell(staff: intern!, signCount: effectSign)
         return cell
     }
     
     //MARK: UITableViewDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        if indexPath.section == 0 {
+        if segmented.selectedSegmentIndex == 0 {
             performSegue(withIdentifier: tbDefines.kSegueReport, sender: staffKeys()?[indexPath.row])
         } else {
             performSegue(withIdentifier: tbDefines.kSegueInternReport, sender: internKeys()?[indexPath.row])
@@ -282,11 +314,11 @@ class ReportManageViewController: UIViewController
                 return
             }
             tbHUD.show()
-            let startDate = startMonth(yearMonth: text)
+            let startDate = Date.startMonth(yearMonth: text)
             let title = startDate.toString(format: .isoYearMonth)
             monthButton.setTitle(("\(title)"), for: .normal)
             let start = startDate.timeIntervalSince1970
-            let end = endMonth(yearMonth: text).timeIntervalSince1970
+            let end = Date.endMonth(yearMonth: text).timeIntervalSince1970
             self.getRangeLeaveList(Int(start), Int(end))
             self.getInternSignList(Int(start), Int(end))
         }
