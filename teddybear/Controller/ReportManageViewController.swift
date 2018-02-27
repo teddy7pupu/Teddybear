@@ -15,7 +15,7 @@ class ReportManageViewController: UIViewController
     @IBOutlet weak var monthButton: UIButton!
     @IBOutlet weak var pickerView: tbPickerView!
     @IBOutlet weak var dateField: UITextField!
-    @IBOutlet weak var segmented: UISegmentedControl!
+    @IBOutlet weak var typeCtrl: UISegmentedControl!
     
     private weak var manager = StaffManager.sharedInstance()
     private var staffsLeaves: Dictionary<String, [Leave]>?
@@ -63,7 +63,7 @@ class ReportManageViewController: UIViewController
     
     //MARK: Layout & Animation
     func setupLayout() {
-        segmented.selectedSegmentIndex = 0
+        typeCtrl.selectedSegmentIndex = 0
         
         dateField.inputView = pickerView
         pickerView.type = .MonthYear
@@ -89,7 +89,7 @@ class ReportManageViewController: UIViewController
             ,UIActivityType.postToFacebook
             ,UIActivityType.openInIBooks]
         present(vc, animated: true, completion: nil)
-        let output = (segmented.selectedSegmentIndex == 0 ? leaveReport() : internReport())
+        let output = (typeCtrl.selectedSegmentIndex == 0 ? leaveReport() : internReport())
         do {
             try output.write(to: path!, atomically: true, encoding: String.Encoding.utf8)
         }
@@ -154,7 +154,7 @@ class ReportManageViewController: UIViewController
     @IBAction func onOutput(_ sender: Any) {
         if let time = monthButton.titleLabel?.text {
             tbHUD.show()
-            if segmented.selectedSegmentIndex == 0 {
+            if typeCtrl.selectedSegmentIndex == 0 {
                 let fileName = "\(time)假勤報表.csv"
                 let path = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(fileName)
                 csvFileOut(path: path)
@@ -267,7 +267,7 @@ class ReportManageViewController: UIViewController
     
     //MARK: UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if segmented.selectedSegmentIndex == 0{
+        if typeCtrl.selectedSegmentIndex == 0{
             guard let staffCount = staffKeys()?.count else { return 0 }
             return staffCount
         }
@@ -276,7 +276,7 @@ class ReportManageViewController: UIViewController
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if segmented.selectedSegmentIndex == 0{
+        if typeCtrl.selectedSegmentIndex == 0{
             let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ReportCell.self) , for: indexPath) as! ReportCell
             let staffId = staffKeys()?[indexPath.row]
             let leaves = staffsLeaves?[staffId!]
@@ -300,7 +300,7 @@ class ReportManageViewController: UIViewController
     //MARK: UITableViewDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        if segmented.selectedSegmentIndex == 0 {
+        if typeCtrl.selectedSegmentIndex == 0 {
             performSegue(withIdentifier: tbDefines.kSegueReport, sender: staffKeys()?[indexPath.row])
         } else {
             performSegue(withIdentifier: tbDefines.kSegueInternReport, sender: internKeys()?[indexPath.row])
