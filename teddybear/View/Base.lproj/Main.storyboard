@@ -259,14 +259,14 @@
                         <sections>
                             <tableViewSection id="H0c-N2-zza">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="ubt-tl-3XY" style="IBUITableViewCellStyleDefault" id="Vt1-fc-jj3">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="wq4-NB-b1W" style="IBUITableViewCellStyleDefault" id="Vt1-fc-jj3">
                                         <rect key="frame" x="0.0" y="135" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Vt1-fc-jj3" id="Otr-tZ-5uZ">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="59.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="假單管理" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ubt-tl-3XY">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="假單管理" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wq4-NB-b1W">
                                                     <rect key="frame" x="15" y="0.0" width="344" height="59.666666666666664"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -275,18 +275,15 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="hNo-mJ-VlR" kind="show" id="yzO-Ky-rmj"/>
-                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="neM-Lm-4Fb" style="IBUITableViewCellStyleDefault" id="hBG-fD-R6b">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="2K4-Nj-Wql" style="IBUITableViewCellStyleDefault" id="hBG-fD-R6b">
                                         <rect key="frame" x="0.0" y="195" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hBG-fD-R6b" id="O9t-kE-vHr">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="59.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="簽核管理" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="neM-Lm-4Fb">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="簽核管理" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2K4-Nj-Wql">
                                                     <rect key="frame" x="15" y="0.0" width="344" height="59.666666666666664"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -295,9 +292,6 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="wcE-p1-kHC" kind="show" id="55y-qb-wLv"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="OpQ-jS-xeR" style="IBUITableViewCellStyleDefault" id="nmC-38-OnA">
                                         <rect key="frame" x="0.0" y="255" width="375" height="60"/>
@@ -373,6 +367,8 @@
                         <outlet property="englishLbl" destination="Jpe-he-iUM" id="eLf-Om-bzZ"/>
                         <outlet property="nameLbl" destination="cj1-1G-8eX" id="PYU-uB-iIH"/>
                         <outlet property="titleLbl" destination="8pY-DB-sl4" id="33y-93-yLg"/>
+                        <segue destination="hNo-mJ-VlR" kind="show" identifier="SegueLeaveManager" id="lh8-ez-Y3T"/>
+                        <segue destination="wcE-p1-kHC" kind="show" identifier="SegueApprovalManager" id="IcF-59-onG"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JTD-8O-tcz" userLabel="First Responder" sceneMemberID="firstResponder"/>

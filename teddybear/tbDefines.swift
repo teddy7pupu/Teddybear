@@ -29,6 +29,8 @@ class tbDefines: NSObject {
     static let kSegueApproval = "SegueApproval"
     static let kSegueITNLobby = "SegueITNLobby"
     static let kSegueReport = "SegueReport"
+    static let kSegueLeaveManager = "SegueLeaveManager"
+    static let kSegueApprovalManager = "SegueApprovalManager"
     static let kSegueInternReport = "SegueInternReport"
     
     // MARK: Config
