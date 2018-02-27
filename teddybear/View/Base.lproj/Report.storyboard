@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wt4-Vf-JPM">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -14,11 +17,11 @@
             <objects>
                 <viewController id="wt4-Vf-JPM" customClass="ReportManageViewController" customModule="teddybear" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Hgn-am-GOr">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5sb-je-bQs">
-                                <rect key="frame" x="287.5" y="79" width="25" height="30"/>
+                                <rect key="frame" x="175" y="79" width="25" height="30"/>
                                 <color key="textColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -27,7 +30,7 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rU6-By-AVE">
-                                <rect key="frame" x="0.0" y="64" width="600" height="60"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="60"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="0.5" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="RVI-dY-YCC"/>
@@ -41,13 +44,13 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PW3-aA-0kS">
-                                <rect key="frame" x="0.0" y="124" width="600" height="416"/>
+                                <rect key="frame" x="0.0" y="124" width="375" height="483"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="bVH-qH-e9x">
-                                    <rect key="frame" x="0.0" y="188" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="188" width="375" height="0.5"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ReportCell" rowHeight="80" id="6a7-ux-lfB" customClass="ReportCell" customModule="teddybear" customModuleProvider="target">
@@ -59,7 +62,7 @@
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8hk-nU-vtX">
                                                     <rect key="frame" x="15" y="18" width="44" height="44"/>
-                                                    <color key="backgroundColor" name="SPLight"/>
+                                                    <color key="backgroundColor" red="0.70196078431372544" green="0.70196078431372544" blue="0.70196078431372544" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="8hk-nU-vtX" secondAttribute="height" multiplier="44:44" id="iRU-cv-YlR"/>
                                                         <constraint firstAttribute="width" constant="44" id="lB1-Rs-P1D"/>
@@ -160,6 +163,7 @@
                                                 <constraint firstItem="H9X-9X-n2v" firstAttribute="leading" secondItem="qek-bt-kQK" secondAttribute="leadingMargin" id="G1F-x5-qeF"/>
                                                 <constraint firstItem="niW-N9-uK9" firstAttribute="leading" secondItem="H9X-9X-n2v" secondAttribute="trailing" constant="8" id="QOe-k5-GWa"/>
                                                 <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="kri-7k-eHY" secondAttribute="trailing" id="c3r-BD-xv2"/>
+                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="niW-N9-uK9" secondAttribute="trailing" constant="8" id="drd-Pf-adW"/>
                                                 <constraint firstItem="kri-7k-eHY" firstAttribute="top" secondItem="5E4-uQ-EYF" secondAttribute="top" id="m4o-s0-929"/>
                                                 <constraint firstItem="niW-N9-uK9" firstAttribute="top" secondItem="H9X-9X-n2v" secondAttribute="top" id="s7E-7T-30A"/>
                                                 <constraint firstItem="kri-7k-eHY" firstAttribute="leading" secondItem="5E4-uQ-EYF" secondAttribute="trailing" id="v3e-f6-M8E"/>
@@ -180,8 +184,8 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xpg-ph-cQf">
-                                <rect key="frame" x="0.0" y="540" width="600" height="60"/>
-                                <color key="backgroundColor" name="SPGreen"/>
+                                <rect key="frame" x="0.0" y="607" width="375" height="60"/>
+                                <color key="backgroundColor" red="0.1137254902" green="0.72549019609999998" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="OWt-0Y-w83"/>
                                 </constraints>
@@ -196,16 +200,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="rU6-By-AVE" firstAttribute="centerX" secondItem="Hgn-am-GOr" secondAttribute="centerX" id="3EI-SD-cbc"/>
                             <constraint firstItem="rU6-By-AVE" firstAttribute="top" secondItem="YyA-Pq-SSf" secondAttribute="top" id="3XW-C1-awE"/>
                             <constraint firstItem="Xpg-ph-cQf" firstAttribute="leading" secondItem="YyA-Pq-SSf" secondAttribute="leading" id="8VU-FV-TAp"/>
                             <constraint firstItem="YyA-Pq-SSf" firstAttribute="trailing" secondItem="Xpg-ph-cQf" secondAttribute="trailing" id="9lf-gf-701"/>
+                            <constraint firstItem="rU6-By-AVE" firstAttribute="width" secondItem="PW3-aA-0kS" secondAttribute="width" id="CfD-qw-CVS"/>
                             <constraint firstItem="YyA-Pq-SSf" firstAttribute="trailing" secondItem="PW3-aA-0kS" secondAttribute="trailing" id="HsD-cw-1YF"/>
                             <constraint firstItem="PW3-aA-0kS" firstAttribute="leading" secondItem="YyA-Pq-SSf" secondAttribute="leading" id="Tq3-mA-5Lv"/>
                             <constraint firstItem="Xpg-ph-cQf" firstAttribute="top" secondItem="PW3-aA-0kS" secondAttribute="bottom" id="XiV-BT-gdO"/>
                             <constraint firstItem="5sb-je-bQs" firstAttribute="centerX" secondItem="rU6-By-AVE" secondAttribute="centerX" id="cVF-kp-10M"/>
                             <constraint firstItem="YyA-Pq-SSf" firstAttribute="bottom" secondItem="Xpg-ph-cQf" secondAttribute="bottom" id="fQq-ba-3lv"/>
-                            <constraint firstItem="rU6-By-AVE" firstAttribute="leading" secondItem="YyA-Pq-SSf" secondAttribute="leading" id="hYt-4C-HMC"/>
-                            <constraint firstItem="rU6-By-AVE" firstAttribute="trailing" secondItem="YyA-Pq-SSf" secondAttribute="trailing" id="jbH-Gb-lks"/>
                             <constraint firstItem="PW3-aA-0kS" firstAttribute="top" secondItem="rU6-By-AVE" secondAttribute="bottom" id="oIl-9c-xqs"/>
                             <constraint firstItem="5sb-je-bQs" firstAttribute="centerY" secondItem="rU6-By-AVE" secondAttribute="centerY" id="tAu-kD-ul1"/>
                         </constraints>
@@ -259,7 +263,7 @@
                                     </connections>
                                 </barButtonItem>
                             </items>
-                            <color key="tintColor" name="SPGreen"/>
+                            <color key="tintColor" red="0.11372549019607843" green="0.72549019607843135" blue="0.32941176470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </toolbar>
                         <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k7v-8W-mVs">
                             <rect key="frame" x="0.0" y="44" width="240" height="156"/>
@@ -292,20 +296,20 @@
             <objects>
                 <viewController id="eDQ-0Z-KJD" customClass="ReportDetailViewController" customModule="teddybear" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DAX-Gg-xC7">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jzT-J0-dO8">
-                                <rect key="frame" x="0.0" y="64" width="600" height="30"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="時間總和 : " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u8r-Kq-TL3">
-                                        <rect key="frame" x="8" y="4.5" width="289.5" height="21"/>
+                                        <rect key="frame" x="8" y="4.5" width="177" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oa4-kn-DxQ">
-                                        <rect key="frame" x="302.5" y="5" width="289.5" height="21"/>
+                                        <rect key="frame" x="190" y="5" width="177" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -324,12 +328,12 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mfP-TE-COf">
-                                <rect key="frame" x="0.0" y="99" width="600" height="501"/>
+                                <rect key="frame" x="0.0" y="99" width="375" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="sl7-2N-Psa">
-                                    <rect key="frame" x="0.0" y="108" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="108" width="375" height="0.5"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ReportDetailCell" rowHeight="80" id="t9D-Pi-fmv" customClass="ReportDetailCell" customModule="teddybear" customModuleProvider="target">
@@ -407,8 +411,10 @@
                                                 <constraint firstItem="xgc-cm-wbH" firstAttribute="leading" secondItem="apH-3k-x4R" secondAttribute="trailing" constant="8" id="RNQ-R1-2Wp"/>
                                                 <constraint firstItem="xgc-cm-wbH" firstAttribute="top" secondItem="pqF-eM-pIQ" secondAttribute="bottom" id="SBJ-ws-wZk"/>
                                                 <constraint firstItem="xIw-W6-jhH" firstAttribute="top" secondItem="Unz-wc-cpE" secondAttribute="topMargin" constant="8" id="SPS-o1-Cix"/>
+                                                <constraint firstItem="wyt-37-h74" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="9p5-RE-25z" secondAttribute="trailing" constant="8" id="Sel-fD-6U2"/>
                                                 <constraint firstItem="1Dg-cD-Y7W" firstAttribute="centerY" secondItem="Unz-wc-cpE" secondAttribute="centerY" id="VGs-8s-CTc"/>
                                                 <constraint firstItem="9p5-RE-25z" firstAttribute="width" secondItem="xIw-W6-jhH" secondAttribute="width" id="Wg9-ZN-Non"/>
+                                                <constraint firstItem="gvC-uk-oWB" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="xgc-cm-wbH" secondAttribute="trailing" constant="8" id="YCo-xs-rbU"/>
                                                 <constraint firstItem="wyt-37-h74" firstAttribute="centerY" secondItem="Unz-wc-cpE" secondAttribute="centerY" id="dBT-EA-SRN"/>
                                                 <constraint firstItem="xIw-W6-jhH" firstAttribute="leading" secondItem="1Dg-cD-Y7W" secondAttribute="trailing" constant="15" id="fdx-1l-8v0"/>
                                                 <constraint firstItem="pqF-eM-pIQ" firstAttribute="leading" secondItem="apH-3k-x4R" secondAttribute="trailing" constant="8" id="gEv-oh-ObG"/>
@@ -461,11 +467,11 @@
             <objects>
                 <viewController id="zzG-3S-acm" customClass="ReportITNDetailViewController" customModule="teddybear" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="m5p-vE-IuK">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tIl-og-rgH">
-                                <rect key="frame" x="0.0" y="74" width="600" height="526"/>
+                                <rect key="frame" x="0.0" y="74" width="375" height="593"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="zSb-Rl-obq">
@@ -524,10 +530,12 @@
                                                 <constraint firstItem="0mX-3b-awm" firstAttribute="leading" secondItem="lfh-vG-R4a" secondAttribute="trailing" constant="10" id="GfP-WA-iv9"/>
                                                 <constraint firstItem="Qtg-ug-ibL" firstAttribute="top" secondItem="QeC-Pf-4Il" secondAttribute="bottom" constant="5" id="Ixp-fW-OZH"/>
                                                 <constraint firstItem="Tnd-dD-s7P" firstAttribute="top" secondItem="0mX-3b-awm" secondAttribute="top" id="QaA-Ut-LgF"/>
+                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="Tnd-dD-s7P" secondAttribute="trailing" constant="8" id="RKa-0W-RFC"/>
                                                 <constraint firstItem="QeC-Pf-4Il" firstAttribute="top" secondItem="W0J-kl-OgJ" secondAttribute="topMargin" id="UH4-Gx-AQc"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="Chh-YY-2Nn" secondAttribute="trailing" id="Vlx-i5-kjf"/>
                                                 <constraint firstItem="QeC-Pf-4Il" firstAttribute="leading" secondItem="W0J-kl-OgJ" secondAttribute="leadingMargin" id="Vqv-XA-iOq"/>
                                                 <constraint firstItem="Tnd-dD-s7P" firstAttribute="leading" secondItem="0mX-3b-awm" secondAttribute="trailing" constant="5" id="Wxp-dy-C2T"/>
+                                                <constraint firstItem="Chh-YY-2Nn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="QeC-Pf-4Il" secondAttribute="trailing" constant="8" id="aRL-1b-oH1"/>
                                                 <constraint firstItem="Chh-YY-2Nn" firstAttribute="top" secondItem="QeC-Pf-4Il" secondAttribute="top" id="vXz-wx-C4z"/>
                                                 <constraint firstItem="Qtg-ug-ibL" firstAttribute="leading" secondItem="W0J-kl-OgJ" secondAttribute="leadingMargin" id="w9S-Ev-xcq"/>
                                                 <constraint firstItem="lfh-vG-R4a" firstAttribute="top" secondItem="Qtg-ug-ibL" secondAttribute="top" id="wNv-K5-MCM"/>
@@ -559,15 +567,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tZG-cS-lF1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="36" y="1021"/>
+            <point key="canvasLocation" x="772" y="1009"/>
         </scene>
     </scenes>
-    <resources>
-        <namedColor name="SPGreen">
-            <color red="0.11372549019607843" green="0.72549019607843135" blue="0.32941176470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="SPLight">
-            <color red="0.70196078431372544" green="0.70196078431372544" blue="0.70196078431372544" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-    </resources>
 </document>

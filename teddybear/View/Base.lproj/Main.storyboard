@@ -9,7 +9,6 @@
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -25,7 +24,7 @@
                 <viewControllerPlaceholder storyboardName="Sign" id="Hsd-Oj-Krh" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XFR-6B-BTb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="852" y="-133"/>
+            <point key="canvasLocation" x="956" y="-364"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="CgL-h6-auV">
@@ -57,7 +56,7 @@
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="電子郵件" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="vJK-O1-nmN">
                                 <rect key="frame" x="44" y="175" width="287" height="44"/>
-                                <color key="backgroundColor" name="SPLight"/>
+                                <color key="backgroundColor" red="0.70196078431372544" green="0.70196078431372544" blue="0.70196078431372544" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="me9-K8-pyj"/>
                                 </constraints>
@@ -67,7 +66,7 @@
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="密碼" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="y0V-OY-B4T">
                                 <rect key="frame" x="44" y="235" width="287" height="44"/>
-                                <color key="backgroundColor" name="SPLight"/>
+                                <color key="backgroundColor" red="0.70196078429999997" green="0.70196078429999997" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
@@ -77,7 +76,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <state key="normal" title="登入">
-                                    <color key="titleColor" name="SPGreen"/>
+                                    <color key="titleColor" red="0.1137254902" green="0.72549019609999998" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="onEmailSignIn" destination="BYZ-38-t0r" eventType="touchUpInside" id="6RR-1H-qbH"/>
@@ -100,18 +99,18 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="或" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SOs-A2-8Kn">
                                 <rect key="frame" x="180.66666666666666" y="371" width="14" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" name="SPGray"/>
+                                <color key="textColor" red="0.32549019607843138" green="0.32549019607843138" blue="0.32549019607843138" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="teddyBear" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kOG-3c-vhY">
                                 <rect key="frame" x="127.66666666666669" y="51.999999999999993" width="120" height="29.666666666666664"/>
                                 <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="25"/>
-                                <color key="textColor" name="SPGreen"/>
+                                <color key="textColor" red="0.1137254902" green="0.72549019609999998" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aQh-uL-zv0">
                                 <rect key="frame" x="44" y="420" width="287" height="44"/>
-                                <color key="backgroundColor" name="SPGreen"/>
+                                <color key="backgroundColor" red="0.11372549019607843" green="0.72549019607843135" blue="0.32941176470588235" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="AjO-Xg-g6K"/>
                                 </constraints>
@@ -208,7 +207,7 @@
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8pY-DB-sl4">
                                     <rect key="frame" x="333" y="117" width="34" height="18"/>
                                     <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
-                                    <color key="textColor" name="SPGreen"/>
+                                    <color key="textColor" red="0.1137254902" green="0.72549019609999998" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="English" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jpe-he-iUM">
@@ -239,7 +238,7 @@
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QLS-bb-6Rs">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
-                                    <color key="backgroundColor" name="SPDark"/>
+                                    <color key="backgroundColor" red="0.12941176469999999" green="0.12941176469999999" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
                                     <state key="normal" title="登出">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </state>
@@ -389,7 +388,7 @@
                 <viewControllerPlaceholder storyboardName="Staff" id="pgx-aH-DP5" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0hV-cM-RPl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1871" y="634"/>
+            <point key="canvasLocation" x="2059" y="634"/>
         </scene>
         <!--Wifi Manager View Controller-->
         <scene sceneID="gdI-eK-zVQ">
@@ -404,8 +403,8 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u6s-Ju-gYl">
-                                    <rect key="frame" x="0.0" y="0.0" width="185" height="60"/>
-                                    <color key="backgroundColor" name="SPGreen"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="187.66666666666666" height="60"/>
+                                    <color key="backgroundColor" red="0.1137254902" green="0.72549019609999998" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
                                     <state key="normal" title="新增裝置">
                                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
@@ -414,8 +413,8 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ab-6u-kyb">
-                                    <rect key="frame" x="190" y="0.0" width="185" height="60"/>
-                                    <color key="backgroundColor" name="SPLight"/>
+                                    <rect key="frame" x="187.66666666666663" y="0.0" width="187.33333333333337" height="60"/>
+                                    <color key="backgroundColor" red="0.70196078429999997" green="0.70196078429999997" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
                                     <state key="normal" title="移除裝置">
                                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
@@ -429,7 +428,7 @@
                                 <constraint firstItem="u6s-Ju-gYl" firstAttribute="top" secondItem="nFY-2j-7Ut" secondAttribute="top" id="7Ty-ks-IlN"/>
                                 <constraint firstAttribute="trailing" secondItem="1ab-6u-kyb" secondAttribute="trailing" id="7fk-MF-wRQ"/>
                                 <constraint firstItem="u6s-Ju-gYl" firstAttribute="width" secondItem="1ab-6u-kyb" secondAttribute="width" id="K97-ev-cu1"/>
-                                <constraint firstItem="1ab-6u-kyb" firstAttribute="leading" secondItem="u6s-Ju-gYl" secondAttribute="trailing" constant="5" id="MBT-D3-1O3"/>
+                                <constraint firstItem="1ab-6u-kyb" firstAttribute="leading" secondItem="u6s-Ju-gYl" secondAttribute="trailing" id="MBT-D3-1O3"/>
                                 <constraint firstAttribute="bottom" secondItem="u6s-Ju-gYl" secondAttribute="bottom" id="Qfo-Zg-lXp"/>
                                 <constraint firstItem="u6s-Ju-gYl" firstAttribute="height" secondItem="1ab-6u-kyb" secondAttribute="height" id="RRX-Wg-PnJ"/>
                                 <constraint firstItem="1ab-6u-kyb" firstAttribute="top" secondItem="nFY-2j-7Ut" secondAttribute="top" id="SiV-Se-fUg"/>
@@ -527,7 +526,7 @@
                 <viewControllerPlaceholder storyboardName="Report" id="nmn-RR-KSd" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HzL-Yr-Zpa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2119" y="634"/>
+            <point key="canvasLocation" x="2252" y="634"/>
         </scene>
         <!--Approval-->
         <scene sceneID="3Lg-C4-JMN">
@@ -535,23 +534,11 @@
                 <viewControllerPlaceholder storyboardName="Approval" id="wcE-p1-kHC" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hW3-yX-ZTr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1983" y="634"/>
+            <point key="canvasLocation" x="1894" y="634"/>
         </scene>
     </scenes>
     <resources>
         <image name="bear_dark" width="142" height="98"/>
         <image name="bear_green" width="332" height="228"/>
-        <namedColor name="SPDark">
-            <color red="0.12941176470588237" green="0.12941176470588237" blue="0.12941176470588237" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="SPGray">
-            <color red="0.32549019607843138" green="0.32549019607843138" blue="0.32549019607843138" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="SPGreen">
-            <color red="0.11372549019607843" green="0.72549019607843135" blue="0.32941176470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="SPLight">
-            <color red="0.70196078431372544" green="0.70196078431372544" blue="0.70196078431372544" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
     </resources>
 </document>

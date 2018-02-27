@@ -170,7 +170,7 @@ internal extension UITextField {
 internal extension UIButton {
     func tbSetup() {
         super.awakeFromNib()
-        self.layer.borderColor = UIColor(named: "SPGreen")?.cgColor
+        self.layer.borderColor = UIColor.SPGreen.cgColor
         self.layer.borderWidth = 1
         self.layer.cornerRadius = 5
     }

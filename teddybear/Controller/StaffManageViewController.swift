@@ -117,7 +117,7 @@ class StaffManageViewController: UIViewController
                 }
             }
         }
-        dialAction.backgroundColor = UIColor(named:"SPGreen")
+        dialAction.backgroundColor = UIColor.SPGreen
         actions.append(dialAction)
         return actions
     }
