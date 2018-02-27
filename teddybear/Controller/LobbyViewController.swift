@@ -11,6 +11,8 @@ import GoogleSignIn
 
 class LobbyViewController: UITableViewController {
     
+    @IBOutlet weak var approvalBtn: UIButton!
+    @IBOutlet weak var leaveBtn: UIButton!
     @IBOutlet weak var englishLbl: UILabel!
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var titleLbl: UILabel!
@@ -46,6 +48,8 @@ class LobbyViewController: UITableViewController {
             englishLbl.text = "Admin"
             nameLbl.text = "管理員"
             titleLbl.text = "AppMaster Co.,Ltd."
+            leaveBtn.isEnabled = false
+            approvalBtn.isEnabled = false
         }
     }
     

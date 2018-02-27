@@ -259,45 +259,57 @@
                         <sections>
                             <tableViewSection id="H0c-N2-zza">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="ubt-tl-3XY" style="IBUITableViewCellStyleDefault" id="Vt1-fc-jj3">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Vt1-fc-jj3">
                                         <rect key="frame" x="0.0" y="135" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Vt1-fc-jj3" id="Otr-tZ-5uZ">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="59.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="假單管理" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ubt-tl-3XY">
-                                                    <rect key="frame" x="15" y="0.0" width="344" height="59.666666666666664"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mLL-D3-csE">
+                                                    <rect key="frame" x="16" y="11" width="343" height="38"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                    <state key="normal" title="假單管理">
+                                                        <color key="titleColor" name="SPBlack"/>
+                                                    </state>
+                                                    <connections>
+                                                        <segue destination="hNo-mJ-VlR" kind="show" id="lX9-8q-aMT"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="mLL-D3-csE" firstAttribute="top" secondItem="Otr-tZ-5uZ" secondAttribute="topMargin" id="JT1-V3-cgF"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="mLL-D3-csE" secondAttribute="bottom" id="Mft-IW-qnB"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="mLL-D3-csE" secondAttribute="trailing" id="NxV-12-UWJ"/>
+                                                <constraint firstItem="mLL-D3-csE" firstAttribute="leading" secondItem="Otr-tZ-5uZ" secondAttribute="leadingMargin" id="y2O-ds-Qhp"/>
+                                            </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="hNo-mJ-VlR" kind="show" id="yzO-Ky-rmj"/>
-                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="neM-Lm-4Fb" style="IBUITableViewCellStyleDefault" id="hBG-fD-R6b">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="hBG-fD-R6b">
                                         <rect key="frame" x="0.0" y="195" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hBG-fD-R6b" id="O9t-kE-vHr">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="59.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="簽核管理" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="neM-Lm-4Fb">
-                                                    <rect key="frame" x="15" y="0.0" width="344" height="59.666666666666664"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0SL-1w-1oc">
+                                                    <rect key="frame" x="16" y="11" width="343" height="38"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                    <state key="normal" title="簽核管理">
+                                                        <color key="titleColor" name="SPBlack"/>
+                                                    </state>
+                                                    <connections>
+                                                        <segue destination="wcE-p1-kHC" kind="show" id="pPQ-h6-Vih"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="0SL-1w-1oc" secondAttribute="trailing" id="GJc-6B-lHD"/>
+                                                <constraint firstItem="0SL-1w-1oc" firstAttribute="bottom" secondItem="O9t-kE-vHr" secondAttribute="bottomMargin" id="Nxc-nR-c1h"/>
+                                                <constraint firstItem="0SL-1w-1oc" firstAttribute="top" secondItem="O9t-kE-vHr" secondAttribute="topMargin" id="bjE-Ut-IrS"/>
+                                                <constraint firstItem="0SL-1w-1oc" firstAttribute="leading" secondItem="O9t-kE-vHr" secondAttribute="leadingMargin" id="g24-Bv-jPA"/>
+                                            </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="wcE-p1-kHC" kind="show" id="55y-qb-wLv"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="OpQ-jS-xeR" style="IBUITableViewCellStyleDefault" id="nmC-38-OnA">
                                         <rect key="frame" x="0.0" y="255" width="375" height="60"/>
@@ -370,7 +382,9 @@
                     <navigationItem key="navigationItem" id="I5B-cZ-5OK"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="approvalBtn" destination="0SL-1w-1oc" id="4S0-97-Zdr"/>
                         <outlet property="englishLbl" destination="Jpe-he-iUM" id="eLf-Om-bzZ"/>
+                        <outlet property="leaveBtn" destination="mLL-D3-csE" id="wtW-zf-bEb"/>
                         <outlet property="nameLbl" destination="cj1-1G-8eX" id="PYU-uB-iIH"/>
                         <outlet property="titleLbl" destination="8pY-DB-sl4" id="33y-93-yLg"/>
                     </connections>
@@ -545,6 +559,9 @@
     <resources>
         <image name="bear_dark" width="142" height="98"/>
         <image name="bear_green" width="332" height="228"/>
+        <namedColor name="SPBlack">
+            <color red="0.070588235294117646" green="0.070588235294117646" blue="0.070588235294117646" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="SPDark">
             <color red="0.12941176470588237" green="0.12941176470588237" blue="0.12941176470588237" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
