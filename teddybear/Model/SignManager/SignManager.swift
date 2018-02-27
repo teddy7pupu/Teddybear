@@ -60,7 +60,7 @@ class SignManager: NSObject{
                 }
                 list.append(sign)
             }
-            completion(list, nil)
+            completion(list.sorted(by: { TimeInterval($0.startTime!) > TimeInterval($1.startTime!) }), nil)
         })
     }
     
@@ -80,8 +80,8 @@ class SignManager: NSObject{
                 }
                 list.append(sign)
             }
-            self.mSignList = list
-            completion(list, nil)
+            self.mSignList = list.sorted(by: { TimeInterval($0.startTime!) > TimeInterval($1.startTime!) })
+            completion(self.mSignList, nil)
         })
     }
     
