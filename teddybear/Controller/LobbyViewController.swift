@@ -11,8 +11,6 @@ import GoogleSignIn
 
 class LobbyViewController: UITableViewController {
     
-    @IBOutlet weak var approvalBtn: UIButton!
-    @IBOutlet weak var leaveBtn: UIButton!
     @IBOutlet weak var englishLbl: UILabel!
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var titleLbl: UILabel!
@@ -48,8 +46,6 @@ class LobbyViewController: UITableViewController {
             englishLbl.text = "Admin"
             nameLbl.text = "管理員"
             titleLbl.text = "AppMaster Co.,Ltd."
-            leaveBtn.isEnabled = false
-            approvalBtn.isEnabled = false
         }
     }
     
@@ -73,5 +69,12 @@ class LobbyViewController: UITableViewController {
     //MARK: UITableViewDelegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        if currentStaff != nil && indexPath.row < 2 {
+            if indexPath.row == 0 {
+                performSegue(withIdentifier: tbDefines.kSegueLeaveManager, sender: nil)
+            } else {
+                performSegue(withIdentifier: tbDefines.kSegueApprovalManager, sender: nil)
+            }
+        }
     }
 }
