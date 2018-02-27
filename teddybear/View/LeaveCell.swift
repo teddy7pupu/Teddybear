@@ -37,7 +37,7 @@ class LeaveCell: UITableViewCell {
         case 1:
             statusBtn.isSelected = true
             statusBtn.isEnabled = true
-            statusBtn.backgroundColor = UIColor(named: "SPGreen")
+            statusBtn.backgroundColor = UIColor.SPGreen
             break
         case 2:
             statusBtn.isSelected = false

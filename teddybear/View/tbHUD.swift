@@ -33,8 +33,8 @@ class tbHUD {
             loadingView.frame = CGRect(x: 0, y: 0, width: 80, height: 80)
             loadingView.center = container.center
             loadingView.activityIndicatorViewStyle = .whiteLarge
-            loadingView.backgroundColor = UIColor(named:"SPDark")
-            loadingView.color = UIColor(named:"SPGreen")
+            loadingView.backgroundColor = UIColor.SPDark
+            loadingView.color = UIColor.SPGreen
             loadingView.layer.cornerRadius = 10
             loadingView.clipsToBounds = true
             loadingView.hidesWhenStopped = true

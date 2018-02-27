@@ -84,8 +84,8 @@ class SignManageViewController: UITableViewController {
             let title = Date(timeIntervalSince1970: TimeInterval(endTitle)).toString(format: .isoTime)
             signOutBtn.setTitle("已完成簽退 \(title)", for: .normal)
         }
-        signInBtn.backgroundColor = signInBtn.isEnabled ? UIColor(named:"SPGreen") : UIColor(named:"SPLight")
-        signOutBtn.backgroundColor = signOutBtn.isEnabled ? UIColor(named:"SPGreen") : UIColor(named:"SPLight")
+        signInBtn.backgroundColor = signInBtn.isEnabled ? UIColor.SPGreen : UIColor.SPLight
+        signOutBtn.backgroundColor = signOutBtn.isEnabled ? UIColor.SPGreen : UIColor.SPLight
         if !signInBtn.isEnabled && !signOutBtn.isEnabled {
             self.showAlert(message: "完成今日簽到囉")
         }

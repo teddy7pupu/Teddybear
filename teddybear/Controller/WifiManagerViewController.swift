@@ -78,8 +78,8 @@ class WifiManagerViewController: UITableViewController {
                 deleteBtn.isEnabled = false
             }
         }
-        addBtn.backgroundColor = addBtn.isEnabled ? UIColor(named:"SPGreen") : UIColor(named:"SPLight")
-        deleteBtn.backgroundColor = deleteBtn.isEnabled ? UIColor(named:"SPGreen") : UIColor(named:"SPLight")
+        addBtn.backgroundColor = addBtn.isEnabled ? UIColor.SPGreen : UIColor.SPLight
+        deleteBtn.backgroundColor = deleteBtn.isEnabled ? UIColor.SPGreen : UIColor.SPLight
         tbHUD.dismiss()
     }
     

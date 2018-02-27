@@ -165,7 +165,7 @@ class StaffDetailViewController: UITableViewController
     // MARK: UITextFieldDelegate
     @IBAction func textFieldDidChanged(field: UITextField) {
         sendBtn.isEnabled = fieldsValidation()
-        sendBtn.backgroundColor = sendBtn.isEnabled ? UIColor(named:"SPGreen") : UIColor(named:"SPLight")
+        sendBtn.backgroundColor = sendBtn.isEnabled ? UIColor.SPGreen : UIColor.SPLight
         if field == sidField, let number = Int(field.text!) {
             field.text = String.init(format: "%ld", number)
         }
