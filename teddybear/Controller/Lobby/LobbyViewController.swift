@@ -1,16 +1,16 @@
 //
-//  ITNLobbyViewController.swift
+//  LobbyViewController.swift
 //  teddybear
 //
-//  Created by RD-Ops02 on 2018/2/9.
+//  Created by JLee21 on 2018/1/5.
 //  Copyright © 2018年 AppMaster Co.,Ltd. All rights reserved.
 //
 
 import UIKit
 import GoogleSignIn
 
-class ITNLobbyViewController: UITableViewController {
-
+class LobbyViewController: UITableViewController {
+    
     @IBOutlet weak var englishLbl: UILabel!
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var titleLbl: UILabel!
@@ -31,7 +31,7 @@ class ITNLobbyViewController: UITableViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         super.viewWillDisappear(animated)
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -45,7 +45,7 @@ class ITNLobbyViewController: UITableViewController {
         } else {
             englishLbl.text = "Admin"
             nameLbl.text = "管理員"
-            titleLbl.text = "AppMaster Co.,Ltd."
+            titleLbl.text = ""
         }
     }
     
@@ -60,8 +60,21 @@ class ITNLobbyViewController: UITableViewController {
         }
     }
     
+    //MARK: UITableViewDataSource
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+            guard let count = currentStaff?.role?.functionList() else { return 5}
+            return count
+    }
+    
     //MARK: UITableViewDelegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        if currentStaff != nil && indexPath.row < 2 {
+            if indexPath.row == 0 {
+                performSegue(withIdentifier: tbDefines.kSegueLeaveManager, sender: nil)
+            } else {
+                performSegue(withIdentifier: tbDefines.kSegueApprovalManager, sender: nil)
+            }
+        }
     }
 }

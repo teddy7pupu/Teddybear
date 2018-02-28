@@ -1,16 +1,16 @@
 //
-//  LobbyViewController.swift
+//  InternViewController.swift
 //  teddybear
 //
-//  Created by JLee21 on 2018/1/5.
+//  Created by RD-Ops02 on 2018/2/9.
 //  Copyright © 2018年 AppMaster Co.,Ltd. All rights reserved.
 //
 
 import UIKit
 import GoogleSignIn
 
-class LobbyViewController: UITableViewController {
-    
+class InternViewController: UITableViewController {
+
     @IBOutlet weak var englishLbl: UILabel!
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var titleLbl: UILabel!
@@ -31,7 +31,7 @@ class LobbyViewController: UITableViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         super.viewWillDisappear(animated)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -60,21 +60,8 @@ class LobbyViewController: UITableViewController {
         }
     }
     
-    //MARK: UITableViewDataSource
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            guard let count = currentStaff?.role?.functionList() else { return 5}
-            return count
-    }
-    
     //MARK: UITableViewDelegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        if currentStaff != nil && indexPath.row < 2 {
-            if indexPath.row == 0 {
-                performSegue(withIdentifier: tbDefines.kSegueLeaveManager, sender: nil)
-            } else {
-                performSegue(withIdentifier: tbDefines.kSegueApprovalManager, sender: nil)
-            }
-        }
     }
 }

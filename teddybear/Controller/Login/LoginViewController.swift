@@ -121,7 +121,7 @@ class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDeleg
         onBearBtn()
         if let intern = StaffManager.sharedInstance().currentStaff?.role?.isIntern() {
             if intern {
-                self.performSegue(withIdentifier: tbDefines.kSegueITNLobby, sender: nil)
+                self.performSegue(withIdentifier: tbDefines.kSegueIntern, sender: nil)
                 return
             }
         }

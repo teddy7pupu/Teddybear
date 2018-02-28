@@ -104,10 +104,10 @@
             </objects>
             <point key="canvasLocation" x="-532" y="-287"/>
         </scene>
-        <!--Lobby View Controller-->
+        <!--Intern View Controller-->
         <scene sceneID="ubu-iR-rgR">
             <objects>
-                <tableViewController id="COR-Mz-fa1" customClass="ITNLobbyViewController" customModule="teddybear" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="COR-Mz-fa1" customClass="InternViewController" customModule="teddybear" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" dataMode="static" style="grouped" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="FVY-A6-xyF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -342,6 +342,7 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="HcJ-1c-aKI" secondAttribute="trailing" constant="8" id="51R-dF-QBv"/>
                                                 <constraint firstItem="vI0-NX-16V" firstAttribute="top" secondItem="E8t-a2-hE6" secondAttribute="top" id="EtE-DZ-YDk"/>
                                                 <constraint firstItem="HcJ-1c-aKI" firstAttribute="top" secondItem="5bN-8d-9cC" secondAttribute="top" id="JQS-Gr-gFU"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="L8E-uv-2cA" secondAttribute="trailing" id="MDX-Nl-pRP"/>
@@ -349,6 +350,7 @@
                                                 <constraint firstItem="Zbp-Qd-QHn" firstAttribute="leading" secondItem="afh-o0-AFM" secondAttribute="leadingMargin" id="T2P-gY-M1a"/>
                                                 <constraint firstItem="vI0-NX-16V" firstAttribute="leading" secondItem="E8t-a2-hE6" secondAttribute="trailing" constant="5" id="TW9-au-pCM"/>
                                                 <constraint firstItem="5bN-8d-9cC" firstAttribute="leading" secondItem="vI0-NX-16V" secondAttribute="trailing" constant="10" id="Y9D-7P-SZj"/>
+                                                <constraint firstItem="L8E-uv-2cA" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Zbp-Qd-QHn" secondAttribute="trailing" constant="8" id="ZuI-ao-706"/>
                                                 <constraint firstItem="Zbp-Qd-QHn" firstAttribute="top" secondItem="afh-o0-AFM" secondAttribute="topMargin" id="qO9-kX-mqG"/>
                                                 <constraint firstItem="E8t-a2-hE6" firstAttribute="top" secondItem="Zbp-Qd-QHn" secondAttribute="bottom" constant="5" id="r8O-hp-h91"/>
                                                 <constraint firstItem="5bN-8d-9cC" firstAttribute="top" secondItem="E8t-a2-hE6" secondAttribute="top" id="vNc-F2-mIN"/>
@@ -435,7 +437,7 @@
                     </connections>
                 </view>
             </objects>
-            <point key="canvasLocation" x="-1428" y="612"/>
+            <point key="canvasLocation" x="-532" y="471"/>
         </scene>
     </scenes>
     <resources>
