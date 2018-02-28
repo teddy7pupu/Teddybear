@@ -40,25 +40,29 @@ class ReportManageViewController: UIViewController
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == tbDefines.kSegueReport {
-            let detailView = segue.destination as! ReportDetailViewController
+        if segue.identifier != tbDefines.kSegueReport {
+            return
+        }
+        let detailView = segue.destination as! ReportDetailViewController
+        if typeCtrl.selectedSegmentIndex == 0 {
+            
             let staffId = sender as? String
             guard let leaves = staffsLeaves?[staffId!]
                 ,let staff = manager?.getStaff(byStaffId: staffId!) else {
                     return
             }
-            detailView.staffName = staff.name
+            detailView.name = staff.name
             detailView.staffLeaves = leaves
-        } else {
-            let detailView = segue.destination as! ReportITNDetailViewController
-            let internId = sender as? String
-            guard let signs = internsSign?[internId!]
-                , let intern = manager?.getStaff(byStaffId: internId!) else {
-                    return
-            }
-            detailView.internName = intern.name
-            detailView.internSigns = signs
+            return
         }
+        
+        let internId = sender as? String
+        guard let signs = internsSign?[internId!]
+            , let intern = manager?.getStaff(byStaffId: internId!) else {
+                return
+        }
+        detailView.name = intern.name
+        detailView.internSigns = signs
     }
     
     //MARK: Layout & Animation
@@ -70,7 +74,8 @@ class ReportManageViewController: UIViewController
         pickerView.owner = dateField
         
         let current = Date().toString(format: .isoYearMonth)
-        monthButton.setTitle("\(current)", for: .normal)
+        monthButton.setTitle("\(current) ▼", for: .normal)
+        dateField.text = current
         
         let gesture = UITapGestureRecognizer(target: self, action: #selector(ReportManageViewController.keyboardDismiss(gesture:)))
         gesture.cancelsTouchesInView = false
@@ -152,7 +157,7 @@ class ReportManageViewController: UIViewController
     }
     
     @IBAction func onOutput(_ sender: Any) {
-        if let time = monthButton.titleLabel?.text {
+        if let time = dateField.text {
             tbHUD.show()
             if typeCtrl.selectedSegmentIndex == 0 {
                 let fileName = "\(time)假勤報表.csv"
@@ -168,8 +173,8 @@ class ReportManageViewController: UIViewController
     }
     
     func getMonthList() {
-        let start = Date.startMonth(yearMonth: (monthButton.titleLabel?.text)!).timeIntervalSince1970
-        let end = Date.endMonth(yearMonth: (monthButton.titleLabel?.text)!).timeIntervalSince1970
+        let start = Date.startMonth(yearMonth: dateField.text!).timeIntervalSince1970
+        let end = Date.endMonth(yearMonth: dateField.text!).timeIntervalSince1970
         self.getRangeLeaveList(Int(start), Int(end))
         self.getInternSignList(Int(start), Int(end))
     }
@@ -267,7 +272,7 @@ class ReportManageViewController: UIViewController
     
     //MARK: UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if typeCtrl.selectedSegmentIndex == 0{
+        if typeCtrl.selectedSegmentIndex == 0 {
             guard let staffCount = staffKeys()?.count else { return 0 }
             return staffCount
         }
@@ -276,7 +281,8 @@ class ReportManageViewController: UIViewController
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if typeCtrl.selectedSegmentIndex == 0{
+        
+        if typeCtrl.selectedSegmentIndex == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ReportCell.self) , for: indexPath) as! ReportCell
             let staffId = staffKeys()?[indexPath.row]
             let leaves = staffsLeaves?[staffId!]
@@ -285,7 +291,7 @@ class ReportManageViewController: UIViewController
             cell.layoutCell(staff: staff!, leavesCount: (leaves!.count), total: total!)
             return cell
         }
-        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ReportITNCell.self) , for: indexPath) as! ReportITNCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: "InternReportCell") , for: indexPath) as! ReportCell
         let internId = internKeys()?[indexPath.row]
         let signs = internsSign?[internId!]
         var effectSign = 0
@@ -303,7 +309,7 @@ class ReportManageViewController: UIViewController
         if typeCtrl.selectedSegmentIndex == 0 {
             performSegue(withIdentifier: tbDefines.kSegueReport, sender: staffKeys()?[indexPath.row])
         } else {
-            performSegue(withIdentifier: tbDefines.kSegueInternReport, sender: internKeys()?[indexPath.row])
+            performSegue(withIdentifier: tbDefines.kSegueReport, sender: internKeys()?[indexPath.row])
         }
     }
     
@@ -316,7 +322,8 @@ class ReportManageViewController: UIViewController
             tbHUD.show()
             let startDate = Date.startMonth(yearMonth: text)
             let title = startDate.toString(format: .isoYearMonth)
-            monthButton.setTitle(("\(title)"), for: .normal)
+            dateField.text = title
+            monthButton.setTitle(("\(title) ▼"), for: .normal)
             let start = startDate.timeIntervalSince1970
             let end = Date.endMonth(yearMonth: text).timeIntervalSince1970
             self.getRangeLeaveList(Int(start), Int(end))

@@ -11,9 +11,9 @@ import UIKit
 class ReportDetailViewController: UIViewController
 ,UITableViewDataSource, UITableViewDelegate {
     
-    @IBOutlet weak var totalHourLbl: UILabel!
-    var staffName : String?
+    var name : String?
     var staffLeaves: [Leave]?
+    var internSigns: [Sign]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,34 +25,54 @@ class ReportDetailViewController: UIViewController
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.title = staffName
-        self.totalHourLbl.text = getTotalHour()
+        
+        if staffLeaves != nil {
+            let total = getTotalHour()
+            self.title = name! + " (\(total))"
+        } else {
+            self.title = name
+        }
     }
     
-    func getTotalHour() -> String{
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == tbDefines.kSegueDetail, let leave = sender as? Leave {
+            let detailView = segue.destination as! LeaveDetailViewController
+            detailView.currentLeave = leave
+        }
+    }
+    
+    //MARK: Layout & Animation
+    func getTotalHour() -> String {
         var summation: Int = 0
         for leave in staffLeaves! {
             let beginDate = Date(timeIntervalSinceReferenceDate: TimeInterval(leave.startTime!))
             let endDate = Date(timeIntervalSinceReferenceDate: TimeInterval(leave.endTime!))
             let hour = Date.leaveHour(beginDate, leave.startPeriod!, endDate, leave.endPeriod!)
-                summation += hour
+            summation += hour
         }
         return summation > 8 ? String(format:"%.1f天", Double(summation)/8) : "\(summation)小時"
     }
     
     //MARK: UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let count = staffLeaves?.count else { return 0 }
+        guard let count = staffLeaves?.count else { return (internSigns?.count)! }
         return count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ReportDetailCell.self) , for: indexPath) as! ReportDetailCell
-        cell.layoutCell(with: staffLeaves![indexPath.row])
+        if staffLeaves != nil {
+            let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ReportDetailCell.self) , for: indexPath) as! ReportDetailCell
+            cell.layoutCell(with: staffLeaves![indexPath.row])
+            return cell
+        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: "InternReportDetailCell") , for: indexPath) as! ReportDetailCell
+        cell.layoutCell(with: internSigns![indexPath.row])
         return cell
     }
     
     func tableView(_ tableView: UITableView,didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        guard let leaves = staffLeaves else { return }
+        performSegue(withIdentifier: tbDefines.kSegueDetail, sender: leaves[indexPath.row])
     }
 }

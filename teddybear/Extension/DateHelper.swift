@@ -579,11 +579,7 @@ public extension Date {
     }
     
     static func startMonth(yearMonth: String) -> Date {
-        var format: DateFormatType = .isoDate
-        if DateFormatter().locale.identifier == "zh_TW"{
-            format = .isoCHDate
-        }
-        let startOfMonth = Date(fromString: "\(yearMonth)-01", format: format)
+        let startOfMonth = Date(fromString: "\(yearMonth)-01", format: .isoDate)
         return startOfMonth!
     }
     
