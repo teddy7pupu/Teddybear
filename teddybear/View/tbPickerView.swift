@@ -53,6 +53,7 @@ class tbPickerView: UIView
         for count in (year-2)...year {
             years.append("\(count)")
         }
+        pickerView.selectRow(2, inComponent: 0, animated: false)
     }
     
     @IBAction func onCancelAction() {
