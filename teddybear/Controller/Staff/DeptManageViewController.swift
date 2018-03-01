@@ -25,6 +25,12 @@ class DeptManageViewController: UIViewController
         getDeptList()
     }
     
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        fixTableViewInsets(tableView: mainTable)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == tbDefines.kSegueDetail, let dept = sender as? Department {
             let detailView = segue.destination as! DeptDetailViewController

@@ -41,6 +41,8 @@ extension UITextField {
     
     
     func isSidValid(text: String) -> Bool {
+        guard Int(text) == nil else { return true }
+            
         let sidRegEx = "[A-Za-z][0-9]{3}"
         let sidTest = NSPredicate(format:"SELF MATCHES %@", sidRegEx)
         let result = sidTest.evaluate(with:text)
