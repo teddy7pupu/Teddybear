@@ -163,6 +163,8 @@ class LeaveDetailViewController: UITableViewController
     }
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        guard tableStatus < 2 else { return false }
+        
         if textField == beginTimeField || textField == endTimeField {
             textField.inputView = datePickerView
             datePickerView.owner = textField

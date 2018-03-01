@@ -37,6 +37,11 @@ class ApprovalManageViewController: UIViewController
         getStaffList()
     }
     
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        fixTableViewInsets(tableView: mainTable)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == tbDefines.kSegueApproval {
             let detailView = segue.destination as! ApprovalDetailViewController

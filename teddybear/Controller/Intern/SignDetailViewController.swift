@@ -39,7 +39,8 @@ class SignDetailViewController: UIViewController
         pickerView.owner = dateField
         
         let current = Date().toString(format: .isoYearMonth)
-        monthButton.setTitle("\(current)", for: .normal)
+        monthButton.setTitle("\(current) ▼", for: .normal)
+        dateField.text = current
         
         let gesture = UITapGestureRecognizer(target: self, action: #selector(SignDetailViewController.keyboardDismiss(gesture:)))
         gesture.cancelsTouchesInView = false
@@ -51,8 +52,8 @@ class SignDetailViewController: UIViewController
     }
     
     func getCurrentList() {
-        let start = Date.startMonth(yearMonth: (monthButton.titleLabel?.text)!).timeIntervalSince1970
-        let end = Date.endMonth(yearMonth: (monthButton.titleLabel?.text)!).timeIntervalSince1970
+        let start = Date.startMonth(yearMonth: dateField.text!).timeIntervalSince1970
+        let end = Date.endMonth(yearMonth: dateField.text!).timeIntervalSince1970
         getList(start: Int(start), end: Int(end))
     }
     
@@ -86,7 +87,8 @@ class SignDetailViewController: UIViewController
             tbHUD.show()
             let startDate = Date.startMonth(yearMonth: text)
             let title = startDate.toString(format: .isoYearMonth)
-            monthButton.setTitle(("\(title)"), for: .normal)
+            dateField.text = title
+            monthButton.setTitle(("\(title) ▼"), for: .normal)
             let start = startDate.timeIntervalSince1970
             let end = Date.endMonth(yearMonth: text).timeIntervalSince1970
             getList(start: Int(start), end: Int(end))
@@ -100,7 +102,7 @@ class SignDetailViewController: UIViewController
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: SignCell.self) , for: indexPath) as! SignCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: "InternReportDetailCell") , for: indexPath) as! ReportDetailCell
         if let source = mlist?[indexPath.row] {
             cell.layoutCell(with: source)
         }

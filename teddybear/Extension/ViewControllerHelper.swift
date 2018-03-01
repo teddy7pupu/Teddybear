@@ -20,4 +20,9 @@ extension UIViewController {
             completion()
         }).cancelHandle(alertAction: nil ).show(currentVC: self)
     }
+    
+    func fixTableViewInsets(tableView: UITableView!) {
+        tableView.contentInset = UIEdgeInsets.zero
+        tableView.scrollIndicatorInsets = UIEdgeInsets.zero
+    }
 }

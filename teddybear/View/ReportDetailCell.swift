@@ -9,35 +9,46 @@
 import UIKit
 
 class ReportDetailCell: UITableViewCell {
-
+    
+    @IBOutlet weak var startDateView: tbCalendarView!
     @IBOutlet weak var typeLbl: UILabel!
-    @IBOutlet weak var startDayLbl: UILabel!
-    @IBOutlet weak var startMonthLbl: UILabel!
-    @IBOutlet weak var startPeriodLbl: UILabel!
-    @IBOutlet weak var endDayLbl: UILabel!
-    @IBOutlet weak var endMonthLbl: UILabel!
-    @IBOutlet weak var endPeriodLbl: UILabel!
-    @IBOutlet weak var totalLbl: UILabel!
+    @IBOutlet weak var hoursLbl: UILabel!
+    @IBOutlet weak var reasonLbl: UILabel!
+    
+    @IBOutlet weak var checkInBtn: UIButton!
+    @IBOutlet weak var checkOutBtn: UIButton!
+    @IBOutlet weak var checkInLbl: UILabel!
+    @IBOutlet weak var checkOutLbl: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
-
     func layoutCell(with leave: Leave) {
+        startDateView.layoutView(date: Date(timeIntervalSince1970: Double(leave.startTime!)))
+        typeLbl.text = leave.type
+        reasonLbl.text = "事由：" + leave.message!
+        
         let beginDate = Date(timeIntervalSinceReferenceDate: TimeInterval(leave.startTime!))
         let endDate = Date(timeIntervalSinceReferenceDate: TimeInterval(leave.endTime!))
         let hour = Date.leaveHour(beginDate, leave.startPeriod!, endDate, leave.endPeriod!)
-        startDayLbl.text = String(format:"%02d", beginDate.component(.day)!)
-        startMonthLbl.text = beginDate.toString(style: .shortMonth)
-        startPeriodLbl.text = tbDefines.kBeginSection[leave.startPeriod!]
-        endDayLbl.text = String(format:"%02d", endDate.component(.day)!)
-        endMonthLbl.text = endDate.toString(style: .shortMonth)
-        endPeriodLbl.text = tbDefines.kEndSection[leave.endPeriod!]
-        typeLbl.text = "\(leave.type!) :"
-        totalLbl.text = hour > 8 ? String(format:"%.1f天", Double(hour)/8) : "\(hour)小時"
+        hoursLbl.text = hour > 8 ? String(format:"%.1f天", Double(hour)/8) : "\(hour)小時"
+    }
+    
+    func layoutCell(with sign: Sign?) {
+        layoutReport(time: sign?.startTime, button: checkInBtn, label: checkInLbl)
+        layoutReport(time: sign?.endTime, button: checkOutBtn, label: checkOutLbl)
+    }
+    
+    internal func layoutReport(time: Int?, button: UIButton!, label: UILabel!) {
+        let time = time
+        button.isSelected = (time == nil)
+        button.backgroundColor = (time == nil) ? UIColor.red : UIColor.SPGreen
+        if time != nil {
+            let date = Date(timeIntervalSince1970: Double(time!))
+            label.text = "\(date.toString(style: DateStyleType.short)) \(date.toString(style: DateStyleType.shortWeekday))"
+        } else {
+            label.text = ""
+        }
     }
 }

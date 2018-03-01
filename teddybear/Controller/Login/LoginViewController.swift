@@ -28,13 +28,6 @@ class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDeleg
         emailField.text = nil
         pwdField.text = nil
     }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        if let user = UserManager.currentUser() {
-            tbHUD.show()
-            getUserProfile(email: user.email)
-        }
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -64,7 +57,7 @@ class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDeleg
                 self.showAlert(message: error.localizedDescription)
                 return
             }
-            self.openLobby()
+            self.dismiss()
         }
     }
     
@@ -79,53 +72,11 @@ class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDeleg
         signIn?.signIn()
     }
     
-    func getUserProfile(email: String!) {
-        //Get staff information of user
-        StaffManager.sharedInstance().queryStaff(email, completion: { (staff, error) in
-            
-            if let error = error {
-                NSLog("%@", error.localizedDescription)
-                //Super Admin
-                self.openLobby()
-                return
-            }
-            
-            guard staff?.uid != nil else {
-                self.updateStaff(staff)
-                return
-            }
-            
-            StaffManager.sharedInstance().currentStaff = staff
-            self.openLobby()
-        })
-    }
-    
-    func updateStaff(_ staff: Staff!) {
-        //Update staff information of user
-        let user = UserManager.currentUser()
-        var updated = staff
-        updated?.uid = user?.uid
-        updated?.avatar = user?.photoURL?.absoluteString
-        StaffManager.sharedInstance().updateStaff(updated) { (aStaff, error) in
-            if let error = error {
-                NSLog("%@", error.localizedDescription)
-                self.showAlert(message: "更新員工資料失敗")
-                return
-            }
-            self.openLobby()
-        }
-    }
-    
-    func openLobby() {
+    func dismiss() {
         tbHUD.dismiss()
-        onBearBtn()
-        if let intern = StaffManager.sharedInstance().currentStaff?.role?.isIntern() {
-            if intern {
-                self.performSegue(withIdentifier: tbDefines.kSegueITNLobby, sender: nil)
-                return
-            }
+        DispatchQueue.main.async {
+            self.dismiss(animated: true, completion: nil)
         }
-        self.performSegue(withIdentifier: tbDefines.kSegueLobby, sender: nil)
     }
     
     @objc func keyboardDismiss(gesture: UITapGestureRecognizer) {
@@ -153,7 +104,7 @@ class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDeleg
         }
         
         UserManager.sharedInstance().signIn(user: user) { (user: User!, error: Error!) in
-            self.getUserProfile(email: email)
+            self.dismiss()
         }
     }
 }

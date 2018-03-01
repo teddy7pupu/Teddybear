@@ -53,6 +53,7 @@ class tbPickerView: UIView
         for count in (year-2)...year {
             years.append("\(count)")
         }
+        pickerView.selectRow(2, inComponent: 0, animated: false)
     }
     
     @IBAction func onCancelAction() {
@@ -62,8 +63,8 @@ class tbPickerView: UIView
     @IBAction func onDoneAction() {
         var text: String?
         if type == .MonthYear {
-            let year = self.years[pickerView.selectedRow(inComponent: 0)]
-            let month = self.months[pickerView.selectedRow(inComponent: 1)]
+            let year = self.years[pickerView.selectedRow(inComponent:0)]
+            let month = String(format: "%02d",pickerView.selectedRow(inComponent:1) + 1)
             text = "\(year)-\(month)"
         } else {
             if let source = dataSource?[pickerView.selectedRow(inComponent: 0)] { text = source }
