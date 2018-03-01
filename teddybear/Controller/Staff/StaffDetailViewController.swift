@@ -129,7 +129,6 @@ class StaffDetailViewController: UITableViewController
             }
             _staff.role?.setRole(manageSwitch.isOn, accountSwitch.isOn, internSwitch.isOn)
             
-            
             tbHUD.show()
             manager?.updateStaff(_staff) { (staff, error) in
                 tbHUD.dismiss()
@@ -140,9 +139,7 @@ class StaffDetailViewController: UITableViewController
                 }
                 self.navigationController?.popViewController(animated: true)
             }
-            
-            
-        }else{
+        } else {
                 self.showAlert(message: "請輸入正確資料")
         }
     }
@@ -173,6 +170,9 @@ class StaffDetailViewController: UITableViewController
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         if textField == birthdayField || textField == onboardField || textField == quitDateField {
+            if textField == quitDateField, currentStaff?.quitDate == nil {
+                return false
+            }
             textField.inputView = datePickerView
             datePickerView.maximumDate = Date()
             datePickerView.owner = textField
