@@ -478,12 +478,13 @@
                         <viewLayoutGuide key="safeArea" id="m5c-dH-NTS"/>
                     </view>
                     <connections>
+                        <outlet property="mainTable" destination="mfP-TE-COf" id="iEl-SG-Wv6"/>
                         <segue destination="Osf-md-r5S" kind="show" identifier="SegueDetail" id="zhd-Qk-wd0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fBk-ab-L0a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="772" y="258.62068965517244"/>
+            <point key="canvasLocation" x="846" y="259"/>
         </scene>
         <!--Leave Detail View Controller-->
         <scene sceneID="XLd-t6-apb">

@@ -11,6 +11,7 @@ import UIKit
 class ReportDetailViewController: UIViewController
 ,UITableViewDataSource, UITableViewDelegate {
     
+    @IBOutlet weak var mainTable: UITableView!
     var name : String?
     var staffLeaves: [Leave]?
     var internSigns: [Sign]?
@@ -26,12 +27,12 @@ class ReportDetailViewController: UIViewController
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if staffLeaves != nil {
-            let total = getTotalHour()
-            self.title = name! + " (\(total))"
-        } else {
-            self.title = name
-        }
+        setupLayout()
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        fixTableViewInsets(tableView: mainTable)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -42,6 +43,15 @@ class ReportDetailViewController: UIViewController
     }
     
     //MARK: Layout & Animation
+    func setupLayout() {
+        if staffLeaves != nil {
+            let total = getTotalHour()
+            self.title = name! + " (\(total))"
+        } else {
+            self.title = name
+        }
+    }
+    
     func getTotalHour() -> String {
         var summation: Int = 0
         for leave in staffLeaves! {
