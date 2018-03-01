@@ -27,8 +27,17 @@ class SignManageViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tbHUD.show()
         checkWifi()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        tbHUD.dismiss()
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        fixTableViewInsets(tableView: tableView)
     }
     
     //MARK: Active
@@ -122,6 +131,7 @@ class SignManageViewController: UITableViewController {
     
     //MARK: getter
     func checkWifi() {
+        tbHUD.show()
         WifiManager.sharedInstance().getWifiList(completion: { (wifi, error) in
             let list = wifi?.mac
             tbHUD.dismiss()
