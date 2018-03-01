@@ -38,6 +38,7 @@ class StaffManager: NSObject {
                 completion(nil, error)
                 return
             }
+            self.currentStaff = staff
             completion(staff, nil)
         })
     }
