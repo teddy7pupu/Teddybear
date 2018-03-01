@@ -179,8 +179,8 @@
                     <connections>
                         <outlet property="loadingView" destination="wel-UZ-sws" id="CUJ-fP-gIT"/>
                         <segue destination="lzp-7a-kjB" kind="presentation" identifier="SegueLogin" modalPresentationStyle="currentContext" modalTransitionStyle="crossDissolve" id="SEB-bW-M00"/>
-                        <segue destination="ryI-KU-v2d" kind="show" identifier="SegueLobby" id="uGv-3s-7rq"/>
-                        <segue destination="TlB-5E-7j0" kind="show" identifier="SegueIntern" id="zRN-aW-LHI"/>
+                        <segue destination="ryI-KU-v2d" kind="presentation" identifier="SegueLobby" modalPresentationStyle="currentContext" modalTransitionStyle="crossDissolve" id="uGv-3s-7rq"/>
+                        <segue destination="TlB-5E-7j0" kind="presentation" identifier="SegueIntern" modalPresentationStyle="currentContext" modalTransitionStyle="crossDissolve" id="zRN-aW-LHI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GGt-SH-DH8" userLabel="First Responder" sceneMemberID="firstResponder"/>
