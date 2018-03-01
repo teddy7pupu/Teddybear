@@ -17,11 +17,13 @@ class StaffDetailViewController: UITableViewController
     @IBOutlet weak var phoneField: UITextField!
     @IBOutlet weak var birthdayField: UITextField!
     @IBOutlet weak var onboardField: UITextField!
+    @IBOutlet weak var quitDateField: UITextField!
     @IBOutlet weak var deptField: UITextField!
     @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var sidField: UITextField!
     @IBOutlet weak var manageSwitch: UISwitch!
     @IBOutlet weak var accountSwitch: UISwitch!
+    @IBOutlet weak var internSwitch: UISwitch!
     @IBOutlet weak var sendBtn: UIButton!
     @IBOutlet weak var datePickerView: DatePickerView!
     @IBOutlet weak var pickerView: tbPickerView!
@@ -74,12 +76,16 @@ class StaffDetailViewController: UITableViewController
         phoneField.text = staff.mobile
         birthdayField.text = Date(timeIntervalSince1970: TimeInterval(staff.birthday!)).toString(format: .isoDate)
         onboardField.text = Date(timeIntervalSince1970: TimeInterval(staff.onBoardDate!)).toString(format: .isoDate)
+        if let quit = staff.quitDate {
+            quitDateField.text = Date(timeIntervalSince1970: TimeInterval(quit)).toString(format: .isoDate)
+        }
         deptField.text = manager?.getDepartment(byID:staff.department!)?.title
         titleField.text = staff.title
         sidField.text = staff.sid
         sidField.isEnabled = false
         manageSwitch.isOn = (staff.role?.isManager())!
         accountSwitch.isOn = (staff.role?.isAccount())!
+        internSwitch.isOn = (staff.role?.isIntern())!
         accountSwitch.isEnabled = { () -> Bool in
             staff.uid != UserManager.currentUser()?.uid
         }()
@@ -110,6 +116,10 @@ class StaffDetailViewController: UITableViewController
             _staff.birthday = Int(birthday.timeIntervalSince1970)
             let onBoardDate = Date(fromString: onboardField.text!, format: .isoDate)!
             _staff.onBoardDate = Int(onBoardDate.timeIntervalSince1970)
+            if quitDateField.text != "在職中"{
+                let quitDate = Date(fromString: quitDateField.text!, format: .isoDate)!
+                _staff.quitDate = Int(quitDate.timeIntervalSince1970)
+            }
             _staff.department = manager?.getDepartment(byName:deptField.text!)?.department_id
             _staff.title = titleField.text
             if let number = Int(sidField.text!) {
@@ -117,7 +127,7 @@ class StaffDetailViewController: UITableViewController
             } else {
                 _staff.sid = sidField.text!
             }
-            _staff.role?.setRole(manageSwitch.isOn, accountSwitch.isOn)
+            _staff.role?.setRole(manageSwitch.isOn, accountSwitch.isOn, internSwitch.isOn)
             
             
             tbHUD.show()
@@ -155,14 +165,14 @@ class StaffDetailViewController: UITableViewController
     // MARK: UITextFieldDelegate
     @IBAction func textFieldDidChanged(field: UITextField) {
         sendBtn.isEnabled = fieldsValidation()
-        sendBtn.backgroundColor = sendBtn.isEnabled ? UIColor(named:"SPGreen") : UIColor(named:"SPLight")
+        sendBtn.backgroundColor = sendBtn.isEnabled ? UIColor.SPGreen : UIColor.SPLight
         if field == sidField, let number = Int(field.text!) {
             field.text = String.init(format: "%ld", number)
         }
     }
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        if textField == birthdayField || textField == onboardField {
+        if textField == birthdayField || textField == onboardField || textField == quitDateField {
             textField.inputView = datePickerView
             datePickerView.maximumDate = Date()
             datePickerView.owner = textField

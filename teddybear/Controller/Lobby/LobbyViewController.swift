@@ -45,7 +45,7 @@ class LobbyViewController: UITableViewController {
         } else {
             englishLbl.text = "Admin"
             nameLbl.text = "管理員"
-            titleLbl.text = "AppMaster Co.,Ltd."
+            titleLbl.text = ""
         }
     }
     
@@ -62,12 +62,19 @@ class LobbyViewController: UITableViewController {
     
     //MARK: UITableViewDataSource
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let count = currentStaff?.role?.functionList() else { return 4 }
-        return count
+            guard let count = currentStaff?.role?.functionList() else { return 5}
+            return count
     }
     
     //MARK: UITableViewDelegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        if currentStaff != nil && indexPath.row < 2 {
+            if indexPath.row == 0 {
+                performSegue(withIdentifier: tbDefines.kSegueLeaveManager, sender: nil)
+            } else {
+                performSegue(withIdentifier: tbDefines.kSegueApprovalManager, sender: nil)
+            }
+        }
     }
 }

@@ -32,6 +32,6 @@ class StaffCell: UITableViewCell {
         nameLbl.text = staff?.name
         englishLbl.text = staff?.english
         mailLbl.text = staff?.email
-        quitLbl.isHidden = (staff?.isQuit != true)
+        quitLbl.isHidden = (staff?.quitDate == nil)
     }
 }

@@ -577,6 +577,20 @@ public extension Date {
         }
         return sumHour
     }
+    
+    static func startMonth(yearMonth: String) -> Date {
+        let startOfMonth = Date(fromString: "\(yearMonth)-01", format: .isoDate)
+        return startOfMonth!
+    }
+    
+    static func endMonth(yearMonth: String) -> Date {
+        var components = DateComponents()
+        components.month = 1
+        components.day = -1
+        let endOfMonth =  NSCalendar.current.date(byAdding: components, to: startMonth(yearMonth: yearMonth))!
+        return endOfMonth
+    }
+    
 }
 
 // MARK: Enums used
@@ -611,6 +625,11 @@ public enum DateFormatType {
     /// The ISO8601 formatted date "yyyy-MM-dd" i.e. 1997-07-16
     case isoDate
     
+    case isoDateWeek
+    
+    /// The ISO8601 formatted date "yyyy-MM月-dd" i.e. 1997-07月-16
+    case isoCHDate
+    
     /// The ISO8601 formatted date and time "yyyy-MM-dd'T'HH:mmZ" i.e. 1997-07-16T19:20+01:00
     case isoDateTime
     
@@ -619,6 +638,8 @@ public enum DateFormatType {
     
     /// The ISO8601 formatted date, time and millisec "yyyy-MM-dd'T'HH:mm:ss.SSSZ" i.e. 1997-07-16T19:20:30.45+01:00
     case isoDateTimeMilliSec
+    
+    case isoTime
     
     /// The dotNet formatted date "/Date(%d%d)/" i.e. "/Date(1268123281843)/"
     case dotNet
@@ -642,10 +663,13 @@ public enum DateFormatType {
         switch self {
         case .isoYear: return "yyyy"
         case .isoYearMonth: return "yyyy-MM"
+        case .isoCHDate: return "yyyy-MM月-dd"
         case .isoDate: return "yyyy-MM-dd"
+        case .isoDateWeek: return "EEE"
         case .isoDateTime: return "yyyy-MM-dd'T'HH:mmZ"
         case .isoDateTimeSec: return "yyyy-MM-dd'T'HH:mm:ssZ"
         case .isoDateTimeMilliSec: return "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        case .isoTime: return "HH:mm"
         case .dotNet: return "/Date(%d%f)/"
         case .rss: return "EEE, d MMM yyyy HH:mm:ss ZZZ"
         case .altRSS: return "d MMM yyyy HH:mm:ss ZZZ"

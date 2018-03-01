@@ -66,7 +66,7 @@ class StaffManageViewController: UIViewController
     func quitStaff(staff: Staff) {
         tbHUD.show()
         var newStaff = staff
-        newStaff.isQuit = true
+        newStaff.quitDate = Int(Date().timeIntervalSince1970)
         self.updateStaff(staff: newStaff)
     }
     
@@ -97,7 +97,7 @@ class StaffManageViewController: UIViewController
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         var actions: [UITableViewRowAction] = []
         let staff = list?[indexPath.row]
-        if staff?.isQuit != true {
+        if staff?.quitDate == nil {
             let quitAction = UITableViewRowAction(style: .destructive, title: "離職") { (action, indexPath) in
                 guard let name = staff?.name else { return }
                 self.showAlert(message: "確定要讓\(name)離職嗎", completion: {
@@ -117,7 +117,7 @@ class StaffManageViewController: UIViewController
                 }
             }
         }
-        dialAction.backgroundColor = UIColor(named:"SPGreen")
+        dialAction.backgroundColor = UIColor.SPGreen
         actions.append(dialAction)
         return actions
     }

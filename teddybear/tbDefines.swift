@@ -19,11 +19,19 @@ class tbDefines: NSObject {
     static let kDepartment = "Department"
     static let kLeave = "Leave"
     static let kApproval = "Approval"
+    static let kSign = "Sign"
+    static let kWifi = "Wifi"
+
     
     // MARK: Segue
+    static let kSegueLogin = "SegueLogin"
     static let kSegueLobby = "SegueLobby"
+    static let kSegueIntern = "SegueIntern"
     static let kSegueDetail = "SegueDetail"
     static let kSegueApproval = "SegueApproval"
+    static let kSegueReport = "SegueReport"
+    static let kSegueLeaveManager = "SegueLeaveManager"
+    static let kSegueApprovalManager = "SegueApprovalManager"
     
     // MARK: Config
     static let kBeginSection = ["10:00", "15:00"]

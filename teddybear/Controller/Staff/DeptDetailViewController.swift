@@ -37,7 +37,7 @@ class DeptDetailViewController: UITableViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = (currentDepartment == nil ? "新增員工" : currentDepartment?.title)
+        self.title = (currentDepartment == nil ? "新增部門" : currentDepartment?.title)
         
         setupLayout()
         layoutWithDept(currentDepartment)
@@ -100,7 +100,7 @@ class DeptDetailViewController: UITableViewController
     //MARK: UITextFieldDelegate
     @IBAction func textFieldDidChanged(field: UITextField) {
         sendBtn.isEnabled = fieldsValidation()
-        sendBtn.backgroundColor = sendBtn.isEnabled ? UIColor(named:"SPGreen") : UIColor(named:"SPLight")
+        sendBtn.backgroundColor = sendBtn.isEnabled ? UIColor.SPGreen : UIColor.SPLight
     }
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
