@@ -55,20 +55,6 @@ class LeaveManageViewController: UIViewController
         }
     }
     
-    func deleteLeave(leave: Leave, indexPath: IndexPath) {
-        LeaveManager.sharedInstance().removeLeaveData(leave) { (error) in
-            if let error = error {
-                self.showAlert(message: error.localizedDescription)
-                return
-            }
-            self.mainTable.beginUpdates()
-            self.unsignedList?.remove(at: indexPath.row)
-            self.mainTable.deleteRows(at: [indexPath], with: UITableViewRowAnimation.fade)
-            self.mainTable.endUpdates()
-            self.showAlert(message: "假單已經刪除囉!")
-        }
-    }
-    
     //MARK: UITableViewDataSource
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
@@ -95,23 +81,6 @@ class LeaveManageViewController: UIViewController
          tableView.deselectRow(at: indexPath, animated: true)
         let list = (indexPath.section == 0 ? unsignedList : signedList)
         performSegue(withIdentifier: tbDefines.kSegueDetail, sender: list?[indexPath.row])
-    }
-    
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        guard indexPath.section == 0 else { return false }
-        let leave = unsignedList![indexPath.row]
-        return leave.approvals?.first?.status == 0
-    }
-    
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        guard indexPath.section == 0 else { return nil }
-        let leave = unsignedList![indexPath.row]
-        let deleteAction = UITableViewRowAction(style: .destructive, title: "撤單") { (action, indexPath) in
-            self.showAlert(message: "確定要刪除假單媽？", completion: {
-                self.deleteLeave(leave: leave, indexPath: indexPath)
-            })
-        }
-        return [deleteAction]
     }
     
     //MARK: Getter

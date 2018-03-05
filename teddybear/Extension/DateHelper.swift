@@ -531,51 +531,22 @@ public extension Date {
     internal static let weekInSeconds:Double = 604800
     internal static let yearInSeconds:Double = 31556926
     
-    static func leaveHour(_ startTime: Date, _ startPeriod: Int, _ endTime: Date, _ endPeriod: Int) -> Int {
-        
-        var differentDateComponent = DateComponents()
-        differentDateComponent = Calendar.current.dateComponents([.day], from: startTime, to: endTime)
-        var leaveDay = differentDateComponent.day!
-        if let count = differentDateComponent.day {
-            if count >= 0 {
-                for count in 0...count {
-                    let day = Calendar.current.date(byAdding: Calendar.Component.day, value: count, to: startTime)
-                    let dateComponents = Calendar.current.dateComponents([.weekday], from: day!)
-                    if dateComponents.weekday == 7 ||  dateComponents.weekday == 1 {
-                        leaveDay = leaveDay - 1
-                    }
-                }
+    static func leaveHour(_ startTime: Date, _ endTime: Date) -> Int {
+        var component = Calendar.current.dateComponents([.day, .hour], from: startTime, to: endTime)
+        let days = component.day!
+        var total_day = days
+        var hours = component.hour!
+        for index in 0...days {
+            let day = Calendar.current.date(byAdding: Calendar.Component.day, value: index, to: startTime)
+            if (day?.isHoliday())! {
+                total_day = total_day - 1
+                continue
             }
         }
-        
-        var sumHour: Int = 0 //總時數
-        if leaveDay == 0 { //開始和結束同一天
-            if endPeriod - startPeriod == 1 {
-                sumHour += 8
-                
-            } else if endPeriod - startPeriod == 0 {
-                sumHour += 4
-                
-            }
-        } else if leaveDay > 0 {
-            if startPeriod == 0 {
-                sumHour += 8
-                
-            } //第一天全天
-            if startPeriod == 1 {
-                sumHour += 4
-            } //第一天半天
-            if endPeriod == 0 {
-                sumHour += 4
-            } //最後一天半天
-            if endPeriod == 1 {
-                sumHour += 8
-            } //最後一天全天
-            if leaveDay > 1 {
-                sumHour += (leaveDay-1)*8
-            }
+        if hours > 8 {
+            hours = 8
         }
-        return sumHour
+        return total_day * 8 + hours
     }
     
     static func startMonth(yearMonth: String) -> Date {
@@ -591,6 +562,10 @@ public extension Date {
         return endOfMonth
     }
     
+    func isHoliday() -> Bool {
+        let dayComponent = Calendar.current.dateComponents([.weekday], from: self)
+        return (dayComponent.weekday == 1 || dayComponent.weekday == 7)
+    }
 }
 
 // MARK: Enums used

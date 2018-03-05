@@ -114,17 +114,16 @@ class ReportManageViewController: UIViewController
             for leave in leaves {
                 let type = leave.type!
                 let beginDate = Date(timeIntervalSinceReferenceDate: TimeInterval(leave.startTime!))
-                let finishDate = Date(timeIntervalSinceReferenceDate: TimeInterval(leave.endTime!))
-                let hour = Date.leaveHour(beginDate, leave.startPeriod!, finishDate, leave.endPeriod!)
+                let endDate = Date(timeIntervalSinceReferenceDate: TimeInterval(leave.endTime!))
+                let hour = Date.leaveHour(beginDate, endDate)
                 totalHour += hour
-                let startDay = String(Calendar.current.component(.day, from: beginDate))
-                let startMonth = String(Calendar.current.component(.month, from: beginDate))
-                let startPeriod = tbDefines.kBeginSection[leave.startPeriod!]
-                let endDay = String(Calendar.current.component(.day, from: finishDate))
-                let endMonth = String(Calendar.current.component(.month, from: finishDate))
-                let endPeriod = tbDefines.kEndSection[leave.endPeriod!]
-                csvText.append(",\(type),\(startMonth)月\(startDay)日\(startPeriod),\(endMonth)月\(endDay)日\(endPeriod),\(hour)小時\n")
-            }
+                let startDay = beginDate.toString(format: .custom("dd"))
+                let startMonth = beginDate.toString(format: .custom("MM"))
+                let startTime = beginDate.toString(format: .isoTime)
+                let endDay = endDate.toString(format: .custom("dd"))
+                let endMonth = endDate.toString(format: .custom("MM"))
+                let endTime = endDate.toString(format: .isoTime)
+                csvText.append(",\(type),\(startMonth)月\(startDay)日\(startTime),\(endMonth)月\(endDay)日\(endTime),\(hour)小時\n")}
             csvText.append(",,,,,總共\(totalHour)小時\n")
         }
         return csvText
@@ -254,9 +253,9 @@ class ReportManageViewController: UIViewController
     func getTotalHours(leaves: [Leave]?) -> String {
         var summation: Int = 0
         for leave in leaves! {
-            let beginDate = Date(timeIntervalSinceReferenceDate: TimeInterval(leave.startTime!))
-            let endDate = Date(timeIntervalSinceReferenceDate: TimeInterval(leave.endTime!))
-            let hour = Date.leaveHour(beginDate, leave.startPeriod!, endDate, leave.endPeriod!)
+            let beginDate = Date(timeIntervalSince1970: TimeInterval(leave.startTime!))
+            let endDate = Date(timeIntervalSince1970: TimeInterval(leave.endTime!))
+            let hour = Date.leaveHour(beginDate, endDate)
             summation += hour
         }
         return summation > 8 ? String(format:"%.1f天", Double(summation)/8) : "\(summation)小時"
@@ -264,10 +263,6 @@ class ReportManageViewController: UIViewController
     
     @IBAction func onSelectMonth() {
         dateField.becomeFirstResponder()
-    }
-    
-    @objc func keyboardDismiss(gesture: UITapGestureRecognizer) {
-        self.view.endEditing(true)
     }
     
     //MARK: UITableViewDataSource

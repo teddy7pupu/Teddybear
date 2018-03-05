@@ -79,10 +79,6 @@ class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDeleg
         }
     }
     
-    @objc func keyboardDismiss(gesture: UITapGestureRecognizer) {
-        self.view.endEditing(true)
-    }
-    
     @IBAction func onBearBtn() {
         bearBtn.pop()
     }

@@ -10,16 +10,24 @@ import Foundation
 struct Leave: Codable {
     var leaveId: String?    //假單ID
     var sid: String?        //員工id
-    var type: String?       //假別
+    var type: LeaveType?    //假別
     var applyTime: Int?     //申請日期
     var startTime: Int?     //假單起始日
-    var startPeriod: Int?   //假單開始時段 0 -> 10:00 ; 1 -> 15:00
     var endTime: Int?       //假單結束日
-    var endPeriod: Int?     //假單結束時段 0 -> 14:00 ; 1 -> 19:00
     var message: String?    //請假原因
     var assigneeId: String? //代理人ID
     var approvals: [Approval]? //簽核清單
     var departmentId: String?//部門ID
+    
+    enum LeaveType: String, Codable, EnumCollection {
+        case annual = "特休假"
+        case personal = "事假"
+        case sick = "病假"
+        case marriage = "婚假"
+        case funeral = "喪假"
+        case maternity = "產假"
+        case paternity = "陪產假"
+    }
     
     init() {
     }
