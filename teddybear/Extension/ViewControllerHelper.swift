@@ -25,4 +25,9 @@ extension UIViewController {
         tableView.contentInset = UIEdgeInsets.zero
         tableView.scrollIndicatorInsets = UIEdgeInsets.zero
     }
+    
+    @objc func keyboardDismiss(gesture: UITapGestureRecognizer?) {
+        self.view.endEditing(true)
+    }
 }
+

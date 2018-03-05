@@ -32,13 +32,15 @@ class StaffManager: NSObject {
         return mInstance!
     }
     
-    func updateStaff(_ staff: Staff!, completion:@escaping (Staff?, Error?) -> Void) {
+    func updateStaff(_ staff: Staff!, _ isMe: Bool = false, completion:@escaping (Staff?, Error?) -> Void) {
         staffRef()?.child(staff.sid!).updateChildValues(staff.dictionaryData(), withCompletionBlock: { (error, reference) in
             if let error = error {
                 completion(nil, error)
                 return
             }
-            self.currentStaff = staff
+            if isMe {
+                self.currentStaff = staff
+            }
             completion(staff, nil)
         })
     }

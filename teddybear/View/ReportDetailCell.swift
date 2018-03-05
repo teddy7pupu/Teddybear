@@ -26,12 +26,12 @@ class ReportDetailCell: UITableViewCell {
 
     func layoutCell(with leave: Leave) {
         startDateView.layoutView(date: Date(timeIntervalSince1970: Double(leave.startTime!)))
-        typeLbl.text = leave.type
+        typeLbl.text = leave.type?.rawValue
         reasonLbl.text = "事由：" + leave.message!
         
-        let beginDate = Date(timeIntervalSinceReferenceDate: TimeInterval(leave.startTime!))
-        let endDate = Date(timeIntervalSinceReferenceDate: TimeInterval(leave.endTime!))
-        let hour = Date.leaveHour(beginDate, leave.startPeriod!, endDate, leave.endPeriod!)
+        let beginDate = Date(timeIntervalSince1970: TimeInterval(leave.startTime!))
+        let endDate = Date(timeIntervalSince1970: TimeInterval(leave.endTime!))
+        let hour = Date.leaveHour(beginDate, endDate)
         hoursLbl.text = hour > 8 ? String(format:"%.1f天", Double(hour)/8) : "\(hour)小時"
     }
     

@@ -25,8 +25,8 @@ class LeaveCell: UITableViewCell {
         let endDate = Date(timeIntervalSince1970: TimeInterval((leave?.endTime)!))
         monthLbl.text = beginDate.toString(style: .shortMonth)
         dayLbl.text = String(format:"%02d", beginDate.component(.day)!)
-        typeLbl.text = leave?.type
-        let duration = Date.leaveHour(beginDate, (leave?.startPeriod)!, endDate, (leave?.endPeriod)!)
+        typeLbl.text = leave?.type?.rawValue
+        let duration = Date.leaveHour(beginDate, endDate)
         durationLbl.text = duration > 8 ? String(format:"%.1f天", Double(duration)/8) : "\(duration)小時"
         layoutStatusButton(leave: leave)
     }

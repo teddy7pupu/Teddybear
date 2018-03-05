@@ -42,7 +42,7 @@ class ApprovalDetailViewController: UITableViewController {
     
     //MARK: Layout & Animation
     func setupLayout() {
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(LeaveDetailViewController.keyboardDismiss(gesture:)))
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(ApprovalDetailViewController.keyboardDismiss(gesture:)))
         gesture.cancelsTouchesInView = false
         self.view.addGestureRecognizer(gesture)
     }
@@ -56,14 +56,14 @@ class ApprovalDetailViewController: UITableViewController {
         
         let beginDate = Date(timeIntervalSince1970: TimeInterval(leave.startTime!))
         let endDate = Date(timeIntervalSince1970: TimeInterval(leave.endTime!))
-        let hour = Date.leaveHour(beginDate, leave.startPeriod!, endDate, leave.endPeriod!)
+        let hour = Date.leaveHour(beginDate, endDate)
         
         beginTimeLbl.text = beginDate.toString(format: .isoDate)
-        beginPeriodLbl.text = tbDefines.kBeginSection[leave.startPeriod!]
+        beginPeriodLbl.text = beginDate.toString(format: .isoTime)
         endTimeLbl.text = endDate.toString(format: .isoDate)
-        endPeriodLbl.text = tbDefines.kEndSection[leave.endPeriod!]
+        endPeriodLbl.text = endDate.toString(format: .isoTime)
         hoursLbl.text = "\(hour/8) 天 \(hour%8) 小時"
-        typeLbl.text = leave.type
+        typeLbl.text = leave.type?.rawValue
         messageLbl.text = leave.message
         approvalMessageField.text = approval.message
         
@@ -101,10 +101,6 @@ class ApprovalDetailViewController: UITableViewController {
             }
             self.navigationController?.popViewController(animated: true)
         }
-    }
-    
-    @objc func keyboardDismiss(gesture: UITapGestureRecognizer) {
-        self.view.endEditing(true)
     }
     
     //MARK: UITableViewDelegate

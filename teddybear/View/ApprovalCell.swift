@@ -32,7 +32,7 @@ class ApprovalCell: UITableViewCell {
         layoutATypeButton(approval: approval, leave: leave)
         layoutStatusButton(approval: approval)
         nameLbl.text = manager?.getStaff(byStaffId: leave.sid!)?.name
-        typeLbl.text = leave.type
+        typeLbl.text = leave.type?.rawValue
         applyTimeLbl.text = Date(timeIntervalSince1970: TimeInterval(leave.applyTime!))
             .toString(format: .custom("yyyy-MM-dd HH:mm:ss"))
     }
@@ -50,7 +50,7 @@ class ApprovalCell: UITableViewCell {
     private func layoutHoursLabel(leave: Leave) {
         let beginDate = Date(timeIntervalSince1970: TimeInterval((leave.startTime)!))
         let endDate = Date(timeIntervalSince1970: TimeInterval((leave.endTime)!))
-        let hours = Date.leaveHour(beginDate, leave.startPeriod!, endDate, leave.endPeriod!)
+        let hours = Date.leaveHour(beginDate, endDate)
         hoursLbl.text = "\(hours/8) 天 \(hours%8) 小時"
     }
     

@@ -11,6 +11,9 @@ import UIKit
 enum tbPickerType {
     case Default
     case MonthYear
+    case OfficeHour
+    case AnnualSection1
+    case AnnualSection2
 }
 
 class tbPickerView: UIView
@@ -19,6 +22,8 @@ class tbPickerView: UIView
     @IBOutlet weak var pickerView: UIPickerView!
     var years: [String] = []
     var months: [String] = []
+    var officeHours: [String] = []
+    let annualHours: [[String]] = [["10:00", "15:00"], ["14:00", "19:00"]]
     
     weak var owner: UITextField?
     
@@ -29,6 +34,19 @@ class tbPickerView: UIView
     }
     var type: tbPickerType = .Default {
         didSet {
+            switch type {
+            case .MonthYear:
+                getYearMonthSource()
+            case .OfficeHour:
+                getOfficeHours()
+                dataSource = officeHours
+            case .AnnualSection1:
+                dataSource = annualHours[0]
+            case .AnnualSection2:
+                dataSource = annualHours[1]
+            default:
+                break
+            }
             pickerView.reloadAllComponents()
         }
     }
@@ -38,24 +56,7 @@ class tbPickerView: UIView
         super.awakeFromNib()
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        if type == .MonthYear {
-            getYearMonthSource()
-        }
-    }
-    
     //MARK: Action
-    func getYearMonthSource() {
-        years = []
-        months = DateFormatter().shortMonthSymbols
-        let year: Int = Calendar.current.component(.year, from: Date())
-        for count in (year-2)...year {
-            years.append("\(count)")
-        }
-        pickerView.selectRow(2, inComponent: 0, animated: false)
-    }
-    
     @IBAction func onCancelAction() {
         owner?.resignFirstResponder()
     }
@@ -92,6 +93,26 @@ class tbPickerView: UIView
             return (component == 0) ? years[row] : months[row]
         }
         return dataSource?[row]
+    }
+    
+    //MARK: Getter
+    internal func getYearMonthSource() {
+        if years.count == 0, months.count == 0 {
+            months = DateFormatter().shortMonthSymbols
+            let year: Int = Calendar.current.component(.year, from: Date())
+            for count in (year-2)...year {
+                years.append("\(count)")
+            }
+        }
+        pickerView.selectRow(2, inComponent: 0, animated: false)
+    }
+    
+    internal func getOfficeHours() {
+        if officeHours.count == 0 {
+            for n in 10...19 {
+                officeHours.append("\(n):00")
+            }
+        }
     }
 }
 
