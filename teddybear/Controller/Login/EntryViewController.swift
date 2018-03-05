@@ -59,7 +59,7 @@ class EntryViewController: UIViewController {
         var updated = staff
         updated?.uid = user?.uid
         updated?.avatar = user?.photoURL?.absoluteString
-        StaffManager.sharedInstance().updateStaff(updated) { (aStaff, error) in
+        StaffManager.sharedInstance().updateStaff(updated, true) { (aStaff, error) in
             if let error = error {
                 NSLog("%@", error.localizedDescription)
                 self.showAlert(message: "更新員工資料失敗")
