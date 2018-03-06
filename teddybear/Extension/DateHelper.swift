@@ -602,9 +602,6 @@ public enum DateFormatType {
     
     case isoDateWeek
     
-    /// The ISO8601 formatted date "yyyy-MM月-dd" i.e. 1997-07月-16
-    case isoCHDate
-    
     /// The ISO8601 formatted date and time "yyyy-MM-dd'T'HH:mmZ" i.e. 1997-07-16T19:20+01:00
     case isoDateTime
     
@@ -638,7 +635,6 @@ public enum DateFormatType {
         switch self {
         case .isoYear: return "yyyy"
         case .isoYearMonth: return "yyyy-MM"
-        case .isoCHDate: return "yyyy-MM月-dd"
         case .isoDate: return "yyyy-MM-dd"
         case .isoDateWeek: return "EEE"
         case .isoDateTime: return "yyyy-MM-dd'T'HH:mmZ"
