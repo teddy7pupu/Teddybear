@@ -53,7 +53,6 @@ class StaffManageViewController: UIViewController
         if !isAccount {
             addBtn.isHidden = true
             deptBtn.isHidden = true
-            mainTable.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: addBtn.bounds.height, right: 0)
         }
     }
     

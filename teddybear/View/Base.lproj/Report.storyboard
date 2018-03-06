@@ -25,6 +25,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QMS-gd-qGn">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.1137254902" green="0.72549019609999998" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="wt4-Vf-JPM" kind="relationship" relationship="rootViewController" id="yhO-AP-I7y"/>
@@ -42,8 +45,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5sb-je-bQs">
-                                <rect key="frame" x="175" y="103" width="25" height="30"/>
+                            <textField hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5sb-je-bQs">
+                                <rect key="frame" x="175" y="95" width="25" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -51,22 +55,8 @@
                                     <action selector="textFieldDidChangedWithField:" destination="wt4-Vf-JPM" eventType="editingChanged" id="gTx-uX-F4E"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rU6-By-AVE">
-                                <rect key="frame" x="0.0" y="88" width="375" height="60"/>
-                                <color key="backgroundColor" red="0.12941176469999999" green="0.12941176469999999" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="RVI-dY-YCC"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <state key="normal" title="選擇月份  ▼">
-                                    <color key="titleColor" red="0.1137254902" green="0.72549019609999998" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="onSelectMonth" destination="wt4-Vf-JPM" eventType="touchUpInside" id="UQO-hS-cui"/>
-                                </connections>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PW3-aA-0kS">
-                                <rect key="frame" x="0.0" y="148" width="375" height="570"/>
+                                <rect key="frame" x="0.0" y="116" width="375" height="662"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="bVH-qH-e9x">
@@ -204,58 +194,58 @@
                                     <outlet property="delegate" destination="wt4-Vf-JPM" id="n1Z-0I-4Sz"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xpg-ph-cQf">
-                                <rect key="frame" x="0.0" y="718" width="375" height="60"/>
-                                <color key="backgroundColor" red="0.1137254902" green="0.72549019609999998" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="OWt-0Y-w83"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="匯出表單">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="rqT-b7-zIw">
+                                <rect key="frame" x="0.0" y="88" width="375" height="29"/>
+                                <segments>
+                                    <segment title="請假清單"/>
+                                    <segment title="實習生"/>
+                                </segments>
+                                <color key="tintColor" red="0.1137254902" green="0.72549019609999998" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
-                                    <action selector="onOutput:" destination="wt4-Vf-JPM" eventType="touchUpInside" id="Vuk-jJ-cWR"/>
+                                    <action selector="onChange:" destination="wt4-Vf-JPM" eventType="valueChanged" id="LQR-QG-fDQ"/>
                                 </connections>
-                            </button>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="rU6-By-AVE" firstAttribute="centerX" secondItem="Hgn-am-GOr" secondAttribute="centerX" id="3EI-SD-cbc"/>
-                            <constraint firstItem="rU6-By-AVE" firstAttribute="top" secondItem="YyA-Pq-SSf" secondAttribute="top" id="3XW-C1-awE"/>
-                            <constraint firstItem="Xpg-ph-cQf" firstAttribute="leading" secondItem="YyA-Pq-SSf" secondAttribute="leading" id="8VU-FV-TAp"/>
-                            <constraint firstItem="YyA-Pq-SSf" firstAttribute="trailing" secondItem="Xpg-ph-cQf" secondAttribute="trailing" id="9lf-gf-701"/>
-                            <constraint firstItem="rU6-By-AVE" firstAttribute="width" secondItem="PW3-aA-0kS" secondAttribute="width" id="CfD-qw-CVS"/>
+                            <constraint firstItem="rqT-b7-zIw" firstAttribute="top" secondItem="YyA-Pq-SSf" secondAttribute="top" id="DxV-pV-ZpX"/>
                             <constraint firstItem="YyA-Pq-SSf" firstAttribute="trailing" secondItem="PW3-aA-0kS" secondAttribute="trailing" id="HsD-cw-1YF"/>
+                            <constraint firstItem="YyA-Pq-SSf" firstAttribute="bottom" secondItem="PW3-aA-0kS" secondAttribute="bottom" id="QZu-op-Oq2"/>
+                            <constraint firstItem="rqT-b7-zIw" firstAttribute="leading" secondItem="YyA-Pq-SSf" secondAttribute="leading" id="Qqg-gD-GAv"/>
                             <constraint firstItem="PW3-aA-0kS" firstAttribute="leading" secondItem="YyA-Pq-SSf" secondAttribute="leading" id="Tq3-mA-5Lv"/>
-                            <constraint firstItem="Xpg-ph-cQf" firstAttribute="top" secondItem="PW3-aA-0kS" secondAttribute="bottom" id="XiV-BT-gdO"/>
-                            <constraint firstItem="5sb-je-bQs" firstAttribute="centerX" secondItem="rU6-By-AVE" secondAttribute="centerX" id="cVF-kp-10M"/>
-                            <constraint firstItem="YyA-Pq-SSf" firstAttribute="bottom" secondItem="Xpg-ph-cQf" secondAttribute="bottom" id="fQq-ba-3lv"/>
-                            <constraint firstItem="PW3-aA-0kS" firstAttribute="top" secondItem="rU6-By-AVE" secondAttribute="bottom" id="oIl-9c-xqs"/>
-                            <constraint firstItem="5sb-je-bQs" firstAttribute="centerY" secondItem="rU6-By-AVE" secondAttribute="centerY" id="tAu-kD-ul1"/>
+                            <constraint firstItem="YyA-Pq-SSf" firstAttribute="trailing" secondItem="rqT-b7-zIw" secondAttribute="trailing" id="aI4-SL-xbg"/>
+                            <constraint firstItem="PW3-aA-0kS" firstAttribute="top" secondItem="rqT-b7-zIw" secondAttribute="bottom" id="fmd-xC-uJF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="YyA-Pq-SSf"/>
                     </view>
                     <navigationItem key="navigationItem" id="3h8-6k-ZOk">
                         <nil key="title"/>
-                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="SAd-8w-SHv">
-                            <rect key="frame" x="119" y="7" width="137" height="30"/>
+                        <button key="titleView" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="rU6-By-AVE">
+                            <rect key="frame" x="141.66666666666666" y="5.6666666666666679" width="92" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <segments>
-                                <segment title="請假清單"/>
-                                <segment title="實習生"/>
-                            </segments>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="RVI-dY-YCC"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                            <state key="normal" title="選擇月份  ▼">
+                                <color key="titleColor" red="0.1137254902" green="0.72549019609999998" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
                             <connections>
-                                <action selector="onChange:" destination="wt4-Vf-JPM" eventType="valueChanged" id="r1k-9E-m7N"/>
+                                <action selector="onSelectMonth" destination="wt4-Vf-JPM" eventType="touchUpInside" id="UQO-hS-cui"/>
                             </connections>
-                        </segmentedControl>
+                        </button>
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="VVX-Ss-TAk">
+                            <connections>
+                                <action selector="onOutput:" destination="wt4-Vf-JPM" id="27Q-2F-oQm"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="dateField" destination="5sb-je-bQs" id="4uU-nq-k64"/>
                         <outlet property="mainTable" destination="PW3-aA-0kS" id="RCV-pJ-RPQ"/>
                         <outlet property="monthButton" destination="rU6-By-AVE" id="Bzl-Tm-2pL"/>
                         <outlet property="pickerView" destination="LNM-Cd-fhj" id="dUV-qr-Lut"/>
-                        <outlet property="typeCtrl" destination="SAd-8w-SHv" id="Ttg-2F-3ry"/>
+                        <outlet property="typeCtrl" destination="rqT-b7-zIw" id="3uO-Qh-F1j"/>
                         <segue destination="eDQ-0Z-KJD" kind="show" identifier="SegueReport" id="3u3-iH-SNA"/>
                     </connections>
                 </viewController>
@@ -313,7 +303,7 @@
         <!--Report Detail View Controller-->
         <scene sceneID="lNQ-Ec-j1h">
             <objects>
-                <viewController id="eDQ-0Z-KJD" customClass="ReportDetailViewController" customModule="teddybear" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="eDQ-0Z-KJD" customClass="ReportDetailViewController" customModule="teddybear" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DAX-Gg-xC7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

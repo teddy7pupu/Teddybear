@@ -24,10 +24,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <view key="tableFooterView" alpha="0.30000001192092896" contentMode="scaleToFill" id="GYd-tH-cjz">
-                                    <rect key="frame" x="0.0" y="88" width="375" height="0.5"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="re1-8o-ryU">
+                                    <rect key="frame" x="0.0" y="88" width="375" height="60"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="StaffCell" rowHeight="60" id="eLd-JZ-wIT" customClass="StaffCell" customModule="teddybear" customModuleProvider="target">
