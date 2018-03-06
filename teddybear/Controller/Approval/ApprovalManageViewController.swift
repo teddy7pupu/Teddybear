@@ -24,7 +24,6 @@ class ApprovalManageViewController: UIViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "簽核管理"
     }
 
     override func didReceiveMemoryWarning() {
@@ -105,7 +104,10 @@ class ApprovalManageViewController: UIViewController
         DispatchQueue.global().async {
             while(tick < approvals.count) { sleep(1) }
             tbHUD.dismiss()
-            self.mainTable.performSelector(onMainThread: #selector(UITableView.reloadData), with: nil, waitUntilDone: false)
+            DispatchQueue.main.async {
+                self.mainTable.isHidden = self.approvalList?.count == 0
+                self.mainTable.reloadData()
+            }
         }
     }
     

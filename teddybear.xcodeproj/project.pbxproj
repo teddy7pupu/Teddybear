@@ -17,9 +17,14 @@
 		79AAA8AF20236220007E0EAB /* ReportManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AAA8AE20236220007E0EAB /* ReportManageViewController.swift */; };
 		79AAA8B12023632B007E0EAB /* ReportCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AAA8B02023632B007E0EAB /* ReportCell.swift */; };
 		8D139E012003EAFB00F73760 /* tbDefines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D139E002003EAFB00F73760 /* tbDefines.swift */; };
-		8D2BC8742046EA6B00CDB994 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D2BC8722046EA6B00CDB994 /* Login.storyboard */; };
+		8D2BC8742046EA6B00CDB994 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D2BC8722046EA6B00CDB994 /* Main.storyboard */; };
 		8D2BC87D2047102B00CDB994 /* tbCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2BC87C2047102B00CDB994 /* tbCalendarView.swift */; };
 		8D2BC87F2047AC0300CDB994 /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2BC87E2047AC0300CDB994 /* EntryViewController.swift */; };
+		8D47ABAA204F126E00D28178 /* Me.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D47ABA8204F126E00D28178 /* Me.storyboard */; };
+		8D47ABAD204F146F00D28178 /* InternReport.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D47ABAB204F146F00D28178 /* InternReport.storyboard */; };
+		8D47ABAF204F15E200D28178 /* tbTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D47ABAE204F15E200D28178 /* tbTabBarController.swift */; };
+		8D47ABB1204F220B00D28178 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D47ABB0204F220B00D28178 /* Assets.xcassets */; };
+		8D47ABB4204F327D00D28178 /* MeInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D47ABB3204F327D00D28178 /* MeInfoViewController.swift */; };
 		8D753C91201B7FCD002FB369 /* LeaveManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D753C90201B7FCD002FB369 /* LeaveManager.swift */; };
 		8D753C93201B80A7002FB369 /* Leave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D753C92201B80A7002FB369 /* Leave.swift */; };
 		8D753C95201B87B8002FB369 /* LeaveManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D753C94201B87B8002FB369 /* LeaveManageViewController.swift */; };
@@ -34,15 +39,13 @@
 		8DB1382E204550D0006D0FCF /* ColorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB1382D204550D0006D0FCF /* ColorHelper.swift */; };
 		8DB13835204564FA006D0FCF /* Approval.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DB1382F204564F9006D0FCF /* Approval.storyboard */; };
 		8DB13836204564FA006D0FCF /* Report.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DB13831204564FA006D0FCF /* Report.storyboard */; };
-		8DB13837204564FA006D0FCF /* Intern.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DB13833204564FA006D0FCF /* Intern.storyboard */; };
+		8DB13837204564FA006D0FCF /* Attendance.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DB13833204564FA006D0FCF /* Attendance.storyboard */; };
 		8DB293841FFF1BF3007C39F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB293831FFF1BF3007C39F8 /* AppDelegate.swift */; };
 		8DB293861FFF1BF3007C39F8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB293851FFF1BF3007C39F8 /* LoginViewController.swift */; };
-		8DB293891FFF1BF3007C39F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DB293871FFF1BF3007C39F8 /* Main.storyboard */; };
-		8DB2938B1FFF1BF3007C39F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8DB2938A1FFF1BF3007C39F8 /* Assets.xcassets */; };
 		8DB2938E1FFF1BF3007C39F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DB2938C1FFF1BF3007C39F8 /* LaunchScreen.storyboard */; };
 		8DB293991FFF1BF3007C39F8 /* teddybearTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB293981FFF1BF3007C39F8 /* teddybearTests.swift */; };
 		8DB293A91FFF1E5D007C39F8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8DB293A81FFF1E5D007C39F8 /* GoogleService-Info.plist */; };
-		8DB293AB1FFF30CA007C39F8 /* LobbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB293AA1FFF30CA007C39F8 /* LobbyViewController.swift */; };
+		8DB293AB1FFF30CA007C39F8 /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB293AA1FFF30CA007C39F8 /* MeViewController.swift */; };
 		8DB293AE1FFF35AC007C39F8 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB293AD1FFF35AC007C39F8 /* UserManager.swift */; };
 		8DC3F2E7200CC05200BF2862 /* StaffManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC3F2E6200CC05200BF2862 /* StaffManageViewController.swift */; };
 		8DC3F2E9200CC18400BF2862 /* Staff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC3F2E8200CC18400BF2862 /* Staff.swift */; };
@@ -62,8 +65,7 @@
 		B841C78B202430E80014A602 /* ReportDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B841C78A202430E80014A602 /* ReportDetailCell.swift */; };
 		B85AE19F202D470000C4C246 /* Sign.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85AE19E202D470000C4C246 /* Sign.swift */; };
 		B85AE1A1202D484900C4C246 /* SignManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85AE1A0202D484900C4C246 /* SignManager.swift */; };
-		B85AE1A5202D50BD00C4C246 /* SignManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85AE1A4202D50BD00C4C246 /* SignManageViewController.swift */; };
-		B85AE1A7202D856100C4C246 /* InternViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85AE1A6202D856100C4C246 /* InternViewController.swift */; };
+		B85AE1A5202D50BD00C4C246 /* AttendanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85AE1A4202D50BD00C4C246 /* AttendanceViewController.swift */; };
 		B85AE1A9202D8B2700C4C246 /* SignDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85AE1A8202D8B2700C4C246 /* SignDetailViewController.swift */; };
 		B8C23A32203E656D00EDA743 /* Wifi.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C23A31203E656D00EDA743 /* Wifi.swift */; };
 		B8C23A34203E65AB00EDA743 /* WifiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C23A33203E65AB00EDA743 /* WifiManager.swift */; };
@@ -93,9 +95,14 @@
 		79AAA8AE20236220007E0EAB /* ReportManageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportManageViewController.swift; sourceTree = "<group>"; };
 		79AAA8B02023632B007E0EAB /* ReportCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportCell.swift; sourceTree = "<group>"; };
 		8D139E002003EAFB00F73760 /* tbDefines.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tbDefines.swift; sourceTree = "<group>"; };
-		8D2BC8732046EA6B00CDB994 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
+		8D2BC8732046EA6B00CDB994 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8D2BC87C2047102B00CDB994 /* tbCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tbCalendarView.swift; sourceTree = "<group>"; };
 		8D2BC87E2047AC0300CDB994 /* EntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
+		8D47ABA9204F126E00D28178 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Me.storyboard; sourceTree = "<group>"; };
+		8D47ABAC204F146F00D28178 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/InternReport.storyboard; sourceTree = "<group>"; };
+		8D47ABAE204F15E200D28178 /* tbTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tbTabBarController.swift; sourceTree = "<group>"; };
+		8D47ABB0204F220B00D28178 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8D47ABB3204F327D00D28178 /* MeInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeInfoViewController.swift; sourceTree = "<group>"; };
 		8D5871402022F66E0096A5D2 /* teddybear.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = teddybear.entitlements; sourceTree = "<group>"; };
 		8D753C90201B7FCD002FB369 /* LeaveManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaveManager.swift; sourceTree = "<group>"; };
 		8D753C92201B80A7002FB369 /* Leave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Leave.swift; sourceTree = "<group>"; };
@@ -111,19 +118,17 @@
 		8DB1382D204550D0006D0FCF /* ColorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorHelper.swift; sourceTree = "<group>"; };
 		8DB13830204564F9006D0FCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Approval.storyboard; sourceTree = "<group>"; };
 		8DB13832204564FA006D0FCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Report.storyboard; sourceTree = "<group>"; };
-		8DB13834204564FA006D0FCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Intern.storyboard; sourceTree = "<group>"; };
+		8DB13834204564FA006D0FCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Attendance.storyboard; sourceTree = "<group>"; };
 		8DB293801FFF1BF3007C39F8 /* teddybear.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = teddybear.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DB293831FFF1BF3007C39F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8DB293851FFF1BF3007C39F8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		8DB293881FFF1BF3007C39F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		8DB2938A1FFF1BF3007C39F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8DB2938D1FFF1BF3007C39F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8DB2938F1FFF1BF3007C39F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8DB293941FFF1BF3007C39F8 /* teddybearTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = teddybearTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DB293981FFF1BF3007C39F8 /* teddybearTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = teddybearTests.swift; sourceTree = "<group>"; };
 		8DB2939A1FFF1BF3007C39F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8DB293A81FFF1E5D007C39F8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		8DB293AA1FFF30CA007C39F8 /* LobbyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LobbyViewController.swift; sourceTree = "<group>"; };
+		8DB293AA1FFF30CA007C39F8 /* MeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
 		8DB293AD1FFF35AC007C39F8 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserManager.swift; path = teddybear/Model/UserManager.swift; sourceTree = SOURCE_ROOT; };
 		8DC3F2E6200CC05200BF2862 /* StaffManageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffManageViewController.swift; sourceTree = "<group>"; };
 		8DC3F2E8200CC18400BF2862 /* Staff.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Staff.swift; sourceTree = "<group>"; };
@@ -143,8 +148,7 @@
 		B841C78A202430E80014A602 /* ReportDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportDetailCell.swift; sourceTree = "<group>"; };
 		B85AE19E202D470000C4C246 /* Sign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sign.swift; sourceTree = "<group>"; };
 		B85AE1A0202D484900C4C246 /* SignManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignManager.swift; sourceTree = "<group>"; };
-		B85AE1A4202D50BD00C4C246 /* SignManageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignManageViewController.swift; sourceTree = "<group>"; };
-		B85AE1A6202D856100C4C246 /* InternViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternViewController.swift; sourceTree = "<group>"; };
+		B85AE1A4202D50BD00C4C246 /* AttendanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceViewController.swift; sourceTree = "<group>"; };
 		B85AE1A8202D8B2700C4C246 /* SignDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignDetailViewController.swift; sourceTree = "<group>"; };
 		B8C23A31203E656D00EDA743 /* Wifi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wifi.swift; sourceTree = "<group>"; };
 		B8C23A33203E65AB00EDA743 /* WifiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiManager.swift; sourceTree = "<group>"; };
@@ -198,25 +202,26 @@
 			children = (
 				8D2BC87E2047AC0300CDB994 /* EntryViewController.swift */,
 				8DB293851FFF1BF3007C39F8 /* LoginViewController.swift */,
+				8D47ABAE204F15E200D28178 /* tbTabBarController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
 		};
-		8D2BC8762046EC4B00CDB994 /* Lobby */ = {
+		8D2BC8762046EC4B00CDB994 /* Me */ = {
 			isa = PBXGroup;
 			children = (
-				8DB293AA1FFF30CA007C39F8 /* LobbyViewController.swift */,
+				8DB293AA1FFF30CA007C39F8 /* MeViewController.swift */,
+				8D47ABB3204F327D00D28178 /* MeInfoViewController.swift */,
 				B8C23A35203E677F00EDA743 /* WifiManagerViewController.swift */,
 			);
-			path = Lobby;
+			path = Me;
 			sourceTree = "<group>";
 		};
 		8D2BC8772046EC6200CDB994 /* Intern */ = {
 			isa = PBXGroup;
 			children = (
-				B85AE1A6202D856100C4C246 /* InternViewController.swift */,
+				B85AE1A4202D50BD00C4C246 /* AttendanceViewController.swift */,
 				B85AE1A8202D8B2700C4C246 /* SignDetailViewController.swift */,
-				B85AE1A4202D50BD00C4C246 /* SignManageViewController.swift */,
 			);
 			path = Intern;
 			sourceTree = "<group>";
@@ -258,6 +263,23 @@
 				79AAA8AE20236220007E0EAB /* ReportManageViewController.swift */,
 			);
 			path = Report;
+			sourceTree = "<group>";
+		};
+		8D47ABB2204F226900D28178 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				79867D7D201EFC41001E21AB /* ApprovalCell.swift */,
+				8DC3F2EF200DC2BD00BF2862 /* DatePickerView.swift */,
+				8DC3F307200F550300BF2862 /* DeptCell.swift */,
+				8D753C96201B934B002FB369 /* LeaveCell.swift */,
+				79AAA8B02023632B007E0EAB /* ReportCell.swift */,
+				B841C78A202430E80014A602 /* ReportDetailCell.swift */,
+				8DC3F2F9200E076D00BF2862 /* StaffCell.swift */,
+				8D2BC87C2047102B00CDB994 /* tbCalendarView.swift */,
+				8DC3F301200F275400BF2862 /* tbHUD.swift */,
+				8D981064200FD1F900072804 /* tbPickerView.swift */,
+			);
+			path = Custom;
 			sourceTree = "<group>";
 		};
 		8D753C8F201B7FB0002FB369 /* LeaveManager */ = {
@@ -317,23 +339,15 @@
 			isa = PBXGroup;
 			children = (
 				8DB2938C1FFF1BF3007C39F8 /* LaunchScreen.storyboard */,
-				8D2BC8722046EA6B00CDB994 /* Login.storyboard */,
-				8DB293871FFF1BF3007C39F8 /* Main.storyboard */,
-				8DB13833204564FA006D0FCF /* Intern.storyboard */,
+				8D2BC8722046EA6B00CDB994 /* Main.storyboard */,
+				8D90E7BA201BA7780097636E /* Staff.storyboard */,
 				8DB1382F204564F9006D0FCF /* Approval.storyboard */,
 				8D90E7BD201BA80F0097636E /* Leave.storyboard */,
 				8DB13831204564FA006D0FCF /* Report.storyboard */,
-				8D90E7BA201BA7780097636E /* Staff.storyboard */,
-				79867D7D201EFC41001E21AB /* ApprovalCell.swift */,
-				8DC3F2EF200DC2BD00BF2862 /* DatePickerView.swift */,
-				8DC3F307200F550300BF2862 /* DeptCell.swift */,
-				8D753C96201B934B002FB369 /* LeaveCell.swift */,
-				79AAA8B02023632B007E0EAB /* ReportCell.swift */,
-				B841C78A202430E80014A602 /* ReportDetailCell.swift */,
-				8DC3F2F9200E076D00BF2862 /* StaffCell.swift */,
-				8D2BC87C2047102B00CDB994 /* tbCalendarView.swift */,
-				8DC3F301200F275400BF2862 /* tbHUD.swift */,
-				8D981064200FD1F900072804 /* tbPickerView.swift */,
+				8D47ABA8204F126E00D28178 /* Me.storyboard */,
+				8DB13833204564FA006D0FCF /* Attendance.storyboard */,
+				8D47ABAB204F146F00D28178 /* InternReport.storyboard */,
+				8D47ABB2204F226900D28178 /* Custom */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -342,12 +356,12 @@
 			isa = PBXGroup;
 			children = (
 				8D2BC8752046EC3E00CDB994 /* Login */,
-				8D2BC8762046EC4B00CDB994 /* Lobby */,
-				8D2BC8772046EC6200CDB994 /* Intern */,
 				8D2BC8782046ED4300CDB994 /* Leave */,
 				8D2BC8792046ED5F00CDB994 /* Approval */,
-				8D2BC87A2046ED6F00CDB994 /* Staff */,
 				8D2BC87B2046ED8400CDB994 /* Report */,
+				8D2BC8762046EC4B00CDB994 /* Me */,
+				8D2BC87A2046ED6F00CDB994 /* Staff */,
+				8D2BC8772046EC6200CDB994 /* Intern */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -355,7 +369,7 @@
 		8DB293A51FFF1D4E007C39F8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				8DB2938A1FFF1BF3007C39F8 /* Assets.xcassets */,
+				8D47ABB0204F220B00D28178 /* Assets.xcassets */,
 				8DB2938F1FFF1BF3007C39F8 /* Info.plist */,
 				8DB293A81FFF1E5D007C39F8 /* GoogleService-Info.plist */,
 			);
@@ -522,14 +536,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				8DB2938E1FFF1BF3007C39F8 /* LaunchScreen.storyboard in Resources */,
+				8D47ABAA204F126E00D28178 /* Me.storyboard in Resources */,
+				8D47ABB1204F220B00D28178 /* Assets.xcassets in Resources */,
 				8DB293A91FFF1E5D007C39F8 /* GoogleService-Info.plist in Resources */,
 				8D90E7BF201BA80F0097636E /* Leave.storyboard in Resources */,
 				8DB13835204564FA006D0FCF /* Approval.storyboard in Resources */,
 				8DB13836204564FA006D0FCF /* Report.storyboard in Resources */,
-				8DB2938B1FFF1BF3007C39F8 /* Assets.xcassets in Resources */,
-				8DB293891FFF1BF3007C39F8 /* Main.storyboard in Resources */,
-				8DB13837204564FA006D0FCF /* Intern.storyboard in Resources */,
-				8D2BC8742046EA6B00CDB994 /* Login.storyboard in Resources */,
+				8D47ABAD204F146F00D28178 /* InternReport.storyboard in Resources */,
+				8DB13837204564FA006D0FCF /* Attendance.storyboard in Resources */,
+				8D2BC8742046EA6B00CDB994 /* Main.storyboard in Resources */,
 				8D90E7BC201BA7780097636E /* Staff.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -683,13 +698,14 @@
 				8DC3F302200F275400BF2862 /* tbHUD.swift in Sources */,
 				B85AE1A1202D484900C4C246 /* SignManager.swift in Sources */,
 				8D858B962049F77900191C98 /* tbUtilities.swift in Sources */,
-				8DB293AB1FFF30CA007C39F8 /* LobbyViewController.swift in Sources */,
+				8DB293AB1FFF30CA007C39F8 /* MeViewController.swift in Sources */,
 				8DC3F304200F371A00BF2862 /* ViewControllerHelper.swift in Sources */,
 				8DC3F2E9200CC18400BF2862 /* Staff.swift in Sources */,
 				796954CB201F4F61004704AD /* ApprovalDetailViewController.swift in Sources */,
 				8D753C97201B934B002FB369 /* LeaveCell.swift in Sources */,
 				8D90E7C1201BB9900097636E /* LeaveDetailViewController.swift in Sources */,
 				B85AE1A9202D8B2700C4C246 /* SignDetailViewController.swift in Sources */,
+				8D47ABB4204F327D00D28178 /* MeInfoViewController.swift in Sources */,
 				8DC3F2F0200DC2BD00BF2862 /* DatePickerView.swift in Sources */,
 				8DC3F306200F43A700BF2862 /* DeptManageViewController.swift in Sources */,
 				79867D78201E1669001E21AB /* ApprovalManager.swift in Sources */,
@@ -699,7 +715,7 @@
 				B8C23A36203E677F00EDA743 /* WifiManagerViewController.swift in Sources */,
 				8DC3F2EE200D262400BF2862 /* StaffDetailViewController.swift in Sources */,
 				B8C23A32203E656D00EDA743 /* Wifi.swift in Sources */,
-				B85AE1A5202D50BD00C4C246 /* SignManageViewController.swift in Sources */,
+				B85AE1A5202D50BD00C4C246 /* AttendanceViewController.swift in Sources */,
 				8D753C91201B7FCD002FB369 /* LeaveManager.swift in Sources */,
 				B8C23A34203E65AB00EDA743 /* WifiManager.swift in Sources */,
 				15A219862017183500B2AE20 /* UITextFieldHelper.swift in Sources */,
@@ -723,7 +739,7 @@
 				8D2BC87D2047102B00CDB994 /* tbCalendarView.swift in Sources */,
 				8D981063200FCAF600072804 /* Department.swift in Sources */,
 				B82BD3C4203FD1EB00484222 /* ReportDetailViewController.swift in Sources */,
-				B85AE1A7202D856100C4C246 /* InternViewController.swift in Sources */,
+				8D47ABAF204F15E200D28178 /* tbTabBarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -746,12 +762,28 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		8D2BC8722046EA6B00CDB994 /* Login.storyboard */ = {
+		8D2BC8722046EA6B00CDB994 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				8D2BC8732046EA6B00CDB994 /* Base */,
 			);
-			name = Login.storyboard;
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		8D47ABA8204F126E00D28178 /* Me.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8D47ABA9204F126E00D28178 /* Base */,
+			);
+			name = Me.storyboard;
+			sourceTree = "<group>";
+		};
+		8D47ABAB204F146F00D28178 /* InternReport.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8D47ABAC204F146F00D28178 /* Base */,
+			);
+			name = InternReport.storyboard;
 			sourceTree = "<group>";
 		};
 		8D90E7BA201BA7780097636E /* Staff.storyboard */ = {
@@ -786,20 +818,12 @@
 			name = Report.storyboard;
 			sourceTree = "<group>";
 		};
-		8DB13833204564FA006D0FCF /* Intern.storyboard */ = {
+		8DB13833204564FA006D0FCF /* Attendance.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				8DB13834204564FA006D0FCF /* Base */,
 			);
-			name = Intern.storyboard;
-			sourceTree = "<group>";
-		};
-		8DB293871FFF1BF3007C39F8 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8DB293881FFF1BF3007C39F8 /* Base */,
-			);
-			name = Main.storyboard;
+			name = Attendance.storyboard;
 			sourceTree = "<group>";
 		};
 		8DB2938C1FFF1BF3007C39F8 /* LaunchScreen.storyboard */ = {

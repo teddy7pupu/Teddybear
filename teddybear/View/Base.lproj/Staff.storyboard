@@ -15,48 +15,19 @@
         <!--Staff Manage View Controller-->
         <scene sceneID="y5z-xf-Wr6">
             <objects>
-                <viewController id="6h5-t8-s8A" customClass="StaffManageViewController" customModule="teddybear" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="6h5-t8-s8A" customClass="StaffManageViewController" customModule="teddybear" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="240-g8-D8F">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0EO-RS-oxF">
-                                <rect key="frame" x="0.0" y="543" width="187.5" height="60"/>
-                                <color key="backgroundColor" red="0.1137254902" green="0.72549019609999998" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="o4V-nL-MSv"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="新增員工">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <segue destination="tRi-bZ-cnu" kind="show" identifier="SegueDetail" id="1ML-0Z-NtT">
-                                        <nil key="action"/>
-                                    </segue>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QgF-F5-4N9">
-                                <rect key="frame" x="187.5" y="543" width="187.5" height="60"/>
-                                <color key="backgroundColor" red="0.12941176469999999" green="0.12941176469999999" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="部門管理">
-                                    <color key="titleColor" red="0.1137254902" green="0.72549019609999998" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="BOR-2G-q5g" kind="show" id="JUo-zm-8sm">
-                                        <nil key="action"/>
-                                    </segue>
-                                </connections>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zLh-0d-VHf">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="543"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <view key="tableFooterView" alpha="0.30000001192092896" contentMode="scaleToFill" id="GYd-tH-cjz">
-                                    <rect key="frame" x="0.0" y="88" width="375" height="0.5"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="re1-8o-ryU">
+                                    <rect key="frame" x="0.0" y="88" width="375" height="60"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="StaffCell" rowHeight="60" id="eLd-JZ-wIT" customClass="StaffCell" customModule="teddybear" customModuleProvider="target">
@@ -133,6 +104,35 @@
                                     <outlet property="delegate" destination="6h5-t8-s8A" id="lxg-Jb-5Sj"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0EO-RS-oxF">
+                                <rect key="frame" x="0.0" y="543" width="187.5" height="60"/>
+                                <color key="backgroundColor" red="0.1137254902" green="0.72549019609999998" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="o4V-nL-MSv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="新增員工">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="tRi-bZ-cnu" kind="show" identifier="SegueDetail" id="1ML-0Z-NtT">
+                                        <nil key="action"/>
+                                    </segue>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QgF-F5-4N9">
+                                <rect key="frame" x="187.5" y="543" width="187.5" height="60"/>
+                                <color key="backgroundColor" red="0.12941176469999999" green="0.12941176469999999" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="部門管理">
+                                    <color key="titleColor" red="0.1137254902" green="0.72549019609999998" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="BOR-2G-q5g" kind="show" id="JUo-zm-8sm">
+                                        <nil key="action"/>
+                                    </segue>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -140,7 +140,7 @@
                             <constraint firstItem="QgF-F5-4N9" firstAttribute="height" secondItem="0EO-RS-oxF" secondAttribute="height" id="Har-H1-ohZ"/>
                             <constraint firstItem="QgF-F5-4N9" firstAttribute="leading" secondItem="0EO-RS-oxF" secondAttribute="trailing" id="JyN-JW-naT"/>
                             <constraint firstItem="idh-Gt-min" firstAttribute="trailing" secondItem="QgF-F5-4N9" secondAttribute="trailing" id="NJT-em-tSi"/>
-                            <constraint firstItem="0EO-RS-oxF" firstAttribute="top" secondItem="zLh-0d-VHf" secondAttribute="bottom" id="NM1-O5-JJK"/>
+                            <constraint firstItem="idh-Gt-min" firstAttribute="bottom" secondItem="zLh-0d-VHf" secondAttribute="bottom" id="NM1-O5-JJK"/>
                             <constraint firstItem="zLh-0d-VHf" firstAttribute="leading" secondItem="idh-Gt-min" secondAttribute="leading" id="buf-27-jgK"/>
                             <constraint firstItem="idh-Gt-min" firstAttribute="bottom" secondItem="QgF-F5-4N9" secondAttribute="bottom" id="iOZ-zS-x65"/>
                             <constraint firstItem="0EO-RS-oxF" firstAttribute="leading" secondItem="idh-Gt-min" secondAttribute="leading" id="lRi-TW-6Qv"/>
@@ -150,8 +150,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="idh-Gt-min"/>
                     </view>
+                    <navigationItem key="navigationItem" id="LcQ-aq-AQv"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
+                        <outlet property="addBtn" destination="0EO-RS-oxF" id="L59-UN-8cy"/>
+                        <outlet property="deptBtn" destination="QgF-F5-4N9" id="LwP-E6-tTP"/>
                         <outlet property="mainTable" destination="zLh-0d-VHf" id="FLh-NG-cBQ"/>
                     </connections>
                 </viewController>
@@ -168,7 +171,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        <view key="tableFooterView" contentMode="scaleToFill" misplaced="YES" id="Mbm-9J-eee">
+                        <view key="tableFooterView" contentMode="scaleToFill" id="Mbm-9J-eee">
                             <rect key="frame" x="0.0" y="700.5" width="375" height="60"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
@@ -860,7 +863,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        <view key="tableFooterView" contentMode="scaleToFill" misplaced="YES" id="nfx-d0-tMb">
+                        <view key="tableFooterView" contentMode="scaleToFill" id="nfx-d0-tMb">
                             <rect key="frame" x="0.0" y="188.5" width="375" height="60"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>

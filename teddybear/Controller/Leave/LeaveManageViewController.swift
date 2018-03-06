@@ -18,12 +18,16 @@ class LeaveManageViewController: UIViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "假單管理"
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         getMyLeaves()
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        fixTableViewInsets(tableView: mainTable)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -50,7 +54,10 @@ class LeaveManageViewController: UIViewController
                 self.leaveList = list
                 self.unsignedList = self.getLeaveList(isSigned: false)
                 self.signedList = self.getLeaveList(isSigned: true)
-                self.mainTable.performSelector(onMainThread: #selector(UITableView.reloadData), with: nil, waitUntilDone: false)
+                DispatchQueue.main.async {
+                    self.mainTable.isHidden = (self.leaveList?.count == 0)
+                    self.mainTable.reloadData()
+                }
             })
         }
     }
