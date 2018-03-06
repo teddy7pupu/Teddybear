@@ -71,10 +71,9 @@ class EntryViewController: UIViewController {
     
     func openLobby() {
         loadingView.stopAnimating()
-        let isIntern = StaffManager.sharedInstance().currentStaff?.role?.isIntern()
-        if isIntern! {
+        let currentStaff = StaffManager.sharedInstance().currentStaff
+        if (currentStaff != nil) && (currentStaff?.role?.isIntern())! {
             self.performSegue(withIdentifier: tbDefines.kSegueIntern, sender: nil)
-            return
         }
         self.performSegue(withIdentifier: tbDefines.kSegueLobby, sender: nil)
     }
