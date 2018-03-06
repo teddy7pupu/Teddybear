@@ -51,7 +51,9 @@ class MeViewController: UIViewController {
     
     func layoutUser() {
         if let staff = currentStaff {
-            avatarImg.sd_setImage(with: URL(string: staff.avatar!), completed: nil)
+            if let avatar = staff.avatar {
+                avatarImg.sd_setImage(with: URL(string: avatar), completed: nil)
+            }
             nameLbl.text = staff.name
             englishLbl.text = staff.english
             wifiBtn.isEnabled = false
