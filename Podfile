@@ -9,6 +9,8 @@ target 'teddybear' do
   pod 'Firebase/Auth'
   pod 'GoogleSignIn'
   pod 'SDWebImage'
+  pod 'Fabric', '~> 1.7.5'
+  pod 'Crashlytics', '~> 3.10.1'
 
   target 'teddybearTests' do
     inherit! :search_paths

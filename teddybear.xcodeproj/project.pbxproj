@@ -438,6 +438,7 @@
 				8DB2937E1FFF1BF3007C39F8 /* Resources */,
 				ECF14972EF49AAA3962B5D3A /* [CP] Embed Pods Frameworks */,
 				2028BCCB02E497121FE38575 /* [CP] Copy Pods Resources */,
+				8D47ABA7204F043400D28178 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -575,6 +576,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-teddybearTests/Pods-teddybearTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		8D47ABA7204F043400D28178 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\"";
 		};
 		B8AAD830EB69946C6168204B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

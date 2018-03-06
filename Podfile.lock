@@ -1,4 +1,7 @@
 PODS:
+  - Crashlytics (3.10.1):
+    - Fabric (~> 1.7.5)
+  - Fabric (1.7.5)
   - Firebase/Auth (4.6.0):
     - Firebase/Core
     - FirebaseAuth (= 4.3.2)
@@ -57,6 +60,8 @@ PODS:
   - SDWebImage/Core (4.2.3)
 
 DEPENDENCIES:
+  - Crashlytics (~> 3.10.1)
+  - Fabric (~> 1.7.5)
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
@@ -64,6 +69,8 @@ DEPENDENCIES:
   - SDWebImage
 
 SPEC CHECKSUMS:
+  Crashlytics: aee1a064cbbf99b32efa3f056a5f458d846bc8ff
+  Fabric: ae7146a5f505ea370a1e44820b4b1dc8890e2890
   Firebase: 27321a925aa85520618255a7c630859e0502ccbd
   FirebaseAnalytics: 5b02a63ead2c3f0259cfc7f15e053e440587ecf8
   FirebaseAuth: e58563adb207a43910a2ed87fecb9fa7d556df5a
@@ -78,6 +85,6 @@ SPEC CHECKSUMS:
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   SDWebImage: 791bb72962b3492327ddcac4b1880bd1b5458431
 
-PODFILE CHECKSUM: ce99196af96ecaa083a25b909848718a5c29a90c
+PODFILE CHECKSUM: 9fef4706a793d7a074f2b26bec6a00ccc2df2830
 
 COCOAPODS: 1.4.0
