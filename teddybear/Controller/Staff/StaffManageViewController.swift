@@ -65,7 +65,13 @@ class StaffManageViewController: UIViewController
                 NSLog(error.localizedDescription)
                 return
             }
-            self.list = list
+            if self.isAccount {
+                self.list = list
+            } else {
+                self.list = list?.filter({ (staff) -> Bool in
+                    return staff.quitDate == nil
+                })
+            }
             self.mainTable.performSelector(onMainThread: #selector(UITableView.reloadData), with: nil, waitUntilDone: false)
         }
     }
