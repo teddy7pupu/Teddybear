@@ -24,6 +24,7 @@
 		8D47ABAD204F146F00D28178 /* InternReport.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D47ABAB204F146F00D28178 /* InternReport.storyboard */; };
 		8D47ABAF204F15E200D28178 /* tbTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D47ABAE204F15E200D28178 /* tbTabBarController.swift */; };
 		8D47ABB1204F220B00D28178 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D47ABB0204F220B00D28178 /* Assets.xcassets */; };
+		8D47ABB4204F327D00D28178 /* MeInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D47ABB3204F327D00D28178 /* MeInfoViewController.swift */; };
 		8D753C91201B7FCD002FB369 /* LeaveManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D753C90201B7FCD002FB369 /* LeaveManager.swift */; };
 		8D753C93201B80A7002FB369 /* Leave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D753C92201B80A7002FB369 /* Leave.swift */; };
 		8D753C95201B87B8002FB369 /* LeaveManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D753C94201B87B8002FB369 /* LeaveManageViewController.swift */; };
@@ -102,6 +103,7 @@
 		8D47ABAC204F146F00D28178 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/InternReport.storyboard; sourceTree = "<group>"; };
 		8D47ABAE204F15E200D28178 /* tbTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tbTabBarController.swift; sourceTree = "<group>"; };
 		8D47ABB0204F220B00D28178 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8D47ABB3204F327D00D28178 /* MeInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeInfoViewController.swift; sourceTree = "<group>"; };
 		8D5871402022F66E0096A5D2 /* teddybear.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = teddybear.entitlements; sourceTree = "<group>"; };
 		8D753C90201B7FCD002FB369 /* LeaveManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaveManager.swift; sourceTree = "<group>"; };
 		8D753C92201B80A7002FB369 /* Leave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Leave.swift; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				8DB293AA1FFF30CA007C39F8 /* MeViewController.swift */,
+				8D47ABB3204F327D00D28178 /* MeInfoViewController.swift */,
 				B8C23A35203E677F00EDA743 /* WifiManagerViewController.swift */,
 			);
 			path = Me;
@@ -705,6 +708,7 @@
 				8D753C97201B934B002FB369 /* LeaveCell.swift in Sources */,
 				8D90E7C1201BB9900097636E /* LeaveDetailViewController.swift in Sources */,
 				B85AE1A9202D8B2700C4C246 /* SignDetailViewController.swift in Sources */,
+				8D47ABB4204F327D00D28178 /* MeInfoViewController.swift in Sources */,
 				8DC3F2F0200DC2BD00BF2862 /* DatePickerView.swift in Sources */,
 				8DC3F306200F43A700BF2862 /* DeptManageViewController.swift in Sources */,
 				79867D78201E1669001E21AB /* ApprovalManager.swift in Sources */,

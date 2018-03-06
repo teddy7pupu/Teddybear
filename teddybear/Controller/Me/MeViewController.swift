@@ -11,15 +11,30 @@ import GoogleSignIn
 
 class MeViewController: UIViewController {
     
+    @IBOutlet weak var avatarImg: UIImageView!
+    @IBOutlet weak var nameLbl: UILabel!
+    @IBOutlet weak var englishLbl: UILabel!
+    @IBOutlet weak var contactBtn: UIButton!
+    @IBOutlet weak var wifiBtn: UIButton!
+    @IBOutlet weak var gameBtn: UIButton!
+    
     private var currentStaff: Staff? = StaffManager.sharedInstance().currentStaff
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupLayout()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.layoutUser()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == tbDefines.kSegueDetail {
+            let info = segue.destination as! MeInfoViewController
+            info.staff = currentStaff
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,8 +42,24 @@ class MeViewController: UIViewController {
     }
     
     //MARK: Layout & Animation
+    func setupLayout() {
+        avatarImg.layer.cornerRadius = 0.5 * avatarImg.bounds.height
+        contactBtn.layer.cornerRadius = 0.5 * contactBtn.bounds.height
+        wifiBtn.layer.cornerRadius = 0.5 * wifiBtn.bounds.height
+        gameBtn.layer.cornerRadius = 0.5 * gameBtn.bounds.height
+    }
+    
     func layoutUser() {
-        
+        if let staff = currentStaff {
+            avatarImg.sd_setImage(with: URL(string: staff.avatar!), completed: nil)
+            nameLbl.text = staff.name
+            englishLbl.text = staff.english
+            wifiBtn.isEnabled = false
+        } else {
+            avatarImg.image = nil
+            nameLbl.text = "管理員"
+            englishLbl.text = "Admin"
+        }
     }
     
     //MARK: Action
