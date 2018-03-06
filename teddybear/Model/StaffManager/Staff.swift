@@ -44,22 +44,22 @@ struct UserRole: OptionSet, Codable {
         }
     }
     
-    func functionList() -> Int {
-        var count: Int
+    func functionList() -> [tbTabFunction] {
+        var list: [tbTabFunction]
         switch self {
         case UserRole.admin:
-            count = 4
+            list = [.Leave, .Approval, .Report, .Me]
             break
         case UserRole.account:
-            count = 4
+            list = [.Leave, .Approval, .Report, .Me]
         case UserRole.manager:
-            count = 3
+            list = [.Leave, .Approval, .Me]
         case UserRole.intern:
-            count = 1
+            list = [.Attendence, .InterReport, .Me]
         default:
-            count = 2
+            list = [.Leave, .Approval, .Me]
         }
-        return count
+        return list
     }
 }
 

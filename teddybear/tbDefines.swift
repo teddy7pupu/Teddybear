@@ -26,7 +26,6 @@ class tbDefines: NSObject {
     // MARK: Segue
     static let kSegueLogin = "SegueLogin"
     static let kSegueLobby = "SegueLobby"
-    static let kSegueIntern = "SegueIntern"
     static let kSegueDetail = "SegueDetail"
     static let kSegueApproval = "SegueApproval"
     static let kSegueReport = "SegueReport"

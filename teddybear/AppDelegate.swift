@@ -18,6 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         //Firebase & GoogleSignIn configuration
         FirebaseApp.configure()
+        
+        setupAppearance()
         return true
     }
 
@@ -41,3 +43,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
+extension AppDelegate {
+    internal func setupAppearance() {
+        UITabBar.appearance().tintColor = UIColor.SPGreen
+        UINavigationBar.appearance().tintColor = UIColor.SPGreen
+    }
+}

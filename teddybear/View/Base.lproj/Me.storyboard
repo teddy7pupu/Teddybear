@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XTC-I7-9D3">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--我-->
+        <scene sceneID="2VU-pi-c48">
+            <objects>
+                <navigationController title="我" id="XTC-I7-9D3" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cfV-sx-0j2">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Y0i-iR-XJ3" kind="relationship" relationship="rootViewController" id="c2q-NK-0Mv"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Ox-fh-Fzg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="903" y="33"/>
+        </scene>
+        <!--Me View Controller-->
+        <scene sceneID="w9N-tR-adL">
+            <objects>
+                <viewController id="Y0i-iR-XJ3" customClass="MeViewController" customModule="teddybear" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DaP-v0-2St">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="ZNs-Da-MiL"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="hNt-dM-gsJ">
+                        <barButtonItem key="rightBarButtonItem" title="登出" id="lKf-Pj-Q3V">
+                            <connections>
+                                <action selector="onGoogleSignOut" destination="Y0i-iR-XJ3" id="N21-4V-8oh"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="9kM-8D-kr7" kind="show" id="V6o-oM-L5r"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DKm-PA-F6K" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1854" y="33"/>
+        </scene>
+        <!--Wifi Manager View Controller-->
+        <scene sceneID="LGR-VL-jeo">
+            <objects>
+                <tableViewController id="9kM-8D-kr7" customClass="WifiManagerViewController" customModule="teddybear" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="uBu-xI-pUt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="fou-La-cch">
+                            <rect key="frame" x="0.0" y="120" width="375" height="60"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="91A-rU-yxA">
+                                    <rect key="frame" x="0.0" y="0.0" width="187.66666666666666" height="60"/>
+                                    <color key="backgroundColor" red="0.1137254902" green="0.72549019609999998" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
+                                    <state key="normal" title="新增裝置">
+                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="onAdd:" destination="9kM-8D-kr7" eventType="touchUpInside" id="HD3-zg-85F"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lHP-du-YTx">
+                                    <rect key="frame" x="187.66666666666663" y="0.0" width="187.33333333333337" height="60"/>
+                                    <color key="backgroundColor" red="0.70196078429999997" green="0.70196078429999997" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
+                                    <state key="normal" title="移除裝置">
+                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="onDelete:" destination="9kM-8D-kr7" eventType="touchUpInside" id="s2N-B1-q9D"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="91A-rU-yxA" firstAttribute="leading" secondItem="fou-La-cch" secondAttribute="leading" id="5KK-KI-Snf"/>
+                                <constraint firstAttribute="bottom" secondItem="lHP-du-YTx" secondAttribute="bottom" id="GRx-9M-jEE"/>
+                                <constraint firstItem="91A-rU-yxA" firstAttribute="width" secondItem="lHP-du-YTx" secondAttribute="width" id="IC2-lT-0pW"/>
+                                <constraint firstItem="lHP-du-YTx" firstAttribute="leading" secondItem="91A-rU-yxA" secondAttribute="trailing" id="XFa-Kx-VvG"/>
+                                <constraint firstItem="lHP-du-YTx" firstAttribute="top" secondItem="fou-La-cch" secondAttribute="top" id="lgC-v8-vha"/>
+                                <constraint firstItem="91A-rU-yxA" firstAttribute="height" secondItem="lHP-du-YTx" secondAttribute="height" id="w7e-VY-XZ7"/>
+                                <constraint firstAttribute="trailing" secondItem="lHP-du-YTx" secondAttribute="trailing" id="xI4-WZ-7jp"/>
+                                <constraint firstItem="91A-rU-yxA" firstAttribute="top" secondItem="fou-La-cch" secondAttribute="top" id="y5N-1g-AXp"/>
+                                <constraint firstAttribute="bottom" secondItem="91A-rU-yxA" secondAttribute="bottom" id="zJe-Ak-wM9"/>
+                            </constraints>
+                        </view>
+                        <sections>
+                            <tableViewSection id="nfj-b7-KY4">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="60" id="aA6-Q6-1gU">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aA6-Q6-1gU" id="opt-OL-FBl">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wifi 名稱" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gsi-Ad-1om">
+                                                    <rect key="frame" x="16" y="11" width="69" height="38"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dqN-1n-jxa">
+                                                    <rect key="frame" x="359" y="11" width="0.0" height="38"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="dqN-1n-jxa" secondAttribute="bottom" id="BRw-LQ-fKC"/>
+                                                <constraint firstItem="dqN-1n-jxa" firstAttribute="top" secondItem="opt-OL-FBl" secondAttribute="topMargin" id="Bvy-au-xV5"/>
+                                                <constraint firstItem="dqN-1n-jxa" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gsi-Ad-1om" secondAttribute="trailing" id="Xt4-Sb-6TK"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="gsi-Ad-1om" secondAttribute="bottom" id="idg-hF-hdB"/>
+                                                <constraint firstItem="gsi-Ad-1om" firstAttribute="top" secondItem="opt-OL-FBl" secondAttribute="topMargin" id="rP5-Rg-9dc"/>
+                                                <constraint firstItem="gsi-Ad-1om" firstAttribute="leading" secondItem="opt-OL-FBl" secondAttribute="leadingMargin" id="uB3-GB-qnc"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="dqN-1n-jxa" secondAttribute="trailing" id="wta-f2-ARe"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="60" id="7pt-uQ-HgQ">
+                                        <rect key="frame" x="0.0" y="60" width="375" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7pt-uQ-HgQ" id="bLy-hj-DmW">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wifi Mac" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XC1-Lp-amq">
+                                                    <rect key="frame" x="16" y="11" width="66.666666666666671" height="38"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BV2-hH-DDb">
+                                                    <rect key="frame" x="359" y="11" width="0.0" height="38"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="BV2-hH-DDb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="XC1-Lp-amq" secondAttribute="trailing" id="GTY-dk-KCv"/>
+                                                <constraint firstItem="XC1-Lp-amq" firstAttribute="leading" secondItem="bLy-hj-DmW" secondAttribute="leadingMargin" id="Jvy-sO-bkz"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="XC1-Lp-amq" secondAttribute="bottom" id="XeA-dV-Q9d"/>
+                                                <constraint firstItem="BV2-hH-DDb" firstAttribute="top" secondItem="bLy-hj-DmW" secondAttribute="topMargin" id="erh-b6-cBS"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="BV2-hH-DDb" secondAttribute="trailing" id="s5e-jp-ZZG"/>
+                                                <constraint firstItem="XC1-Lp-amq" firstAttribute="top" secondItem="bLy-hj-DmW" secondAttribute="topMargin" id="yEF-2F-e5i"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="BV2-hH-DDb" secondAttribute="bottom" id="yzZ-rN-KU6"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="9kM-8D-kr7" id="StL-C4-Z0k"/>
+                            <outlet property="delegate" destination="9kM-8D-kr7" id="oF2-1Q-obb"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="addBtn" destination="91A-rU-yxA" id="W2k-Cp-ORW"/>
+                        <outlet property="deleteBtn" destination="lHP-du-YTx" id="1s6-Ns-ira"/>
+                        <outlet property="wifiMac" destination="BV2-hH-DDb" id="eS4-OR-OIt"/>
+                        <outlet property="wifiName" destination="dqN-1n-jxa" id="keo-uJ-bvN"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fAc-oj-0NO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2770" y="33"/>
+        </scene>
+    </scenes>
+</document>
