@@ -39,7 +39,7 @@
 		8DB1382E204550D0006D0FCF /* ColorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB1382D204550D0006D0FCF /* ColorHelper.swift */; };
 		8DB13835204564FA006D0FCF /* Approval.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DB1382F204564F9006D0FCF /* Approval.storyboard */; };
 		8DB13836204564FA006D0FCF /* Report.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DB13831204564FA006D0FCF /* Report.storyboard */; };
-		8DB13837204564FA006D0FCF /* Attendence.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DB13833204564FA006D0FCF /* Attendence.storyboard */; };
+		8DB13837204564FA006D0FCF /* Attendance.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DB13833204564FA006D0FCF /* Attendance.storyboard */; };
 		8DB293841FFF1BF3007C39F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB293831FFF1BF3007C39F8 /* AppDelegate.swift */; };
 		8DB293861FFF1BF3007C39F8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB293851FFF1BF3007C39F8 /* LoginViewController.swift */; };
 		8DB2938E1FFF1BF3007C39F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DB2938C1FFF1BF3007C39F8 /* LaunchScreen.storyboard */; };
@@ -65,8 +65,7 @@
 		B841C78B202430E80014A602 /* ReportDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B841C78A202430E80014A602 /* ReportDetailCell.swift */; };
 		B85AE19F202D470000C4C246 /* Sign.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85AE19E202D470000C4C246 /* Sign.swift */; };
 		B85AE1A1202D484900C4C246 /* SignManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85AE1A0202D484900C4C246 /* SignManager.swift */; };
-		B85AE1A5202D50BD00C4C246 /* SignManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85AE1A4202D50BD00C4C246 /* SignManageViewController.swift */; };
-		B85AE1A7202D856100C4C246 /* InternViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85AE1A6202D856100C4C246 /* InternViewController.swift */; };
+		B85AE1A5202D50BD00C4C246 /* AttendanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85AE1A4202D50BD00C4C246 /* AttendanceViewController.swift */; };
 		B85AE1A9202D8B2700C4C246 /* SignDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85AE1A8202D8B2700C4C246 /* SignDetailViewController.swift */; };
 		B8C23A32203E656D00EDA743 /* Wifi.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C23A31203E656D00EDA743 /* Wifi.swift */; };
 		B8C23A34203E65AB00EDA743 /* WifiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C23A33203E65AB00EDA743 /* WifiManager.swift */; };
@@ -119,7 +118,7 @@
 		8DB1382D204550D0006D0FCF /* ColorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorHelper.swift; sourceTree = "<group>"; };
 		8DB13830204564F9006D0FCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Approval.storyboard; sourceTree = "<group>"; };
 		8DB13832204564FA006D0FCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Report.storyboard; sourceTree = "<group>"; };
-		8DB13834204564FA006D0FCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Attendence.storyboard; sourceTree = "<group>"; };
+		8DB13834204564FA006D0FCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Attendance.storyboard; sourceTree = "<group>"; };
 		8DB293801FFF1BF3007C39F8 /* teddybear.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = teddybear.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DB293831FFF1BF3007C39F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8DB293851FFF1BF3007C39F8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -149,8 +148,7 @@
 		B841C78A202430E80014A602 /* ReportDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportDetailCell.swift; sourceTree = "<group>"; };
 		B85AE19E202D470000C4C246 /* Sign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sign.swift; sourceTree = "<group>"; };
 		B85AE1A0202D484900C4C246 /* SignManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignManager.swift; sourceTree = "<group>"; };
-		B85AE1A4202D50BD00C4C246 /* SignManageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignManageViewController.swift; sourceTree = "<group>"; };
-		B85AE1A6202D856100C4C246 /* InternViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternViewController.swift; sourceTree = "<group>"; };
+		B85AE1A4202D50BD00C4C246 /* AttendanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceViewController.swift; sourceTree = "<group>"; };
 		B85AE1A8202D8B2700C4C246 /* SignDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignDetailViewController.swift; sourceTree = "<group>"; };
 		B8C23A31203E656D00EDA743 /* Wifi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wifi.swift; sourceTree = "<group>"; };
 		B8C23A33203E65AB00EDA743 /* WifiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiManager.swift; sourceTree = "<group>"; };
@@ -222,9 +220,8 @@
 		8D2BC8772046EC6200CDB994 /* Intern */ = {
 			isa = PBXGroup;
 			children = (
-				B85AE1A6202D856100C4C246 /* InternViewController.swift */,
+				B85AE1A4202D50BD00C4C246 /* AttendanceViewController.swift */,
 				B85AE1A8202D8B2700C4C246 /* SignDetailViewController.swift */,
-				B85AE1A4202D50BD00C4C246 /* SignManageViewController.swift */,
 			);
 			path = Intern;
 			sourceTree = "<group>";
@@ -348,7 +345,7 @@
 				8D90E7BD201BA80F0097636E /* Leave.storyboard */,
 				8DB13831204564FA006D0FCF /* Report.storyboard */,
 				8D47ABA8204F126E00D28178 /* Me.storyboard */,
-				8DB13833204564FA006D0FCF /* Attendence.storyboard */,
+				8DB13833204564FA006D0FCF /* Attendance.storyboard */,
 				8D47ABAB204F146F00D28178 /* InternReport.storyboard */,
 				8D47ABB2204F226900D28178 /* Custom */,
 			);
@@ -546,7 +543,7 @@
 				8DB13835204564FA006D0FCF /* Approval.storyboard in Resources */,
 				8DB13836204564FA006D0FCF /* Report.storyboard in Resources */,
 				8D47ABAD204F146F00D28178 /* InternReport.storyboard in Resources */,
-				8DB13837204564FA006D0FCF /* Attendence.storyboard in Resources */,
+				8DB13837204564FA006D0FCF /* Attendance.storyboard in Resources */,
 				8D2BC8742046EA6B00CDB994 /* Main.storyboard in Resources */,
 				8D90E7BC201BA7780097636E /* Staff.storyboard in Resources */,
 			);
@@ -718,7 +715,7 @@
 				B8C23A36203E677F00EDA743 /* WifiManagerViewController.swift in Sources */,
 				8DC3F2EE200D262400BF2862 /* StaffDetailViewController.swift in Sources */,
 				B8C23A32203E656D00EDA743 /* Wifi.swift in Sources */,
-				B85AE1A5202D50BD00C4C246 /* SignManageViewController.swift in Sources */,
+				B85AE1A5202D50BD00C4C246 /* AttendanceViewController.swift in Sources */,
 				8D753C91201B7FCD002FB369 /* LeaveManager.swift in Sources */,
 				B8C23A34203E65AB00EDA743 /* WifiManager.swift in Sources */,
 				15A219862017183500B2AE20 /* UITextFieldHelper.swift in Sources */,
@@ -743,7 +740,6 @@
 				8D981063200FCAF600072804 /* Department.swift in Sources */,
 				B82BD3C4203FD1EB00484222 /* ReportDetailViewController.swift in Sources */,
 				8D47ABAF204F15E200D28178 /* tbTabBarController.swift in Sources */,
-				B85AE1A7202D856100C4C246 /* InternViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -822,12 +818,12 @@
 			name = Report.storyboard;
 			sourceTree = "<group>";
 		};
-		8DB13833204564FA006D0FCF /* Attendence.storyboard */ = {
+		8DB13833204564FA006D0FCF /* Attendance.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				8DB13834204564FA006D0FCF /* Base */,
 			);
-			name = Attendence.storyboard;
+			name = Attendance.storyboard;
 			sourceTree = "<group>";
 		};
 		8DB2938C1FFF1BF3007C39F8 /* LaunchScreen.storyboard */ = {

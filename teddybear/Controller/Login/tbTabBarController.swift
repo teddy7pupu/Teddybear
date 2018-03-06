@@ -13,7 +13,7 @@ enum tbTabFunction: String {
     case Approval = "Approval"
     case Leave = "Leave"
     case Report = "Report"
-    case Attendence = "Attendence"
+    case Attendance = "Attendance"
     case InterReport = "InternReport"
     
     func icon() -> UIImage {
@@ -26,7 +26,7 @@ enum tbTabFunction: String {
             return #imageLiteral(resourceName: "icon_leave")
         case .Report:
             return #imageLiteral(resourceName: "icon_report")
-        case .Attendence:
+        case .Attendance:
             return #imageLiteral(resourceName: "icon_attendence")
         case .InterReport:
             return #imageLiteral(resourceName: "icon_report")

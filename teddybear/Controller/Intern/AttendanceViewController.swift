@@ -1,5 +1,5 @@
 //
-//  SignManageViewController.swift
+//  AttendanceViewController.swift
 //  teddybear
 //
 //  Created by RD-Ops02 on 2018/2/9.
@@ -9,16 +9,24 @@
 import UIKit
 import SystemConfiguration.CaptiveNetwork
 
-class SignManageViewController: UITableViewController {
+class AttendanceViewController: UIViewController {
     
-    
+    @IBOutlet weak var dateLbl: UILabel!
+    @IBOutlet weak var timeLbl: UILabel!
     @IBOutlet weak var signInBtn: UIButton!
     @IBOutlet weak var signOutBtn: UIButton!
     private var todaySign: Sign?
+    private var timer: Timer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = Date().toString(format: .isoDate)
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { (_timer) in
+            self.layoutDateTime()
+        })
+    }
+    
+    deinit {
+        timer?.invalidate()
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,12 +43,39 @@ class SignManageViewController: UITableViewController {
         tbHUD.dismiss()
     }
     
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        fixTableViewInsets(tableView: tableView)
+    //MARK: Layout & Animation
+    internal func layoutDateTime() {
+        let date = Date()
+        dateLbl.text = "\(date.toString(format: .custom("MM月dd日"))) \(date.toString(style: .weekday))"
+        timeLbl.text = date.toString(format: .custom("HH:mm:ss"))
     }
     
-    //MARK: Active
+    //MARK: Action
+    @IBAction func checkWifi() {
+        tbHUD.show()
+        WifiManager.sharedInstance().getWifiList( completion: { (wifi, error) in
+            let list = wifi?.mac
+            tbHUD.dismiss()
+            var wifiReady = false
+            if let mac = self.getWifi().mac {
+                wifiReady = (list?.index(of: mac) != nil)
+            }
+            
+            DispatchQueue.main.async {
+                self.signInBtn.isEnabled = wifiReady
+                self.signOutBtn.isEnabled = wifiReady
+                self.signInBtn.backgroundColor = wifiReady ? UIColor.SPGreen : UIColor.SPLight
+                self.signOutBtn.backgroundColor = wifiReady ? UIColor.SPGreen : UIColor.SPLight
+            }
+            
+            if wifiReady {
+                self.getTodaySign()
+            } else {
+                self.showAlert(message: "請確認已連結公司Wifi")
+            }
+        })
+    }
+    
     @IBAction func onSignOut(_ sender: Any) {
         self.showAlert(message: "要\((signOutBtn.titleLabel?.text)!)嗎", completion: {
             tbHUD.show()
@@ -129,27 +164,9 @@ class SignManageViewController: UITableViewController {
         return endOfDay
     }
     
-    //MARK: getter
-    func checkWifi() {
-        tbHUD.show()
-        WifiManager.sharedInstance().getWifiList(completion: { (wifi, error) in
-            let list = wifi?.mac
-            tbHUD.dismiss()
-            guard let mac = self.getWifi().mac else { return }
-            if list?.index(of: mac) == nil{
-                self.showAlert(message: "請確認已連結 艾普Wifi")
-            } else {
-                self.getTodaySign()
-            }
-        })
-    }
-    
-    func getWifi() -> (ssid: String?, mac: String?){
-        guard let name = WifiManager.sharedInstance().getCurrentWifi().ssid
-            , let mac = WifiManager.sharedInstance().getCurrentWifi().mac else {
-                self.showAlert(message: "請確認已連結 Wifi")
-                return(nil, nil)
-        }
-        return(name, mac)
+    //MARK: Wifi
+    func getWifi() -> (ssid: String?, mac: String?) {
+        let wifi = WifiManager.sharedInstance().getCurrentWifi()
+        return(wifi.ssid, wifi.mac)
     }
 }

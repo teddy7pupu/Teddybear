@@ -87,7 +87,7 @@
                                 <inset key="imageEdgeInsets" minX="0.0" minY="4" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" image="icon_contact"/>
                                 <connections>
-                                    <segue destination="RrF-9N-RLH" kind="show" id="QnU-xS-2Oa"/>
+                                    <segue destination="RrF-9N-RLH" kind="show" identifier="SegueStaff" id="QnU-xS-2Oa"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SH1-2W-tKp">
@@ -96,7 +96,7 @@
                                 <inset key="imageEdgeInsets" minX="0.0" minY="4" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" image="icon_wifi"/>
                                 <connections>
-                                    <segue destination="9kM-8D-kr7" kind="show" id="RDJ-xC-2I2"/>
+                                    <segue destination="9kM-8D-kr7" kind="show" identifier="" id="RDJ-xC-2I2"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vYX-kL-AO8">
@@ -301,7 +301,7 @@
                 <viewControllerPlaceholder storyboardName="Staff" id="RrF-9N-RLH" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lkq-7e-zGO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2768" y="484"/>
+            <point key="canvasLocation" x="2769" y="616"/>
         </scene>
         <!--Me Info View Controller-->
         <scene sceneID="CCm-Dw-wSd">
@@ -453,7 +453,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ehD-bm-3gt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1854" y="725"/>
+            <point key="canvasLocation" x="1830" y="812"/>
         </scene>
     </scenes>
     <resources>

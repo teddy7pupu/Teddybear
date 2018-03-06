@@ -55,7 +55,7 @@ struct UserRole: OptionSet, Codable {
         case UserRole.manager:
             list = [.Leave, .Approval, .Me]
         case UserRole.intern:
-            list = [.Attendence, .InterReport, .Me]
+            list = [.Attendance, .InterReport, .Me]
         default:
             list = [.Leave, .Approval, .Me]
         }
