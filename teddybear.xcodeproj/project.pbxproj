@@ -359,11 +359,11 @@
 			isa = PBXGroup;
 			children = (
 				8D2BC8752046EC3E00CDB994 /* Login */,
+				8D2BC8782046ED4300CDB994 /* Leave */,
+				8D2BC8792046ED5F00CDB994 /* Approval */,
 				8D2BC8762046EC4B00CDB994 /* Me */,
 				8D2BC87A2046ED6F00CDB994 /* Staff */,
 				8D2BC8772046EC6200CDB994 /* Intern */,
-				8D2BC8782046ED4300CDB994 /* Leave */,
-				8D2BC8792046ED5F00CDB994 /* Approval */,
 				8D2BC87B2046ED8400CDB994 /* Report */,
 			);
 			path = Controller;
