@@ -15,10 +15,8 @@ class ReportDetailCell: UITableViewCell {
     @IBOutlet weak var hoursLbl: UILabel!
     @IBOutlet weak var reasonLbl: UILabel!
     
-    @IBOutlet weak var checkInBtn: UIButton!
-    @IBOutlet weak var checkOutBtn: UIButton!
-    @IBOutlet weak var checkInLbl: UILabel!
-    @IBOutlet weak var checkOutLbl: UILabel!
+    @IBOutlet weak var clockInLbl: UILabel!
+    @IBOutlet weak var clockOutLbl: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -36,19 +34,23 @@ class ReportDetailCell: UITableViewCell {
     }
     
     func layoutCell(with sign: Sign?) {
-        layoutReport(time: sign?.startTime, button: checkInBtn, label: checkInLbl)
-        layoutReport(time: sign?.endTime, button: checkOutBtn, label: checkOutLbl)
+        guard let time = (sign?.startTime != nil) ? sign?.startTime : sign?.endTime else { return }
+        let date = Date(timeIntervalSince1970: Double(time))
+        
+        startDateView.layoutView(date: date)
+        typeLbl.text = date.toString(style: .shortWeekday)
+        layoutClockLbl(label: clockInLbl, time: sign?.startTime)
+        layoutClockLbl(label: clockOutLbl, time: sign?.endTime)
+        
+        reasonLbl.isHidden = !(!date.compare(.isToday) && (sign?.startTime == nil || sign?.endTime == nil))
     }
     
-    internal func layoutReport(time: Int?, button: UIButton!, label: UILabel!) {
-        let time = time
-        button.isSelected = (time == nil)
-        button.backgroundColor = (time == nil) ? UIColor.red : UIColor.SPGreen
-        if time != nil {
-            let date = Date(timeIntervalSince1970: Double(time!))
-            label.text = "\(date.toString(style: DateStyleType.short)) \(date.toString(style: DateStyleType.shortWeekday))"
-        } else {
-            label.text = ""
+    internal func layoutClockLbl(label: UILabel!, time: Int?) {
+        guard let time = time else {
+            label.text = "---"
+            return
         }
+        let date = Date(timeIntervalSince1970: Double(time))
+        label.text = date.toString(format: .isoTime)
     }
 }
