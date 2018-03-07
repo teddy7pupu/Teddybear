@@ -18,7 +18,7 @@ class WifiManagerViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Wifi 管理"
+        setupLayout()
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,8 +27,16 @@ class WifiManagerViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tbHUD.show()
         getWifiList()
+    }
+    
+    //MARK: Layout & Animation
+    internal func setupLayout() {
+        self.title = "Wifi 管理"
+        addBtn.setBackgroundImage(UIColor.SPGreen.image(), for: .normal)
+        addBtn.setBackgroundImage(UIColor.SPLight.image(), for: .disabled)
+        deleteBtn.setBackgroundImage(UIColor.SPGreen.image(), for: .normal)
+        deleteBtn.setBackgroundImage(UIColor.SPLight.image(), for: .disabled)
     }
     
     //MARK: Action
@@ -78,13 +86,12 @@ class WifiManagerViewController: UITableViewController {
                 deleteBtn.isEnabled = false
             }
         }
-        addBtn.backgroundColor = addBtn.isEnabled ? UIColor.SPGreen : UIColor.SPLight
-        deleteBtn.backgroundColor = deleteBtn.isEnabled ? UIColor.SPGreen : UIColor.SPLight
         tbHUD.dismiss()
     }
     
     //MARK: getter
     func getWifiList() {
+        tbHUD.show()
         WifiManager.sharedInstance().getWifiList(completion: { (wifi, error) in
             self.wifiList = wifi?.mac
             self.checkWifi()

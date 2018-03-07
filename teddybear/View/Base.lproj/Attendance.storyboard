@@ -64,7 +64,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gjF-3I-yRv">
-                                <rect key="frame" x="128" y="463.5" width="119" height="30"/>
+                                <rect key="frame" x="128" y="484.5" width="119" height="30"/>
                                 <state key="normal" title="重新偵測Wifi狀態">
                                     <color key="titleColor" red="0.1137254902" green="0.72549019609999998" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -72,18 +72,27 @@
                                     <action selector="checkWifi" destination="QDG-5g-Yym" eventType="touchUpInside" id="Wjg-bx-Gog"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SSID" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="crk-PP-Bze">
+                                <rect key="frame" x="169" y="463.5" width="37" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="pvL-9i-LVi" firstAttribute="top" secondItem="EU4-er-dKR" secondAttribute="bottom" constant="16" id="1hd-hL-eZy"/>
+                            <constraint firstItem="crk-PP-Bze" firstAttribute="centerX" secondItem="dvl-27-C9x" secondAttribute="centerX" id="2O9-2j-kAM"/>
                             <constraint firstItem="piY-k2-R2a" firstAttribute="leading" secondItem="TU0-0c-Dc8" secondAttribute="leading" constant="48" id="7uy-gz-YRZ"/>
                             <constraint firstItem="pvL-9i-LVi" firstAttribute="centerX" secondItem="dvl-27-C9x" secondAttribute="centerX" id="Atj-v7-Cvu"/>
+                            <constraint firstItem="gjF-3I-yRv" firstAttribute="top" secondItem="crk-PP-Bze" secondAttribute="bottom" id="Doi-oi-l7G"/>
                             <constraint firstItem="SR4-kN-NVk" firstAttribute="height" secondItem="piY-k2-R2a" secondAttribute="height" id="EuC-Qe-5Ut"/>
                             <constraint firstItem="gjF-3I-yRv" firstAttribute="centerX" secondItem="dvl-27-C9x" secondAttribute="centerX" id="Tsa-bH-9O8"/>
                             <constraint firstItem="SR4-kN-NVk" firstAttribute="width" secondItem="piY-k2-R2a" secondAttribute="width" id="Zdv-cz-4dl"/>
+                            <constraint firstItem="crk-PP-Bze" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="TU0-0c-Dc8" secondAttribute="leading" constant="16" id="aou-QV-rP1"/>
                             <constraint firstItem="SR4-kN-NVk" firstAttribute="top" secondItem="piY-k2-R2a" secondAttribute="bottom" constant="32" id="eAZ-dW-8sM"/>
-                            <constraint firstItem="gjF-3I-yRv" firstAttribute="top" secondItem="SR4-kN-NVk" secondAttribute="bottom" constant="32" id="ekv-WS-jwx"/>
                             <constraint firstItem="piY-k2-R2a" firstAttribute="centerY" secondItem="dvl-27-C9x" secondAttribute="centerY" id="psr-U0-t5C"/>
+                            <constraint firstItem="crk-PP-Bze" firstAttribute="top" secondItem="SR4-kN-NVk" secondAttribute="bottom" constant="32" id="qHp-0l-ANE"/>
                             <constraint firstItem="SR4-kN-NVk" firstAttribute="centerX" secondItem="piY-k2-R2a" secondAttribute="centerX" id="sYL-CS-rmO"/>
                             <constraint firstItem="EU4-er-dKR" firstAttribute="top" secondItem="TU0-0c-Dc8" secondAttribute="top" constant="64" id="up6-qv-7WN"/>
                             <constraint firstItem="piY-k2-R2a" firstAttribute="centerX" secondItem="dvl-27-C9x" secondAttribute="centerX" id="wkR-rm-e1r"/>
@@ -96,11 +105,12 @@
                         <outlet property="signInBtn" destination="piY-k2-R2a" id="NTx-a8-bId"/>
                         <outlet property="signOutBtn" destination="SR4-kN-NVk" id="8FH-fN-cFx"/>
                         <outlet property="timeLbl" destination="pvL-9i-LVi" id="5rt-Ha-yfB"/>
+                        <outlet property="wifiLbl" destination="crk-PP-Bze" id="lx7-cU-WAp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tBp-6i-fFI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-372" y="-177"/>
+            <point key="canvasLocation" x="-372" y="-177.66116941529236"/>
         </scene>
     </scenes>
 </document>

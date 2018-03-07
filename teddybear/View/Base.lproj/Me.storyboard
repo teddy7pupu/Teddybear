@@ -285,8 +285,8 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <outlet property="addBtn" destination="91A-rU-yxA" id="W2k-Cp-ORW"/>
-                        <outlet property="deleteBtn" destination="lHP-du-YTx" id="1s6-Ns-ira"/>
+                        <outlet property="addBtn" destination="91A-rU-yxA" id="A6M-Fc-UVL"/>
+                        <outlet property="deleteBtn" destination="lHP-du-YTx" id="9OF-nA-Ouu"/>
                         <outlet property="wifiMac" destination="BV2-hH-DDb" id="eS4-OR-OIt"/>
                         <outlet property="wifiName" destination="dqN-1n-jxa" id="keo-uJ-bvN"/>
                     </connections>
