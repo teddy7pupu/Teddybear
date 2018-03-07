@@ -7,6 +7,7 @@ target 'teddybear' do
   pod 'Firebase/Core'
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
+  pod 'Firebase/Messaging'
   pod 'GoogleSignIn'
   pod 'SDWebImage'
   pod 'Fabric', '~> 1.7.5'

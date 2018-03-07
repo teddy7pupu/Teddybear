@@ -21,7 +21,7 @@ class tbDefines: NSObject {
     static let kApproval = "Approval"
     static let kSign = "Sign"
     static let kWifi = "Wifi"
-
+    static let kTopicNews = "News"
     
     // MARK: Segue
     static let kSegueLogin = "SegueLogin"
