@@ -63,7 +63,7 @@ class StaffManager: NSObject {
     }
     
     func queryStaff(_ mail:String!, completion:@escaping (Staff?, Error?) -> Void) {
-        self.queryStaff(key: "email", value: mail, completion: completion)
+        self.queryStaff(key: "email", value: mail.lowercased(), completion: completion)
     }
     
     private func queryStaff(key:String!, value:Any, completion:@escaping (Staff?, Error?) -> Void) {

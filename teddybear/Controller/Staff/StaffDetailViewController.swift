@@ -110,7 +110,7 @@ class StaffDetailViewController: UITableViewController
             var _staff = Staff()
             _staff.name = nameField.text
             _staff.english = englishField.text
-            _staff.email = mailField.text
+            _staff.email = mailField.text?.lowercased()
             _staff.mobile = phoneField.text
             let birthday = Date(fromString: birthdayField.text!, format: .isoDate)!
             _staff.birthday = Int(birthday.timeIntervalSince1970)
