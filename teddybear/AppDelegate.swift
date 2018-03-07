@@ -20,8 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         setupAppearance()
         if let option = launchOptions {
-            let notify = option[UIApplicationLaunchOptionsKey.remoteNotification]
-            UserManager.sharedInstance().launchWithMessage(messageData: notify as! [String : Any])
+            let notify = option[UIApplicationLaunchOptionsKey.remoteNotification] as? [String : Any]
+            UserManager.sharedInstance().launchWithMessage(messageData: notify)
         }
         return true
     }
