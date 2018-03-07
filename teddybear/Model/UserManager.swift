@@ -71,8 +71,9 @@ UNUserNotificationCenterDelegate, MessagingDelegate {
         NSLog("[Auth] SignOut success")
     }
     
-    func launchWithMessage(messageData: [String: Any]) {
-        cacheMessage = messageData
+    func launchWithMessage(messageData: [String: Any]?) {
+        guard let data = messageData else { return }
+        cacheMessage = data
     }
     
     func setupMessenger() {
