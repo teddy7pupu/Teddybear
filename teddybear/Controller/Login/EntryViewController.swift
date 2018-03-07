@@ -71,6 +71,8 @@ class EntryViewController: UIViewController {
     
     func openLobby() {
         loadingView.stopAnimating()
+        UserManager.sharedInstance().setupMessenger()
+        
         self.performSegue(withIdentifier: tbDefines.kSegueLobby, sender: nil)
     }
     
