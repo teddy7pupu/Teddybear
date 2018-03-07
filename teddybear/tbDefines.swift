@@ -21,20 +21,14 @@ class tbDefines: NSObject {
     static let kApproval = "Approval"
     static let kSign = "Sign"
     static let kWifi = "Wifi"
-
+    static let kTopicNews = "News"
     
     // MARK: Segue
     static let kSegueLogin = "SegueLogin"
     static let kSegueLobby = "SegueLobby"
-    static let kSegueIntern = "SegueIntern"
     static let kSegueDetail = "SegueDetail"
     static let kSegueApproval = "SegueApproval"
     static let kSegueReport = "SegueReport"
     static let kSegueLeaveManager = "SegueLeaveManager"
     static let kSegueApprovalManager = "SegueApprovalManager"
-    
-    // MARK: Config
-    static let kBeginSection = ["10:00", "15:00"]
-    static let kEndSection = ["14:00", "19:00"]
-    static let kLeaveType = ["特休假", "事假", "病假", "婚假", "喪假", "產假", "育嬰假"]
 }

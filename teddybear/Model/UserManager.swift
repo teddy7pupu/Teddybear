@@ -9,8 +9,10 @@
 import Foundation
 import Firebase
 import GoogleSignIn
+import UserNotifications
 
-class UserManager: NSObject {
+class UserManager: NSObject,
+UNUserNotificationCenterDelegate, MessagingDelegate {
     
     private static var mInstance: UserManager?
     
@@ -24,6 +26,9 @@ class UserManager: NSObject {
             return mAuth?.currentUser
         }
     }
+    
+    private var isConfigured = false
+    private var cacheMessage: [String: Any]?
     
     // MARK: Public method
     static func sharedInstance() -> UserManager {
@@ -64,5 +69,34 @@ class UserManager: NSObject {
         }
         StaffManager.sharedInstance().currentStaff = nil
         NSLog("[Auth] SignOut success")
+    }
+    
+    func launchWithMessage(messageData: [String: Any]) {
+        cacheMessage = messageData
+    }
+    
+    func setupMessenger() {
+        if isConfigured {
+            return
+        }
+        
+        UNUserNotificationCenter.current().delegate = self
+        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+        UNUserNotificationCenter.current().requestAuthorization(
+            options: authOptions,
+            completionHandler: {_, _ in })
+        UIApplication.shared.registerForRemoteNotifications()
+        
+        Messaging.messaging().delegate = self
+        Messaging.messaging().subscribe(toTopic: tbDefines.kTopicNews)
+    }
+    
+    func message() -> [String: Any]? {
+        guard let message = cacheMessage else { return nil }
+        return message
+    }
+    
+    func reset() {
+        cacheMessage = nil
     }
 }

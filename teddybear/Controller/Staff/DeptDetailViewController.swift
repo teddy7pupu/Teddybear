@@ -112,10 +112,6 @@ class DeptDetailViewController: UITableViewController
         return true
     }
     
-    @objc func keyboardDismiss(gesture: UITapGestureRecognizer) {
-        self.view.endEditing(true)
-    }
-    
     //MARK: Data
     func fieldsValidation() -> Bool {
         for field in fields() {

@@ -19,7 +19,6 @@ class SignDetailViewController: UIViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let name = StaffManager.sharedInstance().currentStaff?.name { self.title = "\(name)" }
     }
 
     override func didReceiveMemoryWarning() {
@@ -112,9 +111,5 @@ class SignDetailViewController: UIViewController
     //MARK: UITableViewDelegate
     func tableView(_ tableView: UITableView,didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-    }
-    
-    @objc func keyboardDismiss(gesture: UITapGestureRecognizer) {
-        self.view.endEditing(true)
     }
 }

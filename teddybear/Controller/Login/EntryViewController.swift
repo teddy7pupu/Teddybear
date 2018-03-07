@@ -59,7 +59,7 @@ class EntryViewController: UIViewController {
         var updated = staff
         updated?.uid = user?.uid
         updated?.avatar = user?.photoURL?.absoluteString
-        StaffManager.sharedInstance().updateStaff(updated) { (aStaff, error) in
+        StaffManager.sharedInstance().updateStaff(updated, true) { (aStaff, error) in
             if let error = error {
                 NSLog("%@", error.localizedDescription)
                 self.showAlert(message: "更新員工資料失敗")
@@ -71,11 +71,8 @@ class EntryViewController: UIViewController {
     
     func openLobby() {
         loadingView.stopAnimating()
-        let isIntern = StaffManager.sharedInstance().currentStaff?.role?.isIntern()
-        if isIntern! {
-            self.performSegue(withIdentifier: tbDefines.kSegueIntern, sender: nil)
-            return
-        }
+        UserManager.sharedInstance().setupMessenger()
+        
         self.performSegue(withIdentifier: tbDefines.kSegueLobby, sender: nil)
     }
     

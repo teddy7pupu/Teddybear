@@ -115,7 +115,7 @@ function generateSupervisorApproval(leave, approval) {
     var approvals = leave.approvals;
     approvals[0] = approval;
     approvals.push(newApproval);
-    leaveRef.child(leave.leaveId).update({
+    leaveRef.child(_leaveId).update({
       approvals: approvals
     });
 
@@ -173,12 +173,15 @@ function queryStaff(staffId) {
 
 function queryAccount() {
   var deferred = Q.defer();
-  staffRef.orderByChild("role").equalTo(3).on("child_added", function(snap) {
-    var staff = snap.val();
-    if (!staff) {
+  staffRef.orderByChild("role").equalTo(3).once("value").then(function(snap) {
+    var accounts = [];
+    snap.forEach(function(childSnap) {
+      accounts.push(childSnap.val());
+    });
+    if (accounts.length == 0) {
       deferred.reject('No Data');
     } else {
-      deferred.resolve(staff);
+      deferred.resolve(accounts[0]);
     }
   });
   return deferred.promise;

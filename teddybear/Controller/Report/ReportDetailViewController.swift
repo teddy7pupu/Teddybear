@@ -55,9 +55,9 @@ class ReportDetailViewController: UIViewController
     func getTotalHour() -> String {
         var summation: Int = 0
         for leave in staffLeaves! {
-            let beginDate = Date(timeIntervalSinceReferenceDate: TimeInterval(leave.startTime!))
-            let endDate = Date(timeIntervalSinceReferenceDate: TimeInterval(leave.endTime!))
-            let hour = Date.leaveHour(beginDate, leave.startPeriod!, endDate, leave.endPeriod!)
+            let beginDate = Date(timeIntervalSince1970: TimeInterval(leave.startTime!))
+            let endDate = Date(timeIntervalSince1970: TimeInterval(leave.endTime!))
+            let hour = Date.leaveHour(beginDate, endDate)
             summation += hour
         }
         return summation > 8 ? String(format:"%.1f天", Double(summation)/8) : "\(summation)小時"
