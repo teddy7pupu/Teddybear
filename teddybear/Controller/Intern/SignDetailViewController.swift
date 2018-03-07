@@ -19,7 +19,6 @@ class SignDetailViewController: UIViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let name = StaffManager.sharedInstance().currentStaff?.name { self.title = "\(name)" }
     }
 
     override func didReceiveMemoryWarning() {

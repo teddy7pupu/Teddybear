@@ -43,6 +43,7 @@ class MeViewController: UIViewController {
     
     //MARK: Layout & Animation
     func setupLayout() {
+        self.view.layoutIfNeeded()
         avatarImg.layer.cornerRadius = 0.5 * avatarImg.bounds.height
         contactBtn.layer.cornerRadius = 0.5 * contactBtn.bounds.height
         wifiBtn.layer.cornerRadius = 0.5 * wifiBtn.bounds.height
