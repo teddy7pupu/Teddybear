@@ -7,21 +7,21 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>349887324005-6732ac5qfjbv03nvmgd9hgb0tlee6r14.apps.googleusercontent.com</string>
+	<string>509350691091-bko5t677ffs158p1l7gt3bu2ln0c58bh.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.349887324005-6732ac5qfjbv03nvmgd9hgb0tlee6r14</string>
+	<string>com.googleusercontent.apps.509350691091-bko5t677ffs158p1l7gt3bu2ln0c58bh</string>
 	<key>API_KEY</key>
-	<string>AIzaSyBzKnkTGTT2-B-cBzvUhJhWNjeUrd_Nptc</string>
+	<string>AIzaSyB27wB6BAqACB6UmpkLkHBk087aHNNOUnQ</string>
 	<key>GCM_SENDER_ID</key>
-	<string>349887324005</string>
+	<string>509350691091</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.appmaster.teddybearx</string>
 	<key>PROJECT_ID</key>
-	<string>teddybear-2741e</string>
+	<string>teddybear-1993</string>
 	<key>STORAGE_BUCKET</key>
-	<string>teddybear-2741e.appspot.com</string>
+	<string>teddybear-1993.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<true></true>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -33,8 +33,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:349887324005:ios:747d0692d6cd5323</string>
+	<string>1:509350691091:ios:747d0692d6cd5323</string>
 	<key>DATABASE_URL</key>
-	<string>https://teddybear-2741e.firebaseio.com</string>
+	<string>https://teddybear-1993.firebaseio.com</string>
 </dict>
 </plist>
